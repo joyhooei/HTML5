@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UBK管理后台系统</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="bg_login">
+<div class="login_box">
+    <div class="login_alt"  style="display:none"></div>
+    <form>
+        <p class="input_login_txt bg_input_1">
+            <input name="account" id="account" autocomplete="off" type="text"  placeholder="帐号"/></p>
+        <p class="input_login_txt bg_input_2">
+            <input name="password" id="password" autocomplete="off" type="password" placeholder="密码"/>
+        <p id="valid" style="display: none;">
+            <img id="captcha_img" width="99" height="49"/>
+            <span class="input_login_txt bg_input_3"><input name="captcha" id="captcha" type="text" placeholder="请输入验证码"/></span>
+        </p>
+        <p>
+            <input type="button" value="登录" class="input_button"/>
+        </p>
+    </form>
+</div>
+<script src="js/jquery-1.6.3.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jQuery.md5.js"></script>
+<script src="js/mock.js"></script>
+<script src="js/data/loginData.js"></script>
+<script>
+    $(function(){
+        //captcha
+        if(getCookie('admin_captcha') == 'yes'){
+            $('#captcha_img').attr('src','http://get_security?time='+new Date().getTime());
+            $('#valid').show();
+        }
+        //auto login
+        if(getCookie('ubk_admin_user')){
+            var data={'type':'auto login'};
+            $.ajax({
+                type: "POST",
+                url: "http://login",
+                data: $.toJSONString(data),
+                contentType:'application/json',
+                dataType:'json',
+                success: function(msg){
+                    if(msg.retcode == 0){
+                        setCookie('admin_captcha','no');
+                        location.href = 'platformData/platform_info.html';
+                    }else{
+                        setCookie('admin_captcha','yes');
+                        $('#captcha_img').attr('src','http://get_security?time='+new Date().getTime());
+                        $('#valid').show();
+                        $('.login_alt').html(show_msg('login',msg.retcode)).show();
+                        setTimeout(function(){
+                            $('.login_alt').hide();
+                        },5000);
+                    }
+                },
+                error:function(error){
+                    alert('接口异常');
+                }
+            });
+        }
+        var data = {};
+        $('.input_button').click(function(){
+            data['name'] = $('#account').val();
+            data['pwd'] = $.md5($('#password').val());
+            data['security'] = $('#captcha').val() == '请输入验证码'?'':$('#captcha').val();
+            $.ajax({
+                type: "POST",
+                url: "http://login",
+                data: $.toJSONString(data),
+                contentType:'application/json',
+                dataType:'json',
+                success: function(msg){
+                    if(msg.RetCode == 0){
+                        setCookie('admin_captcha','no');
+                        location.href = 'views/dataState/userState.html';
+                    }else{
+                        setCookie('admin_captcha','yes');
+                        $('#captcha_img').attr('src','http://get_security?time='+new Date().getTime());
+                        $('#valid').show();
+                        $('.login_alt').html(show_msg('login',msg.retcode)).show();
+                        setTimeout(function(){
+                            $('.login_alt').hide();
+                        },5000);
+                    }
+                },
+                error:function(error){
+                    alert('接口异常');
+                }
+            });
+        });
+        $("#account,#password,#captcha").keydown(function(event){
+            if(event.keyCode==13){
+                $('.input_button').click();
+            }
+        });
+        //切换验证码图片
+        $('#captcha_img').click(function(){
+        	$('#captcha_img').attr('src','http://get_security?time='+new Date().getTime());
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/******************userState*******************/
+.cardBox .detailList {padding: 5px 0 31px 12px;}
+
+
+/******************accountList*****************************/
+.add-account-location{float: right; margin: 10px 20px 0px 0px;}
+.account-table-location{float:left;margin-left: 10px;}
+
+/******************appList*******************/
+.add-app-location{float: right; margin: 10px 20px 0px 0px;}
+.app-table-location{float:left;margin-left: 10px;}
+
+
+/******************appProductList*******************/
+.layui-input-back {float: right; margin: 10px 30px 0px 0px; min-height: 36px;}
+.layui-upload-img{width: 492px; height: 192px; margin: 0 10px 10px 10px;}
+.add-button-location{float: right; margin: 10px 20px 0px 0px;}
+
+/******************billState*******************/
+.date-location{margin: 10px 0px 10px 100px;}
+.bill-body-location{margin-top: 20px;}
+
+
+/******************eventState*******************/
+.event-date-location{margin: 10px 0px 10px 100px;}
+.event-body-location{margin-top: 20px;}
+
+/******************userState*******************/
+.user-body-location{margin-top: 20px;}

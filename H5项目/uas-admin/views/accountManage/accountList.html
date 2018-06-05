@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>UAS后台管理系统</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css">
+		<link rel="stylesheet" href="../../css/account.css"/>
+
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			
+			<!--页头-->			
+			<div id="header"></div>
+			<!--导航-->
+			<div id="nav"></div>
+			
+			<div class="layui-body" id="iframeContent">
+				<div>
+					<div class="add-account-location">
+						<button class="layui-btn" onclick="addAccount()"><i class="layui-icon">&#xe654;</i>添加账户</button>
+					</div>
+					<div class="account-table-location">
+						<table id="accountList" lay-filter="test" class="layui-hide"></table>
+					</div>
+				</div>
+			</div>
+
+			<!--页脚-->
+			<div id="footer"></div>
+		</div>
+		<script src="../../layui/layui.js"></script>
+		<script src="../../js/jquery-1.11.3.min.js"></script>
+		<script src="../../js/nav.js"></script>
+		<script src="../../js/mock.js"></script>
+		<script src="../../js/data/accountData.js"></script>
+		<script src="../../js/account/accountList.js"></script>
+
+		<!-- 列样式 -->
+		<script type="text/html" id="titleTpl">
+		  <a href="/detail/{{d.id}}" class="layui-table-link">{{d.companyName}}</a>
+		</script>
+		
+		<script type="text/html" id="barDemo">
+		  <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+		  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		  <a class="layui-btn layui-btn-xs" lay-event="AppList">App列表</a>
+		  <a class="layui-btn layui-btn-xs" lay-event="updatePwd">修改密码</a>
+		  <!-- 这里同样支持 laytpl 语法，如： -->
+		  {{#  if(d.auth > 2){ }}
+		    <a class="layui-btn layui-btn-mini" lay-event="check">审核</a>
+		  {{#  } }}
+		</script>
+
+	</body>
+
+</html>
