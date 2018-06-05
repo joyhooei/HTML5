@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function alert1(){
+				alert(1);
+			}
+			function message(){
+				confirm("message");
+			}
+			function writeWord(){
+				document.write("不要离开我！");
+			}
+			//onunload卸载事件,只对IE有用，对于刷新页面和超链接跳转其他页面情况有效，对于关闭页面无效
+			//onbeforeunload事件才对关闭页面有效
+			window.onbeforeunload = alert1;
+			window.onunload = alert('123');
+		</script>
+	</head>
+	<!--加载事件，写在body标签里-->
+	<!--加载事件可以在页面加载前通过JS代码对页面样式做出调整，比如检测浏览器宽度屏幕分辨率之后，调整页面的相应尺寸，所以onload()非常实用-->
+	<body onload="alert('页面加载中，请稍等。。。')">
+		<!--鼠标点击事件-->
+		<input name="alert" type="button" value="鼠标点击事件" onclick="alert1()"/>
+		<!--鼠标滑过事件-->
+		<br/>密码：<input name="密码" type="password" />
+		<input name="确定" type="button" value="鼠标滑过事件" onmouseover="message()" />
+		<!--鼠标移开事件-->
+		<input name="鼠标移开事件" type="button" value="鼠标移开" onmouseout="writeWord()" />
+		<a href="www.baidu.com" onmouseout="alert1()">百度</a>
+		<!--光标聚焦事件-->
+		<br/><input name="username" type="text" value="光标聚焦事件" onfocus="writeWord()" />
+		<!--失焦事件-->
+		<br/>失焦事件:<input name="账号" type="text" onblur="message()"/>
+		<!--内容选中事件-->
+		<br/><input name="内容选中事件" type="text" value="内容选中事件" onselect="alert1()" />
+		<!--文本框内容改变事件-->
+		<br /><input name="文本框内容改变事件" type="text" value="文本框内容改变事件" onchange="message()"/>
+		
+	</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <!-- Demo styles -->
+     <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 80%;
+        height: 300px;
+        
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: rgb(30,31,57);
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    
+    .app_icon{
+    		width: 120px;
+    }
+    .app_text{
+    		display: inline-block;
+    		width: 310px;
+    		padding: 0 35px;
+    		color: lightblue;
+    }
+    .app_name,.app_person{
+    		width: 235px;
+    		color: #fff;
+    }
+    
+    /*右边翻页箭头*/
+    .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+	    background-image: url(../img/app0.png);
+	}
+	/*左边翻页箭头*/
+	.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+	    background-image: url(../img/app1.png);
+	}
+	
+	/*分页按钮原点*/
+	.swiper-pagination-bullet {
+	    width: 8px;
+	    height: 8px;
+	    background: #fff;
+	}
+	/*分页按钮原点-选中状态*/
+	.swiper-pagination-bullet-active {
+	    opacity: .5;
+	    background: #007aff;
+	}
+	
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            		<img class="app_icon" src="../img/app0.png"/>
+            		<span class="app_text">Swiper使用方法Swiper使用方法Swiper使用方法Swiper使用方法</span>
+            		<span class="app_name">1</span>
+            		<span class="app_person">产品运营</span>
+            </div>
+            <div class="swiper-slide">
+            		<img class="app_icon" src="../img/app1.png"/>
+            		<span class="app_text">Swiper使用方法Swiper使用方法Swiper使用方法Swiper使用方法</span>
+            		<span class="app_name">2</span>
+            		<span class="app_person">产品运营</span>
+            </div>
+            <div class="swiper-slide">
+            		<img class="app_icon" src="../img/app2.png"/>
+            		<span class="app_text">Swiper使用方法Swiper使用方法Swiper使用方法Swiper使用方法</span>
+            		<span class="app_name">3</span>
+            		<span class="app_person">产品运营</span>
+            </div>
+            <!--<div class="swiper-slide">
+            		<img class="app_icon" src="../img/app3.png"/>
+            		<span class="app_text">Swiper使用方法Swiper使用方法Swiper使用方法Swiper使用方法</span>
+            		<span class="app_name">4</span>
+            		<span class="app_person">产品运营</span>
+            </div>-->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jquery-1.12.4.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper.jquery.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+	    var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+	        paginationClickable: false,
+	        centeredSlides: true,
+	        autoplay: 1000,
+			loop : true,
+	        autoplayDisableOnInteraction: false
+	    });
+    </script>
+</body>
+</html>

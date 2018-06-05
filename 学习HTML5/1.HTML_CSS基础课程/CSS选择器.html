@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+		<title>制作我的第一个网页</title>
+		<style type="text/css">
+			/*标签选择器*/
+			h1{
+				font-size: 30px;
+				color:red;
+				text-align: center;
+			}
+			p{
+				font-size: 18px;
+			}
+			span{
+				color: blue;
+			}
+			/*类选择器样式*/
+			.stress{
+    				color:deeppink;
+			}
+			/*id选择器  ID选择器只能在文档中使用一次*/
+			#abc{
+				color: slateblue;
+			}
+			
+			/*子选择器，即大于符号(>),用于选择指定标签元素的第一代子元素。*/
+			.food>li{border:1px solid red;}
+			
+			/*包含选择器，即加入空格,用于选择指定标签元素下的后辈元素*/
+			.first  span{color:red;}
+			
+		</style>
+	</head>
+	<body>
+		<h1>勇气</h1>
+		<p>三年级时，我还是一个<span id="abc">胆小如鼠</span>的小女孩，<em>曼妮</em> </p>
+		<p>到了三年级下学期时，我们班上了一节<span class="stress">公开课</span>，<strong>最有意义的一节课</strong></p>
+		<img src="http://img.mukewang.com/52b4113500018cf102000200.jpg"/>
+		
+		<!--列表标签-->
+		<ul>
+			<li>我的第一个列表标签</li>
+		</ul>
+		
+	</body>
+</html>

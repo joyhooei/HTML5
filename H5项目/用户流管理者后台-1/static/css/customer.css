@@ -1,0 +1,35 @@
+.navbar-nav>li>a {padding-top: 25px;}
+.col-sm-6 {width: 0;margin-left: -1%;}
+div.dataTables_filter label {float: left;margin-top: 20px;margin-left: 20px;}
+div.dataTables_info{padding-left: 20px;}
+div.dataTables_paginate ul.pagination {margin-right: 3%;margin-bottom: 1.2%;}
+.table>thead:first-child>tr:first-child>th {text-align: center;}
+.king-content-wrap {float: right;width: 88%;}
+.form-horizontal .control-label{text-align: left; width: 10%;/*padding: 10px 0;*/}
+
+.king-layout1-sidebar{width: 12%;height: 100%;background-color: #eee;}
+table.dataTable thead > tr > th {padding-right: 8px; }
+
+.col-sm-6 {width: 100%;}
+.king-layout1-sidebar{width: 12%;height: 100%;background-color: #eee;}
+
+/*select*/
+.select{position: relative;top: 30px;left: 20px;width: 90%;z-index: 10;}
+.select select{width: 150px;height: 25px;}
+
+/*message*/
+.message_title{font-size: 20px;padding: 5px 30px;}
+.message_input{width: 400px;}
+.custom_msg_item_box li{margin: 5px 0 0 30px !important;}
+.custom_msg_item_box li select{width: 400px;}
+.custom_msg_item_box li textarea{width: 400px;}
+.custom_msg_item_box li label{width: 150px;}
+.message{padding: 6px 0 0 15px;display: inline-block;}
+
+.radio label{display: block;}
+.radio input[type=number]{width: 40px;height: 20px;}
+.king-timeline-simple li .timeline-simple-date{display:inline;}
+#table_custom_hezuo0,#table_custom_hezuo1,#table_fenpei_havedata,#table_fenpei_nodata,#table_custom_genjin{margin-top: 50px !important;width: 97%;margin:20px;text-align: center;}
+.searchInput{width: 300px;}
+.paixu_img{width: 15px;cursor: pointer;}
+.search_btn_on_table{border: 1px solid gray;background: white;}

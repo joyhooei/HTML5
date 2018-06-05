@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101399049" data-redirecturi="http://www.appubk.com" charset="utf-8"></script>
+	
+	<script src="http://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+	
+	<!--CGI的调用方法-->
+	<script type="text/javascript">
+		$.ajax({
+			type:"get",
+			url:"http://proxy.svip.qq.com/cgi-bin/auth_redirect",
+			async:true
+		});
+	</script>
+	
+	
+	<!--API的调用方法-->
+	<!--<script type="text/javascript">
+		//在JS中build方法mqq.tenpay.getAppAuthorizationCode
+		mqq.build('mqq.tenpay.getAppAuthorizationCode',{
+			iOS:function(params, callback){
+				var callbackName = callback ? mqq.callback(callback):null;
+				mqq.invokeClient('qw_charge','getAppAuthorizationCode',
+				params, callback);
+			},
+			android:function(params, callback){
+				params.callback = mqq.callback(callback);
+				mqq.invokeClient('qw_charge','getAppAuthorizationCode', params);
+			},
+			supportInvoke:true,
+			support:{
+				iOS:'6.5.0',
+				android:'6.5.0'
+			}
+		});
+		
+		//调用mqq.tenpay.getAppAuthorizationCode获取code
+		mqq.tenpay.getAppAuthorizationCode({appid:'101399049'},function(result){
+			alert(result.code);
+		});
+	</script>-->
+</html>

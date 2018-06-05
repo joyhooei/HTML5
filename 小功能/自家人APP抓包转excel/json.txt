@@ -1,0 +1,31 @@
+[	
+	{
+		"recommend": "0",
+		"prime_price": "1085.00",
+		"sale": "129",
+		"promote_id": "0",
+		"unit": "份",
+		"id": "5099",
+		"good_name_area": "冻牛腩{50斤/件}",
+		"status": "1",
+		"city_id": "235",
+		"nums": "49999",
+		"specs": "1件/份",
+		"cover_img": "http://www.xianedian.com:8080/imghouse/e-fresh/upload/image/2017/4/2/4WdC3RSgj2fipZsoSPc2M50oLiWxeCLO_$xxx$.png",
+		"sell_price": "895.00"
+	}, {
+		"recommend": "0",
+		"prime_price": "396.00",
+		"sale": "69",
+		"promote_id": "0",
+		"unit": "份",
+		"id": "5169",
+		"good_name_area": "冻鸡爪{30斤/件}",
+		"status": "2",
+		"city_id": "235",
+		"nums": "4958",
+		"specs": "1件/份",
+		"cover_img": "http://www.xianedian.com:8080/Uploads/Goods/20160331/56fc72bac4ff6.jpg",
+		"sell_price": "384.00"
+	}
+]

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/echarts.min.js"></script>
+	</head>
+	<body style="background: rgb(9,26,72);">
+		<div id="main" style="width: 600px;height:400px;background-color: #010000;"></div>
+	</body>
+	<script type="text/javascript">
+		// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+		
+var option = {
+	title : {
+        text: '激活成本（元/个）',
+        textStyle:{
+        		color:'#495e9c',
+        		fontWeight:'lighter',
+        		fontSize:18,
+        },
+        left:'12px',
+        top:'20px',
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+        
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : [250, 350, 450],
+            axisTick: {
+                alignWithLabel: true
+            },
+            //坐标轴轴线
+            axisLine:{
+            		lineStyle:{color:'#fff',}
+            },
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            max:10,
+            interval:1,
+            //坐标轴轴线
+            axisLine:{
+            		lineStyle:{color:'#fff',}
+            },
+            //坐标轴刻度
+            axisTick:{show:false},
+            //分割线
+            splitLine:{
+            		lineStyle:{
+            			color:'rgb(32,49,90)',
+            		}
+            }
+        }
+    ],
+    series : [
+        {
+            type:'bar',
+            barWidth: '60%',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: '#f45b5b'},
+                            {offset: 0.5, color: 'rgb(192,167,114)'},
+                            {offset: 1, color: '#90ee7e'}
+                        ]
+                    )
+                }
+            },
+            data:[3,4, 5,]
+        }
+    ]
+};
+// 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+	</script>
+</html>

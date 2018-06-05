@@ -1,0 +1,36 @@
+/***************重置（基础）***************/
+@charset "utf-8";
+html,body,div,ul,li,a,h1,h2,header,footer,article,section,p,dl,ol{font-family:"微软雅黑","宋体","Arial Narrow",sans-serif; padding:0; margin:0;}
+body{font-size:14px;height:100%; width:100%;color: #222;}
+html{ height:100%;*height: auto;overflow-y: auto\9;}
+img{ border:0; line-height:0;vertical-align: middle;}
+button{ border:0;}
+a{text-decoration:none;}
+input{ font-size:14px;}
+li{ list-style:none;}
+ul{outline: none;}
+.center{ text-align:center;} 
+input[type="submit"]{ cursor:pointer;}
+.hide{display: none!important;}
+.hide-2{display: none!important;}
+input:focus,select:focus,textarea:focus{ outline: none;}
+.clearfix:after{clear:both;content: ' ';display: block;visibility: hidden;}
+.fl{float: left}.fr{float: right}
+.noselect{moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;}
+button{border: none;outline: none}
+body ::selection {
+    color:#FFFFFF;
+    background-color: #089115;
+    text-shadow:none;
+}
+body ::-moz-selection {
+    color:#FFFFFF;
+    background-color:#089115;
+    text-shadow:none;
+}

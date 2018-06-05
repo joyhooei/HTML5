@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UBK应用市场合作数据后台</title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	    <meta name="renderer" content="webkit">
+	    	
+	    	<script src="js/jquery-1.12.4.js"></script>
+	    	<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css?v=1.0.1" rel="stylesheet">
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+		<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/dataTables.bootstrap.css" rel="stylesheet"/>
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/jquery.dataTables.js"></script>
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/dataTables.bootstrap.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/money.css"/>
+		
+	</head>
+	<body >
+		
+		<!--head-->
+		<div class="header">
+			<div class="wrapper";>
+				<a href="#" class="logo fl"><img src="img/header/logo.png"/></a>
+				<div class="company fr ubk_cursor_point">
+					<span id="company">operator@feelwx.com</span>
+					<img src="img/header/arrow1.png"/>
+					<ul >
+						<li><img src="img/header/icon01.png"/><a href="accountInfo.html">账户信息</a></li>
+						<li><img src="img/header/icon02.png"/><a href="productData.html">产品资料</a></li>
+						<li><img src="img/header/icon04.png"/><a href="letter.html">站内信</a></li>
+						<li><img src="img/header/icon05.png"/><a href="../index.html">退出登录</a></li>
+					</ul>
+				</div>
+				<div class="ubk-person fr ubk_cursor_point">
+					<img src="img/header/icon_person.png"/>
+					联系专属推广顾问
+					<img src="img/header/arrow1.png"/>
+					<div class="ubk_per_card" >
+						<img src="img/header/per1.png"/>
+						<div class="per_msg">
+							<div id="per_name">Eilan</div>
+							<div id="per_position">UBK推广顾问</div>
+							<ul id="per_number">
+								<li>13247317448</li>
+								<li>feelwx8802</li>
+								<li>eilantan@feelwx.com</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="money fr ubk_cursor_point" onclick="toMoneyCenter()">
+					<img class="icon_position" src="img/header/money.png"/>
+					<span>资金中心</span>
+				</div>
+				<div class="data fr ubk_cursor_point" onclick="toDataCenter()">
+					<img class="icon_position" src="img/header/data.png"/>
+					<span>数据中心</span>
+				</div>
+			</div>
+		</div>
+		<!--header end-->
+		
+		<!--content-->
+		<div id="content" class="content wrapper_money">
+	    	<div class="king-tab">
+	        <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info" style="border-bottom: none;">
+	            <li class="active"> <a data-toggle="tab" href="#demo1" aria-expanded="true">账户总览</a> </li>
+	            <li class=""> <a data-toggle="tab" href="#demo2" aria-expanded="false">资金变动</a> </li>
+	        </ul>
+	        <div class="tab-content tab-content_money">
+	        	
+	        	<div class="acib_yue">
+		                <div class="text">账户余额 </div>
+		                <div class="aciby_money">
+			                	<span class="am_value">1000.00元</span>
+		                </div>
+		            </div>
+	        	
+	            <div class="tab-pane fade active in right_cont_padding" id="demo1">
+	            	
+	            		
+		            <div class="acib_chongzhi">
+                			<div class="text">账户充值<img class="icon_question ubk_cursor_point" src="img/wepay/icon_question.png"/></div>
+		            </div>
+		            
+	                <div class="king-tab tab-box" style="margin-top: 15px;width: 1143px;">
+	                    <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+	                        <li class="active"> <a data-toggle="tab" href="#demo3" aria-expanded="true">线上充值</a> </li>
+	                        <li class=""> <a data-toggle="tab" href="#demo4" aria-expanded="true">公对公转账</a></li>
+	                    </ul>
+	                    <div class="tab-content ">
+	                        <div class="tab-pane fade active in" id="demo3"> 
+	                        		<!--内容放在这里-->
+	                        		<div class="alipay_box ac_son_box" style="background-color: #fff;">
+			                        <div class="price_box clearfix">
+			                            <a class="price_item price_item_active" id="price1" onclick="choicePrice(2600,this.id)">2,600元</a>
+			                            <a class="price_item" id="price2" onclick="choicePrice(4000,this.id)">4,000元</a>
+			                            <a class="price_item price_other" id="price3" onclick="chioceOtherPriceBtn()">其他金额</a>
+			                        </div>
+			                        <div class="other_money_box clearfix hide">
+			                            <span class="fl">其他金额</span>
+			                            <input type="text" class="fl" id="price" oninput="choiceOtherPrice(this.value)" onkeyup="checkInputNumber(this.value)">
+			                            <span class="omb_tips fl">&nbsp;元</span>
+			                            <span class="omb_error fl hide">请输入一个正整数</span>
+			                            <div class="obm_saojiao"></div>
+			                        </div>
+			                        <div id="pay_btn_box" style="height: 80px;">
+				                        <div class="pay_btn" onclick="doPay()"><img src="./img/wepay/pay-logo-tip.png" class="pay-logo-tip">支付宝充值</div>
+				                        <div class="pay_btn" onclick="doWepay()"><img src="./img/wepay/wepay-logo-tip.png" class="wepay-logo-tip">微信充值</div>
+				                    </div>    
+			                    </div>
+	                        </div>
+	                        <div class="tab-pane fade in" id="demo4"> 
+	                        		<div class="demo4_title">公对公转账索引：</div>
+	                        		<ul class="king-step3 king-step-info">
+								    <li class="process-done">
+								        <div class="step-num">1</div>
+								        <div class="step-text">
+								            <h5>打款至UBK用户银行指定收款账号</h5>
+								            <div class="shoukuan_msg">
+									            	<span >收款户名</span>
+									            <span >深圳市非零无限科技有限公司</span>
+								            </div>
+								            <div class="shoukuan_msg">
+									            	<span >收款账号</span>
+									            <span id="card_number">7559 2470 9910 601</span>
+								            </div>
+								            <div class="shoukuan_msg">
+									            	<span >收款银行</span>
+									            <span >招商银行股份有限公司深圳科技园支行</span>
+								            </div>
+								            <div class="shoukuan_msg">
+									            	<span >收款备注</span>
+									            <span >信息服务费</span>
+								            </div>
+								        </div>
+								    </li>
+								    <li class="process-doing">
+								        <div class="step-num">2</div>
+								        <div class="step-text">
+								            <h5>提交汇款资料</h5>
+								            <span>打款至UBK用户银行指定收款账号后，请点击下面的按钮提交汇款信息，<br />方便UBK财务人员及时确认并更新账户余额</span>
+								        </div>
+								    </li>
+								</ul>
+	                        		<input type="button" id="submit_money_msg" class="shadow_blue_money" value="提交汇款信息" onclick="clickSubmitMoneyMsgBtn()"/>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="tab-pane fade right_cont_padding" id="demo2">
+	            		<div style="line-height: 30px;margin-bottom: 20px;">账户余额变动记录</div>
+	            		
+	                <div class="king-tab tab-box ">
+	                    <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+	                        <li class="active"> <a data-toggle="tab" href="#demo5" aria-expanded="false">充值记录</a> </li>
+	                        <li class=""> <a data-toggle="tab" href="#demo6" aria-expanded="false">扣款记录</a></li>
+	                    </ul>
+	                    <div class="tab-content ">&nbsp;
+	                        <div class="tab-pane fade active in" id="demo5">
+					            <table id="chongzhi_table" class="amount_table table-bordered table-hover">
+						            	<thead>
+								        <tr>
+								            <td class="table_title" width="25%">充值时间</td>
+						                    <td class="table_title" width="25%">充值金额（元）</td>
+						                    <td class="table_title" width="25%">账户余额（元）</td>
+						                    <td class="table_title">备注</td>
+								        </tr>
+								    </thead>
+						          	<tbody id="data_body1">
+								        <tr>
+								            <td class="money_list1">2017-08-04 14:33:25</td>
+								            <td class="money_list2">+3,000.00</td>
+								            <td class="money_list3">3,000.00</td>
+								            <td class="money_list4">支付宝充值</td>
+								        </tr>
+								        <tr>
+								            <td class="money_list1">2017-08-10 10:13:20</td>
+								            <td class="money_list2">+3,000.00</td>
+								            <td class="money_list3">6,000.00</td>
+								            <td class="money_list4">微信充值</td>
+								        </tr>
+								        <tr>
+								            <td class="money_list1">2017-08-18 16:19:45</td>
+								            <td class="money_list2">+5,000.00</td>
+								            <td class="money_list3">11,000.00</td>
+								            <td class="money_list4">微信充值</td>
+								        </tr>
+								        
+						          	</tbody>
+						        </table>
+						        <div class="page_control wrapper_money">
+						        		<ul >
+								    		<li class="page_active">1</li>
+								    		<li>2</li>
+								    		<li>3</li>
+								    		<li>4</li>
+								    		<li class="page_active">next</li>
+								    </ul>
+						        </div>
+	                        </div>
+	                        <div class="tab-pane fade in" id="demo6">					                
+					            <table id="koukuan_table" class="amount_table table-bordered table-hover">
+						            	<thead>
+								        <tr>
+								            <td class="table_title" width="25%">扣款时间</td>
+						                    <td class="table_title" width="25%">扣款金额（元）</td>
+						                    <td class="table_title" width="25%">账户余额（元）</td>
+						                    <td class="table_title">备注</td>
+								        </tr>
+								    </thead>
+						          	<tbody id="data_body2">
+								        <tr>
+								            <td class="money_list1">2017-08-21 13:10:37</td>
+								            <td class="money_list2">-196.00</td>
+								            <td class="money_list3">440.30</td>
+								            <td class="money_list4">2017-08-14 vivo 推广费用</td>
+								        </tr>
+								        <tr>
+								            <td class="money_list1">2017-08-20 15:02:51</td>
+								            <td class="money_list2" >-185.00</td>
+								            <td class="money_list3">636.30</td>
+								            <td class="money_list4">2017-08-13 vivo 推广费用</td>
+								        </tr>
+								        <tr>
+								            <td class="money_list1">2017-08-19 15:02:51</td>
+								            <td class="money_list2">-189.00</td>
+								            <td class="money_list3">821.30</td>
+								            <td class="money_list4">2017-08-12 vivo 推广费用</td>
+								        </tr>
+						          	</tbody>
+						        </table>
+					        <div class="page_control wrapper_money">
+					        		<ul >
+							    		<li class="page_active">1</li>
+							    		<li>2</li>
+							    		<li>3</li>
+							    		<li>4</li>
+							    		<li class="page_active">next</li>
+							    </ul>
+					        </div>
+	                        </div>
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+		</div>
+		</div>
+		<!--content end-->	
+		<!--查看原图-->
+		<div class="look_full_img" onclick="closeFullImg()">
+			<img src=""/>
+		</div>
+	</body>
+
+
+	<script src="js/money.js"></script>
+	<script src="js/layer/layer.js"></script>
+</html>

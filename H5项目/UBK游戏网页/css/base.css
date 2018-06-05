@@ -1,0 +1,189 @@
+/*Reset*/
+html{-webkit-text-size-adjust:none;}/*禁止ios客户端缩放*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;-webkit-text-size-adjust:none;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img { border:0;}
+address,caption,cite,code,dfn,em,th,var {font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal;}
+q:before,q:after {content:'';}
+abbr,acronym {border:0;}
+a { cursor:pointer; }
+.clearfix:after {visibility:hidden;display: block;font-size: 0;content:"";clear: both;height: 0;}
+.clearfix { zoom:1;} 
+.clear{ clear:both; font-size:0; height:0; overflow:hidden;}
+
+body{color:#333333; background:#fff url("../img/bg.jpg")/*tpa=http://www.zhuayou.com/res/web/images/bg.jpg*/ no-repeat center 0;}
+body,button,input,select,textarea { font-size:12px; font-family:Tahoma,Helvetica,Arial,"microsoft yahei","Microsoft Yahei",sans-serif;}
+a{color:#333333;text-decoration:none;}
+a:hover {text-decoration: none;color: #186DC3;}
+.wrap_w{ width:1200px;margin:0 auto;text-align:left;}
+
+.topbar{ width:100%; height:40px; line-height:40px; border-bottom:1px solid #eeeeee; background:#F5F5F5; color:#6c6c6c;}
+.topleft{ float:left;}
+.topleft a{ display:inline-block; color:#7c7c7c; margin:0 10px;}
+.topleft a:hover,.topleft a.on{ color:#FF7F00}
+.topright{ float:right; color:#666;}
+.topright a{ color:#7c7c7c; margin:0 10px;}
+.topright a:hover{ color:#FF7F00}
+
+/*.header{ width:100%; height:100px;overflow:hidden;}
+.header .logo{width:220px; height:60px; margin:20px 0 0 0; float:left; background:url(../images/logo.png) no-repeat 0 0;}
+.header .logo a{ display:block; text-indent:-9999px;width:190px; height:60px;}
+.header-search{width:330px; margin:0 0 0 200px; padding:20px 0;float:left;}
+.searchbar{width:100%; overflow:hidden}
+.searchstyle{ width:80%; height:29px; background:#fff; border:3px solid #E4EAF1; margin-bottom:10px; float:left;display:inline-block;padding-left:2px;}
+.searchstyle:focus{ outline:none}
+.searchebtn{width:16%; height:35px;*height:34px; text-align:center; border:none; background:#3D9EFF; display:inline-block; color:#fff; cursor:pointer;}
+.searchebtn:focus{ outline:none;}
+.searchhot{ height:18px; line-height:18px; overflow:hidden}
+.searchhot span{ font-weight:bold; color:#7e7e7e; vertical-align:middle}
+.searchhot a{ margin:0 10px 10px 10px; color:#7e7e7e}
+.searchhot .hot{ color:#FF7F00;}
+.header-flash{width:370px; height:100px;float:right; text-align:right;}
+.header-flash img{ width:370px;height:100px;}*/
+
+.menu{background:#FF7F00;overflow:hidden;height:50px;}
+.menu ul{  height:50px; line-height:50px; overflow:hidden;}
+.menu ul li{float:left;height:50px;}
+.menu ul li a{ font-size:16px; color:#fff;padding:0 40px; display:block;height:50px;}
+.menu ul li a:hover{background:#F76F00;}
+.menu ul li.cur{background:#F76F00;}
+
+
+
+.footer{padding:50px 0 55px;background:#0d0d0d;margin-top:50px}
+.f-links{height:22px;padding:0 60px 20px 70px;border-bottom:1px solid #262626;position:relative}
+.f-links span{width:70px;height:22px;display:block;line-height:22px;color:#666;position:absolute;top:0;left:0}
+.f-links .roll li{float:left;height:22px;line-height:22px;text-align:center; padding-right:15px;}
+.f-links .roll li a{color:#666;transition:all .5s ease}
+.f-links a.more{width:50px;height:22px;display:block;text-align:center;line-height:22px;color:#666;position:absolute;top:0;right:0;transition:all .5s ease}
+.infoot{height:96px;overflow:hidden;padding-top:20px}
+.infoot .ifl{float:left;width:158px;height:88px;background:url("../img/logo2.png")/*tpa=http://www.zhuayou.com/res/web/images/logo2.png*/ no-repeat;padding-top:8px}
+.infoot .ifc{float:left;width:607px;padding-left:30px}
+.infoot .ifc p{color:#666;line-height:18px;font-size:12px; line-height:1.8;}
+.infoot .ifc p a{color:#666;transition:all .5s ease}
+.infoot .ifc p span {color: #2f2f2f;margin: 0 15px;}
+.infoot .ifr{float:left;width:96px;height:92px;padding:15px 0 0 104px;background:url("../img/code.gif")/*tpa=http://www.zhuayou.com/res/web/images/code.gif*/ no-repeat}
+.infoot .ifr p{font-size:12px;line-height:14px;color:#666}
+
+
+.crumbs {padding:20px 0;color:#999; font-size:14px;}
+.crumbs em{ font-weight:bold;}
+
+.page{width:auto; text-align:center;height:26px;padding:20px 0;display:block; overflow:hidden; line-height:26px;}
+.page a,.page a:visited,.page a:active{ display:inline-block;height:26px; line-height:26px; font-size:12px; color:#666; padding:0 10px; font-family:Tahoma, Arial, Helvetica, sans-serif; background:#d8d8d8; text-decoration:none;overflow:auto; vertical-align:top; margin:0 2px;}
+.page a:hover{ background:#FF7F00;color:#fff;}
+.page span{ background:#FF7F00; color:#fff; font-weight:bold;height:24px; line-height:24px; font-size:12px; font-style:normal; display:inline-block;padding:0 10px 2px 10px; font-family:Tahoma, Arial, Helvetica, sans-serif; vertical-align:top; margin-right:4px !important;}
+.page .pager-dot {background:none; color:#CCC;}
+
+.col-auto{}
+.col-auto h1.title{ font-size:24px; border-bottom:1px solid #eee; text-align:center; padding-bottom:10px; margin-bottom:15px;}
+.col-auto .cons{ font-size:16px; line-height:1.9; min-height:500px;}
+
+
+
+.mask{ position:fixed; background:#000; width:100%; height:100%;opacity:0.5; top:0; left:0; z-index:300; display:none;}
+.login{ position:fixed; width:394px; height:400px; top:50%; left:50%; margin-top:-215px; margin-left:-197px; background:#fff; z-index:999; text-align:left; font-family:'\5b8b\4f53'; display:none;}
+.login h3{background:#f7f7f7;font-size:14px; height:47px;line-height:47px; font-weight:bold; padding-left:20px;}
+.login h3 .login_close{ font-size:24px; float:right; padding-right:15px; color:#CCC; font-weight:normal; cursor:pointer;}
+.login p.tips{ font-size:12px; height:18px; padding:10px 0 10px 15px; color:#999;}
+.login .formbox{ padding:0 20px;}
+.login .formbox div{ margin-bottom:15px;}
+.login .formbox .txtinput{display:block;position: relative;height: 16px;padding: 12px 10px 12px 10px;border: 1px solid #ddd; width:332px; font-size:14px;font-family:'\5b8b\4f53';}
+.login .formbox #check{ vertical-align: middle;}
+.login .formbox #sub{display:block;border: none;background: #FF7F00; height:40px; line-height:40px;width:354px; cursor:pointer; font-size:16px; color:#fff;font-family:'\5b8b\4f53'; font-weight:bold;}
+.login .formbox .login_m{}
+.login .formbox .login_m .r{ float:right;}
+.login .formbox .login_m .r a{ color:#FF7F00;}
+.login .login_else{ text-align:right; padding:0 20px 0 20px;}
+.login .login_else a{color:#FF7F00;}
+.login .login_other{ padding:15px 20px 0 20px; border-top:1px solid #eee; margin-top:30px;}
+.login .login_other ul{ padding:15px 0 0 0;}
+.login .login_other li{ float:left; width:24px; height:22px; margin-right:10px; }
+.login .login_other li a{ display:block; width:24px; height:22px;background: url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/pass_login_icons.png*/ no-repeat 0 0;text-indent:-99999px;}
+.login .login_other li#qq a{ background-position:-25px 0;}
+.login .login_other li#weibo a{background-position:0 0;}
+
+.reg{ position:fixed; width:394px; height:450px; top:50%; left:50%; margin-top:-250px; margin-left:-197px; background:#fff; z-index:999; text-align:left; font-family:'\5b8b\4f53'; display:none;}
+.reg h3{background:#f7f7f7;font-size:14px; height:47px;line-height:47px; font-weight:bold; padding-left:20px; margin-bottom:20px;}
+.reg h3 .reg_close{ font-size:24px; float:right; padding-right:15px; color:#CCC; font-weight:normal; cursor: pointer;}
+.reg .formbox{ padding:0 20px;}
+.reg .formbox div{ margin-bottom:20px;}
+.reg .formbox div label{ font-size:14px; padding:0 5px 0 0; display:inline-block; width:50px; text-align:right; font-weight:bold;}
+.reg .formbox .txtinput{display:inline-block;position: relative;height: 16px;padding: 12px 10px 12px 10px;border: 1px solid #ddd; width:270px; font-size:14px;font-family:'\5b8b\4f53';}
+.reg .formbox .txtcode{display:inline-block;position: relative;height: 16px;padding: 12px 10px 12px 10px;border: 1px solid #ddd; width:150px; font-size:14px;font-family:'\5b8b\4f53';vertical-align: middle;}
+.reg .formbox .reg_p img{ display:inline-block; vertical-align:middle; height:40px; border:1px solid #eee;}
+.reg .formbox #check{ vertical-align: middle;}
+.reg .formbox #sub{display:block;border: none;background: #FF7F00; height:40px; line-height:40px;width:354px; cursor:pointer; font-size:16px; color:#fff;font-family:'\5b8b\4f53'; font-weight:bold;}
+.reg .formbox .reg_m{}
+.reg .formbox .reg_m .r{ float:right;}
+.reg .formbox .reg_m .r a{ color:#FF7F00;}
+.reg .reg_else{ text-align:right; padding:0 20px 0 20px;}
+.reg .reg_else a{color:#FF7F00;}
+.reg .reg_other{ padding:15px 20px 0 20px; border-top:1px solid #eee; margin-top:30px;}
+.reg .reg_other ul{ padding:15px 0 0 0;}
+.reg .reg_other li{ float:left; width:24px; height:22px; margin-right:10px; }
+.reg .reg_other li a{ display:block; width:24px; height:22px;background: url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/pass_login_icons.png*/ no-repeat 0 0;text-indent:-99999px;}
+.reg .reg_other li#qq a{ background-position:-25px 0;}
+.reg .reg_other li#weibo a{background-position:0 0;}
+
+
+.wx_gift_ok{width:100%; height:100%;position:fixed; left:0; top:0; z-index:9999; text-align: left;}
+.wx_gift_ok .mask_layer{background:#000;width:100%; height:100%;position:absolute; left:0; top:0; z-index:10;}
+.wx_gift_ok .box{width:500px; height:300px; position:fixed; left:50%; top:50%; margin:-150px 0 0 -250px;  background:#fff;font-family:'Microsoft YaHei'; z-index:100;}
+.wx_gift_ok .close{ font-size:28px; position:absolute; right:0px; top:0px; cursor:pointer; font-family:"å®‹ä½“"; color:#fff; width:30px; height:30px; text-align:center; line-height:30px; background:#333;}
+.wx_gift_ok .cons{ padding:30px;}
+.wx_gift_ok .cons h5{font-size:16px; padding-top:40px; padding-bottom:15px;}
+.wx_gift_ok .cons div{}
+.wx_gift_ok .cons div p{ border:1px solid #ddd; height:45px; line-height:45px;display:inline-block; width:290px; padding:0 15px; vertical-align:top; font-size:14px;}
+.wx_gift_ok .cons div .btns{ width:100px; height:45px; line-height:45px;display:inline-block; background:#FF7F00; text-align:center; color:#fff;vertical-align:top;cursor:pointer;}
+.wx_gift_ok .cons span{ font-size:16px; padding-top:15px; display:block;}
+
+
+
+/* top */
+.top{height:37px; text-align: right; line-height:37px; float: right; color:#ccc;}
+.top a{color:#6c6c6c;}
+.top a:hover{color:#1cbf62;}
+.top a.red{color:#FF7F00;}
+.top .fl{ width:700px; overflow:hidden; height:37px;} 
+.top .fl a{ margin-left:10px; margin-right:10px;}
+.top .fl div{color:#FF7F00; margin-right:8px; float:right;}
+.top .fl .nl{ width:250px;height: 37px; overflow:hidden;}
+.top .fl #top_news_list{ width:250px; display:block; height:auto;}
+.top .fl #top_news_list a{float: left;width: 250px;height: 37px;line-height: 37px;display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.top .fl #afuc_login_script{ width:auto;}
+.top .fl #afuc_login_script .username{ width:120px; margin-right:0px;height: 37px; display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; float:left;}
+.top .fl #afuc_login_script .username_r{width:160px;height: 37px;}
+.top .fl #afuc_login_script a{ margin-right:5px;}
+.top .fl .admin{}
+
+.top .fr a{ padding:5px 5px 5px 25px; background:#FF0;}
+.top .fr a.a1{background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -222px 6px no-repeat;}
+.top .fr a.a1:hover{background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -222px -25px no-repeat;}
+.top .fr a.a2{background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -221px -60px no-repeat;}
+.top .fr a.a2:hover{background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -221px -93px no-repeat;}
+.top .fr a.a3{background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -222px -129px no-repeat;}
+.top .fr a.a3:hover{ background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -222px -165px no-repeat;}
+.top .fr a.none{ padding:5px 0px 5px 25px; background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -222px -200px no-repeat;}
+.top .fr a.none:hover{background:url("../../../index.htm")/*tpa=http://www.zhuayou.com/res/web/css/bg.gif*/ -222px -236px no-repeat;}
+
+.gamelistbox{ width:1300px;}
+.gamelistbox li{width:585px;border:1px solid #e5e5e5;position:relative;overflow:hidden;margin:0 25px 20px 0;float:left}
+.gamelistbox li a img{ width:115px; float:left; padding:20px;}
+.gamelistbox li .box01{ float:left; width:300px; padding-top:20px;}
+.gamelistbox li .box01 span{ font-size:14px; display:block; padding-bottom:5px;}
+.gamelistbox li .box01 span em{ margin-right:10px;}
+.gamelistbox li .box01 span.tt{ font-size:18px;}
+.gamelistbox li .box01 div{ display:none;}
+.gamelistbox li .box02{ padding-top:20px;}
+.gamelistbox li .code{ position:absolute;left:20px;top:20px; display:none;}
+.gamelistbox li .code img{width:115px;}
+.download02{ width:112px; height:65px; border:0; cursor:pointer; background:url("../img/bg.gif")/*tpa=http://www.zhuayou.com/res/web/images/bg.gif*/ 0 -557px; }
+.download02:hover{width:112px; height:65px; border:0; cursor:pointer; background:url("../img/bg.gif")/*tpa=http://www.zhuayou.com/res/web/images/bg.gif*/ 0 -635px;}
+
+/*自研游戏和合作游戏*/
+.game-type{font-size: 26px;padding-bottom: 10px;color: #FB591C;}
+.game-info{font-size: 16px;margin: 5px 20px;}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>UAS后台管理系统</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		
+		<style type="text/css">
+			.alert-form .layui-form-label{padding: 9px 10px;width: 90px;}
+			.alert-form{margin-right: 10px;margin-top: 10px;}
+		</style>
+		
+	</head>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div id="header"></div>
+			<div id="nav"></div>
+		
+			<div class="layui-body">
+				<!--搜索添加按钮-->
+				<div class="topBox" style="margin: 10px;height: 40px;">
+					<div class="layui-form-item" style="float: left;">
+					    <label class="layui-form-label">搜索</label>
+					    <div class="layui-input-inline">
+					      	<input id="word" required lay-verify="required" placeholder="请输入完整的用户名" autocomplete="off" class="layui-input">
+					    </div>
+					    <button class="layui-btn" onclick="search()">搜索</button>
+					 </div>
+				</div>
+				<!--表格-->
+				<table id="productList" lay-filter="lay-list"></table>
+			</div>
+			
+		
+			<div id="footer"></div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="layui/layui.js"></script>
+	<script src="js/visitLog.js"></script>
+	
+</html>
+

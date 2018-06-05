@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UBK管理后台系统</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/left_list.css">
+</head>
+<body>
+<div class="box_body">
+    <!--nav start-->
+    <div class="load-template-html box_body_left" data-src="template/nav.html"></div>
+    <!--nav end-->
+    <div class="box_body_right">
+        <!--top start-->
+        <div class="load-template-html" data-src="template/top.html"></div>
+        <!--top end-->
+        <!--content start-->
+        <div class="right_cont">
+            
+            <div class="right_cont_title">
+            		<form action="" method="get">
+            			<!--搜索框-->
+	            		<div class="input_bg4">
+	                    <input name="key" placeholder="搜索错误代码" type="text" />
+	                    <button type="submit" id="icon_find"> </button>
+	                </div>
+            		</form>
+            </div>
+            
+            <form action="product_info.html" id="clickAppName" method="get">
+                <input type="hidden" name="pid" value="" />
+                <input type="hidden" name="pname" value="" />
+                <input type="hidden" name="startDate" value="" />
+                <input type="hidden" name="endDate" value="" />
+                <input type="hidden" name="time_type" value="" />
+                <input type="hidden" name="osType" value="" />
+            </form>
+            <table class="amount_table_2" style="min-width:1200px;">
+                <tr class="_data">
+                    <td  class="table_title">微粒贷openid</td>
+                    <td  class="table_title">活动activeid</td>
+                    <td  class="table_title">时间</td>
+                    <td  class="table_title">错误代码</td>
+                    <td  class="table_title">错误信息</td>
+                    <td  class="table_title">红包金额</td>
+                    <td  class="table_title">福粒openid</td>
+                </tr>
+                <tr>
+                    <td class="_time">微粒贷openid</td>
+                    <td class="_llgxf">活动activeid</td>
+                    <td class="_llhqf">时间</td>
+                    <td class="_uwmc">错误代码</td>
+                    <td class="_req">错误信息</td>
+                    <td class="_show">红包金额</td>
+                    <td class="_show_percent">福粒openid</td>
+                    
+                </tr>
+            </table>
+        </div>
+        <!--content end-->
+    </div>
+</div>
+<!--footer start-->
+<div class="load-template-html" data-src="template/footer.html"></div>
+<!--footer end-->
+<img src="img/loading_bg.gif" class="loading_img hide"/>
+<script src="js/jquery-1.6.3.js"></script>
+<script src="js/common.js"></script>
+<script>
+    window.Feelwx = window.Feelwx || {};
+    Feelwx.selectNavIndex=function(){
+        $('#nav_index_1').addClass('navbg_on');
+    };
+	
+</script>
+<script src="js/util.js"></script>
+
+</body>
+</html>

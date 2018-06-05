@@ -1,0 +1,129 @@
+<!doctype html>
+<!-- saved from url=(0081)file:///E:/work/%E4%BB%81%E5%A4%A9%E8%A1%8C/%E7%BD%91%E7%AB%99/jiazhangjianhu.htm -->
+<html><head><meta charset="utf-8">
+		<!--//不缓存-->
+		<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+		<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+		<META HTTP-EQUIV="expires" CONTENT="0">
+		<meta http-equiv="X-Frame-Options" content="deny">
+
+<title>非零无限-纠纷处理</title>
+<link href="css/parent.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+		localStorage.clear();
+		sessionStorage.clear();
+		var url = location.href;
+		if (url.indexOf("?") == -1) {
+			location.href = url + "?" + new Date().getTime();
+		}
+	</script>
+<script>
+
+$(function() {
+	var $target = $("#button").parents("table").next("table").hide();
+	//alert($target.html());
+	$("#button").click(function() {
+		var $loading = $.Loading('数据提交中...');
+		var billid = $('input[name="billid"]').val();
+		var $alert;
+		billfocus = function() {
+			$loading.PopClose();
+			$('input[name="billid"]').val("").focus();
+		}
+		if ($.trim(billid) == "") {
+			$alert = $.Alert("请输入服务号码！");
+			$alert.data('okbtn').click(function() {
+				billfocus();
+			});
+			$alert.data('closebtn').click(function() {
+				billfocus();
+			});
+			return;
+		}
+		
+		var url = urlExt("index.php.htm"/*tpa=http://www.xinxinxunfei9.com/index.php/article/index.php*/, (+new Date));
+		var param = {billid: billid};
+		$.get(url, param, function(data) {
+			if (data.billid) {
+				$loading.PopClose();
+				$('input[name="billid"]').val("");
+				$target.show().find("tbody tr").html("<td>" + data.guarder + "</td><td>" + data.target + "</td><td>" + data.jindu + "</td>");
+			} else {
+				$alert = $.Alert("您输入的服务号码不正确或者不存在！");
+				$alert.data('okbtn').click(function() {
+					billfocus();
+				});
+				$alert.data('closebtn').click(function() {
+					billfocus();
+				});
+			}
+		}, 'json')
+	    .error(function(data) {
+	    	$alert = $.Alert("查询出错！");
+			$alert.data('okbtn').click(function() {
+				billfocus();
+			});
+			$alert.data('closebtn').click(function() {
+				billfocus();
+			});
+	    });
+		//else
+		//alert("SS");
+		//$.post();
+	});
+});
+function setTab(name,num,n){
+	for(i=1;i<=n;i++){
+		var menu=document.getElementById(name+i);
+		var con=document.getElementById(name+"_"+"con"+i);
+		menu.className=i==num?"now":"";
+  		con.style.display=i==num?"block":"none"; 
+	}
+}
+</script>
+</head><body>
+<div class="head" align="center">
+  <table width="980" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    	<tr>
+      <td><img src="img/jfcl.jpg" border="0"></td>
+    </tr>
+  </tbody></table>
+	
+</div>
+<div class="content">
+	
+    	<div class="main_tab">
+        	<h2 style="font-size:14px; color:#ff6600; width:980px; text-align:center;">交易纠纷处理</h2>
+
+		<div id="tab_con2" style="display: block; ">
+            	<div class="con1_sec2">
+               	  <p>&nbsp;&nbsp;&nbsp; 深圳市非零无限科技有限公司（以下简称非零无限）在此特别提醒用户在注册、登陆本网络游戏前请务必仔细阅读本《纠纷处理方式》（未成年人应当在其法定监护人陪同下阅读）中的各个条款，以确保您在享受本网络游戏服务的同时维护自身合法权益：</p>
+    <p><strong>&nbsp;&nbsp;&nbsp; 用户之间纠纷处理方式<br />
+      </strong>&nbsp;&nbsp;&nbsp; （1）非零无限仅作为本网络游戏的运营商，如若本网络游戏用户之间发生纠纷且无法协商一致的，可向国家相关行政机关或司法机关寻求解决包括但不限于向公安机关报案、申请仲裁或向人民法院提起诉讼等。非零无限将会为实名注册用户提供必要的协助和支持，并根据有关行政机关和司法机关的要求承担一定的举证责任或采取必要措施。<br />
+      &nbsp;&nbsp;&nbsp; （2）本网络游戏用户之间发生纠纷的，也可向非零无限客服人员投诉并举证。用户需提供与其账号注册信息一致的个人有效身份证件、必要的国家行政或司法机关文件和其他非零无限要求提供的相关证据。经非零无限审核确认后，可以给予必要的协助和支持。</p>
+    <p><strong>&nbsp;&nbsp;&nbsp; 用户与非零无限之间纠纷处理方式<br />
+      </strong>&nbsp;&nbsp;&nbsp; （1）如本网络游戏用户对非零无限的服务有任何异议的，可以向非零无限的客服人员投诉并举证。查证属实的，非零无限将立即更正并按照现行法律规定给予用户必要的补偿。<br />
+      &nbsp;&nbsp;&nbsp; （2）如本网络游戏用户对非零无限的服务有任何异议的，也可以向双方约定（具体参见《非零无限网络游戏使用协议》）的非零无限公司所在地人民法院提起诉讼。</p>
+               	  <br>
+              
+	
+            
+			<div class="clear"></div>
+		</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div id="foot">
+  <div style="clear:both;"></div>
+  <p style="text-align: center;">
+	<a href="http://szcert.ebs.org.cn/43AA2BE6-581B-4A9E-ADF0-DC83F7F7DAB6" target="_blank">
+    		<img class="lazy_footer" src="img/gov_icon.png" title="深圳市市场监督管理局企业主体身份公示" alt="深圳市市场监督管理局企业主体身份公示" width="16" height="22" border="0" style="border-width:0px;border:hidden; border:none;position: relative;top: 6px;">
+    </a>
+    <a href="http://www.miitbeian.gov.cn/" style="color: #878787;" target="_blank">粤ICP备15012645号-7</a>
+	Copyright© 2014-2017 Feeling Infinity  &nbsp;&nbsp;|  &nbsp;&nbsp;All Rights Reserved.  &nbsp;&nbsp;|&nbsp;&nbsp;粤网文【2016】4236-973号 &nbsp;&nbsp;|&nbsp;&nbsp; 非零无限 版权所有
+</p>
+</div>
+      </body></html>

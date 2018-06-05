@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>客户详情</title>
+    <!-- Bootstrap css -->
+    	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/magicbox/css/bootstrap.min.css"/>
+    <!-- kendo ui css -->
+    <link rel="stylesheet" type="text/css" href="../../../../static/plugins/kendo/kendo.common.core.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/plugins/kendo/kendo.default.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/magicbox/css/font-awesome.css"/>
+    <!--蓝鲸提供的公用样式库 -->
+    	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/magicbox/css/bk.css"/>
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="../../../../static/plugins/magicbox/js/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="../../../../static/plugins/magicbox/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="../../../../static/plugins/magicbox/js/kendo.all.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--table-->
+    <link rel="stylesheet" type="text/css" href="../../../../static/plugins/DataTables-1.10.15/css/dataTables.bootstrap.css"/>
+    <script src="../../../../static/plugins/DataTables-1.10.15/js/jquery.dataTables.min.js" ></script>
+    <script src="../../../../static/plugins/DataTables-1.10.15/js/dataTables.bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<!--artDialog弹框-->
+	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/artDialog-6.0.4/css/ui-dialog.css"/>
+	<script src="../../../../static/plugins/artDialog-6.0.4/dist/dialog-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/customer.css"/>
+    
+</head>
+
+<body class="bg-white" data-bg-color="bg-white">
+    <div class="king-page-box king-layout1-main">
+        <!-- 左边 start -->
+        <div class="king-layout1-sidebar column" >
+            <nav style="min-width: auto; z-index: 0;" class="king-vertical-nav5   ">
+                <ul class="sidebar" style="">
+                    <li class="sidebar-main" >
+	                    	<div class="navbar-header" style="width: 100%;">
+                            	<a class="navbar-brand" href="javascript:;" title="CPD管理后台" style="height: 65px !important;background-color: #147bd0;">UBK管理后台</a>
+                        	</div>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>客户管理</span>
+                        </a>
+                        <ul class="sidebar">
+                            <li class="sidebar-item active"> <a href="distribute.html">客户分配<span class="menu-icon fa fa-gear"></span></a> </li>
+                            <li class="sidebar-item"> <a href="customerList.html">客户列表<span class="menu-icon fa fa-wrench"></span></a> </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>投放管理</span>
+                        </a>
+                        <ul class="sidebar">
+                        		<li class="sidebar-item"> <a href="javascript:;">审核列表 <span class="menu-icon fa fa-gavel"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">投放列表 <span class="menu-icon fa fa-flash"></span></a> </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>数据管理</span>
+                        </a>
+                        <ul class="sidebar">
+                            <li class="sidebar-item"> <a href="javascript:;">数据总况 <span class="menu-icon fa fa-coffee"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">数据详情 <span class="menu-icon fa fa-building-o"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">导入数据 <span class="menu-icon fa fa-level-up"></span></a> </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>财务管理</span>
+                        </a>
+                        <ul class="sidebar">
+                            <li class="sidebar-item"> <a href="javascript:;">资金流水 <span class="menu-icon fa fa-money"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">线下充值核验 <span class="menu-icon fa fa-subscript"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">修改账户余额 <span class="menu-icon fa fa-subscript"></span></a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- 左边 end -->
+        
+        <div class="king-content-wrap" >
+            <div class="king-layout1-content" style="margin-left: 0;">
+                <nav>
+                    <div class="king-header2 navbar navbar-blue  f14">
+                        <div class="nav-container" style="height: 65px !important;">
+                            
+                            <div class="navbar-collapse collapse" id="king-header2-navbar-collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li >
+                                        <a href="javascript:;"><span>宋一帆</span></a>
+                                    </li>
+                                    <li >
+                                        <a href="javascript:void(0)">
+                                            	<span class="avatar"><!--图片切成圆形的-->
+                                                <img src="../../../../static/img/index/email.png">
+                                            	</span>
+                                        </a>
+                                    </li>
+                                    <li >
+                                        <a href="javascript:void(0)"><img src="../../../../static/img/index/logout.png" style="width: 21px;" /></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+               	</nav>
+                
+                <!--content-->
+                <!--客户详情-信息页-->
+	            	<div class="custom_detail" style="z-index: 11;height: 100%;background-color: white;position: relative;left: 3%;">
+	            		<div class="custom_msg_item_box">
+				        	
+			        		<div class="message_title">公司信息</div>
+			        		<ul>
+			        			<li>
+			        				<label>账户ID：</label>
+			            			<span class="message">20LDlks02394</span>
+			        			</li>
+			        			<li>
+			        				<label>公司名称：</label>
+			            			<span class="message">深圳上来发浪费了公司</span>
+			        			</li>
+			        			<li>
+			        				<label>地区：</label>
+			            			<span class="message">广东 深圳</span>
+			        			</li>
+			        			<li>
+			        				<label>地址：</label>
+			            			<span class="message">深圳市洪浪北区前海路市3A 10384座 4984389单元</span>
+			        			</li>
+			        			<li>
+			        				<label>注册时间：</label>
+			            			<span class="message">2017-05-12</span>
+			        			</li>
+			        			
+			        		</ul>					        		
+			        	</div>
+				            
+				   	<div class="custom_msg_item_box">
+			            <div class="message_title">产品信息</div>
+			            <ul>
+			            		<li>
+			            			<label>产品名称：</label>
+			            			<span class="message">跑跑</span>
+			            		</li>
+			            		<li>
+			        				<label>产品类型：</label>
+			            			<span class="message">金融</span>
+			        			</li>
+			        			<li>
+			        				<label>包名：</label>
+			            			<span class="message">com.2334.sdsf</span>
+			        			</li>
+			        			<li>
+			        				<label>合作期数：</label>
+			            			<span class="message">2</span>
+			        			</li>
+			        			<li>
+			        				<label>投放渠道：</label>
+			            			<span class="message">应用宝、vivo、OPPO</span>
+			        			</li>
+			        			<li>
+			        				<label>投放状态：</label>
+			            			<span class="message">即将完成</span>
+			        			</li>
+			        			<li>
+			        				<label>账户余额：</label>
+			            			<span class="message">2,500元</span>
+			        			</li>
+			        			<li>
+			        				<label class="control-label col-sm-2">CPD：</label>
+			                		<span class="message">待定</span>
+			        			</li>
+			            </ul>				       		
+			       	</div>
+				       
+			       	<div class="custom_msg_item_box">
+		            <div class="message_title">客户信息</div>
+			            <ul>
+			            		<li>
+			            			<label>客户姓名：</label>
+			            			<span class="message">李胜利</span>
+			            		</li>
+			            		<li>
+			            			<label>手机：</label>
+			            			<span class="message">13598956412</span>
+			            		</li>
+			            		<li>
+			            			<label>邮箱：</label>
+			            			<span class="message">fdfksj@flkd.com</span>
+			            		</li>
+			            		<li>
+			            			<label>QQ：</label>
+			                    <input class="message_input" placeholder="输入QQ号">
+			            		</li>
+			            		<li>
+			            			<label>微信：</label>
+				                <input class="message_input" placeholder="输入微信号">
+			            		</li>
+			            		<li>
+			            			<label>客户状态：</label>
+			                    <select name="" id="" class="form-control">
+			                        <option value="">初始状态</option>
+			                        <option value="">有意向</option>
+			                        <option value="">合同中</option>
+			                        <option value="">打款中</option>
+			                        <option value="">延后合作</option>
+			                        <option value="">不合作</option>
+			                        <option value="">已合作</option>
+			                    </select>
+		            			</li>
+		            			<li>
+			            			<label>重要度：</label>
+			                    <select name="" id="" class="form-control">
+			                        <option value="A">A</option>
+			                        <option value="B">B</option>
+			                        <option value="C">C</option>
+			                        <option value="D">D</option>
+			                    </select>
+			            		</li>
+			            </ul>
+		            </div>
+				       	
+				       	
+			       	<div class="custom_msg_item_box">
+			        		<div class="message_title">跟进信息</div>
+			        		<ul>
+			        			<li>
+			        				<label >跟进人：</label>
+			                    <select name="" id="" class="form-control">
+							        <option value="">商务1</option>
+							        <option value="">商务2</option>
+			                    </select>
+			        			</li>
+			        			<li>
+			        				<label for="introduction">编辑跟进情况：</label>
+				                	<textarea class="form-control" rows="3" id="introduction"></textarea>
+			        			</li>
+			        		</ul>
+			            
+		            </div>
+
+	                <div class="col-sm-2 col-sm-offset-3">
+	                    <a href="customerList.html" class="king-btn king-default">返回</a>
+	                    	<input type="button" class="king-btn king-success mr10" value="保存" onclick="saveMessage()">
+	                </div>
+	            	</div>
+                <!--content end-->
+            </div>
+        </div>
+        <!-- content end -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>UBK应用市场合作数据后台</title>
+		<meta name="renderer" content="webkit">
+		
+		<style type="text/css">
+			@charset "utf-8";
+			*{ margin:0; padding:0; font-family:"微软雅黑","宋体","Arial Narrow";font-size:14px;}
+			*:focus { outline: none;}
+			
+			/*注册框背景*/
+			.bg_register{ background:url(img/bg.jpg) no-repeat #0a0d1c;background-size:cover}
+			/*注册框盒子*/
+			.box_reg{width: 600px; height: 580px;background-color: wheat;margin: 10% auto;}
+			/*input输入框*/
+			input{
+				display: block;
+				border: 1px solid gray;
+				width: 400px;
+				height: 50px;
+				margin: 30px auto 0;
+				border-radius: 8px;
+				padding-left: 10px;
+			}
+			/*按钮*/
+			input[type="button"]{
+				width: 260px;
+				margin-top: 50px;
+				padding: 0;
+			}
+			h1,h2{
+				text-align: center;
+			}
+			h1{
+				font: bolder 40px/80px "microsoft sans serif";
+			}
+			h2{
+				font: 20px/40px "microsoft sans serif";
+			}
+			
+			/*第三步*/
+			.set_password{margin-top: 50px;}
+			.set_password p{
+				text-align: center;
+				font-size: 18px;
+			}
+			.message{margin-left: 100px;color: red;}
+			a{text-decoration: none;/*去掉a的下划线*/color: rgb(0,153,201);font-size: 18px;}
+			#set_password{bottom: 20px;position: relative;left: 490px;}
+
+			.ubk-button-style{color: white;background-color: rgb(0,153,201);}
+			/*自定义鼠标光标放在上面变小手*/
+			.ubk-cursor-pointer{cursor: pointer;}
+			.hide{display: none;}
+		</style>
+	</head>
+	<body class="bg_register">
+		<div class="box_reg">
+			<!--标题-->
+			<div class="title">
+				<h1>UBK</h1>
+				<h2>应用市场合作数据后台</h2>
+				<h2 id="subtitle">· 找回密码 ·</h2>
+			</div>
+			
+			<!--设置密码-->
+			<div class="set_password">
+				<p>请重新设置你的登录密码</p>
+				<p>账号：dsssf@fkldj.com</p>
+				<input type="password" id="psd_1" placeholder="密码"/>
+				<span id="psd1_msg" class="message hide">请输入6-20位密码</span>
+				<input type="password" id="psd_2" placeholder="确认密码"/>
+				<span id="psd2_msg" class="message hide">两次输入的密码不一致</span>
+				<input type="button" class="ubk-button-style ubk-cursor-pointer" value="完成" onclick="setPassword()"/>
+			</div>
+
+		</div>
+			
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+			//完成，设置密码
+			function setPassword(){
+				//校验密码
+				 var psd_1 = $("#psd_1").val();
+				 var psd_2 = $("#psd_2").val();
+				 if(psd_1 ==""){
+				  	$("#psd1_msg").text("请输入密码");
+				  	$("#psd1_msg").show();
+				 }
+				 if(psd_2 ==""){
+				  	$("#psd2_msg").text("请再次输入密码");
+				  	$("#psd2_msg").show();
+				 }
+				
+				var param={email:$("#reg_email").val(),psd:psd_1};
+				$.ajax({
+                    type:'POST',
+                    dataType:'json',
+                    contentType:'application/json',
+                    url:'./register',
+                    data:JSON.stringify(param),
+                    success:function(msg){
+                        if(msg.retcode == 0){
+					
+                        }else{
+                        		
+                        	}
+                    	},
+                    error:function(){
+                        	
+                    }
+                });
+   			}
+			
+			//密码框
+			$("#psd_1").focus(function(){
+				$("#psd_1").css("border-color","rgb(0,155,250)");
+				$("#psd1_msg").css("color","rgb(0,155,250)");
+				return false;
+			});
+			
+			$("#psd_1").blur(function(){
+				var psd = $("#psd_1").val();
+				if (psd.length == 0) {
+					$("#psd_1").css("border-color","black");
+					$("#psd1_msg").hide();
+					return;
+				} else{
+					if (psd.length < 6 || psd.length > 20) {
+						$("#psd_1").css("border-color","red");
+						$("#psd1_msg").css("color","red");
+						$("#psd1_msg").show();
+					}else{
+						$("#psd_1").css("border-color","black");
+						$("#psd1_msg").hide();
+					}
+					return false;
+				}
+			});
+			//第二密码框
+			$("#psd_2").focus(function(){
+				$("#psd_2").css("border-color","rgb(0,155,250)");
+				$("#psd2_msg").css("color","rgb(0,155,250)");
+				return false;
+			});
+			
+			$("#psd_2").blur(function(){
+				var psd1 = $("#psd_1").val();
+				var psd2 = $("#psd_2").val();
+				if (psd2.length == 0) {
+					$("#psd_2").css("border-color","black");
+					$("#psd2_msg").hide();
+					return;
+				} else{
+					if (psd2.length < 6 || psd2.length > 20) {
+						$("#psd_2").css("border-color","red");
+						$("#psd2_msg").css("color","red");
+						$("#psd2_msg").show();
+					}else{
+						if(psd1 == psd2) {
+							$("#psd_2").css("border-color","black");
+							$("#psd2_msg").hide();
+						}else{
+							$("#psd_2").css("border-color","red");
+							$("#psd2_msg").css("color","red");
+							$("#psd2_msg").text("两次输入密码不一致");
+							$("#psd2_msg").show();
+						}
+					}
+					return false;
+				}
+				
+			});
+					 
+		</script>
+	</body>
+</html>

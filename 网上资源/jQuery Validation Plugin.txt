@@ -1,0 +1,42 @@
+1.官网
+http://jqueryvalidation.org/
+
+https://github.com/jzaefferer/jquery-validation
+
+http://jqueryvalidation.org/documentation/
+
+http://jqueryvalidation.org/validate
+
+http://www.runoob.com/jquery/jquery-plugin-validate.html
+
+2.使用方法(jQuery Validation Plugin v1.14.0)
+     1) <input id="txtName" name="txtName" type="text" required minlength="2" >
+     2) <input id="txtName" name="txtName" type="text" class="required" minlength="2" >
+     3) <input id="txtName" name="txtName" type="text" data-rule-required="true" data-rule-minlength ="2" >
+     4) Plugin settings (option rules):
+<script type="text/javascript">
+     $(document).ready(function() {
+          $("#myform").validate({
+               rules : {
+                    txtName : {
+                         required : true,
+                         minlength : 2
+                    }
+               }
+          });
+     });
+</script>
+     5) Error messages:
+<input required data-msg="Please fill this field">
+<input data-rule-minlength="2" data-rule-maxlength="4" data-msg-minlength="At least two chars" data-msg-maxlength="At most fours chars">
+     6) Skipping validation on submit:
+<input type="submit" name="go" value="Submit">
+<input type="submit" formnovalidate name="cancel" value="Cancel">
+
+3.在Bootstrap的form中使用jQuery Validation Plugin。
+     1) <input type="text" class="form-control" id="txtName" required>。
+     2) 使用表单验证：var v1 = $("#form1").validate();。
+     3) 重置表单：$("#reset").click(function() {v1.resetForm();});，需要引入jquery.form.js，注意：<button id="reset" class="btn btn-default y-btn">重置</button>必须写在<form></form>之外。
+
+4.添加自定义校验
+     一般在 additional-methods.js 文件中添加自定义验证方法。

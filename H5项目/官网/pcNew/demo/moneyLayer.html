@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" type="text/css" href="css/moneyLayer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/webuploader.css"/>
+		<script src="js/jquery-1.12.4.js" ></script>
+		<script src="js/webuploader.min.js" ></script>
+	</head>
+	<body >
+		<div class="huikuan_alert_box" style="background-color: white;">
+			
+			<div class="alert_bottom_box">
+				<div class="alert_msg_red">亲爱的合作伙伴，一天只能提交汇款信息三次，请明天再尝试，谢谢。</div>
+				<div class="huikuan_jine">
+					<span class="huikuan_text">汇款金额（元）</span>
+					<input type="text" name="huikuan_number" id="huikuan_number" value="" placeholder="输入汇款金额" maxlength="8"/>
+					<p class="input_inner_error " id="alert1">请输入正确的汇款金额</p>
+				</div>
+				<div class="huikuan_radio_box">
+				    <label class="huikuan_label">是否现在上传银行汇款底单？</label>
+				    <div class="huikuan_select">
+				    		<label><input name="upload" type="radio" value="1" checked="checked" id="radio1"  onclick="selectTrue()"/>是 </label>
+				    		<label><input name="upload" type="radio" value="0" id="radio2" onclick="selectFalse()"/>否 </label>
+				    </div>
+				</div>
+				<div class="upload_img_card ubk_cursor_point" id="upload_img_card_layer">
+					<div class="upload_img_card_small"  id="imgPicker" >
+						<img src="img/account/up.png"/>
+						<p >点击上传银行汇款底单<br />（有年检章，jpg/png格式，小于5M）</p>
+					</div>
+					<!--用来存放item-->  
+					<div id="" class="uploader-list"></div>
+				</div>
+				<p onclick="window.open('img/bank.jpeg','_blank');" class="ubk_cursor_point huikuan_demo_jpg">汇款底单范例.jpg</p>
+				<p class="input_inner_error alert_img" id="alert2">请上传银行汇款底单</p>
+				<p class="select_no_msg">温馨提示：<br />建议您稍后上传网银汇款底单，我司财务人员凭底单即可及时确认并更新账户余额。</p>
+				<div class="layui-layer-button">
+					<a class="layui-layer-btn0" >提交</a>
+					<a class="layui-layer-btn1" >取消</a>
+				</div>
+				<div id="button_opacity"></div>
+			</div>
+		</div>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/layer/layer.js"></script>
+		<script src="js/moneyLayer.js"></script>
+	</body>
+</html>

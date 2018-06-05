@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>福利大管家</title>
+		
+		<script type="text/javascript">
+			//禁止上下滑动
+			document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+		</script>
+		
+		<style type="text/css">
+			.money_red{
+				margin: 18.6% auto 8%;
+				width: 45%;
+				display: block;
+			}
+			.top_text{
+				margin: 0 auto;
+				font-size: 16px;
+				text-align: center;
+				padding-left: 6%;
+			}
+			.bottom_text{
+				text-align: center;
+			    font-size: 12px;
+			    margin: auto;
+			    bottom: 13%;
+			    position: fixed;
+			    left: 0;
+			    right: 0;
+			    color: rgb(157,158,159);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<img class="money_red" src="img/money_red.png"/>
+		<p class="top_text">您已参与过该活动！</p>
+		<p class="bottom_text"></p>
+	</body>
+</html>

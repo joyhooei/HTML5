@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <meta name="renderer" content="webkit">
+    <style>
+        html,body{height: 100%;margin: 0;padding: 0;font:20px 'Microsoft Yahei',sans-serif;color: #fff;}
+        body{background: #32323a;overflow-y: hidden;}
+        .content{width: 970px;height: 610px;margin: 0 auto;background: url("/images/404error_bg.png") no-repeat;background-position: 0 center;transition: all 1s;}
+        .clearfix:after{clear: both;display: block;content: " "}
+        .right{float: right;width: 494px;}
+        .error_title{height: 254px;line-height: 254px;border-bottom: 1px solid #1fb5ad;border-top: 1px solid #1fb5ad;font-family: Arial;font-size: 240px;text-align: center;font-weight: bold;}
+        .erri_title{font-size: 24px;line-height: 24px;margin-top: 70px;padding-bottom: 40px;}
+        .erri_tips{line-height: 20px;margin: 0;margin-top: 15px;color: #818196;}
+        .erri_btn{width: 314px;height: 86px;line-height:86px;text-align: center;background: #1a9d96;font-size: 24px;border-radius: 4px;margin-top: 58px;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="content clearfix" id="content">
+        <div class="right">
+            <div class="error_title">404</div>
+            <div class="error_info">
+                <p class="erri_title">咦，页面去哪儿了？</p>
+                <p class="erri_tips">可能的原因：</p>
+                <p class="erri_tips">网址有错误</p>
+                <p class="erri_tips">网址已失效</p>
+                <div class="erri_btn" onclick="history.go(-1)">返回上一页</div>
+            </div>
+        </div>
+    </div>
+<script>
+    (function(){
+        var height=document.body.clientHeight || document.documentElement.clientHeight;
+        document.getElementById('content').style.marginTop=(height-610)/2+'px';
+    })();
+</script>
+</body>
+</html>

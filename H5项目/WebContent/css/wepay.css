@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+html, body {
+	margin: 0px;
+	border: 0px;
+	width: 100%;
+	min-width: 960px;
+	height: 100%;
+	color: #333;
+	font: 14px/1.5 "微软雅黑", "宋体", "Arial Narrow", sans-serif;
+	overflow-x: auto;
+	background-color: #eff0f1;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code,
+	form, fieldset, legend, input, textarea, p, blockquote, th, td, hr,
+	button, article, aside, details, figcaption, figure, footer, header,
+	hgroup, menu, nav, section {
+	margin: 0;
+	padding: 0;
+}
+
+.wechat-payment-header {
+	background-color: #fff;
+	border-bottom: 1px solid #d9d9d9;
+	height: 60px;
+	width: 100%;
+	margin-top: 0;
+}
+
+.header-container {
+	margin: 0 auto;
+	width: 950px;
+}
+
+.fn-clear::after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.header-title {
+	float: left;
+	height: 60px;
+	width: 250px;
+}
+
+.wepay-logo {
+	background-image: url("../images/wepay/wepay-logo.png");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 40px;
+	left: 0;
+	position: relative;
+	top: 10px;
+	width: 146px;
+}
+
+.logo-title {
+	border-left: 1px solid #676d70;
+	color: #666666;
+	float: left;
+	font-family: "Microsoft YaHei", 微软雅黑, "宋体";
+	font-size: 16px;
+	font-weight: normal;
+	height: 20px;
+	margin-left: 10px;
+	margin-top: 15px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.wechat-payment-container {
+	width: 952px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.order {
+	position: relative;
+	margin-top: 15px;
+	*zoom: 1;
+	*z-index: 2;
+}
+
+.order-detail-base {
+	background: #eff0f1;
+	padding: 16px 0 0 20px;
+	position: relative;
+}
+
+.explain-trigger-area {
+	float: left;
+}
+
+.question-icon {
+	cursor: pointer;
+	position: relative;
+	left: 4px;
+	top: 2px;
+}
+
+.order-detail {
+	padding: 0 0 12px 20px;
+	display: block;
+	top: 43.5px;
+	left: 0px;
+	width: 100%;
+	z-index: 100;
+	background: #eff0f1;
+}
+
+.order-detail-container {
+	width: 680px;
+	line-height: 22px;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.order-item table {
+	table-layout: fixed;
+	width: 680px;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.sub-th {
+	white-space: nowrap;
+	width: 68px;
+	text-align: left;
+	font-style: normal;
+	font-weight: 500;
+}
+
+.order-item table td {
+	word-wrap: break-word;
+}
+
+.pay-amount-area {
+	position: absolute;
+	bottom: 12px;
+	right: 23px;
+	text-align: right;
+	z-index: 1;
+	font-size: 16px;
+}
+
+.amount-font-28 {
+	font-size: 28px;
+	line-height: 28px;
+	color: #0099cc;
+	/* font-family: Arial-BoldMT, AdobeHeitiStd-Regular; */
+}
+
+.wepay-question-tip {
+	display: none;
+	top: 8px;
+	left: 190px;
+	position: absolute;
+	z-index: 9999;
+}
+
+.wepay-dialog-container {
+	width: 404px;
+	background-color: #fff;
+	margin: 2px;
+	border: solid 1px #B3B3B3;
+	z-index: 1;
+	height: 100%;
+	position: relative;
+	top: -6px;
+}
+
+.wepay-dialog-head-text {
+	padding: 5px 0 0 8px;
+	position: relative;
+	font-weight: bold;
+}
+
+.wepay-dialog-content {
+	padding: 0 0 5px 8px;
+}
+
+.ui-icon-dialog-arrow {
+	height: 16px;
+	left: -6px;
+	margin-top: 12px;
+	text-indent: -999px;
+	top: 0;
+	width: 9px;
+	z-index: 1;
+	background: url("../images/wepay/wepay-arrow.png") -2px -16px no-repeat;
+	position: absolute;
+}
+
+.wechat-payment-body {
+	margin: 0 auto;
+	width: 946px;
+	background-color: #fff;
+	border: 2px solid #b3b3b3;
+	height: 580px;
+	position: relative;
+}
+
+.qrcode-header {
+	display: block;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	margin-top: 75px;
+	margin-bottom: 16px;
+}
+
+.ft-center {
+	text-align: center;
+}
+
+.qrcode-header-money {
+	font-size: 28px;
+	font-weight: 700;
+	color: #0099cc;
+	/* font-family: Arial-BoldMT; */
+}
+
+.wechat-qr {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	width: 260px;
+	z-index: 1;
+}
+
+.wechat-qr-explain {
+	margin: 16px auto 0;
+	width: 260px;
+}
+
+.scan-tips {
+	background-color: #fff;
+	border: 2px solid #0099cc;
+	border-radius: 4px;
+	overflow: hidden;
+	padding: 0 22px;
+	width: 214px;
+	height: 80px;
+}
+
+.scan-tips-text {
+	color: #0099cc;
+	font-size: 16px;
+	overflow: hidden;
+	padding-top: 1px;
+	text-align: center;
+	white-space: nowrap;
+	margin: 12px 0;
+}
+
+.qrguide-area {
+	position: absolute;
+	top: 154px;
+	left: 610px;
+	width: 268px;
+	height: 294px;
+	left: 610px;
+}

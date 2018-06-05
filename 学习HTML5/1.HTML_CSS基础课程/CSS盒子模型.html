@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+	在CSS中，html中的标签元素大体被分为三种不同的类型：块状元素、内联元素(又叫行内元素)和内联块状元素。
+	常用的块状元素有：
+<div>、<p>、<h1>...<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote> 、<form>
+	常用的内联元素有：
+<a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>
+	常用的内联块状元素有：
+<img>、<input>
+	
+内联元素特点：
+1、和其他元素都在一行上；
+2、元素的高度、宽度及顶部和底部边距不可设置；
+3、元素的宽度就是它包含的文字或图片的宽度，不可改变。
+	
+块级元素特点：
+1、每个块级元素都从新的一行开始，并且其后的元素也另起一行。
+2、元素的高度、宽度、行高以及顶和底边距都可设置。
+3、元素默认宽度是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。
+
+内联块状元素特点：
+1、和其他元素都在一行上；
+2、元素的高度、宽度、行高以及顶和底边距都可设置。
+
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*将内联元素a转换为块状元素*/
+			a{display:block;}
+			/*将块状元素设置为内联元素*/
+			div{display:inline;}
+			/*将元素设置为内联块状元素*/
+			b{display: inline-block;}
+			
+			/*盒子模型设置边框线的粗细、样式和颜色*/
+			div{border:2px  solid  red;}
+			/*等价于下面这样设置*/
+			div{border-width:2px;
+    				border-style:solid;
+    				/*dashed（虚线）| dotted（点线）| solid（实线）*/
+    				border-color:red;}
+    				/*border-color:#888;//前面的井号不要忘掉。*/
+    			
+    			/*还可以单独设置下边框*/
+    			div{border-bottom:1px solid red;}
+    			
+    			div{width:200px;
+    				padding:20px;/*盒子的内边距*/
+    				border:1px solid red;
+    				margin:10px;}/*盒子的外边距*/
+    				
+    			/*padding在边框里，margin在边框外。*/
+    			div{padding:20px 10px 15px 30px;}
+    			div{/*上面等价于这个*/
+ 		 		padding-top:20px;
+   				padding-right:10px;
+   				padding-bottom:15px;
+   				padding-left:30px;}
+   				
+   			div{margin:20px 10px 15px 30px;}
+   			div{/*上面等价于这个*/
+   				margin-top:20px;
+   				margin-right:10px;
+   				margin-bottom:15px;
+   				margin-left:30px;}
+		</style>
+		
+	</head>
+	<body>
+		<a>我是一个块状标签a</a>
+	</body>
+</html>

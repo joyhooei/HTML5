@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>站内信</title>
+		
+		<script src="js/jquery-1.12.4.js"></script>
+		<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/letter.css"/>
+		
+	</head>
+	<body>
+		<!--head-->
+		<div class="header">
+			<div class="wrapper";>
+				<a href="#" class="logo fl"><img src="img/header/logo.png"/></a>
+				<div class="company fr ubk_cursor_point">
+					<span id="company">operator@feelwx.com</span>
+					<img src="img/header/arrow1.png"/>
+					<ul >
+						<li><img src="img/header/icon01.png"/><a href="accountInfo.html">账户信息</a></li>
+						<li><img src="img/header/icon02.png"/><a href="productData.html">产品资料</a></li>
+						<li><img src="img/header/icon04.png"/><a href="letter.html">站内信<span id="have_letter"></span></a></li>
+						<li><img src="img/header/icon05.png"/><a href="../index.html">退出登录</a></li>
+					</ul>
+				</div>
+				<div class="ubk-person fr ubk_cursor_point">
+					<img src="img/header/icon_person.png"/>
+					联系专属推广顾问
+					<img src="img/header/arrow1.png"/>
+					<div class="ubk_per_card" >
+						<img src="img/header/per1.png"/>
+						<div class="per_msg">
+							<div id="per_name">Eilan</div>
+							<div id="per_position">UBK推广顾问</div>
+							<ul id="per_number">
+								<li>13247317448</li>
+								<li>feelwx8802</li>
+								<li>eilantan@feelwx.com</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="money fr ubk_cursor_point" onclick="toMoneyCenter()">
+					<img class="icon_position" src="img/header/money.png"/>
+					<span>资金中心</span>
+				</div>
+				<div class="data fr ubk_cursor_point" onclick="toDataCenter()">
+					<img class="icon_position" src="img/header/data.png"/>
+					<span>数据中心</span>
+				</div>
+			</div>
+		</div>
+		<!--header end-->
+		
+		<!--content-->
+		<div id="content" class="content wrapper1200">
+			<!--信头-->
+			<div class="letter_title_box">
+				<div class="letter_title_left">
+					<img src="img/public/icon_letter2.png"/>
+					<span >站内信</span>
+				</div>
+				<div class="letter_title_right">
+					<select>
+				      <option value="">全部</option>
+				      <option value="0">未读</option>
+				      <option value="1">已读</option>
+				  </select>
+				</div>
+				
+			</div>
+			
+			<!--信-->
+			<ul class="letter_box">
+				
+				<li>
+					<div id="collapse1" class="letter_title letter_unread" onclick="lookLetter(this.id)">
+		                <a data-toggle="collapse" aria-expanded="false">账户信息审核结果</a>
+		                <span>2017-05-18 20:00:40 <img src="img/public/icon_down.png"/></span>
+				    </div>
+				    <div class="collapse letter_content" aria-expanded="false">
+				        <div>恭喜您，亲爱的合作伙伴，您的账户信息<span id="channel_result" style="">已审核通过</span>，现在您可以提交产品于应用市场投放时所需的资质啦。</div>
+			        		<div id="channel_box">
+			        			<p class="channel_bold">每个应用市场所需的资质如下：</p>
+							<span class="channel_bold">应用宝</span>：应用宝APPID、ICP备案截图和渠道包<br />
+							<span class="channel_bold">vivo</span>：app_id、OPPO评级和OPPO推广承诺函<br />
+							<span class="channel_bold">OPPO</span>：开户许可证、法人身份证复印件、vivo授权确认函等<br />
+							<span class="channel_bold">小米</span>：appID、ICP备案截图、小米推广行业承诺函等<br />
+							<span class="channel_bold">魅族</span>：魅族广告平台账号<br />
+			        		</div>
+			        		<div>详情可进入<span class="pro_text">【产品资料】</span>页面进行查看、了解；如有任何疑问，可随时联系您的专属推广顾问，谢谢。</div>
+				    </div>
+				</li>
+				
+				<li>
+					<div id="collapse2" class="letter_title letter_read" onclick="lookLetter(this.id)">
+		                <a data-toggle="collapse" aria-expanded="false">欢迎加入UBK用户银行</a>
+		                <span>2017-05-18 20:00:40 <img src="img/public/icon_down.png"/></span>
+				    </div>
+				    <div class="collapse letter_content" aria-expanded="false">
+				        <div>亲爱的开发者，您好，欢迎加入UBK用户银行。UBK是非零无限旗下平台，是"User Bank"的简写，意为“用户银行”，旨在为APP开发者提供真实、优质、性价比高的获取用户量服务。</div>
+			        		<div id="channel_box">
+			        			<p class="channel_bold">以下是后期双方合作流程简介：</p>
+							<span class="channel_bold">（1）</span>合作伙伴提交资料开户、充值<br />
+							<span class="channel_bold">（2）</span>UBK在应用市场竞价推广<br />
+							<span class="channel_bold">（3）</span>投放优化<br />
+							<span class="channel_bold">（4）</span>UBK反馈数据<br />
+							<span class="channel_bold">（5）</span>合作伙伴反馈投放效果数据<br />
+			        		</div>
+			        		<div><span class="channel_bold">现在，完善您的账户信息后即可开启获取优质用户之旅。</span>如有任何疑问，可随时联系您的专属推广顾问，谢谢。</div>
+				    </div>
+				</li>
+				
+			</ul>
+		
+		</div>
+		<!--content end-->
+		
+	</body>
+	
+	<script src="js/letter.js"></script>
+	
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+	CSS 规定的定位机制有三种，分别是标准文档流、浮动及绝对定位。
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		/*盒子模型的立体图片从第一层到第五层依次为：border、content+padding、background-image、background-color、margin。*/
+			*{	/*初始化所有的盒子内外边距*/
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				margin: 10px 18px;
+				border: 1px solid #999;
+			}
+			.content{
+				border: 3px solid green;
+				padding: 44px 15px 15px;
+				width: 700px;
+			}
+			.book{
+				background: url(../../img/t_book.gif) no-repeat aliceblue;
+			}
+			
+			#header{
+				width: 100%;
+				height: 200px;
+				border: 1px solid red;
+			}
+			#mainbody{
+				width: 100%;
+				height: 200px;
+				border: 1px solid blue ;
+			}
+			#footer{
+				width: 100%;
+				height: 200px;
+				border: 1px solid green ;
+			}
+			#wrap{
+				width: 730px;
+				margin: 0 auto;
+				/*如果想让页面自动居中，当设置margin属性为auto时不能再设置浮动或绝对定位属性,如下两种*/
+				/*float: left;*/
+				/*position: absolute;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+
+			<div id="header">
+			</div>
+			
+			<div id="mainbody">
+				<div class="content book">
+					<img src="../../img/book1.jpg" width="80" height="80"/>
+					<img src="../../img/book2.jpg" width="80" height="80"/>
+					<img src="../../img/book3.jpg" width="80" height="80"/>
+					<img src="../../img/book4.jpg" width="80" height="80"/>
+					<img src="../../img/book5.jpg" width="80" height="80"/>
+				</div>
+			</div>
+			
+			<div id="footer">
+			</div>
+		
+		</div>
+	</body>
+</html>

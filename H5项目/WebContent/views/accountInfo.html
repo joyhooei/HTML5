@@ -1,0 +1,111 @@
+<div ng-controller="accountInfoCtr">
+    <div style="width: 96%;min-width: 1025px;">
+    		<div class="aci_box">
+    			<div class="king-page-box">
+		        <div class="king-container clearfix">
+		            <div class="king-tab tab-box ">
+		                <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+		                    <li class="active"> <a data-toggle="tab" href="#demo1" aria-expanded="true">账户总览</a> </li>
+		                    <li class=""> <a data-toggle="tab" href="#demo2" aria-expanded="false">资金变动</a> </li>
+		                </ul>
+		                <div class="tab-content ">
+		                    <div class="tab-pane fade active in" id="demo1">
+		                        <div class="king-tab tab-box ">
+		                            <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+		                                <li class="active"> <a data-toggle="tab" href="#demo3" aria-expanded="true">线上充值</a> </li>
+		                                <li class=""> <a data-toggle="tab" href="#demo4" aria-expanded="true">公对公转账</a> </li>
+		                            </ul>
+		                            <div class="tab-content ">
+		                                <div class="tab-pane fade active in" id="demo3"> 
+		                                		<!--内容放在这里-->
+		                                		<img src="img/login_logo_icon.png"/>
+		                                </div>
+		                                <div class="tab-pane fade in" id="demo4"> 
+		                                		<div id="123" style="width: 100px;height: 100px;background-color: red;">
+		                                		</div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="tab-pane fade" id="demo2">
+		                        <div class="king-tab tab-box ">
+		                            <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+		                                <li class=""> <a data-toggle="tab" href="#demo5" aria-expanded="false">充值记录</a> </li>
+		                                <li class="active"> <a data-toggle="tab" href="#demo6" aria-expanded="false">扣款记录</a> </li>
+		                            </ul>
+		                            <div class="tab-content ">
+		                                <div class="tab-pane fade in" id="demo5"> </div>
+		                                <div class="tab-pane fade in" id="demo6"> </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+    		</div>
+    		
+    		
+    		
+    		
+        <div class="aci_box">
+            <div class="acib_yue">
+                <div class="text">账户余额</div>
+                <div class="aciby_money"><span class="am_value">{{lend}}</span><span>元</span></div>
+            </div>
+            <div class="acib_chongzhi">
+                <div class="text">账户充值</div>
+                <div class="ac_chose_box">
+                    <div class="clearfix">
+                        <a href="javascript:;" class="accb_title fl" ng-class="{'active':payType == 1}" ng-click="changePayType(1)">线上充值</a>
+                        <a href="javascript:;" class="accb_title fl" ng-class="{'active':payType == 2}" ng-click="changePayType(2)">公对公账户</a>
+                    </div>
+                    <div class="alipay_box ac_son_box" ng-show="payType == 1">
+                        <div class="price_box clearfix">
+                            <a class="price_item" ng-click="choiceValType(1000)" ng-class="{'active':valType==1000}">1,000元</a>
+                            <a class="price_item" ng-click="choiceValType(2000)" ng-class="{'active':valType==2000}">2,000元</a>
+                            <a class="price_item price_other" ng-click="choicePriceType(price)" ng-class="{'active':valType==0}">其他金额</a>
+                        </div>
+                        <div class="other_money_box clearfix ng-hide" ng-show="valType == 0">
+                            <span class="fl">其他金额</span>
+                            <input type="text" class="fl" id="price" ng-model ="price" ng-keyup="checkOtherVal($event.target)">
+                            <span class="omb_tips fl">超过10,000请使用公对公转账方式</span>
+                            <span class="omb_error fl hide">请输入一个正整数</span>
+                            <div class="obm_saojiao"></div>
+                        </div>
+                        <div style="height: 52px;">
+	                        <div class="pay_btn" ng-click="doPay()" style="display: block; float: left; line-height: 24px;"><img src="./images/wepay/pay-logo-tip.png" class="pay-logo-tip">支付宝充值</div>
+	                        <div class="pay_btn" ng-click="doWepay()" style="display: block; float: left; line-height: 22px;"><img src="./images/wepay/wepay-logo-tip.png" class="wepay-logo-tip">微信充值</div>
+	                    </div>    
+                    </div>
+                    <div class="unionpay_box ac_son_box" ng-show="payType == 2">
+                        <div>深圳市非零无限科技有限公司</div>
+                        <div><span>帐号：</span><span class="card_number">7559 2470 9910 601</span></div>
+                        <div>开户银行：招商银行股份有限公司深圳科技园支行</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aci_box" style="margin-top: 20px;">
+            <div style="line-height: 18px;">账户余额变动记录</div>
+            <div class="hide" id='db_data1'></div>
+	        <div id="table_data1">
+	            <table class="amount_table">
+	                <thead>
+	                <tr>
+	                    <td class="table_title" width="25%">时间</td>
+	                    <td class="table_title" width="25%">账户余额变动（元）</td>
+	                    <td class="table_title" width="25%">账户余额（元）</td>
+	                    <td class="table_title">备注</td>
+	                </tr>
+	                </thead>
+	                <tbody id="data_body1">
+	                </tbody>
+	            </table>
+	            <div class="tb_page">
+	            </div>
+	        </div>
+        </div>
+    </div>
+</div>
+<div id='form_data' class="hide"></div>

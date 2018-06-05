@@ -1,0 +1,18 @@
+/***************重置（基础）***************/
+*{font-family:"微软雅黑","宋体","Arial Narrow"; padding:0; margin:0;}
+body{ background:#fff;font-size:14px; position:relative; height:100%; width:100%; color:#333; outline:0;}
+html{ height:100%;}
+img{ border:0; line-height:0;}
+button{ border:0;}
+a{ text-decoration:none;}
+input{ font-size:14px;}
+a > img {display: inline-block;}
+.error {color: red;}
+li{ list-style:none;}
+.center{ text-align:center;} 
+input[type="submit"]{ cursor:pointer;}
+.clearfix:after{clear: both;display:block;content:' ';}
+.fl{float: left} .fr{float: right}
+.noselect{-webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;}

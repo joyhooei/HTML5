@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>编辑</title>
+		<meta name="renderer" content="webkit">
+	    <link rel="stylesheet" href="css/reset.css">
+	    <link rel="stylesheet" href="css/main.css">
+	    <link rel="stylesheet" href="css/left_list.css">
+	    
+	    <style type="text/css">
+	    		
+	    		.ib_title {
+			    margin-bottom: 50px;
+			    padding-left: 35px;
+			    font-size: 20px;
+			    color: black;
+			}
+			.ib_tips {
+			    line-height: 14px;
+			    margin-top: 20px;
+			    color: #ff0000;
+			    padding-left: 35px;
+			    padding-bottom: 20px;
+			}
+			
+			.save_button {
+			    margin: 0;
+			    height: 40px;
+			    width: 207px;
+			    text-align: center;
+			    line-height: 40px;
+			    color: #fff;
+			    border: none;
+			    font-size: 16px;
+			    cursor: pointer;
+			    background-color: rgb(31,181,173);
+			    margin: 30px auto auto 200px;
+			}
+			
+	    </style>
+	    
+	</head>
+	<body>
+		<div class="box_body">
+	    <!--nav start-->
+	    <div class="load-template-html box_body_left" data-src="template/nav.html"></div>
+	    <!--nav end-->
+	    <div class="box_body_right">
+	        <!--top start-->
+	        <div class="load-template-html" data-src="template/top.html"></div>
+	        <!--top end-->
+	        <!--content start-->
+	        <div class="right_cont">
+	        	
+	            <form class="info_box" action="#" method="post">
+	            		<div class="ib_title">活动信息</div>
+	            		<!--<div class="ib_tips">请填写真实信息，方便我们为您提供更全面的服务。</div>-->
+	            		<p><strong>活动名称</strong><span class="ng-binding">ubktest@test.com</span></p>
+	            		<p><strong>开始时间</strong>
+			            <span><input name="company" id="starttime" type="text" maxlength="30" class="input_txt_big" placeholder="时间格式为：2017年10月1日 20:00:00"></span>
+			        </p>
+        			
+	        			<p><strong>结束时间</strong>
+			            <span><input name="name" id="endtime" type="text" maxlength="10" class="input_txt_big" placeholder="时间格式为：2017年10月1日 20:00:00"></span>
+			        </p>
+			        
+			        <p><strong>总额</strong>
+			            <span><input name="mobile" id="amount" maxlength="20" type="text" class="input_txt_big"></span>
+			        </p>
+			        
+			        <p><strong>URL</strong>
+			            <span><input name="mobile" id="url" maxlength="20" type="text" class="input_txt_big"></span>
+			        </p>
+			        
+			        <p><strong>合作方</strong>
+			            <span><input name="mobile" id="cooperation" maxlength="20" type="text" class="input_txt_big"></span>
+			        </p>
+			        
+			        <p><strong>KEY</strong>
+			            <span><input name="mobile" id="key" maxlength="20" type="text" class="input_txt_big"></span>
+			        </p>
+		        
+	            	<input type="button" class="save_button" value="保存">
+	            </form>
+	            
+	            <div class="tb_page"></div>
+	        </div>
+	        <!--content end-->
+	    </div>
+	</div>
+	<!--footer start-->
+	<div class="load-template-html" data-src="template/footer.html"></div>
+	<!--footer end-->
+	<img src="img/loading_bg.gif" class="loading_img hide"/>
+	<script src="js/jquery-1.6.3.js"></script>
+	<!--<script src="js/common.js"></script>-->
+	<script>
+		//选中左侧导航栏的哪一项
+	    window.Feelwx = window.Feelwx || {};
+	    Feelwx.selectNavIndex=function(){
+	        $('#nav_index_3').addClass('navbg_on');
+	    }
+	</script>
+	<script src="js/util.js"></script>
+	</body>
+</html>

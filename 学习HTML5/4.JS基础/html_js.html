@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>js文件</title>
+		<!--引用js文件-->
+		<!--<script src="javascript.js"></script>-->
+		
+		<script type="text/javascript">
+			var dog = "dog";
+			//document.write() 可用于直接向 HTML 输出流写内容。简单的说就是直接在网页中输出内容
+			//多项内容之间用+号连接  <br>换行符
+			document.write("Do you love" + "<br>" + dog);
+
+			//JavaScript-警告（alert 消息对话框）
+			alert("hello");
+			
+			//JavaScript-确认（confirm 消息对话框)传值
+			var yes = confirm("你有小鸡鸡吗？");
+			if (yes == true) {
+				document.write("你是男的");
+			} else{
+				document.write("你是女的");
+			}
+			
+			/*JavaScript-提问（prompt 消息对话框）
+			 prompt(str1, str2);
+			str1: 要显示在消息对话框中的文本，不可修改
+			str2：文本框中的内容，可以修改
+			返回值:1. 点击确定按钮，文本框中的内容将作为函数返回值
+					2. 点击取消按钮，将返回null
+			 * */
+			var str = prompt("请输入年龄：",26);
+			if (str != null) {
+				alert(str);
+			} else{
+				alert("没有输入")
+			}
+			
+			/*JavaScript-打开新窗口（window.open）
+			 window.open([URL], [窗口名称], [参数字符串])
+			 URL：可选参数，在窗口中要显示网页的网址或路径。如果省略或者它的值是空字符串，则窗口就不显示任何文档。
+			窗口名称：可选参数，被打开窗口的名称。
+    			1.该名称由字母、数字和下划线字符组成。
+		    2._blank：在新窗口显示目标网页 _self：在当前窗口显示目标网页 _top：框架网页中在上部窗口中显示目标网页
+		    3.相同 name 的窗口只能创建一个，要想创建多个窗口则 name 不能相同。
+		   	4.name 不能包含有空格。
+			参数字符串：可选参数，设置窗口参数，各参数用逗号隔开。<参数表>
+			 * */
+			window.open("http://www.baidu.com","_blank","width=1000,height=1000,top=100");
+
+			/*JavaScript-关闭窗口（window.close）
+			 window.close();   //关闭本窗口
+			 <窗口对象>.close();   //关闭指定的窗口
+			 * */
+			var mywindow = window.open("http://www.baidu.com");
+			var close = confirm("关闭窗口：")
+			if (close == true) {
+				mywindow.close();
+			}
+			
+		</script>
+		
+	</head>
+	<body>
+		
+	</body>
+</html>

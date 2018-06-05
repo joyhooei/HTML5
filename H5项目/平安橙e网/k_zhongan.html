@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>众安盗刷险</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		
+    		<script>
+    		//通过js控制根目录font-size，从而做到屏幕适配。
+        (function(win){
+        		var doc=win.document;
+        		var html=doc.documentElement;
+        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+        		html.style.fontSize=clientWidth/750*50+"px"};
+        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+        		doc.addEventListener("DOMContentLoaded",recalc,false);
+        		recalc()
+        		}
+        	)(window);
+        	
+        	var _hmt = _hmt || [];
+	    (function() {
+	      var hm = document.createElement("script");
+	      hm.src = "https://hm.baidu.com/hm.js?b2f2b89ac338086dc1a0e051060f697d";
+	      var s = document.getElementsByTagName("script")[0];
+	      s.parentNode.insertBefore(hm, s);
+	    })();
+        	
+   		</script>
+   		
+   		<style type="text/css">
+   			body{margin: 0; padding: 0; width: 100%; height: 100%;font-family: "microsoft yahei";color: #706c67;font-weight: normal;}
+   			.content{position: relative;max-width: 750px; margin: 0 auto;font-size: .6rem;width:100%;text-align: center;background-color: #5e269d;
+   			}
+   			.rules{background-color: #f6e8d8;width: 14rem;margin: 2.6rem auto 1rem;;border-radius: .8rem;}
+   			#rules_title{position: relative; top: -0.6rem;width: 9rem;}
+   			p{width: 12rem;display: inline-block;text-align: left;margin-bottom: 1rem;}
+   			.title{color: #3d3d3d !important;font-weight: bold;}
+   		</style>
+	</head>
+	<body >
+		<div class="content">
+			<img src="img/zhong_an/header.png" style="width: 100%;"/>
+			<img src="img/zhong_an/btn.png" style="width: 9.5rem;" onclick="joinIn()"/>
+			
+			<div class="rules">
+				<img id="rules_title" src="img/zhong_an/title.png"/>
+				<p>
+					<span class="title">1.活动时间</span>：2017年6月1日-2017年6月30日<br /><br /><span class="title">2.活动对象</span>：仅限活动期间众安保险新注册用户<br /><br /><span class="title">3.活动步骤</span>：<br />(1)点击“立即注册抢Q币”，填写手机号及验证码，成为众安保险注册用户；<br />(2)进入银行卡盗刷险产品详情页，体验保险投保；<br />(3)下载并登录众安APP，进行保单查询体验。体验完成后，我们将把券码发送至您的账户，您可点击首页“福利社”，进入Q币兑换页面获取兑换码，点击兑换按钮即可完成兑换。<br /><br />4.出现任何违规行为(如利用漏洞,机器作弊等)众安有权取消您的活动资格，必要时追究法律责任。<br /><br />5.本活动最终解释权归众安在线财产保险股份有限公司所有，服务热线10109955。<br />
+				</p>
+			</div>
+			<div style="height: 1rem;width: 100%;"></div>
+			
+		</div>
+		
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+		
+			//统计数据
+			function countData(num) {
+              var xmlHttp;
+              if (window.ActiveXObject) {
+                  xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+              } else {
+                  if (window.XMLHttpRequest) {
+                      xmlHttp = new XMLHttpRequest();
+                  }
+              }
+              xmlHttp.open("GET", "./CountIP?page_id=" + num + "&channel_id=10");
+              xmlHttp.send();
+          }
+			//
+			function joinIn(){
+				//统计注册按钮点击次数
+				countData(527);
+				window.location.href="https://evt.zhongan.com/qb/otp?bizOrigin=qb";
+				_hmt.push(['_trackPageview', 'duihuan.html']);
+			}
+			
+		    //统计页面打开次数
+		    countData(526);
+
+		</script>
+	</body>
+</html>

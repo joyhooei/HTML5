@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box1{height: 100px;background: red;float: left;}
+			.box2{height: 100px;background: blue;float: left;}
+			/*要想让p标签不受浮动的影响而紧挨着box2右边，对p标签 设置清除浮动,有以下两种方法*/
+			/*p{clear: both;}*/
+			/*同时设置width100%和overflow属性为hidden才有效果*/
+			p{width: 100%;overflow:hidden;}
+		</style>
+	</head>
+	<body>
+		<p>哈师大看到哈打开</p>
+		<div class="box1">
+			123 <!--当元素没有设置宽度值时，而设置了浮动属性，元素的宽度随着内容的变化而变化，没有内容时盒子不显示-->
+			<!--当元素设置浮动属性后，会对紧邻它后面的元素产生影响-->
+		</div>
+		<div class="box2">
+			内容123
+		</div>
+		<p>哈师大看到哈打开哈师大看到哈打开哈师大看到哈打开哈师大看到哈打开哈师大看到哈打开哈师大看到哈打开</p>
+	</body>
+</html>

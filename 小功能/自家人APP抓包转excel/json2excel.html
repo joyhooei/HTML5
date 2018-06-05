@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>自家人APP数据导出Excel</title>
+	
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cuikangjie.github.io/JsonExportExcel/dist/JsonExportExcel.min.js"></script>
+    
+    
+    <!--<script src="JsonExportExcel.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>-->
+    
+    <script>
+    	
+    window.onload=function(){
+	    $.ajax({
+	        url: 'json.txt',
+	        dataType: 'text',
+	        success: function(data) {
+	            getExcel(JSON.parse(data));
+	            alert("导出excel成功！");
+	        },
+	        error:function(){
+	        		alert("导出excel出错！");
+	        }
+	    });
+	};
+    	
+    
+    function getExcel(data) {
+        var option={};
+        var myDate = new Date(); 
+        
+        option.fileName = '自家人APP商品价格' + myDate.toLocaleDateString();
+        option.datas=[
+          {
+            sheetData:data,// 数据
+            sheetHeader:// 第一行
+            [
+	            'recommend',
+	            '原价/元',
+	            '已售',
+	            '促销ID',//宣传id
+	            "单位",
+	            "id",
+	            "商品名称",
+	            "status",
+	            "城市ID",
+	            "库存",
+	            "规格",
+	            "图片地址",
+	            "现价/元"
+            ],
+          }
+        ];
+        var toExcel=new ExportJsonExcel(option);
+        toExcel.saveExcel();
+    };
+    
+    </script>
+</head>
+<body>
+</html>

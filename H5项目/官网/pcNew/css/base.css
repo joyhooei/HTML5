@@ -1,0 +1,208 @@
+﻿@charset "UTF-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+html{font-family:'Microsoft Yahei',sans-serif;color: #333;font-weight: normal;font-size: 16px;}
+header,section,article,footer{display: block;}
+ul,ol{list-style:none}a{text-decoration:none}a:hover{text-decoration:none}.wordwrap{word-break:break-all;}
+body{background: #fff;}
+.fl{float: left;} 
+.fr{float: right;} 
+.clear,.clear:after{clear: both;content: " ";display: block;}
+input,button,textarea{outline: none;}img{border: 0;}
+.wrapper{width: 1200px;min-width: 1200px;margin: 0 auto;position: relative;}
+.content{width: 100%;margin-top: 90px;position: relative;}
+.hide{display: none}
+
+/*页脚 页头*/
+.header{width: 100%;height: 90px;line-height: 90px;background: #428bf1;position: fixed;top: 0;z-index: 520;font-size: 16px;}
+#header_content{margin-top: 29px;}
+.logo{display: block;width: 180px;height: 32px;background: url(../img/public/logo_white.png) no-repeat;}
+.logo_white{background: url(../img/public/logo_white.png) no-repeat;}
+.logo_blue{background: url(../img/public/logo_blue.png) no-repeat;}
+.header ul{height: 36px;margin-right: 21px;}
+.header ul li{float: left;margin-left: 7px;width: 106px;height: 36px;position: relative;}
+.header ul li:first-child{width: 88px;}
+.header ul li:last-child{width: 112px;margin-left:10px;}
+.header ul li:last-child a{font-size: 14px;}
+.header ul li:last-child a:hover{text-decoration: underline !important;}
+.header ul li a{font: "microsoft yahei" lighter 18px;text-align: center;width: 100%;height: 100%;display: inline-block;line-height: 36px;position: absolute;color: #fff;font-size: 16px;font-weight: normal;border-radius:18px;}
+.login_btn{margin-left: 225px !important;width: 66px !important;}
+.login_btn a{font-size: 14px !important;}
+.login_btn a:hover{text-decoration: underline !important;}
+.header_text_blue{color: #0d4494 !important;}
+.header_text_white{color: #fff !important;}
+.header_active{background-color: #0d4494;color: #fff !important;border-radius: 18px;}
+
+.footer{width: 100%;height: 157px;color: #555555;margin-top: 145px;}
+.footer_info a{color: #8E8E8E; display:block;width: 93px;height: 28px;font-size: 12px;font-weight: lighter;}
+.footer_info a:hover{color: #0d4494;text-decoration: underline;}
+.footer .footer_info{height: 114px;width: 450px;margin: 0 auto;}
+.footer_title{font-size: 14px;color: #555;width: 93px;height: 31px;}
+
+.footer .footer_msg{height: 44px;line-height: 44px;text-align: center;border-top: 1px solid #f0f0f0;color: #999;font-size: 12px;font-weight: lighter;}
+#mail,#phone{color: #8E8E8E;font-size: 12px;font-weight: lighter;height: 28px;text-indent: 25px;line-height: 25px;}
+#phone{background: url(../img/public/phone.png) no-repeat 0;}
+#mail{background: url(../img/public/mail.png) no-repeat 0;}
+.user_bank{width: 160px;}
+.user_bank .footer_title{height: 26px;}
+.about_us,.foot_help,.user_bank{display: inline-block;}
+#qrcode{height: 80px;float: right;display: inline-block;}
+
+.opacity0{opacity: 0;position: relative;}
+.animation_up{animation: animation_up 1s both;}
+@keyframes animation_up{
+	0% {opacity: 0;top:20px;}
+	100% {opacity: 1;top: 0;}
+}
+/* Firefox */
+@-moz-keyframes animation_up {
+    0% {opacity: 0;top:20px;}
+	100% {opacity: 1;top: 0;}
+}
+/* Safari 和 Chrome */
+@-webkit-keyframes animation_up {
+    0% {opacity: 0;top:20px;}
+	100% {opacity: 1;top: 0;}
+}
+/* Opera */
+@-o-keyframes animation_up {
+   0% {opacity: 0;top:20px;}
+	100% {opacity: 1;top: 0;}
+}
+
+.animation_down{animation: animation_down 1s both;}
+@keyframes animation_down{
+	0% {opacity: 1;top:0px;}
+	100% {opacity: 0;top: 20px;}
+}
+/* Firefox */
+@-moz-keyframes animation_down {
+    0% {opacity: 1;top:0px;}
+	100% {opacity: 0;top: 20px;}
+}
+/* Safari 和 Chrome */
+@-webkit-keyframes animation_down {
+    0% {opacity: 1;top:0px;}
+	100% {opacity: 0;top: 20px;}
+}
+/* Opera */
+@-o-keyframes animation_down {
+   	0% {opacity: 1;top:0px;}
+	100% {opacity: 0;top: 20px;}
+}
+
+/*自定义鼠标光标放在上面变小手*/
+.ubk-cursor-pointer{cursor: pointer;}
+
+/*带动画的淡出：cubic-bezier贝塞尔曲线*/
+.plieOne{animation: plieOne 5s cubic-bezier(.08,1.04,.27,.98) both 0.5s;}
+.plieTwo{animation: plieTwo 5s cubic-bezier(.08,1.04,.27,.98) both 0.8s;}
+.plieThree{animation: plieThree 5s cubic-bezier(.08,1.04,.27,.98) both 1.3s}
+.plieFour{animation: plieFour 5s cubic-bezier(.08,1.04,.27,.98) both 1.6s;}
+@keyframes plieOne{
+	0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,-68px,0);opacity: 1;}
+}
+/* Firefox */
+@-moz-keyframes plieOne {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,-68px,0);opacity: 1;}
+}
+/* Safari 和 Chrome */
+@-webkit-keyframes plieOne {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,-68px,0);opacity: 1;}
+}
+/* Opera */
+@-o-keyframes plieOne {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,-68px,0);opacity: 1;}
+}
+
+@keyframes plieTwo{
+	0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,-8px,0);opacity: 1;}
+}
+/* Firefox */
+@-moz-keyframes plieTwo {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,-8px,0);opacity: 1;}
+}
+/* Safari 和 Chrome */
+@-webkit-keyframes plieTwo {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,-8px,0);opacity: 1;}
+}
+/* Opera */
+@-o-keyframes plieTwo {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,-8px,0);opacity: 1;}
+}
+
+@keyframes plieThree{
+	0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,52px,0);opacity: 1;}
+}
+/* Firefox */
+@-moz-keyframes plieThree {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,52px,0);opacity: 1;}
+}
+/* Safari 和 Chrome */
+@-webkit-keyframes plieThree {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,52px,0);opacity: 1;}
+}
+/* Opera */
+@-o-keyframes plieThree {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(-60px,52px,0);opacity: 1;}
+}
+
+@keyframes plieFour{
+	0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,112px,0);opacity: 1;}
+}
+/* Firefox */
+@-moz-keyframes plieFour {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,112px,0);opacity: 1;}
+}
+/* Safari 和 Chrome */
+@-webkit-keyframes plieFour {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,112px,0);opacity: 1;}
+}
+/* Opera */
+@-o-keyframes plieFour {
+    0% {opacity: 0;transform: translateZ(0);}
+	30% {opacity: 1;}
+	100% {transform: translate3d(45px,112px,0);opacity: 1;}
+}
+
+
+.female{animation: opacityTo1 1s both 3.2s;}
+.male{animation: opacityTo1 1s both 4s;}
+@keyframes opacityTo1{0% {opacity: 0;}100% {opacity: 1;}}
+@-moz-keyframes opacityTo1{0% {opacity: 0;}100% {opacity: 1;}}
+@-webkit-keyframes opacityTo1{0% {opacity: 0;}100% {opacity: 1;}}
+@-o-keyframes opacityTo1{0% {opacity: 0;}100% {opacity: 1;}}
+
+@keyframes rocketFly{0% {transform: translateZ(0);}100% {transform: translate3d(0,-105px,0);}}
+@-moz-keyframes rocketFly{0% {transform: translateZ(0);}100% {transform: translate3d(0,-105px,0);}}
+@-webkit-keyframes rocketFly{0% {transform: translateZ(0);}100% {transform: translate3d(0,-105px,0);}}
+@-o-keyframes rocketFly{0% {transform: translateZ(0);}100% {transform: translate3d(0,-105px,0);}}

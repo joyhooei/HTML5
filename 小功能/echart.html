@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts-all.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1400px;height:480px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+	    title : {
+	        text: '下载趋势',
+			color:'gray',
+	        x:80,
+	        y:20,
+	        textStyle: {
+				fontSize: 16,
+				fontStyle: 'normal',
+				fontWeight: 'lighter',
+				},
+	    },
+	    //提示
+	    tooltip : {
+	        trigger: 'axis',
+	        borderRadius: 10,
+	    },
+	    //工具箱
+	    toolbox: {
+	        show : false,
+	        feature : {
+	            mark : {show: true},
+	            dataView : {show: true, readOnly: false},
+	            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+	            restore : {show: true},
+	            saveAsImage : {show: true}
+	        }
+	    },
+	    calculable : true,
+	    xAxis : [
+	        {
+	            type : 'category',
+	            boundaryGap : false,
+	            data : ['2016-11-30','2016-12-1','2016-12-2','2016-12-3','2016-12-4','2016-12-5','2016-12-6'],
+	            axisLine:{show:false},//x轴不显示
+	            splitLine : {show:false,}
+	        }
+	    ],
+	    yAxis : [
+	        {
+	            type : 'value',
+	            axisLine:{show:false},
+	            splitLine : {
+	                show:true,
+	                lineStyle: {
+	                    color: 'gray',
+	                    type: 'dashed',
+	                    width: 1
+	                }
+	            },
+	        }
+	    ],
+	    series : [
+	        {
+	            name:'数据',
+	            type:'line',
+	            smooth:true,
+	            itemStyle: {
+	            		normal: {
+	            			areaStyle: {
+	            				color:'rgba(2,127,235,.7)',
+	            			},
+	            			lineStyle:{
+	            			},
+	            			}
+	            		},
+	            data:[14, 12, 17, 15, 22, 28, 32]
+	        }
+	    ],
+		
+	};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

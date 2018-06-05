@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>UBK应用市场合作数据后台</title>
+		<meta name="renderer" content="webkit">
+		
+		<link rel="stylesheet" type="text/css" href="css/register.css"/>
+		
+	</head>
+	<body class="bg_register">
+		<div class="box_reg">
+			<!--标题-->
+			<div class="title">
+				<h2 style="padding-top: 70px;">应用市场合作数据后台</h2>
+				<h2 style="padding-top: 25px;">—— 注册开发者账号 ——</h2>
+			</div>
+			
+			<!--注册邮箱-->
+			<div class="register">
+				<input type="text" id="reg_email" placeholder="注册邮箱"/>
+				<p id="email_msg" class="message hide">请输入正确的邮箱地址</p>
+				<input type="password" id="psd_1" placeholder="密码"/>
+				<p id="psd1_msg" class="message hide">(1)请输入6-20位密码<br />(2)只能包含字母、数字以及标点符号(除空格)</p>
+				<input type="password" id="psd_2" placeholder="确认密码"/>
+				<p id="psd2_msg" class="message hide">两次输入的密码不一致</p>
+				<p style="margin-top: 45px;color: #8d8d8d;">完成注册，即表示您同意并遵守<a class="ubk-text-color" href="#">《UBK服务协议》</a></p>
+				<input type="button" class="ubk-cursor-pointer" value="立即注册" onclick="nextStep()"/>
+				<a id="link_login" href="login.html">已有账号？马上登录</a>
+			</div>
+			
+			<!--发送验证码-->
+			<div class="send_captcha hide">
+				<h1>请激活您的UBK账号</h1>
+				<h2>验证邮件已经发送到：<a href="javascript:;" id="email" onclick="toEmail()"></a>,请查收邮件激活帐号。</h2>
+				
+				<div class="bottom_message">
+					<p>没有收到邮件？</p>
+					<p>1. 请检查邮箱是否填写正确，您可以 <a href="register.html">重新填写</a></p>
+					<p>2. 请尝试查看垃圾邮件文件夹</p>
+					<p>3. 若还是未找到，请耐心等待，或者 <a id="send_again">重新发送</a></p>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="water">
+			<img id="water1" src="img/login/water1.png" style="position: absolute;top: 0px;left: 0px; "/>
+			<img id="water2" src="img/login/water2.png" style="position: absolute;top: 60px;left: -1600px;"/>
+			<img id="water3" src="img/login/water2.png" style="position: absolute;top: 60px;left: -300px;"/>
+		</div>
+	</body>
+	
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/register.js"></script>
+	
+</html>

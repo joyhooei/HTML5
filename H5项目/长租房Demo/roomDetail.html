@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>UBK商城</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<script>
+			//通过js控制根目录font-size，从而做到屏幕适配。
+			(function(win) {
+				var doc = win.document;
+				var html = doc.documentElement;
+				var resizeEvt = "orientationchange" in win ? "orientationchange" : "resize",
+					recalc = function() {
+						var clientWidth = html.clientWidth > 750 ? 750 : html.clientWidth;
+						html.style.fontSize = clientWidth / 750 * 50 + "px"
+					};
+				if(!doc.addEventListener) {
+					return
+				}
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+				recalc()
+			})(window);
+		</script>
+
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.contentDiv {
+				max-width: 750px;
+				margin: 20px 1rem 0 1rem;
+				font-size: .4rem;
+			}
+			
+			.backBtn {
+				display: block;
+				width: 32px;
+   				height: 32px;
+				margin: .8rem 0 0 1rem;
+				background-image: url(img/backBtn.png);
+			}
+			.projectItem img{
+   				width: 100%;
+   			}
+   			.projectItem p{
+   				font-size: .6rem;
+   				margin: 0 auto;
+   				width: 4rem;
+   			}
+   			.left{
+   				float: left;
+   				text-align: left;
+   			}
+   			.right{
+   				float: right;
+   				text-align: right;
+   				color: rgb(26,188,156);
+   			}
+   			.roomDetail{
+   				margin-top: 2rem;
+   			}
+   			.roomDetail p{
+   				font-size: .5rem;
+   			}
+   			.roomDetail img{
+   				width: 100%;
+   			}
+   			#btnDiv{
+   				position: fixed;
+   				bottom: 0.8rem;
+   				left: 0;
+   				width: 100%;
+   				height: 2rem;
+   				max-width: calc(750px + 2rem);
+   			}
+   			#roomPay{
+   				background-color:#7937b0;
+   				margin: 0 auto;
+   				display: block;
+   				width: 12rem;
+   				height: 2rem;
+   				line-height: 2rem;
+   				color: white;
+   				text-align: center;
+   				font-size: .8rem;
+   				border-radius: 1rem;
+   				text-decoration: none;
+   			}
+			.blank{
+				height: 3rem;
+			}
+			h2{
+				height: 1rem;
+				border-bottom: 1px solid lightgray;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<a class="backBtn" href="roomList.html"></a>
+		<div class="contentDiv">
+			
+			<div class="projectItem">
+				<img/>
+				<p class="left"></p>
+				<p class="right"></p>
+			</div>
+			
+			<div class="roomDetail">
+				<h2>房间介绍</h2>
+				<p>3分钟搭地铁，3分钟回公寓，3分钟任性shopping，3分钟就餐大快朵颐，3分钟百货超市闲逛，3分钟漫步一路向海，3分钟代价，挥霍一个人时间，乐享整个城市的精粹！</p>	
+				<p>挚π，每一种可能，变得轻松，不在辜负每一天的好时光！</p>
+				<p>挚π，友好、热情、自在、分享！</p>
+				<p>挚π，与您整装待发！</p>
+				<br />
+				<p>① 纯地铁口②智能小区③独立卫浴④高清安防系统⑤家电齐全⑥入户电梯⑦拎包入住⑧光纤WIFI⑧社群活动⑨开放式公共区</p>
+				<br />
+				<p>交通：地铁口，交通便利，距离地铁站300-800米</p>
+				<p>特色：1、防噪透亮大玻璃隔窗；2、优质床垫睡眠改善系统；3、干净卫生的浴卫干湿分区；4、空间优化清爽实用，自带客厅餐厅阳台厨房花园各有不同；5、24h专业高清人机安防系统；6、卫生便利的独立洗衣冰箱生活设施设备；7、10秒速热中央热水系统；8、方便便捷的社区商业买买买；9、周边配套美食街，超市随吃随有；10、多条地铁巴士城市轨道线路自由通行。</p>
+				<img id="image2" src=""/>
+				<img id="image3" src=""/>
+				<img id="image4" src=""/>
+				
+			</div>
+			<div id="btnDiv">
+				<a id="roomPay" href="">立即租下</a>
+			</div>
+			<div class="footer projectItem"></div>
+			<p class="blank"> </p>
+		</div>
+
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			$(".footer").load('footer.html');
+			
+			function getParams(name){
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r!=null) return unescape(r[2]); return null;
+			}
+			$(".projectItem .left").html(getParams('id') + "房型");
+			$(".projectItem .right").html(getParams('money').substr(1));
+			$(".projectItem img").attr("src","img/room/208_"+ getParams('id') +"fangxing-1.jpg")
+
+			$("#image2").attr("src","img/room/208_"+ getParams('id') +"fangxing-2.jpg")
+			$("#image3").attr("src","img/room/208_"+ getParams('id') +"fangxing-3.jpg")
+			$("#image4").attr("src","img/room/208_"+ getParams('id') +"fangxing-4.jpg")
+		
+			$("#roomPay").attr('href',"roomPay.html" + window.location.search);
+
+		</script>
+	</body>
+
+</html>

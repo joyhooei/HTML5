@@ -1,0 +1,54 @@
+﻿@charset "UTF-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+html{font-family:'Microsoft Yahei',sans-serif;color: #333;}
+header,section,article,footer{display: block;}
+ul,ol{list-style:none}a{text-decoration:none}a:hover{text-decoration:none}.wordwrap{word-break:break-all;}
+.mg_auto{margin: 0 auto;} 
+.center{text-align: center} 
+.fl{float: left;} 
+.fr{float: right;} 
+.clear,.clear:after{clear: both;content: " ";display: block;}
+input,button,textarea{outline: none;}img{border: 0;}
+.wrapper{width: 1200px;margin: 0 auto;position: relative;}
+.content{width: 100%;}
+.hide{display: none}
+/*@font-face {font-family: 'siyuan-light';
+    src: url('../font/webfont.eot'); /* IE9*/
+    /*src: url('../font/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    /*url('../font/webfont.woff') format('woff'), /* chrome、firefox */
+    /*url('../font/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    /*url('../font/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+/*}*/
+.light_title{font-family: 'siyuan-light','Microsoft Yahei', sans-serif}
+/*页脚 页头*/
+.header{width: 100%;height: 62px;line-height: 62px;background: #fff;position: fixed;top: 0;z-index: 520;border-bottom: 6px solid #004892;box-shadow: 0 0 3px 0 #eee;font-size: 16px;}
+.footer{width: 100%;height: 200px;color: #555555;}
+.logo{display: block;width: 200px;height: 32px;background: url(../img/logo.png) no-repeat;margin-top: 16px;}
+.header ul{height: 62px;margin-left: 20px;}
+.header ul li{float: left;margin-left: 54px;}
+.header ul li a{color: #666;font: "microsoft yahei" lighter 18px;}
+.header ul li a:hover{color: #003399;}
+.header ul li a.active{color: #003399;font-weight: bold;}
+.header-btn{display: block;width: 86px;height: 32px;line-height: 32px;text-align: center;border-radius: 3px;color: #fff;margin-top: 17px;float: right;background-color: #fda014;}
+.header-btn:hover{background: #395aa1;}
+.login-btn{margin-left: 100px;}
+.register-btn{margin-left: 20px;}
+.footer_info a{color: #555; display:block;width: 140px;height: 30px;font-size: 16px;}
+.footer a{width: 140px;height: 30px;color: #555;}
+.footer a.zhaoping{margin-left: 460px;}
+.footer a.friend{height: 14px;line-height: 14px;padding:13px 55px 13px 0px;background: url("../images/icon/foot_friend_icon.png") no-repeat right 0;}
+.footer .footer_msg{height: 16px;line-height: 16px;text-align: center;position: relative;
+    top: 100px;border-top: 1px solid #e6e6e6;padding-top: 8px;padding-bottom: 30px;color: #999;}
+.footer .footer_info{padding: 10px 10px 50px 10px;height: 30px;line-height: 30px;}
+.demo_link{height: 18px;color: #999;margin-left: 26px;}
+.demo_link:hover{text-decoration: underline;}
+body{background: #fff;overflow-x: hidden;}
+
+.about_us,.foot_help,.user_bank{display: inline-block;width: 210px;}
+.about_us{margin-left: 120px;}
+.foot_help{margin-left: 40px;}
+.user_bank{margin-left: 170px;}
+.footer_title{height: 20px;padding-bottom: 30px;font-weight: bolder;}
+
+/*自定义鼠标光标放在上面变小手*/
+.ubk-cursor-pointer{cursor: pointer;}

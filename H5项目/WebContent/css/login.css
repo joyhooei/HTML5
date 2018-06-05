@@ -1,0 +1,30 @@
+﻿@charset "utf-8";
+html,body,div,ul,li,a,h1,h2,header,footer,article,section,p,dl,ol,form{font-family:"微软雅黑","Arial Narrow",sans-serif; padding:0; margin:0;color: #444;font-size: 14px;}
+*:focus { outline: none;}
+.fl{float: left;} .fr{float: right;}
+body{height: 100%;overflow: hidden;}
+/*登录框样式*/
+.bg_login{background:url(../images/bg_login.jpg) no-repeat #0a0d1c;background-size:cover;position: relative;}
+.login_box{width:280px;margin:8% auto;background:url(../images/login_box_bg.png) no-repeat;padding-bottom: 10px;position: relative;}
+.lb-logo{height: 30px;padding-top: 77px;background: url("../images/login_logo_icon.png") no-repeat center center;line-height: 26px;text-align: center;font-size: 13px;}
+/*登录输入表单*/
+.login_box form p{position:relative;overflow:hidden;width: 280px;}
+.input_login_txt{height:50px;}
+.input_login_txt input{position:absolute;height:16px;width:180px;top:0;left:75px;font-size:14px;border:0;line-height:16px;padding: 17px 0;background: transparent!important;}
+.input_span{color:#999;font-size:14px;display:block;position:absolute;top:14px;left:75px;}
+#valid{height: 50px;margin-top: 10px;}
+#valid:after{clear: both;content: ' ';visibility: hidden;}
+#captcha_img{display:block;width:99px;height:49px;float:left;display:block;cursor:pointer;margin-left: 15px;}
+.bg_input_3{display:block;width:131px;height: 49px;padding-left:10px;float:left;background:url("../images/yanzhengma_bg.png") no-repeat;margin-left: 10px;}
+.bg_input_3 input{display:block;width: 130px;height:16px;padding: 17px 0;border:none;background: transparent!important;}
+.input_button{display:block;width:250px;height:40px;color:#fff;border:none;background:url(../images/icon/input_h40x2_bg.png) repeat-x;margin:0 auto;cursor:pointer;
+    font-size: 14px;text-align:center;letter-spacing:5px;margin-top: 10px;}
+.input_button:hover{background:url(../images/icon/input_h40x2_bg.png) repeat-x 0 -40px;}
+#password{border-top: 1px solid #708daa;}
+/*login error msg box*/
+.login_alt{position: absolute;left: 285px;top: 138px;width: 90px;line-height: 18px;color: #ff0000;padding: 10px;padding-left:20px;background: url("../images/icon/login_msgbox_bg.png") no-repeat;display: none;font-size: 12px;}
+/*error msg*/
+.register_box label.error{display: block;width: 147px;padding-left: 15px;height: 40px;font-size: 12px;position: absolute;line-height: 40px;background: url("../images/icon/login_msgbox_bg.png") no-repeat;}
+.email_input label.error{left: 260px;top: 5px;}
+#valid  label.error{left: 151px;top: 4px;}
+button{cursor:pointer}

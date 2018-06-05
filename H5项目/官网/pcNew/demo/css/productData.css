@@ -1,0 +1,103 @@
+/*提交资料页面*/
+.content .market_item{display: block; width: 100%; height: 197px;background-color: #fff;margin-top: 10px;border-radius:6px;border: 1px solid #ddd;}
+.content .market_item:first-child{height: 84px;line-height: 84px;margin: 0;}
+#meizu_box{margin-bottom: 20px;}
+.app{display: inline-block;background: url(../img/market/icon_app.png) no-repeat left; padding-left: 30px;font-size: 18px;font-weight: bold;height: 100%;line-height: 84px;margin-left: 30px;width: 30%;}
+.app_message{height: 100%;line-height: 84px;display: inline-block;}
+.app_message p{display: inline-block;text-align: center;}
+.app_message p:first-child{width: 96px;height: 45px;color: #fff;    margin-top: 19px;line-height: 45px;border-radius: 3px;font-weight: lighter;}
+.market_data{display: inline-block;width: 130px;margin-right: 28px;}
+
+.market_line{width: 100%;height: 45px;border-bottom: 1px solid #ecf1f5;}
+.market_icon{display: inline-block;border: 1px solid gainsboro;font-size: 12px;font-weight: bold;color: #555;width: 129px;height: 129px;text-align: center;padding-top: 10px;border-radius:2px;position: relative;top: -21px;left: 30px;background-color: #fff;}
+.market_icon p{margin-top: 8px;}
+.market_data_status{display: inline-block;height: 50px;width: 72%;position: relative;list-style: none;top: -10px;left: 50px;font-size: 14px;}
+.market_data_status li{width: 16.6%; float: left;}
+.market_data_status li:first-child{margin-left: 0;}
+.market_data_status li p{font-weight: lighter;color: #595959;margin-bottom: 13px;font-size: 14px;}
+.market_data_status li h4{font-weight: bold;margin-top: -6px !important;font-size: 16px;font-weight: bold;}
+.li_none{line-height: 50px;text-align: left;color: #d2d2d2;}
+.data_status{width: 8%;height: 45px;float: right;text-align: center;line-height: 45px;color: #fff;font-size: 16px;border-radius: 3px;position: relative;right: 2%;top: -23px;}
+.market_detail_btn{width: 7%;height: 45px;float: right;text-align: center;line-height: 45px;color: #525252;font-size: 14px;border-radius: 3px;position: relative;right: 2.5%;top: 67px;background-color:rgb(211,211,211);cursor: pointer;clear: both;}
+.market_detail_arrow{position: relative;left: 2px;}
+
+.request_star{color: #ff4848;display: inline-block;width: 10px;}
+.unrequest_star{display: inline-block;width: 10px;background-color: red;height: 100%;}
+
+/*应用市场资料*/
+.market_data_content{position: relative;top: -82px;width: 555px;margin: 0 auto;}
+/*填写内容的高度*/
+#gdt_data{height: 581px;}
+#oppo_data{height: 473px; }
+#vivo_data{height: 1018px;}
+#xiaomi_data{height: 1119px;}
+#meizu_data{height: 403px;width: 637px;}
+
+.input_item{height: 70px;}
+.input_item form{width: 432px;padding-top: 15px;}
+.input_item form label{margin-left: 20px;}
+.input_item form label:first-child{margin-left: 0;}
+.input_title_box{height: 50px;display: inline-block;padding-top: 12px;}
+.input_title{width: 108px;display: inline-block;color: #111;font-size: 16px;font-weight: normal;}
+.input_box{float: right;}
+.pd_alert_msg{font-size: 12px;font-weight: lighter;margin: 0;background: url(../img/market/icon_wrong.png) no-repeat left center;padding-left: 16px;color: #ff4848;visibility: hidden;width: 550px;height: 22px;}
+.p_alert_width{width: 430px !important;}
+.input_input{border: 1px solid rgb(160,185,199);border-radius: 3px;width: 432px;height: 46px;padding-left: 10px;font-size: 14px;font-weight: lighter;}
+.input_input::-webkit-input-placeholder{color: #9d9d9d;}
+.input_input::-moz-placeholder{color: #9d9d9d;}
+.input_input::-ms-input-placeholder{color: #9d9d9d;}
+.market_input_msg{text-align: center;margin-top: 15px;}
+.market_input_msg a{color: #ff4848;}
+/*下载资料*/
+.download_data{width: 20px;height: 20px;position: relative;top: 5px;left: 5px;background: url(../img/market/download.png) no-repeat;display: inline-block;}
+/*魅族data*/
+#meizu_data p1,#meizu_data p2{display: block; color:#111;font-weight: lighter;font-size: 14px;height: 24px;}
+#meizu_data p2{margin-left: 17px;}
+#meizu_data p3{display: block;margin-left: 17px;color: #2f7fef;font-size: 14px;font-weight: lighter;height: 24px;}
+#meizu_data input{margin: 0 auto;background-color: rgb(53,130,237);width: 148px;height: 45px;border-radius: 3px;color: white;border: none;display: block;}
+#meizu_data img{margin: 20px 0 5px 0;}
+
+/*上传图片样式*/
+.upload_item{clear: right;}
+.upload_item .upload_title{display: inline-block;margin: 20px 0 10px 0;color: #111;font-size: 16px;font-weight: normal;}
+.upload_img_box{display: inline-block;width: 553px;height: 161px;border: 1px dashed #2e7eef;border-radius: 3px;text-align: center;color: #9a9a9a;font-weight: lighter;}
+.company_card_small {
+    display: inline-block;
+    height: 130px;
+    margin-top: 15px;
+    z-index: 20;
+}
+#yingyongbao_upload2 .webuploader-pick p{width: 470px;position: relative;left: -60px;}
+.apk_box{height: 100px;width: 470px;display: block;background: url(../img/public/icon_apk.png) no-repeat left 0;margin: 25px 0 0 -10px;text-align: left;}
+.apk_box p{margin: 0px;margin-left: 90px;}
+
+.market_btn_box{width: 309px;height: 45px;margin: 0 auto;color: white;margin-left: 44px;}
+.market_btn_box button{width: 148px;height: 100%;border: none;border-radius: 3px;}
+.market_btn_box button:first-child{float: left;visibility: hidden;}
+.market_btn_box button:last-child{float: right;}
+
+/*上传图片*/
+.webuploader-pick{background: #fff !important;padding: 0 !important;color: #9a9a9a !important;overflow: visible;}
+.thumbnail{border: none !important;margin-bottom: 0 !important;}
+.error{display: none !important; }
+.uploader-list{position: relative;top: -135px; width: 350px;height: 130px;left: 100px;}
+/*渠道包的注意信息提示*/
+#pkg_msg_span{position: absolute;top: 520px;left: 0;}
+.yingyongbao_btn_box{position: absolute;top: 584px;}
+.yingyongbao_zizhi_msg{width: 550px;height: 22px;position: absolute;top: 635px;}
+#alert_gdt_package{position: absolute;top: 543px;}
+
+.img_box_position{position: absolute;height: 130px;width: 350px;padding: 0;}
+
+.layui-layer-ico{background: url(../img/public/loading.gif) no-repeat !important;width: 40px !important; height: 40px !important;left: 25px !important;}
+.layui-layer-padding{padding: 22px 30px 22px 80px !important; text-align: center !important;}
+.dialog-box-content{width:100% !important}
+
+/*新增提示信息：完善账户信息并审核通过后才能上传资料*/
+.alert_title_red{color: #ef2f2f;position: absolute;top: -30px;/*display: none;*/}
+
+/*图片遮罩及按钮样式*/
+.upload_img,.look_img{width: 175px;height: 130px;float: left;padding-top: 35px;border: none;}
+.upload_img{background: url(../img/public/icon_upload.png) no-repeat center 35px;}
+.look_img{background: url(../img/public/icon_look.png) no-repeat center 35px;}
+.img_cover_box{width: 350px;height: 130px;border-radius: 3px;background-color: rgba(111,167,241,.8); position: relative;top: -130px;float: left;left: 0;color: #fff;line-height: 110px;z-index: 21;cursor: pointer;}

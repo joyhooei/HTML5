@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		/*行内元素*/
+		/*如果被设置元素为文本、图片等行内元素时，水平居中是通过给父元素设置 text-align:center 来实现的。div是div中间文字的父元素*/
+			.textCenter{
+			text-align: center;
+			}
+		/*定宽块状元素：满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的，两个条件缺一不可*/
+		div{
+			width: 200px;/*定宽*/
+			margin: 20px auto;/* 也可以分别设置margin-left 与 margin-right为 auto */
+		}
+		
+		/*
+		不定宽度的块状元素有三种方法居中（这三种方法目前使用的都很多）：
+		1.加入 table 标签
+		2.设置 display: inline 方法：与第一种类似，显示类型设为 行内元素，进行不定宽元素的属性设置
+		3.设置 position:relative 和 left:50%：利用 相对定位 的方式，将元素向左偏移 50% ，即达到居中的目的
+		 * */
+		
+		
+		/*垂直居中：	1.父元素高度确定的单行文本，
+		 			2.父元素高度确定的多行文本。
+		 父元素高度确定的多行文本、图片等的竖直居中的方法有两种：
+		方法一：使用插入 table  (包括tbody、tr、td)标签，同时设置 vertical-align：middle。
+		方法二：在 chrome、firefox 及 IE8 以上的浏览器下可以设置块级元素的 display 为 table-cell（设置为表格单元显示），激活 vertical-align 属性，但注意 IE6、7 并不支持这个样式, 兼容性比较差。
+
+		 */
+		/*父元素高度确定的单行文本，通过设置父元素的 height 和 line-height 高度一致来实现的*/
+		.container{
+    			height:100px;
+    			line-height:100px;
+    			background:#999;
+			}
+		.wrap{
+			height:300px;
+			background:#ccc;
+			}
+		table td{height:500px;background:#ccc}
+		/*设置.wrap 或者 td 都可以实现*/
+		/*因为 td 标签默认情况下就默认设置了 vertical-align 为 middle，所以我们不需要显式地设置了。*/
+		</style>
+		
+	</head>
+	
+	
+	<body>
+		<div class="textCenter">
+			我想要水平居中
+		</div>
+		
+		<div class="container">
+			<h2>我想要垂直居中</h2>
+		</div>
+		
+		<table>
+			<tbody>
+				<tr>
+					<td class="wrap">
+						<div>
+    							<p>看我是否可以居中。</p>
+    							<p>看我是否可以居中。</p>
+						    <p>看我是否可以居中。</p>
+						    <p>看我是否可以居中。</p>
+						    <p>看我是否可以居中。</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</body>
+</html>

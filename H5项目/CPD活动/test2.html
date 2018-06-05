@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+	
+	<body>
+		<script language="javascript" type="text/javascript" src="http://www.jq-school.com/js/jQuery-1.7.1.js"></script>
+		<script>
+		function shake(o){   
+		    var $panel = $("#"+o);   
+		    box_left = ($(window).width() -  $panel.width()) / 2;   
+		    $panel.css({'left': box_left,'position':'absolute'});   
+		    for(var i=1; 4>=i; i++){   
+		        $panel.animate({left:box_left-(20-5*i)},50);   
+		        $panel.animate({left:box_left+2*(20-5*i)},50);   
+//				$panel.animate({left:box_left-(40-10*i)},50);   
+//		        $panel.animate({left:box_left+2*(40-10*i)},50);
+		    }   
+		}  
+		</script>
+		</style>
+		
+		
+		<span id="shake" style="width:50px; height:50px; background:#000;"></span>
+		<input type="button" onclick="shake('shake')" value="test" />
+	</body>
+</html>

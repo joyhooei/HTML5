@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>UBK用户银行-流量服务</title>
+    <meta content="UBK用户银行,ubk用户银行,用户银行,UKB,ubk,userbank,流量市场,用户流量,用户增长,用户增值,会员VIP,APP,应用,游戏,银行线上获客,银行转型" name="keywords" />
+    <meta content="UBK用户银行,无限你的梦想。为APP提供用户增长和用户增值服务。UBK是非零无限旗下平台，是“User Bank”的简写，意为“用户银行”。" name="description" />
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="css/base.css?v=2.0" />
+    <link rel="Shortcut Icon" href="favicon.ico">
+    <link rel="Bookmark" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <style>
+        .box_width {
+            width: 448px;
+        }
+        
+        button,
+        .button {
+            display: block;
+            width: 151px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 20px;
+            background-color: #428BF1;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 76px;
+            border: none;
+        }
+        
+        button:hover,
+        .button:hover {
+            background-color: #0d4494;
+        }
+        
+        .banner {
+            width: 100%;
+            height: 560px;
+            position: relative;
+            background-color: #428bf1;
+            overflow: hidden;
+        }
+        
+        #banner_title {
+            width: 579px;
+            height: 75px;
+            margin-top: 179px;
+        }
+        
+        #banner_title img {
+            margin-left: 5px;
+        }
+        
+        #banner_img_box {
+            width: 629px;
+            height: 578px;
+            position: absolute;
+            top: -179px;
+            right: 5px;
+        }
+        
+        #banner_img_box img {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        #banner_img_box img:last-child {
+            margin-top: -8px;
+            width: 323px;
+        }
+        
+        .first_item {
+            margin-top: 69px;
+            height: 471px;
+        }
+        
+        #first_img {
+            margin-left: 12px;
+            width: 561px;
+            height: 376px;
+        }
+        
+        .first_box {
+            margin-right: 76px;
+            margin-top: 31px;
+        }
+        
+        .first_title {
+            height: 48px;
+        }
+        
+        .subtitle {
+            color: #999;
+            font-size: 16px;
+            height: 20px;
+        }
+        
+        .first_text {
+            color: #acacac;
+            height: 100px;
+            font-size: 14px;
+            line-height: 29px;
+            text-align: justify;
+        }
+        
+        h3 {
+            font-size: 16px !important;
+            color: #4a4a4a;
+            font-weight: normal;
+            line-height: 29px;
+        }
+        
+        #first_h3 {
+            margin-top: 47px;
+        }
+        
+        .second_item {
+            height: 539px;
+            margin-top: 68px;
+        }
+        
+        .second_box {
+            margin: 36px 0 0 76px;
+        }
+        
+        .second_box ul {
+            margin-top: 22px;
+            list-style: none;
+        }
+        
+        .second_box ul li {
+            display: inline-block;
+            width: 100%;
+            margin-top: 14px;
+        }
+        
+        .second_box ul li p {
+            font-size: 14px;
+            line-height: 24px;
+            text-align: left;
+            color: #acacac;
+            margin-top: 6px;
+        }
+        
+        .second_box ul li h3 {
+            text-indent: 50px;
+            height: 32px;
+            line-height: 35px;
+        }
+        
+        .second_box ul li:nth-child(1) h3 {
+            background: url(img/flow/second_icon1.png) no-repeat 0;
+        }
+        
+        .second_box ul li:nth-child(2) h3 {
+            background: url(img/flow/second_icon2.png) no-repeat 0;
+        }
+        
+        .second_box ul li:nth-child(3) h3 {
+            background: url(img/flow/second_icon3.png) no-repeat 0;
+        }
+        
+        #second_img {
+            position: absolute;
+            top: 0;
+            right: 61px;
+        }
+        
+        .third_item,
+        #third_content {
+            height: 511px;
+            margin-top: 98px;
+            position: relative;
+        }
+        
+        #third_content {
+            margin-left: 12px;
+            overflow: hidden;
+            opacity: 0;
+        }
+        /*#third_img_box{width: 554px;height: 408px;background: url(img/flow/third_bg.png) no-repeat;margin-left: 12px;float: left;position: relative;}*/
+        /*#third_img_box img:last-child{position: absolute;bottom: -67px;left: 210px;}*/
+        /*.third_img{position: absolute;top: 31px;left: 62px;opacity: 0;}*/
+        /*.third_box{display: inline-block;margin-left: 108px;}*/
+        /*.third_right_box {margin-top: 42px;}*/
+        /*.third_right_box img{margin-bottom: 38px;}*/
+        /*.ring_chart_box{height: 160px;}*/
+        /*.ring_chart_box span{display: inline-block;width: 224px;height: 120px;background-color: #d2d2d2;line-height: 120px;font-size: 30px;text-align: center;color: black;}*/
+        /*#ring_chart_box1 div{margin:18px auto;display: inline-block;}*/
+        
+        .third_text {
+            height: 54px;
+            width: 100%;
+            background: url(img/flow/third_round.png) no-repeat left;
+            text-indent: 32px;
+            line-height: 30px;
+            margin-top: 38px;
+            font-size: 14px;
+            color: #acacac;
+            bottom: 0;
+            left: 664px;
+            position: absolute;
+        }
+        
+        .third_text span {
+            display: block;
+            text-indent: 32px;
+            font-size: 14px;
+            color: #acacac;
+        }
+        
+        .third_text2 {
+            color: #acacac;
+            font-size: 14px;
+            line-height: 30px;
+            bottom: -16px;
+            left: 664px;
+            position: absolute;
+        }
+        
+        .third_text3 {
+            color: #acacac;
+            font-size: 14px;
+            line-height: 30px;
+            bottom: 80px;
+            left: 664px;
+            position: absolute;
+        }
+        
+        .third_img_box {
+            width: 1111px;
+            height: 408px;
+            display: inline-block;
+        }
+        
+        .swiper-wrapper .third_img_box:nth-child(1),
+        .swiper-wrapper .third_img_box:nth-child(4) {
+            background: url(img/flow/third_img3.png) no-repeat left;
+        }
+        
+        .swiper-wrapper .third_img_box:nth-child(2),
+        .swiper-wrapper .third_img_box:nth-child(5) {
+            background: url(img/flow/third_img1.png) no-repeat left;
+        }
+        
+        .swiper-wrapper .third_img_box:nth-child(3) {
+            background: url(img/flow/third_img2.png) no-repeat left;
+        }
+        
+        #third_people {
+            position: absolute;
+            bottom: 34px;
+            left: 210px;
+            z-index: 1;
+        }
+        
+        .fourth_item {
+            height: 466px;
+            margin-top: 96px;
+        }
+        
+        .fourth_box {
+            margin-left: 76px;
+        }
+        
+        #fourth_list {
+            margin-top: 35px;
+        }
+        
+        #fourth_list li {
+            text-indent: 30px;
+            line-height: 22px;
+            height: 46px;
+            font-size: 14px;
+            color: #acacac;
+            opacity: 0;
+        }
+        
+        #fourth_list li:nth-child(1) {
+            background: url(img/flow/fourth_icon1.png) no-repeat left;
+        }
+        
+        #fourth_list li:nth-child(2) {
+            background: url(img/flow/fourth_icon2.png) no-repeat left;
+        }
+        
+        #fourth_list li:nth-child(3) {
+            background: url(img/flow/fourth_icon3.png) no-repeat left;
+        }
+        
+        #fourth_list li:nth-child(4) {
+            background: url(img/flow/fourth_icon4.png) no-repeat left;
+            height: 23px;
+        }
+        
+        .fourth_icon_opacity {
+            animation: opacityTo1 1s both;
+        }
+        
+        #fourth_img {
+            width: 486px;
+            height: 350px;
+            position: absolute;
+            top: 5px;
+            right: 63px;
+        }
+        
+        #banner_title {
+            opacity: 0;
+            animation: banner_title_move .5s both .5s;
+        }
+        
+        @keyframes banner_title_move {
+            0% {
+                opacity: 0;
+                margin-top: 199px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                margin-top: 179px;
+            }
+        }
+        /* Firefox */
+        
+        @-moz-keyframes banner_title_move {
+            0% {
+                opacity: 0;
+                margin-top: 199px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                margin-top: 179px;
+            }
+        }
+        /* Safari 和 Chrome */
+        
+        @-webkit-keyframes banner_title_move {
+            0% {
+                opacity: 0;
+                margin-top: 199px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                margin-top: 179px;
+            }
+        }
+        /* Opera */
+        
+        @-o-keyframes banner_title_move {
+            0% {
+                opacity: 0;
+                margin-top: 199px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                margin-top: 179px;
+            }
+        }
+        
+        #banner_img_box {
+            opacity: 0;
+            animation: banner_img_move .7s both .5s;
+        }
+        
+        @keyframes banner_img_move {
+            0% {
+                opacity: 0;
+                top: -159px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -179px;
+            }
+        }
+        /* Firefox */
+        
+        @-moz-keyframes banner_img_move {
+            0% {
+                opacity: 0;
+                top: -159px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -179px;
+            }
+        }
+        /* Safari 和 Chrome */
+        
+        @-webkit-keyframes banner_img_move {
+            0% {
+                opacity: 0;
+                top: -159px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -179px;
+            }
+        }
+        /* Opera */
+        
+        @-o-keyframes banner_img_move {
+            0% {
+                opacity: 0;
+                top: -159px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -179px;
+            }
+        }
+        
+        #banner_img_box img:last-child {
+            opacity: 0;
+            animation: last_img_move .9s both .7s;
+        }
+        
+        @keyframes last_img_move {
+            0% {
+                opacity: 0;
+                top: 12px;
+                height: 80px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -8px;
+                height: 48px;
+            }
+        }
+        /* Firefox */
+        
+        @-moz-keyframes last_img_move {
+            0% {
+                opacity: 0;
+                top: 12px;
+                height: 80px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -8px;
+                height: 48px;
+            }
+        }
+        /* Safari 和 Chrome */
+        
+        @-webkit-keyframes last_img_move {
+            0% {
+                opacity: 0;
+                top: 12px;
+                height: 80px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -8px;
+                height: 48px;
+            }
+        }
+        /* Opera */
+        
+        @-o-keyframes last_img_move {
+            0% {
+                opacity: 0;
+                top: 12px;
+                height: 80px;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                top: -8px;
+                height: 48px;
+            }
+        }
+        /*分页按钮原点*/
+        
+        .swiper-pagination-bullet {
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border: 1px solid #707070;
+            border-radius: 6px;
+        }
+        /*分页按钮原点-选中状态*/
+        
+        .swiper-pagination-bullet-active {
+            /*opacity: .5;*/
+            background: #707070;
+        }
+        
+        .swiper-pagination {
+            text-align: right;
+            bottom: 40px !important;
+            left: auto !important;
+            right: 76px !important;
+        }
+    </style>
+    
+    <script type="text/javascript">
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?2619a8acff33f60081f2de38f78ac9ef";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+    </script>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="wrapper content">
+
+        <!--banner-->
+        <div class="banner">
+            <div class="wrapper">
+                <div id="banner_title">
+                    <img src="img/flow/banner_title.png" />
+                </div>
+                <div id="banner_img_box">
+                    <img src="img/flow/banner1.png" />
+                    <img src="img/flow/banner2.png" />
+                </div>
+            </div>
+        </div>
+
+        <!--第一板块-->
+        <div class="wrapper first_item">
+            <div id="first_content" class="opacity0">
+                <img src="img/flow/first_img.png" id="first_img" />
+                <div class="first_box fr box_width">
+                    <div class="first_title">
+                        <img src="img/flow/first_title.png" />
+                        <p class="subtitle">Business</p>
+                    </div>
+                    <h3 id="first_h3">让获取用户变得更加简单、高效</h3>
+                    <p class="first_text">
+                        1、连接最真实优质的用户来源-应用市场<br /> 2、UBK于应用市场筛选合适位置进行CPD竞价、让产品曝光
+                        <br /> 3、UBK在投放过程中不断优化投放效果，筛选优质流量
+                        <br /> 4、UBK向开发者实时反馈投放数据
+                    </p>
+                    <button class="detail_btn_more" onclick="showBox()">APP曝光位置</button>
+                </div>
+            </div>
+        </div>
+
+        <!--第二版块-->
+        <div class="wrapper second_item">
+            <div id="second_content" class="opacity0">
+                <div class="second_box fl">
+                    <div class="second_title">
+                        <img src="img/flow/second_title.png" />
+                        <p class="subtitle">Advantage</p>
+                    </div>
+                    <ul class="box_width">
+                        <li>
+                            <h3>优势一：成本低</h3>
+                            <p>
+                                a、合作伙伴最低充值2000元，App即可一次性尝试七大渠道<br /> b、按客户的实际消耗进行结算，保证做到行业内获客成本最低
+                            </p>
+                        </li>
+                        <li>
+                            <h3>优势二：质量优</h3>
+                            <p>
+                                a、UBK直接连接应用市场，从源头上保证用户品质<br /> b、UBK主动去掉积分墙等次级流量、保证用户更真实
+                            </p>
+                        </li>
+                        <li>
+                            <h3>优势三：服务好</h3>
+                            <p>
+                                a、UBK拥有完善的服务体系，包含投放优化和数据反馈等服务<br /> b、UBK自研数据后台可实时同步官方数据，方便其随时查看
+                                <br /> c、开发者在合作过程中若遇到任何问题，会有专人跟进解决
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <img src="img/flow/second_img.png" id="second_img" />
+            </div>
+        </div>
+
+        <!--第三版块-->
+        <div class="wrapper third_item" id="third_box">
+            <div id="third_content">
+                <!--<div id="swiper-container">-->
+
+
+                <div class="swiper-wrapper">
+                    <div class="third_img_box swiper-slide">
+                        <p class="third_text">CPA转化率70%以上，获取用户精准 <span>留存率41%，获取用户优质</span></p>
+                    </div>
+
+
+                    <div class="third_img_box swiper-slide">
+                        <p class="third_text2">CPD到CPA转化率约为65%-85%<br />至今投放18天，共获取16000+下载用户<br />单个下载用户获取成本1.5-2元</p>
+                    </div>
+
+                    <div class="third_img_box swiper-slide">
+                        <p class="third_text3">在应用宝、魅族等多个渠道长期投放<br />共获取100000+下载用户</p>
+                    </div>
+                </div>
+                <!--</div>-->
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <img src="img/flow/third_people.png" id="third_people" />
+            </div>
+
+        </div>
+
+        <!--第四板块-->
+        <div class="wrapper fourth_item" id="fourth_box">
+            <div id="fourth_content" class="opacity0">
+                <div class="fourth_box">
+                    <div class="fourth_title">
+                        <img src="img/flow/fourth_title.png" />
+                        <p class="subtitle">Process</p>
+                    </div>
+
+                    <ul id="fourth_list">
+                        <li>双方洽谈、签署合作协议</li>
+                        <li>开发者注册账号、充值</li>
+                        <li>开发者提交应用市场所需的资质</li>
+                        <li>UBK用户银行从应用市场为App提供用户量</li>
+                    </ul>
+                    <a class="button" href="about_us.html#goto">立即咨询</a>
+                </div>
+                <img id="fourth_img" src="img/flow/fourth_img.png" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer"></div>
+
+    <!--APP曝光位置弹框-->
+    <div id="grey" style="position: fixed;top: 0;z-index: 999;text-align: center;width: 100%;height: 100%;background-color:#000 ;opacity: 0.85;display: none;"></div>
+    <img id="alertBox" style="position: fixed;left: 50%;top:50%;z-index: 1000;text-align: center;width: 0px;height: 0px;opacity: 0;" onclick="closebox()" src="img/flow/first_alert.png" />
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
+    <script src="js/radialIndicator.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/base.js"></script>
+    <script src="js/swiper.jquery.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        //记录环形图只执行一遍
+        var index = 0;
+
+        $(function() {
+            //加载header和footer
+            $(".header").load('header_footer.html #header_content', function() {
+                $('#header_content ul li').eq(1).find('a').addClass('header_active');
+                //改变header背景颜色及按钮 logo等样式
+                changeHeaderStyle();
+            });
+            $(".footer").load('header_footer.html #footer_content');
+
+
+            $(".lazy").lazyload({
+                effect: "fadeIn",
+                threshold: 300,
+            });
+            $(".lazy_footer").lazyload({
+                effect: "fadeIn",
+                threshold: 300,
+            });
+
+
+            //第一部分滑动触发
+            var first_top = document.getElementById("first_content").parentElement.offsetTop;
+            if (first_top < ($(window).scrollTop() + $(window).height() - 300)) {
+                setTimeout(function() {
+                    $('#first_content').addClass('animation_up');
+                }, 500);
+            }
+
+            $('#third_img_box img:first-child').addClass('animate_left_0');
+
+            var swiper = new Swiper('#third_content', {
+                centeredSlides: true,
+                autoplay: 5000,
+                autoplayDisableOnInteraction: false, //用户操作swiper之后，是否禁止autoplay
+                loop: true,
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+            });
+        });
+
+        //监控鼠标滚动一点点 header变色
+        $(window).scroll(function() {
+            changeHeaderStyle();
+
+            //第一部分滑动触发
+            var first_top = document.getElementById("first_content").parentElement.offsetTop;
+            if (first_top < ($(window).scrollTop() + $(window).height() - 300)) {
+                $('#first_content').addClass('animation_up');
+            }
+
+            //第二部分滑动触发
+            var second_top = document.getElementById("second_content").parentElement.offsetTop;
+            if (second_top < ($(window).scrollTop() + $(window).height() - 300)) {
+                $('#second_content').addClass('animation_up');
+            }
+
+            //第三部分滑动触发
+            var third_top = document.getElementById("third_content").parentElement.offsetTop;
+            if (third_top < ($(window).scrollTop() + $(window).height() - 300)) {
+                $('#third_content').addClass('animation_up');
+
+            }
+
+            //“合作流程”动画开启
+            var fourth_top = document.getElementById("fourth_box").offsetTop;
+            if (fourth_top < ($(window).scrollTop() + $(window).height() - 320)) {
+                $('#fourth_content').addClass('animation_up');
+                setTimeout(function() {
+                    $('#fourth_list li:nth-child(1)').addClass('fourth_icon_opacity');
+                }, 0)
+                setTimeout(function() {
+                    $('#fourth_list li:nth-child(2)').addClass('fourth_icon_opacity');
+                }, 300);
+                setTimeout(function() {
+                    $('#fourth_list li:nth-child(3)').addClass('fourth_icon_opacity');
+                }, 600);
+                setTimeout(function() {
+                    $('#fourth_list li:nth-child(4)').addClass('fourth_icon_opacity');
+                }, 900);
+            }
+        });
+
+
+
+        //App曝光位置弹框打开与关闭
+        function showBox() {
+            $("#grey").show();
+            $("#alertBox").show().animate({
+                width: '981px',
+                height: '640px',
+                left: ($(window).width() - 981) / 2,
+                top: ($(window).height() - 640) / 2 + 24,
+                opacity: 1,
+            }, 400);
+            //禁止页面滚动
+            $('body').css({
+                "overflow-x": "hidden",
+                "overflow-y": "hidden"
+            });
+        }
+
+        function closebox() {
+            $("#alertBox").hide().css({
+                'height': '0',
+                'width': '0',
+                'left': '50%',
+                'top': '50%'
+            });
+            $("#grey").hide();
+            $('body').css({
+                "overflow-x": "auto",
+                "overflow-y": "auto"
+            });
+        }
+    </script>
+
+</body>
+
+</html>

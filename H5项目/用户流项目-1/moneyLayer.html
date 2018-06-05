@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+	</head>
+	<body >
+		<div class="huikuan_alert_box" style="background-color: white;">
+			
+			<div class="alert_bottom_box">
+				<div class="alert_msg_red">亲爱的合作伙伴，一天只能提交汇款信息三次，请明天再尝试，谢谢。</div>
+				<div class="huikuan_jine">
+					<span class="huikuan_text">汇款金额（元）</span>
+					<input type="text" name="huikuan_number" id="huikuan_number" value="133" />
+				</div>
+				<div class="huikuan_radio_box">
+				    <label class="huikuan_label">是否现在上传银行汇款底单？</label>
+				    <div class="huikuan_select">
+				    		<label><input name="upload" type="radio" value="1" checked onclick="selectTrue()"/>是 </label>
+				    		<label><input name="upload" type="radio" value="0" onclick="selectFalse()"/>否 </label>
+				    </div>
+				</div>
+				<div class="company_card ubk_cursor_point" id="company_card_layer" onclick="$('#previewImg').click();">
+					<div class="company_card_small"  id="preview" >
+						<img src="img/account/up.png"/>
+						<p >点击上传银行汇款底单<br />（有年检章,.jpg/.png格式，小于5M）</p>
+					</div>
+					
+				</div>
+				<input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
+				<p onclick="lookFullImg('img/public/icon_look.png')" class="ubk_cursor_point huikuan_demo_jpg">汇款底单范例.jpg</p>
+				
+				<p class="select_no_msg">温馨提示：<br />建议您稍后上传网银汇款底单，我司财务人员凭底单即可及时确认并更新账户余额。</p>
+				<div class="layui-layer-btn">
+					<a class="layui-layer-btn0" onclick="layerSubmit()">提交</a>
+					<a class="layui-layer-btn1" onclick="layerCancel()">取消</a>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/money.js"></script>
+	</body>
+</html>

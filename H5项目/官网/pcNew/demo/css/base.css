@@ -1,0 +1,91 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;font-family: "microsoft yahei";}
+body{background-color: #ECECEC !important;position: relative;}
+.fl{float: left;} 
+.fr{float: right;}
+a {text-decoration: none;}
+.hide{display: none;}
+.visibility{visibility: hidden;};
+ul{outline: none;}
+.ubk_cursor_point{cursor: pointer;}
+/*字体及按钮背景颜色*/
+.color_green_bg{background-color:#49bc67;box-shadow: 0 0 25px -2px #49bc67;}
+.color_red_bg{background-color:#ff4848;box-shadow: 0 0 25px -2px #ff4848;}
+.color_gray_bg{background-color:rgb(132,132,132);box-shadow: 0 0 25px -2px rgb(132,132,132);}
+.color_blue_bg{background-color:rgb(53,130,237);box-shadow: 0 0 25px -2px rgb(53,130,237);}
+.color_lightgray_bg{background-color:rgb(246,247,249);box-shadow: 0 0 25px -2px rgb(246,247,249);}
+.color_blue_bg_disable{background-color: rgb(162,195,235) !important;}
+.color_1_bg{background-color:#f85d4d;box-shadow: 0 0 25px -5px #f85d4d;}/*待提交资质*/
+.color_2_bg{background-color:#2f7fef;box-shadow: 0 0 25px -5px #2f7fef;}/*资质审核中*/
+.color_3_bg{background-color:#ff4848;box-shadow: 0 0 25px -5px #ff4848;}/*审核不通过*/
+.color_4_bg{background-color:#ef2f2f;box-shadow: 0 0 25px -5px #ef2f2f;}/*暂停中*/
+.color_5_bg{background-color:#822661;box-shadow: 0 0 25px -5px #822661;}/*垫款中*/
+.color_6_bg{background-color:#4a2fef;box-shadow: 0 0 25px -5px #4a2fef;}/*待投放*/
+.color_7_bg{background-color:#48bca8;box-shadow: 0 0 25px -5px #48bca8;}/*即将完成*/
+.color_8_bg{background-color:#48bc67;box-shadow: 0 0 25px -5px #48bc67;}/*已完成*/
+.color_9_bg{background-color:#9d3123;box-shadow: 0 0 25px -5px #9d3123;}/*太慢*/
+.color_10_bg{background-color:#c74600;box-shadow: 0 0 25px -5px #c74600;}/*太贵*/
+.color_11_bg{background-color:#69bc48;box-shadow: 0 0 25px -5px #69bc48;}/*投放中*/
+.color_12_bg{background-color:#1c86c2;box-shadow: 0 0 25px -5px #1c86c2;}/*待充值*/
+
+.text_green{color: #49bc67;}
+.text_red{color: #ff4848;}
+.text_blue{color: rgb(53,130,237);}
+.text_black{color: rgb(85,85,85);}
+.text_gray{color: rgb(132,132,132);}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{-webkit-box-shadow: 0 0 0px 1000px white inset !important;outline:none;background-color: #fff !important;background-image: none;color: #999 !important;}
+/*定义阴影颜色：green审核通过，blue审核中，red审核不通过*/
+.shadow_green{box-shadow: 0px 0px 20px 1px rgba(78,187,106,.7);background-color: rgb(78,187,106);}
+.shadow_blue{box-shadow: 0px 0px 20px 1px rgba(53,130,237,.7);background-color: rgb(53,130,237);}
+.shadow_red{box-shadow: 0px 0px 20px 1px rgba(252,74,78,.7);background-color: rgb(252,74,78);}
+
+input:focus, select:focus, textarea:focus {outline: none;}
+.active_header_blue{border-top-color: rgb(53,130,237) !important;background-color: #ededed !important;}
+.active_header_red{border-top-color: #ff4848 !important;background-color: #ededed !important;}
+.text_font{color: #595959;font-weight: lighter;font-size: 14px;font-family: "microsoft yahei";}
+.header{width: 100%;height: 100px;line-height: 100px;background-color: #FFF;position: fixed;top: 0;box-shadow: 0 -30px 50px 15px #6fb2a9;z-index: 99;}
+.wrapper {width: 99%;margin: 0 auto;overflow: hidden;max-width: 1635px;min-width: 1200px;}
+.wrapper_money{width: 1200px;margin: 0 auto;overflow: hidden;}
+.wrapper1200 {width: 1200px;margin: 0 auto;overflow: hidden;background: white;border-radius: 8px;}
+.logo{display: block;height: 100%;width: 272px;line-height: 100%;padding-top: 30px;}
+.data{width: 200px;height: 100px;padding-left: 36px;font-size: 24px;color: #525252;background-color: #F5F6F7;border-top:3px solid #F5F6F7;}
+.data:hover,.data:focus{background-color: #ededed;border-top-color: rgb(53,130,237);}
+.money:hover,.money:focus{background-color: #ededed;border-top-color: #ff4848;}
+.money{width: 200px;height: 100px;padding-left: 36px;font-size: 24px;color: #525252;background-color: #F5F6F7;border-top:3px solid #F5F6F7;}
+.money img,.data img{position: relative;top: -3px;}
+.icon_position{vertical-align: middle;}/*垂直居中*/
+.ubk-person{width: 220px;height: 100%;padding-left: 30px;font-size: 16px;color: #222;}
+.ubk_per_card{box-shadow: 0px 3px 30px -5px darkgrey;border: 1px solid rgba(0,0,0,.15);min-width: 410px;float: right;height: 215px;display: none;background-color: #fff;position: relative;top: -30px;}
+.ubk_per_card img{display: inline-block;margin: 48px 30px;float: left;width: 110px;}
+.per_msg{display: inline-block;border-left: 1px solid darkgray;margin-top: 23px;padding-left: 20px;height: 165px;}
+
+#per_name{font-size: 18px;height: 24px;line-height: 24px;margin-bottom: 10px;}
+#per_position{font-size: 20px;height: 28px;line-height: 28px;margin-bottom: 30px;font-weight: bold;}
+#per_number{text-align: left;list-style: none;background: url(../img/header/contact.png) no-repeat left !important;padding-left: 26px;float: left;position: relative;line-height: 24px;width: 217px;}
+#per_number li{height: 22px;}
+
+.company{height: 100%;font-size: 16px;color: #222;text-align: right;width: 190px;}
+.company ul{text-align: left;list-style: none;float: right;display: none;box-shadow: 0px 3px 30px -5px darkgrey;border: 1px solid rgba(0,0,0,.15);min-width: 120px;background-color: #fff;color: #575757;font-size: 14px;position: relative;top: -30px;}
+.company ul li{height: 49px;line-height: 49px;border-bottom: 1px solid gainsboro;width: 140px;}
+.company ul li a{/*border-left: 4px solid #ff4948;border-left: 4px solid #3582ED;*/height: 49px;line-height: 49px;display: inline-block;padding-left: 5px;}
+.company ul li img{margin:0 10px;}
+.company ul li:last-child{border-bottom: none;}
+
+.content{position: relative;top: 140px;margin-bottom: 30px;}
+
+
+/*分页按钮*/
+ .page_control{margin: 0 auto;color: rgb(87,88,89);height: 26px;line-height: 25px;text-align: center;margin: 30px 0;}
+.page_control ul{display: inline-block;}
+.page_control li{float:left;cursor: pointer;text-align: center;padding: 0 10px;border-radius: 3px;}
+.page_active{color: rgb(254,255,255);background: rgb(91,191,233);} 
+
+
+/*查看原图*/
+.look_full_img{z-index: 100;width: 100%;height: 100%;background-color: rgba(200,200,200,.9);position: fixed;top: 0;display: none;text-align: center;}
+.look_full_img img{margin: auto;}
+
+#have_letter{display: none;width: 12px !important;height: 12px !important;background-color: #ff4445;border-radius: 6px;margin-left: 10px;}
+select{appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }

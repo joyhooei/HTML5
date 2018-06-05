@@ -1,0 +1,263 @@
+
+.dialog-box{
+	font: normal 12px '\5FAE\8F6F\96C5\9ED1';
+	height: auto;
+	position: fixed;
+	top: 47%;
+	left: 50%;
+	z-index: 99999;
+	display: none;
+}
+
+.show{
+	display: block;
+}
+.normal{
+	background: #fff;
+}
+.correct{
+	border-top: 4px solid #66be8c;
+	background: #f8fffb;
+}
+.error{
+	border-top: 4px solid #f5694b;
+	background: #fff8f7;
+}
+
+.dialog-box-container{
+	position: relative;
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #bbb;
+}
+.dialog-box-title{
+	height: 42px;
+	line-height: 42px;
+	background-color: rgb(234,234,234);
+    color: rgb(53,130,235);
+    border-radius: 5px 5px 0 0;
+}
+.dialog-box-title p{
+	float: left;
+    margin-left: 10px;
+}
+.dialog-box-close{
+	margin-right: 10px;
+	font-size: 32px;
+	margin-left: 20px;
+	font-weight: normal;
+	cursor: pointer;
+	display: inline-block;
+	float: right;
+	color: rgb(170,170,170);
+}
+.dialog-box-close:hover{
+	color: #f5694b;
+}
+.dialog-box-content{
+	font-family: 'Microsoft YaHei';
+	line-height: 24px;
+	margin: 0;
+	text-align: center;
+    padding-top: 80px;
+}
+
+
+.dialog-box-content span{
+	margin-left: 10px;
+}
+.dialog-btn{
+	height:30px;
+	padding: 0 20px 20px;
+	text-align: center;
+}
+.dialog-btn span{
+	line-height: 38px;
+	text-align: center;
+	display: inline-block;
+	margin: 0 10px;
+	cursor: pointer;
+	color: white;
+	height: 38px;
+	width: 106px;
+	border-radius: 7px;
+	border: none;
+	background-color:rgb(53,130,237);
+	box-shadow: 0 0 15px 0 rgb(53,130,237);
+}
+.dialog-btn-cancel{
+	background: rgb(53,130,237);
+}
+/*.dialog-btn-cancel:hover{
+	background: #d6d6d6;
+}*/
+.dialog-btn-confirm{
+	color: #fff;
+	background: rgb(53,130,237);
+}
+/*.dialog-btn-confirm:hover{
+	background: #58B781;
+}*/
+
+.dialog-box-mask{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99998;
+	opacity: .5;
+	filter: alpha(opacity=50);
+	background: #000;
+	display: none;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#dialog-box-iframe body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+/* effect */
+
+/* effect-fade */
+.effect-fade .dialog-box-container{
+	-webkit-transform: scale(0.6);
+	-ms-transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0;
+	transition: all .3s;
+}
+.show.effect-fade .dialog-box-container{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+/* effect-newspaper */
+.effect-newspaper .dialog-box-container{
+	-webkit-transform: scale(0) rotate(720deg);
+	-ms-transform: scale(0) rotate(720deg);
+	transform: scale(0) rotate(720deg);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.show.effect-newspaper .dialog-box-container{
+	-webkit-transform: scale(1) rotate(0deg);
+	-ms-transform: scale(1) rotate(0deg);
+	transform: scale(1) rotate(0deg);
+	opacity: 1;
+}
+
+/* effect-fall */
+.effect-fall{
+	-webkit-perspective: 1300px;
+	perspective: 1300px;
+}
+.effect-fall .dialog-box-container{
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: translateZ(600px) rotateX(20deg);
+	-ms-transform: translateZ(600px) rotateX(20deg); 
+	transform: translateZ(600px) rotateX(20deg); 
+	opacity: 0;
+}
+.show.effect-fall .dialog-box-container{
+	-webkit-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+	-webkit-transform: translateZ(0px) rotateX(0deg);
+	-ms-transform: translateZ(0px) rotateX(0deg);
+	transform: translateZ(0px) rotateX(0deg); 
+	opacity: 1;
+}
+
+/* effect-scaled */
+.effect-scaled .dialog-box-container{
+	-webkit-transform: scale(2);
+	-ms-transform: scale(2);
+	transform: scale(2);
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.show.effect-scaled .dialog-box-container{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+/* effect-flip-horizontal */
+.effect-flip-horizontal{
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	perspective: 1300px;
+}
+.effect-flip-horizontal .dialog-box-container{
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateY(-70deg);
+	-ms-transform: rotateY(-70deg);
+	transform: rotateY(-70deg);
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+}
+.show.effect-flip-horizontal .dialog-box-container{
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+	opacity: 1;
+}
+
+/* effect-flip-vertical */
+.effect-flip-vertical{
+	-webkit-perspective: 1300px;
+	-moz-perspective: 1300px;
+	perspective: 1300px;
+}
+.effect-flip-vertical .dialog-box-container{
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateX(-70deg);
+	-ms-transform: rotateX(-70deg);
+	transform: rotateX(-70deg);
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	opacity: 0;
+}
+.show.effect-flip-vertical .dialog-box-container{
+	-webkit-transform: rotateX(0deg);
+	-ms-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	opacity: 1;
+}
+
+/* effect-sign */
+.effect-sign{
+	-webkit-perspective: 1300px;
+	perspective: 1300px;
+}
+.effect-sign .dialog-box-container{
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform: rotateX(-60deg);
+	-ms-transform: rotateX(-60deg);
+	transform: rotateX(-60deg);
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.show.effect-sign .dialog-box-container{
+	-webkit-transform: rotateX(0deg);
+	-ms-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	opacity: 1;
+}
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/kendo.common.core.min.css" />
+    <link rel="stylesheet" href="css/kendo.default.min.css" />
+    <link rel="stylesheet" href="css/kendo.default.mobile.min.css" />
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+</head>
+<body>
+
+        <div id="example">
+            <div class="demo-section k-content">
+                <input type="file" name="files" id="files" />
+            </div>
+
+            <script id="fileTemplate" type="text/x-kendo-template">
+                <span class='k-progress'></span>
+                <div class='file-wrapper'>
+                    <span class='file-icon #=addExtensionClass(files[0].extension)#'></span>
+                    <h4 class='file-heading file-name-heading'>Name: #=name#</h4>
+                    <h4 class='file-heading file-size-heading'>Size: #=size# bytes</h4>
+                    <button type='button' class='k-upload-action'></button>
+                </div>
+                
+                <!--
+                	<div>
+			        <p>Name: #=name#</p>
+			        <p>Size: #=size# bytes</p>
+			        <p>Extension: #=files[0].extension#</p>
+			        <strong class='k-upload-status'>
+			            <button type='button' class='k-upload-action'></button>
+			            <button type='button' class='k-upload-action'></button>
+			        </strong>
+			    </div>
+                	
+                -->
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $("#files").kendoUpload({
+                        multiple: true,
+                        async: {
+                            saveUrl: "save",
+                            removeUrl: "remove",
+                            autoUpload: false
+                        },
+                        template: kendo.template($('#fileTemplate').html()),
+                        localization: {
+				            dropFilesHere: "customDropFilesHere",
+				            clearSelectedFiles: "RemoveFiles",
+				            headerStatusUploaded: "customHeaderStatusUploaded",
+				            headerStatusUploading: "customHeaderStatusUploading",
+				            remove: "customRemove",
+				        },
+				        multiple: false,//禁止选用多个文件
+				        validation: {
+			                allowedExtensions: [".png"],
+			                maxFileSize: 900000,
+			                minFileSize: 300000
+			            }
+                    });
+                });
+
+                function addExtensionClass(extension) {
+                    switch (extension) {
+                        case '.jpg':
+                        case '.img':
+                        case '.png':
+                        case '.gif':
+                            return "img-file";
+                        case '.doc':
+                        case '.docx':
+                            return "doc-file";
+                        case '.xls':
+                        case '.xlsx':
+                            return "xls-file";
+                        case '.pdf':
+                            return "pdf-file";
+                        case '.zip':
+                        case '.rar':
+                            return "zip-file";
+                        default:
+                            return "default-file";
+                    }
+                }
+            </script>
+
+            <style>
+                .file-icon {
+                    display: inline-block;
+                    float: left;
+                    width: 48px;
+                    height: 48px;
+                    margin-left: 10px;
+                    margin-top: 13.5px;
+                }
+
+                .img-file { background-image: url(../content/web/upload/jpg.png) }
+                .doc-file { background-image: url(../content/web/upload/doc.png) }
+                .pdf-file { background-image: url(../content/web/upload/pdf.png) }
+                .xls-file { background-image: url(../content/web/upload/xls.png) }
+                .zip-file { background-image: url(../content/web/upload/zip.png) }
+                .default-file { background-image: url(../content/web/upload/default.png) }
+
+                #example .file-heading {
+                    font-family: Arial;
+                    font-size: 1.1em;
+                    display: inline-block;
+                    float: left;
+                    width: 60%;
+                    margin: 0 0 0 20px;
+                    height: 25px;
+                    -ms-text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                    overflow:hidden;
+                    white-space:nowrap;
+                }
+
+                #example .file-name-heading {
+                    font-weight: bold;
+                    margin-top: 20px;
+                }
+
+                 #example .file-size-heading {
+                    font-weight: normal;
+                    font-style: italic;
+                }
+
+                li.k-file .file-wrapper .k-upload-action {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                li.k-file div.file-wrapper {
+                    position: relative;
+                    height: 75px;
+                }
+            </style>
+        </div>
+
+
+</body>
+</html>
+
+<style>
+  .k-clear-selected,
+  .k-upload-selected {
+    display: none !important;
+  }
+</style>
+
+<input name="files" id="files" type="file" />
+<button id="uploadAll" class="k-button">Start upload</button>
+<script>
+
+  $(document).ready(function() {
+    $("#files").kendoUpload({
+      async: {
+        autoUpload: false,
+        saveUrl: "http://my-app.localhost/save",
+        removeUrl: "http://my-app.localhost/remove"
+      }
+    });
+
+    $("#uploadAll").on('click', function(e){
+      e.preventDefault();
+
+      var upload = $("#files").data("kendoUpload");
+      
+      upload.upload();
+    })
+  });
+</script>

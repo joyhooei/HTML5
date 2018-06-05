@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--文档对象模型(Document Object Model)-->
+		<meta charset="UTF-8">
+		<title></title>
+			<style>
+			    .one{
+					border:1px solid #eee;
+					width:230px;
+					height:50px;
+					background:#ccc;
+					color:red;
+			    }
+				.two{
+					border:1px solid #ccc;
+					width:230px;
+					height:50px;
+					background:#9CF;
+					color:blue;
+				}
+			</style>
+	</head>
+	<body>
+		<p id="abc">DOM</p>
+		<p id="con">隐藏或显示</p>
+		<form>
+			<input type="button" value="更改样式" onclick="change()"/>
+		</form>
+		<p id="change" class="one">这个样式想要通过className被更改</p>
+		
+		<script type="text/javascript">
+			var dom = document.getElementById("abc");
+			document.write("这就是"+dom);
+			//得到的是：这就是[object HTMLParagraphElement]
+			
+			//innerHTML 属性用于获取或替换 HTML 元素的内容
+			document.write("<br>"+"This is " + dom.innerHTML);
+			//结果：This is DOM
+			
+			//改变 HTML 样式
+			dom.style.color = "red";
+			dom.style.backgroundColor = "gold";
+			dom.style.width = "100px";
+			
+			//显示和隐藏（display属性）
+			var con = document.getElementById("con");
+			con.style.display = "none";//隐藏
+			con.style.display = "block";//显示
+			
+			//className 属性设置或返回元素的class 属性。
+			var chan = document.getElementById("change");
+			function change(){
+				chan.className = "two";
+			}
+			
+		</script>
+	</body>
+</html>

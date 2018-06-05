@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>UBK商城</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<script>
+			//通过js控制根目录font-size，从而做到屏幕适配。
+			(function(win) {
+				var doc = win.document;
+				var html = doc.documentElement;
+				var resizeEvt = "orientationchange" in win ? "orientationchange" : "resize",
+					recalc = function() {
+						var clientWidth = html.clientWidth > 750 ? 750 : html.clientWidth;
+						html.style.fontSize = clientWidth / 750 * 50 + "px"
+					};
+				if(!doc.addEventListener) {
+					return
+				}
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+				recalc()
+			})(window);
+		</script>
+
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+			}
+			
+			.contentDiv {
+				max-width: 750px;
+				margin: 20px 1rem 0 1rem;
+				font-size: .4rem;
+			}
+			
+			.backBtn {
+				display: block;
+				width: 32px;
+   				height: 32px;
+				margin: .8rem 0 0 1rem;
+				background-image: url(img/backBtn.png);
+			}
+			
+			h2 {
+				font-size: .8rem;
+				text-align: left;
+				color: #331743;
+			}
+			
+			h1 {
+				font-size: 1rem;
+				text-align: left;
+				color: #7937b0;
+			}
+			
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0px;
+			}
+			
+			.left {
+				float: left;
+			}
+			
+			.right {
+				float: right;
+			}
+			
+			ul li {
+				width: 47%;
+				margin-bottom: 1rem;
+			}
+			
+			ul li img {
+				width: 100%;
+			}
+			
+			ul li p {
+				margin: 0 auto;
+				text-align: left;
+				font-size: .5rem;
+			}
+			.p1 {
+				font-size: .6rem;
+			}
+			.projectItem{
+   				width: 100%;
+   				max-width: 750px;
+   				margin: 0 auto;
+   				padding: 0;
+   				display: block;
+   				float: left;
+   			}
+		</style>
+	</head>
+
+	<body>
+		<a class="backBtn" href="room.html"></a>
+		<div class="contentDiv">
+
+			<h2>挚π公寓</h2>
+			<h1>梅林208店</h1>
+			<ul>
+				<li class="left" id="1-¥ 2298.00">
+					<img src="img/room/01fangxing.jpg" />
+					<p class="p1">01房型</p>
+					<p>¥ 2298.00 每月</p>
+				</li>
+				<li class="right" id="2-¥ 2398.00">
+					<img src="img/room/02fangxing.jpg" />
+					<p class="p1">02房型</p>
+					<p>¥ 2398.00 每月</p>
+				</li>
+				<li class="left" id="3-¥ 2598.00">
+					<img src="img/room/03fangxing.jpg" />
+					<p class="p1">03房型</p>
+					<p>¥ 2598.00 每月</p>
+				</li>
+				<li class="right" id="5-¥ 2298.00">
+					<img src="img/room/05fangxing.jpg" />
+					<p class="p1">05房型</p>
+					<p>¥ 2298.00 每月</p>
+				</li>
+				<li class="left" id="6-¥ 2598.00">
+					<img src="img/room/06fangxing.jpg" />
+					<p class="p1">06房型</p>
+					<p>¥ 2598.00 每月</p>
+				</li>
+			</ul>
+
+			<div class="footer projectItem"></div>
+		</div>
+
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			
+			$(".footer").load('footer.html');
+			
+			$("ul li").click(function(){
+				var id = $(this).attr("id").split("-");
+				window.location.href = "roomDetail.html?id=" + id[0] + "&money=" + id[1];
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0; padding: 0; font-size: 15px;}
+			
+			ul{list-style: none;height: 50px; border-bottom: 5px solid blue;padding-left: 30px;}
+			
+			li{float: left;margin-top: 20px;}
+			
+			a{text-decoration: none;/*去掉a标签的下划线*/
+			display: block;/*行内元素变成块元素*/
+			/*本来在li标签的设置在a标签变为块元素之后可以对a设置*/
+			width: 120px; height: 30px;line-height: 30px;background: pink;margin-bottom: 10px;text-align:center;
+			}
+			
+			/*:hover在鼠标移到链接上时添加的特殊样式。
+			 * :hover 选择器器可用于所有元素，不仅是链接。*/
+			.on,a:hover{background: blue;color: white;
+			/*伸缩，选中的块变高.*/
+			height: 40px; margin-top: -10px;
+			line-height: 40px;/*设置行距使文字居中*/
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a class="on" chref="#">首页</a></li>
+			<li><a href="#">新闻快讯</a></li>
+			<li><a href="#">产品展示</a></li>
+			<li><a href="#">售后服务</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+	</body>
+</html>

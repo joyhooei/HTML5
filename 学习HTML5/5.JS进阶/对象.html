@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function write(abc){
+				document.write(abc + "<br />");
+			}
+			
+			//Date时间对象
+			var d = new Date(2016,11,18);
+			write(d);//Sun Dec 18 2016 00:00:00 GMT+0800 (CST) ---> 十二月
+			write(d.getDate());//18
+			write(d.getYear());//116
+			write(d.getFullYear());//2016
+			d = new Date();//当前时间
+			write(d.getTime());//时间戳，毫秒级
+			write(d.getHours());//几点
+			var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			write(weekday[d.getDay()]);//返回星期（数字0-6，0为星期天）
+			
+			//字符串对象
+			var mystr = "I love JavaScript!"
+			write(mystr.toUpperCase());//全部变成大写字母
+			write(mystr.toLowerCase());//全部变成小写字母
+			write(mystr.charAt(0));//返回指定位置的字符
+			write(mystr.indexOf("o",1));//返回指定的字符串首次出现的位置,参数二为起始位置
+			write(mystr.split(" ",3));//字符串分割，1按什么分割，2 <=返回数组的个数
+			write(mystr.substring(2,6));//提取指定范围的字符串 2-6不包含第6个字符 -> love
+			write(mystr.substr(2,4));//提取指定数目的字符串，从第2个开始，取4个字符
+			
+			//Math对象：提供对数据的数学计算
+			var pi=Math.PI; 
+  			var abs=Math.abs(-15);
+  			var a = Math.ceil(0.2); //向上取整，得到>=0.2的最小整数,0.2可以是任意数
+  			var b = Math.floor(0.3);//向下取整，结果为0
+  			var c = Math.round(0.3);//四舍五入取整
+  			var d = Math.random();//随机数，结果为：d>=0 && d<1
+  			
+  			//Array数组对象
+  			var arr1 = new Array();
+			var arr2 = new Array(10);
+			var arr3 = [1,2,3];
+			var arr4 = new Array("Hello","John","love","JavaScript");
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

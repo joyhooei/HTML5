@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>福利大管家</title>
+		
+		<!--禁止在微信浏览器中滑动-->
+		<script type="text/javascript">
+			document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+		</script>
+		
+		<style type="text/css">
+			
+			.correct{
+				background: url(img/correct.png) no-repeat left center;
+				margin: 25% auto 0;
+				padding-left: 28px;
+				font-size: 18px;
+				text-align: center;
+				line-height: 28px;
+				color: rgb(0,174,43);    
+				width: 126px;
+			}
+			
+			#text{
+				font-size: 16px;
+				text-align: center;
+				margin: 20% auto 5%;
+			}
+			
+			#icon_title{
+				font-size: 14px;
+				text-align: center;
+				margin-top: 40px;
+			}
+			#icon_title p{
+				display: inline-block;
+				width: 75px;
+				margin: 0 auto;
+				color: darkgrey;
+			}
+			a{
+				display: block;
+				width: 90%;
+				height: 40px;
+				background-color: rgb(30,188,33);
+				text-align: center;
+				color: white;
+				text-decoration: none;
+				line-height: 40px;
+				border-radius: 5px;
+				margin: 3% auto;
+				font-size: 15px;
+			}
+			img{
+				width: 30%;
+				overflow: hidden;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<p class="correct">恭喜您操作成功</p>
+		<p id="text">关注“福利大管家”公众号<br />即可领取红包！</p>
+		<div id="icon_title">
+			<img src="img/qrcode.jpg"/>
+			<p >长按关注</p>
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

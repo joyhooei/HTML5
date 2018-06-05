@@ -1,0 +1,20 @@
+.left_list{ background:#32323a; width:100%; min-width:180px; height:100%; color:#fff; font-size:12px; min-height:350px;}
+.logo{ padding:10px; border-bottom:1px solid #6f6f70;}
+.l_navtit{ background:#32323a; height:24px; line-height:24px; padding-left:15px; color:#6c6c6c; font-size:14px;margin-top: 10px;}
+.l_navli{ font-size:16px; display:block; color:#fff; height:40px; line-height:40px; padding-left:30px; overflow:auto; zoom:1;}
+.l_navli_sub{ font-size:14px; padding-left:70px;}
+.l_navli img{ float:left; display:block; width:22px; height:22px; margin:10px 10px 0 0;}
+.navbg_on{ background:#1fb5ad;}
+.arr_right{ width:0px; height: 0px; border:7px solid transparent; border-left-color:#bebebe; padding-right:10px; display:inline-block;}
+.dropdown{ background:#eee; display:block; height:40px; line-height:40px; border-bottom:1px solid #ddd; border-right:1px solid #ddd; color:#333; padding-left:25px; font-size:14px;}
+.dropdown:hover{ background:#fff;}
+.dropdown_on{ background:#fff;}
+
+
+
+
+
+
+
+
+

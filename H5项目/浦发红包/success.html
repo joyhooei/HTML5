@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>福利大管家</title>
+		
+		<script type="text/javascript">
+			document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+		</script>
+		
+		
+		<style type="text/css">
+			.money_red{
+				margin: 18.6% auto 8%;
+				width: 45%;
+				display: block;
+			}
+			.top_text{
+				margin: 0 auto;
+				font-size: 16px;
+				text-align: center;
+				padding-left: 5.5%;
+			}
+			.bottom_text{
+				text-align: center;
+			    font-size: 12px;
+			    margin: auto;
+			    bottom: 16%;
+			    position: fixed;
+			    left: 0;
+			    right: 0;
+			    color: rgb(157,158,159);
+			}
+			.weixin{
+				width: 13.6%;
+			    position: fixed;
+			    display: inline-block;
+			    bottom: 9%;
+			    left: 29%;
+			}
+			.fuli{
+    				width: 13.5%;
+			    position: fixed;
+			    display: inline-block;
+			    bottom: 9%;
+			    left: 48%;
+			}
+			.fuli .icon{
+				height: 19px;
+			}
+			.hongbao{
+				width: 10%;
+			    position: fixed;
+			    display: inline-block;
+			    bottom: 9%;
+			    left: 66.8%;
+			}
+			.icon{
+				height: 20px;
+			}
+			.icon_text{
+				font-size: 12px;
+				position: fixed;
+			    color: rgb(157,158,159);
+			    bottom: 2.2489%;
+			}
+			.icon1_text{
+			    left: 29.33%;
+			}
+			.icon2_text{
+			    left: 43.3333%;
+			}
+			.icon3_text{
+			    left: 65.7%;
+			}
+			
+			.arrow{
+				float: right;
+				height: 12px;
+			}
+			.weixin .arrow{
+				margin-top: 3px;
+			}
+			.fuli .arrow{
+				margin-top: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<img class="money_red" src="img/money_red.png"/>
+		<p class="top_text">恭喜！您获得5元现金红包！</p>
+		<p class="bottom_text">“福利大管家”会在当日发放给您，记得领取哦！</p>
+		<div class="step">
+			<div class="weixin">
+				<img class="arrow" src="img/arrow.png"/>
+				<img class="icon" src="img/icon_1.png"/>
+			</div>
+			<p class="icon_text icon1_text">微信</p>
+			
+			<div class="fuli">
+				<img class="arrow" src="img/arrow.png"/>
+				<img class="icon" src="img/icon_2.png"/>
+			</div>
+			<p class="icon_text icon2_text">福利大管家</p>
+			
+			<div class="hongbao">
+				<img class="icon" src="img/icon_3.png"/>
+			</div>
+			<p class="icon_text icon3_text">红包</p>
+			
+		</div>
+	</body>
+</html>

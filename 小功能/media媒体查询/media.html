@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!--
+			width = device-width：宽度等于当前设备的宽度
+			initial-scale：初始的缩放比例（默认设置为1.0）  
+			minimum-scale：允许用户缩放到的最小比例（默认设置为1.0）    
+			maximum-scale：允许用户缩放到的最大比例（默认设置为1.0）   
+			user-scalable：用户是否可以手动缩放（默认设置为no，因为我们不希望用户放大缩小页面） 
+		-->
+		<title>media媒体查询DEMO</title>
+		
+		
+		<!--可以针对不同的媒体使用不同 stylesheets :-->
+		<!--<link rel="stylesheet" media="mediatype and|not|only (media feature)" href="mystylesheet.css">-->
+		
+		
+		<!--处理IE9以下不支持的HTML5标签，如<header>，<article>，<footer>，<figure>-->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<!--IE8以上不支持CSS3媒体查询。你可以通过添加css3-mediaqueries.js这个Javascript文件来使其支持媒体查询。-->
+		<!--[if lt IE 9]>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+		
+		<link href="media-queries.css" rel="stylesheet" type="text/css">
+		
+		<style type="text/css">
+			/*把HTML元素（article，aside，figure，header，footer等等）重置为块元素。*/
+			article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+			    display: block;
+			}
+			
+			#pagewrap {
+				width: 980px;
+				margin: 0 auto;
+				background-color: #FFFFE0;
+			}
+			
+			#header {
+				height: 160px;
+				background-color:#FFF0F5;
+			}
+			
+			#content {
+				width: 600px;
+				float: left;
+				background-color:#FFD700;
+			}
+			
+			#sidebar {
+				width: 280px;
+				float: right;
+				background-color:#FF82AB;
+			}
+			
+			#footer {
+				clear: both;
+				background-color:#FF69B4;
+			}
+			
+			/*Viewport小于980px（流动布局）*/
+			@media screen and (max-width: 980px) {
+				#pagewrap {
+					width: 95%;
+				}
+			
+				#content {
+					width: 60%;
+					padding: 3% 4%;
+				}
+			
+				#sidebar {
+					width: 30%;
+				}
+				#sidebar .widget {
+					padding: 8% 7%;
+					margin-bottom: 10px;
+				}
+			}
+			
+			/*Viewport小于650px（一栏布局）*/
+			@media screen and (max-width: 650px) { 
+				#header { height: auto; }
+				#searchform {
+				    position: absolute;
+				    top: 5px;
+				    right: 0;
+				}
+				
+				#main-nav {
+				    position: static;
+				}
+				
+				#site-logo {
+				    margin: 15px 100px 5px 0;
+				    position: static;
+				}
+				
+				#site-description {
+				    margin: 0 0 15px;
+				    position: static;
+				}
+				
+				#content {
+				    width: auto;
+				    float: none;
+				    margin: 20px 0;
+				}
+				
+				#sidebar {
+				    width: 100%;
+				    float: none;
+				    margin: 0;
+				}
+			}
+			
+			/*小于480px的Viewport（即横屏模式下iPhone屏幕的宽度）*/
+			@media only screen and (max-width: 480px) {
+				/*html = 禁止文本大小调整（text size adjustment）。默认情况下，iPhone放大了文本大小，这样读起来更加舒服。你可以通过添加-webkit-text-size-adjust: none来禁止文本大小调整。*/
+				html {
+				    -webkit-text-size-adjust: none;
+				}
+				
+				#main-nav a {
+				    font-size: 90%;
+				    padding: 10px 8px;
+				}
+				/*弹性图片:为了使图片具有弹性，只需要添加max-width:100%和height:auto。给图片加上max-width:100%和height:auto在IE7中是工作的，但是在IE8中不工作（是的，另一个奇怪的IE　bug）。为了解决这个问题，你需要为IE8添加width:auto\9。*/
+				img {
+					max-width: 100%;
+					height: auto;
+					width: auto\9; /* ie8 */
+				}
+				/*弹性的嵌入视频:为了使嵌入视频具有弹性，可以使用上面所提到的相同技巧。由于未知原因，（嵌入元素的） max-width:100%在Safari中不工作。解决方式是使用width:100%做为替代。*/
+
+				.video embed,
+				.video object,
+				.video iframe {
+					width: 100%;
+					height: auto;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="pagewrap">
+			<header id="header">
+				<hgroup>
+					<h1 id="site-logo">Demo</h1>
+					<h2 id="site-description">Site Description</h2>
+				</hgroup>
+				<nav>
+					<ul id="main-nav">
+						<li><a href="#">Home</a></li>
+					</ul>
+				</nav>
+				<form id="searchform">
+					<input type="search">
+				</form>
+			</header>
+		
+			<div id="content">
+				<article class="post">
+					blog post
+				</article>
+			</div>
+		
+			<aside id="sidebar">
+				<section class="widget">
+					 widget
+				</section>
+			</aside>
+		
+			<footer id="footer">
+				footer
+			</footer>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>VIP</title>
+	</head>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: "微软雅黑";
+		  	font-size: 16px;
+			font-weight: lighter;
+			min-width: 1770px;
+		}
+		p{
+			margin: 0;
+			padding: 0;
+		}
+		
+		#navbar{
+			height: 64px;
+			width: 100%;
+			float: left;
+			opacity: 0.9;
+			position:fixed;
+			z-index: 102;
+		}
+		.navwidth{
+			width: 96%;
+			display: block;
+			margin: 0 auto;
+			height: 90px;
+		}
+		#logo img{
+			margin-top: 30px;
+		}
+		
+		.float-right{
+			float: right;
+		}
+		.float-left{
+			float: left;
+		}
+		
+		.navwidth ul{
+			list-style: none;
+			margin: 30px 0 0 0;
+			padding: 0;
+		}
+		#navbar ul li{
+			list-style: none;
+			display: list-item;
+		    float: left;
+		    width: 90px;
+		    font-size: 22px;
+		    font-weight: normal;
+		    color: #666666;
+		    margin-left: 70px;
+		    text-align: center;
+		}
+		#navbar ul li:last-child{
+			width: 30px;
+			margin-left: 200px;
+		}
+		#navbar ul li a{
+			color: #666;
+			text-decoration: none;
+			font-weight: lighter;
+		}
+		.current {
+		    color: #e9e9e9 !important;
+		}
+		.block{
+			display: block;
+		}
+		.none{
+			display: none;
+		}
+		.dot {
+		    width: 6px;
+			height: 6px;
+			background-color: #ffffff;
+		    border-radius: 3px;
+		    margin: 10px auto;
+		}
+		
+		#page1{
+			height: 1080px;
+			background: url(../img/login/login-bg.png) no-repeat center;
+			background-color: black;
+			overflow: hidden;
+		}
+		
+		.login-box{
+			text-align: center;
+		    width: 475px;
+		  	height: 429px;
+		  	border-radius: 5px;
+		  	background-color: #ffffff;
+		  	border: solid 1px #ffffff;
+		  	margin: 250px auto 0;
+		}
+		#login-title {
+			display: block;
+			width: 248px;
+			margin: 38px auto 0;
+		}
+		.login-box input[type="text"]{
+			display: inline-block;
+			width: 411px;
+			height: 57px;
+			border-radius: 3px;
+			background-color: #f3f3f3;
+			border: solid 1px #efefef;
+			margin-top: 30px;
+			padding-left: 15px;
+			outline: none;
+		}
+		.login-box input[type="text"]::-webkit-input-placeholder{
+			font-size: 16px;
+			color: #d2d2d2;
+		}
+		.login-box input[type="text"]::-moz-placeholder{
+			font-size: 16px;
+			color: #d2d2d2;
+		}
+		.login-box input[type="text"]:-moz-placeholder{
+			font-size: 16px;
+			color: #d2d2d2;
+		}
+		.login-box input[type="text"]:-ms-input-placeholder{
+			font-size: 16px;
+			color: #d2d2d2;
+		}
+		#option{
+			margin: 26px 22px;
+			height: 14px;
+			font-size: 14px;
+		}
+		.input-checkbox{
+			color: #d2d2d2;
+			margin-top: -3px;
+		}
+		.input-checkbox img{
+			display: inline;
+			margin: 0;
+			position: relative;
+		    top: 4px;
+		}
+		#option a{
+			text-decoration: none;
+			color: #d2d2d2;
+		}
+		#login-btn{
+			display: block;
+			width: 428px;
+		  	height: 60px;
+		  	margin: 0 auto;
+		  	border-radius: 5px;
+		  	background-color: #21201b;
+		  	font-size: 18px;
+		  	color: #ffffff;
+		  	text-align: center;
+		  	line-height: 60px;
+			text-decoration: none;
+		}
+
+	</style>
+	<body>
+		<!--header-->
+		<div id="navbar">
+			<div class="navwidth">
+				<div id="logo" class="float-left">
+					<img src="img/login/login-logo.png">
+				</div>
+				<ul class="float-right">
+					<li>
+						<a class="current">运营管理
+							<div class="dot block"></div>
+						</a>
+					</li>
+					<li>
+						<a >接口文档
+							<div class="dot none"></div>
+						</a>
+					</li>
+					<li>
+						<a >下载
+							<div class="dot none"></div>
+						</a>
+					</li>
+					<li>
+						<a >帮助中心
+							<div class="dot none"></div>
+						</a>
+					</li>
+					<li>
+						<img src="img/login/user-icon.png"/>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+		
+		<!--content-->
+		<div id="page1" class="page">
+			<div class="login-box">
+				<img id="login-title" src="img/login/title.png"/>
+				<input type="text" name="" id="" value="" placeholder="请输入账号"/>
+				<input type="text" name="" id="" value="" placeholder="请输入密码"/>
+				<div id="option">
+					<div class="input-checkbox float-left">
+						<img name="selected" src="img/login/selected.png"/>
+						记住我
+					</div>
+					<a class="float-right" href="">忘记密码？</a>
+				</div>
+				<a id="login-btn" href="">登录</a>
+			</div>
+		</div>
+	</body>
+	
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 点击记住我 选中或者不选中
+		$("#option .input-checkbox img").click(function(){
+			var name = $("#option div img").attr("name");
+			if(name == "selected"){
+				$("#option div img").attr("src","img/login/unselected.png").attr("name"," ")
+			}else{
+				$("#option div img").attr("src","img/login/selected.png").attr("name","selected")
+			}
+		});
+		
+		// 点击上面菜单效果
+		$("#navbar ul li a").click(function(){
+			$("#navbar ul li a").removeClass("current");
+			$("#navbar ul li a .dot").removeClass("block").addClass("none")
+			$(this).addClass("current").find(".dot").removeClass("none").addClass("block");
+		});
+		
+		// 点击logo回到首页
+		$("#logo img").click(function(){
+			window.location.href = "index.html";
+		});
+		
+	</script>
+</html>

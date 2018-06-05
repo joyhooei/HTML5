@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0279)http://h5sdk.playtai.com:8080/h5distribute/bridge/7724/login/wdzz?appkey=148887381085&time=1525773862&token=7b13f41b0a2306408f6306b5d91bb29e&uid=4482800&nickname=%E5%A8%84%E5%A9%B7%E7%A7%80&sign=4b0f77588ac20501e7b9969dd3539cd5&channel=0&suid=0&ext=%7B%22flag%22%3A%22ppwh5%22%7D -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="full-screen" content="true">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title></title>
+<script type="text/javascript" src="./jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="./qqessdkclient.js"></script>
+
+<script src="./60B1C1D176D04437B18C84436FFA46E3" type="text/javascript"></script><script src="./sdk_release.js"></script>
+
+<script type="text/javascript">
+var userid="7724_4482800";
+var callbackinfo="";
+var gameid="wdzz";
+var gamename="wdzz";
+var appkey="148887381085";
+var token="7b13f41b0a2306408f6306b5d91bb29e";
+var uid="4482800";
+var channel7724="0";
+var channelname="7724";
+
+var serverid=0;
+var channelusername="";
+var roleid=0;
+var rolename="";
+var rolelevel=0;
+
+
+function callback(){
+	
+}
+
+function dopay(orderid,amount,serverid,actorid,goodsname){
+
+	goodsname=encodeURI(goodsname);
+	var url="/h5distribute/bridge/7724/pay/"+gamename+"?userid="+userid+"&goodsname="+goodsname+"&serverid="+serverid+"&amount="+amount+"&orderid="+orderid+"&actorid="+actorid+"&callbackinfo="+callbackinfo
+											+"&appkey="+appkey+"&token="+token+"&uid="+uid+"&channel7724="+channel7724;
+	var _login_oHead = document.getElementsByTagName('HEAD').item(0); 
+	var _login_oScript= document.createElement("script");
+	_login_oScript.language = "javascript";
+	_login_oScript.type = "text/javascript"; 
+	_login_oScript.src=url; 
+	_login_oHead.appendChild(_login_oScript);
+}
+function getappkey(){
+	return appkey;
+}
+function doinit(){
+	
+}
+function doshare(){
+	console.log("开始调用SDK分享");
+	QqesSdk.share(appkey, dosharecallback);
+	console.log("结束调用SDK分享");
+}
+function doinvite(){
+	QqesSdk.invite(appkey, doinvitecallback);
+}
+function dofocus(){
+	QqesSdk.invite(appkey, dofocuscallback);
+}
+
+function dosharecallback(){
+	document.getElementById("_gameIframe").contentWindow.postMessage("_do_share_callback","*");
+    try{
+		var url="../../report/gamelog/wdzz";
+		var logstr="分享完成：userid="+userid+", rolename="+rolename;
+		$.post(url,{channelname:channelname,log:logstr},function(){});
+    }catch(e){
+    	console.log(e);
+    }
+}
+function dofocuscallback(){
+	document.getElementById("_gameIframe").contentWindow.postMessage("_do_focus_callback","*");
+    try{
+		var url="../../report/gamelog/wdzz";
+		var logstr="关注完成：userid="+userid+", rolename="+rolename;
+		$.post(url,{channelname:channelname,log:logstr},function(){});
+    }catch(e){
+    	console.log(e);
+    }
+}
+
+function doinvitecallback(){
+	document.getElementById("_gameIframe").contentWindow.postMessage("_do_invite_callback","*");
+	//eval("invitecallback()");
+}
+
+function dologin(serverid,channelusername){
+	var url="../../report/gamelogin/wdzz";
+	$.post(url,{serverid:serverid,channelusername:userid,channelname:channelname},function(){});
+}
+
+function docreateRole(serverid,channelusername){
+	
+	try{
+		TDGA.Account.setAccountId(userid);
+		TDGA.Account.setAccountName(rolename);
+		TDGA.Account.setAccountType(2);
+		TDGA.Account.setLevel(rolelevel);
+		TDGA.Account.setGameServer(servername);
+	}catch(e){
+	}
+	
+	var url="../../report/gamecreaterole/wdzz";
+	$.post(url,{serverid:serverid,channelusername:userid,channelname:channelname},function(){});
+	this.serverid=serverid;
+	this.channelusername=channelusername;
+}
+
+function dologinDataCommit(roleid,rolename,rolelevel,serverid,servername,society){
+	
+	try{
+		TDGA.Account.setAccountId(userid);
+		TDGA.Account.setAccountName(rolename);
+		TDGA.Account.setAccountType(2);
+		TDGA.Account.setLevel(rolelevel);
+		TDGA.Account.setGameServer(servername);
+	}catch(e){
+		console.log(e);
+	}
+	
+	var url="../../report/gamelogin/wdzz";
+	$.post(url,{serverid:serverid,channelusername:userid,channelname:channelname,roleid:roleid,rolename:rolename,rolelevel:rolelevel,serverid:serverid},function(){});
+	this.serverid=serverid;
+	this.channelusername=channelusername;
+	this.roleid=roleid;
+	this.rolename=rolename;
+	this.rolelevel=rolelevel;
+}
+
+function dolevelUpCommit(roleid,rolename,rolelevel,serverid,servername,society){
+	var url="../../report/gamelevelup/wdzz";
+	$.post(url,{serverid:serverid,channelusername:userid,channelname:channelname,roleid:roleid,rolename:rolename,rolelevel:rolelevel,serverid:serverid},function(){});
+	this.serverid=serverid;
+	this.channelusername=channelusername;
+	this.roleid=roleid;
+	this.rolename=rolename;
+	this.rolelevel=rolelevel;
+}
+
+</script>
+</head>
+<body marginwidth="0" marginheight="0">
+<div id="_gameFrameDiv" style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;">
+	<iframe id="_gameIframe" src="./wdzz.html" frameborder="no" border="0px" marginwidth="0px" marginheight="0px" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+</div>
+
+<script type="text/javascript">
+
+window.onbeforeunload=function(){
+	TDGA.onPageLeave();
+}
+
+</script>
+
+</body></html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>UBK应用市场合作数据后台</title>
+		<meta name="renderer" content="webkit">
+		
+		<style type="text/css">
+			@charset "utf-8";
+			*{ margin:0; padding:0; font-family:"微软雅黑","宋体","Arial Narrow";font-size:14px;}
+			*:focus { outline: none;}
+			
+			/*注册框背景*/
+			.bg_register{ background:url(img/bg.jpg) no-repeat #0a0d1c;background-size:cover}
+			/*注册框盒子*/
+			.box_reg{width: 600px;background-color: wheat;margin: 10% auto;}
+			/*input输入框*/
+			input{
+				display: block;
+				border: 1px solid gray;
+				width: 400px;
+				height: 50px;
+				margin: 50px auto 0;
+				border-radius: 8px;
+			}
+			/*按钮*/
+			input[type="button"]{width: 260px;margin-bottom: 50px;}
+			h1,h2{text-align: center;}
+			h1{font: bolder 40px/80px "microsoft sans serif";}
+			h2{font: 20px/40px "microsoft sans serif";}
+			.message{color: red;margin-left: 100px;}
+			/*第二步*/
+			.send_captcha #send_already{
+				margin-top: 30px;
+				text-align: center;
+				font-size: 18px;
+				line-height: 30px;
+			}
+			.bottom_message{margin: 80px 0 20px 40px;color: gray;padding-bottom: 20px;}
+			.bottom_message p{font-size: 18px;line-height: 25px;}
+			
+			/*第三步*/
+			.forget_account,.set_password{margin-top: 50px;}
+			.forget_account p,.set_password p{text-align: center;font-size: 18px;}
+			a{text-decoration: none;/*去掉a的下划线*/color: rgb(0,153,201);font-size: 18px;}
+			#forget_account,#set_password{bottom: 20px;position: relative;left: 490px;}
+			.connect_us{margin-top: 50px;padding-bottom: 30px;}
+			.connect_us p{width: 200px;margin: 0 auto;text-align: left;}
+
+			/*自定义UBK button样式*/
+			.ubk-button-style{color: white;background-color: rgb(0,153,201);}
+			/*自定义鼠标光标放在上面变小手*/
+			.ubk-cursor-pointer{cursor: pointer;}
+			.hide{display: none;}
+		</style>
+	</head>
+	<body class="bg_register">
+		<div class="box_reg">
+			<!--标题-->
+			<div class="title">
+				<h1>UBK</h1>
+				<h2>应用市场合作数据后台</h2>
+				<h2 id="subtitle">· 找回密码 ·</h2>
+			</div>
+			
+			<!--注册邮箱-->
+			<div class="register_email">
+				<input type="text" id="reg_email" placeholder="输入账户ID / 注册邮箱"/>
+				<p id="email_msg" class="message hide">请输入正确的ID或邮箱</p>
+				<input type="button" class="ubk-button-style ubk-cursor-pointer" value="下一步" onclick="nextStep()"/>
+				<a id="forget_account" href="javascript:;" class="ubk-text-color" onclick="forgetAccount()">忘记ID和账号</a>
+			</div>
+			
+			<!--发送验证码-->
+			<div class="send_captcha hide">
+				<p id="send_already">找回密码邮件已经发送到：<a href="javascript:;" id="email" onclick="toEmail()"></a>,请查收邮件找回密码。</p>
+				
+				<div class="bottom_message">
+					<p>没有收到邮件？</p>
+					<p>1. 请检查邮箱是否填写正确，您可以 <a href="register.html">重新填写</a></p>
+					<p>2. 请尝试查看垃圾邮件文件夹</p>
+					<p>3. 若还是未找到，请耐心等待，或者 <a id="send_again">重新发送</a></p>
+				</div>
+			</div>
+			
+			<!--设置密码-->
+			<div class="set_password hide">
+				<p>请重新设置你的登录密码</p>
+				<p>账号：dsssf@fkldj.com</p>
+				<input type="password" id="psd" placeholder="设置密码"/>
+				<input type="button" class="ubk-button-style ubk-cursor-pointer" value="完成" onclick="complete()"/>
+			</div>
+			
+			<!--找回账号-->
+			<div class="forget_account hide">
+				<p>请联系我们的工作人员帮您找回ID和账号。</p>
+				<div class="connect_us">
+					<p>阿标</p>
+					<p>邮箱：biao@feelwx.com</p>
+					<p>QQ：243815323</p>
+				</div>
+			</div>
+		</div>
+			
+			
+				
+			
+			
+			
+		
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			//注册
+			function nextStep(){
+				//校验是否为邮箱
+				 if($("#reg_email").val()==""){
+				 	$("#email_msg").text("请输入ID或邮箱");
+				 	$("#email_msg").show();
+				 }
+				  var email=$("#reg_email").val();
+				  if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
+				  	$("#email_msg").text("请输入正确的ID或邮箱");
+				 	$("#email_msg").show();
+				   return false;
+				  }else{
+				  	$(".send_captcha").show();
+					$(".register_email").hide();
+					//更改第二步的邮箱
+					$("#send_already a").text(email);
+					//验证码倒计时
+					var countdown = 60; 
+					function settime(val) { 
+						var timeout = setTimeout(function() { 
+							settime($("#send_again"))
+						},1000) 
+						
+						if (countdown == 0) { 
+							val.attr("href","javacript:;");
+							val.attr("onclick","sendCaptchaAgain()");
+							val.text("重新发送  "); 
+							clearTimeout(timeout);
+						} else { 
+							val.removeAttr("href");
+							val.removeAttr("onclick");
+							countdown--; 
+							val.text("重新发送  " + countdown); 
+						} 
+				  	}
+					settime($("#send_again"));
+				}
+			}
+			
+			function forgetAccount(){
+				$(".forget_account").show();
+				$(".register_email").hide();
+				$("#subtitle").text("· 找回注册账号 ·");
+			}
+
+			//重新发送
+			function sendCaptchaAgain(){
+				alert("已经发送，请查收。");
+			}
+			
+			//
+			function complete(){
+				var param={email:$("#reg_email").val(),psd:$("#psd").val()};
+				$.ajax({
+                    type:'POST',
+                    dataType:'json',
+                    contentType:'application/json',
+                    url:'./register',
+                    data:JSON.stringify(param),
+                    success:function(msg){
+                        if(msg.retcode == 0){
+					
+                        }else{
+                        		
+                        	}
+                    	},
+                    error:function(){
+                        	
+                    }
+                });
+			}
+			
+			function toEmail(){
+				var email = $("#reg_email").val();
+				var arr = email.split("@");
+				if (arr.length > 1) {
+					arr = arr[1].split(".");
+					email = "http://mail." + arr[0] + ".com";
+					window.open(email);
+				}
+			}
+			
+			//校验邮箱
+			$("#reg_email").blur(function(){
+				var email=$("#reg_email").val();
+				if (email.length == 0) {
+					$("#reg_email").css("border-color","black");
+					return;
+				} else{
+					if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{1,5}){1,5})$/)){
+						$("#reg_email").css("border-color","red");
+						$("#email_msg").show();
+					}else{
+						$("#reg_email").css("border-color","black");
+					}
+					return false;
+				}
+			});
+			
+			$("#reg_email").focus(function(){
+				$("#reg_email").css("border-color","rgb(0,155,250)");
+				$("#email_msg").hide();
+				return false;
+			});
+					 
+		</script>
+	</body>
+</html>

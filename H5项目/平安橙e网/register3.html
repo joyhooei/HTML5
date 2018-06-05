@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>立即注册</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		
+    		<script>
+    		//通过js控制根目录font-size，从而做到屏幕适配。
+        (function(win){
+        		var doc=win.document;
+        		var html=doc.documentElement;
+        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+        		html.style.fontSize=clientWidth/750*50+"px"};
+        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+        		doc.addEventListener("DOMContentLoaded",recalc,false);
+        		recalc()
+        		}
+        	)(window);
+   		</script>
+   		
+   		<style type="text/css">
+   			body{margin: 0; padding: 0; width: 100%; height: 100%;}
+   			.content{position: relative;max-width: 750px;height: 30.74rem; margin: 0 auto;font-size: .4rem;background: url(img/pingan_e_QB/bg_reg3.jpg) no-repeat;width:100%;
+   			/*背景图片：按比例调整背景图片*/
+   			background-size:cover;}
+   			
+   			span{
+   				width: 8rem;
+   				height: .8rem;
+   				margin: .4rem auto .8rem;
+   				padding-top: 11.8rem;
+				text-align: center;/*文字居中显示*/
+   				font: normal .6rem "microsoft yahei";
+   				display: block;
+   				color: rgb(255,251,204);
+   			}
+   			
+   			img{
+   				display: block;
+   				margin: 0 auto;
+   				width: 8rem;
+   				height: 1.7rem;
+   			}
+   			
+   			#rules{
+   				width: 11rem;
+   				margin: 3.3rem auto;
+   				line-height: .6rem;
+   				font-size:.5rem
+   			}
+   			
+   		</style>
+	</head>
+	<body >
+		<div class="content">
+			<span>开通橙e付即可免费得10Q币</span>
+			<img src="img/pingan_e_QB/ad3_btn_reg.png" onclick="joinIn()"/>
+			<div id="rules">1.活动时间：2017.02.08-2017.03.31<br />
+				2.参与方式：<br />
+				1）成功开通橙e付即可免费领取10个Q币；<br />
+				2）每个兑换码只能兑换1次，每个qq号只能领取一次；<br />
+				3）兑换码将以短信形式发送至您的手机，请前往<a href="http://www.feelwx.com" style="color: rgb(192,35,28);">兑换平台</a>兑换,兑换码在该平台使用才有效；<br />
+				4）若未能成功兑换请致电客服热线：400-848-0888；<br />
+				5）所有兑换码有效期截止至2017.03.31；<br />
+				3.在法律范围内，橙e网保留对本活动的最终解释权，如有变动恕不另行通知。</div>
+		</div>
+		
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+		
+			//统计数据
+			function countData(num) {
+              var xmlHttp;
+              if (window.ActiveXObject) {
+                  xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+              } else {
+                  if (window.XMLHttpRequest) {
+                      xmlHttp = new XMLHttpRequest();
+                  }
+              }
+              xmlHttp.open("GET", "./CountIP?page_id=" + num + "&channel_id=10");
+              xmlHttp.send();
+          }
+			
+			function joinIn(){
+				//统计注册按钮点击次数
+				countData(505);
+				window.location.href="http://www.feelwx.com";
+			}
+			
+		    //统计页面打开次数
+		    countData(504);
+		    
+		</script>
+	</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UBK管理后台系统</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/left_list.css">
+    <link rel="stylesheet" href="css/dateRange.css">
+    <link rel="stylesheet" href="css/monthPicker.css">
+    <link rel="stylesheet" href="js/jquery.ui/jquery-ui.min.css">
+    <style type="text/css">
+        .input_bg4 {width: 256px;height: 30px;overflow: hidden;}
+        .input_bg4 .search {display: block;position: absolute;right: 0;top: 0;height: 100%;width: 34px;}
+        #data_body tr:first-child {display: none;}
+    </style>
+</head>
+<body>
+<div class="box_body">
+    <!--nav start-->
+    <div class="load-template-html box_body_left" data-src="template/nav.html"></div>
+    <!--nav end-->
+    <div class="box_body_right">
+        <!--top start-->
+        <div class="load-template-html" data-src="template/top.html"></div>
+        <!--top end-->
+        <!--content start-->
+        <div class="right_cont">
+            <div class="right_cont_title">
+                <div class="head_img"><img src="img/sucaihzliul.png" width="22" height="22"></div>
+                <div class="head_h">贡献流量详情</div>
+                <a href="javascript:;" class="amount_upload" onclick="searchM._download();"></a>
+                <form id="downloadForm" action="export" method="POST">
+                    <input type="hidden" name="_m" value="devote" />
+                    <input type="hidden" name="fileName" value="" />
+                    <input type="hidden" name="json" value="" />
+                </form>
+                <div class="input_bg1">
+                    <a href="javascript:;" onclick="Feelwx.chooseTimeType._do(this, 1);">日</a>
+                    <a href="javascript:;" onclick="Feelwx.chooseTimeType._do(this, 2);">月</a>
+                </div>
+                <div class="input_bg4">
+                    <input id="app" name="app" placeholder="搜索产品名称" type="text" />
+                </div>
+                <div class="input_bg2_box date_input_box">
+                    <input id="date_input" size="25" readonly="readonly" class="input_bg3_input" value="123"/>
+                </div>
+                <div class="input_bg2_box month_select_box" style="display: none">
+                    <input id="month_input" size="25" readonly="readonly" class="input_bg3_input" />
+                </div>
+                <div class="input_bg2_box">
+                    <div class="osBtn android active" data-type="1"></div>
+                    <div class="osBtn ios" data-type="2"></div>
+                </div>
+            </div>
+            <form action="product_info.html" id="clickAppName" method="get">
+                <input type="hidden" name="pid" value="" />
+                <input type="hidden" name="pname" value="" />
+                <input type="hidden" name="startDate" value="" />
+                <input type="hidden" name="endDate" value="" />
+                <input type="hidden" name="time_type" value="" />
+                <input type="hidden" name="osType" value="" />
+            </form>
+            <table class="amount_table_2" style="min-width:1250px;">
+                <tr class="_data">
+                    <td  class="table_title">日期</td>
+                    <td  class="table_title">流量贡献方</td>
+                    <td  class="table_title">流量获取方</td>
+                    <td  class="table_title">U位名称</td>
+                    <td  class="table_title">请求</td>
+                    <td  class="table_title">展示</td>
+                    <td  class="table_title">展示率</td>
+                    <td  class="table_title">点击</td>
+                    <td  class="table_title _click_percent">点击率</td>
+                    <td  class="table_title">开始下载</td>
+                    <td  class="table_title">下载率</td>
+                    <td  class="table_title">下载成功</td>
+                    <td  class="table_title">完成率</td>
+                    <td  class="table_title">安装</td>
+                    <td  class="table_title">安装率</td>
+                    <td class="table_title _open">打开</td>
+                    <td class="table_title _open_percent">打开率</td>
+                </tr>
+                <tbody id="data_body">
+                <tr>
+                    <td class="_time">日期</td>
+                    <td class="_llgxf">流量贡献方</td>
+                    <td class="_llhqf">流量获取方</td>
+                    <td class="_uwmc">U位名称</td>
+                    <td class="_req">请求</td>
+                    <td class="_show">展示</td>
+                    <td class="_show_percent">展示率</td>
+                    <td class="_click">点击</td>
+                    <td class="_click_percent">点击率</td>
+                    <td class="_download">开始下载</td>
+                    <td class="_download_percent">下载率</td>
+                    <td class="_downloaded">下载成功</td>
+                    <td class="_downloaded_percent">完成率</td>
+                    <td class="_install">安装</td>
+                    <td class="_install_percent">安装率</td>
+                    <td class="_open">打开</td>
+                    <td class="_open_percent">打开率</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--content end-->
+    </div>
+</div>
+<!--footer start-->
+<div class="load-template-html" data-src="template/footer.html"></div>
+<!--footer end-->
+<img src="img/loading_bg.gif" class="loading_img hide"/>
+<script src="js/jquery-1.6.3.js"></script>
+<script src="js/common.js"></script>
+<script>
+    window.Feelwx = window.Feelwx || {};
+    Feelwx.selectNavIndex=function(){
+        $('#nav_index_4').addClass('navbg_on');
+    };
+</script>
+<script src="js/util.js"></script>
+<script src="js/monthPicker.js"></script>
+<script src="js/dateRange.js"></script>
+<script src="js/jquery.ui/jquery-ui.min.js"></script>
+<script>
+    
+    Feelwx.chooseTimeType.callback = function (e, type) {
+        if(type == 1){
+            $('.date_input_box').show();
+            $('.month_select_box').hide();
+        }else{
+            $('.date_input_box').hide();
+        }
+        if(type == 2){
+            $('.date_input_box').hide();
+            $('.month_select_box').show();
+        }else{
+            $('.month_select_box').hide();
+        }
+        searchM._trySetSearchAll();
+        searchM._do();
+    };
+    function _click_llhqf(list, line, level) {
+        this.list = list;
+        this.line = line;
+        this.level = level;
+        this.params = {
+            devote_appid: searchM.data.appid, time_type: searchM.data.time_type,
+            time: line.data.time, gain_appid: 0, u_type: 0, by: 1,
+            OSType:$('.osBtn.active').attr('data-type')
+        };
+    }
+    _click_llhqf.prototype.click = function () {
+        var _this = this;
+        if(this.params.time_type == 2){
+            this.params.time=this.params.time+'-01';
+        }
+        Feelwx.post("get_devote_detailed", _this.params, function (ret) {
+            _this.line.hide = true;
+            _this.line.child = [];
+            for (var i = 0; i < ret.list.length; i++) {
+                var childLine = {data: ret.list[i]};
+                childLine.data.time = _this.line.data.time;
+                childLine.data.llgxf = _this.line.data.llgxf;
+                childLine.data.llhqf = new AAction(ret.list[i].name);
+                childLine.data.llhqf.clickable = searchM._AForm();
+                childLine.data.llhqf.clickable.params.pid = ret.list[i].appid;
+                childLine.data.llhqf.clickable.params.pname = ret.list[i].name;
+                switch (_this.level) {
+                    case 1:
+                        childLine.data.uwmc = _this.line.data.uwmc;
+                        break;
+                    default :
+                        childLine.data.uwmc = new AAction("详情");
+                        childLine.data.uwmc.clickable = new _click_uwmc(_this.list, childLine, 1);
+                        childLine.data.uwmc.clickable.params.gain_appid = childLine.data.appid;
+                }
+                _this.line.child.push(childLine);
+            }
+            searchM._draw(_this.list);
+        });
+    };
+    function _click_uwmc(list, line, level) {
+        this.list = list;
+        this.line = line;
+        this.level = level;
+        this.params = {
+            devote_appid: searchM.data.appid, time_type: searchM.data.time_type,
+            time: line.data.time, gain_appid: 0, u_type: 0, by: 2,
+            OSType:$('.osBtn.active').attr('data-type')
+        };
+    }
+    _click_uwmc.prototype.click = function () {
+        var _this = this;
+        if(this.params.time_type == 2){
+            this.params.time=this.params.time+'-01';
+        }
+        Feelwx.post("get_devote_detailed", _this.params, function (ret) {
+            _this.line.hide = true;
+            _this.line.child = [];
+            for (var i = 0; i < ret.list.length; i++) {
+                var childLine = {data: ret.list[i]};
+                childLine.data.time = _this.line.data.time;
+                childLine.data.llgxf = _this.line.data.llgxf;
+                switch (_this.level) {
+                    case 1:
+                        childLine.data.llhqf = _this.line.data.llhqf;
+                        break;
+                    default:
+                        childLine.data.llhqf = new AAction("详情");
+                        childLine.data.llhqf.clickable = new _click_llhqf(_this.list, childLine, 1);
+                        childLine.data.llhqf.clickable.params.u_type = childLine.data.u_type;
+                }
+                childLine.data.uwmc = u_type[ret.list[i].u_type + ""];
+                _this.line.child.push(childLine);
+            }
+            searchM._draw(_this.list);
+        });
+    };
+    var searchM = {
+        app_id: 0, app_name: null, data: null, ret_list: null, model: null,
+        _do: function () {
+            var data = {
+                time_type: Feelwx.chooseTimeType.time_type,
+                appid: this.app_id,
+                OSType:$('.osBtn.active').attr('data-type')
+            };
+            switch (data.time_type) {
+                case 2:
+                    if($('#month_input').data('startDate') != undefined){
+                        data.s_time = $('#month_input').data('startDate');
+                        data.e_time = $('#month_input').data('endDate');
+                    }else{
+                        var _date = new Date();
+                        data.s_time = Feelwx.get_pre_month_date(_date).format('yyyy-MM-dd');
+                        data.e_time = _date.format('yyyy-MM-dd');
+                    }
+                    break;
+                default :
+                    data.s_time = $('#date_input').data('startDate');
+                    data.e_time = $('#date_input').data('endDate');
+            }
+            if (this.app_id === 0) {
+                //点击浏览器“上一页”会搜索所以app，而输入框还是以前的值。
+                $("#app").val("");
+            }
+            Feelwx.post("get_devote", data, function (ret) {
+                searchM._show(ret);
+            });
+            data.appname = this.app_name;
+            this.data = data;
+        },
+        _trySetSearchAll: function () {
+            if ($("#app").val().length === 0) {
+                this.app_id = 0;
+                this.app_name = null;
+                return true;
+            } else {
+                return false;
+            }
+        },
+        _AForm: function () {
+            var aForm = new AForm($("#clickAppName"));
+            aForm.params.startDate = this.data.s_time;
+            aForm.params.endDate = this.data.e_time;
+            aForm.params.time_type = this.data.time_type + 1;
+            aForm.params.osType = $('.osBtn.active').attr('data-type');
+            return aForm;
+        },
+        _show: function (ret) {
+            var list = [];
+            for (var i = 0; i < ret.list.length; i++) {
+                var t = ret.list[i];
+                if (this.data.time_type === 2) {
+                    t.time = t.time.substring(0, 7);
+                }
+                var line = {};
+                line.data = t;
+                if (this.app_id === 0) {
+                    t.llgxf = "所有产品";
+                    t.llhqf = "所有产品";
+                    t.uwmc = "所有U位";
+                } else {
+                    t.llgxf = new AAction(searchM.app_name);
+                    var aForm = searchM._AForm();
+                    aForm.params.pid = this.data.appid;
+                    aForm.params.pname = this.data.appname.replace(/ /g,'%20');
+                    t.llgxf.clickable = aForm;
+                    if (t.show === 0) {
+                        t.llhqf = "暂无产品";
+                        t.uwmc = "暂无U位";
+                    } else {
+                        t.llhqf = new AAction("详情");
+                        t.llhqf.clickable = new _click_llhqf(list, line, 0);
+                        t.uwmc = new AAction("详情");
+                        t.uwmc.clickable = new _click_uwmc(list, line, 0);
+                    }
+                }
+                list.push(line);
+            }
+            this._draw(list);
+        },
+        _draw_line: function (obj, model) {
+            if (obj.hide !== undefined && obj.hide) {
+                if (obj.child !== undefined) {
+                    var child = obj.child;
+                    for (var j = 0; j < child.length; j++) {
+                        this._draw_line(child[j], model);
+                    }
+                }
+                return;
+            }
+            var t = obj.data;
+//                    t.req = t.show;
+            if(t.req === -1){t.req='--'}
+            t.show_percent = Feelwx.f_num(t.show, t.req);
+            t.click_percent = Feelwx.f_num(t.click, t.show);
+            t.download_percent = Feelwx.f_num(t.download, t.click);
+            t.downloaded_percent = Feelwx.f_num(t.downloaded, t.download);
+            t.install_percent = Feelwx.f_num(t.install, t.downloaded);
+            //osType open percent dif..
+            if ($('.osBtn.active').attr('data-type') == 1) {
+                t.open_percent = Feelwx.f_num(t.open, t.install);
+            } else {
+                t.open_percent = Feelwx.f_num(t.open, t.click);
+            }
+            var line = $("#data_body").find("tr:first").clone();
+            var modelLine = {};
+            for (var k in t) {
+                var c = $(line).find("._" + k);
+                if (c.size() > 0) {
+                    if (t[k].constructor === AAction) {
+                        modelLine[k] = t[k].text;
+                        t[k].appendTo(c.get(0));
+                    } else {
+                        modelLine[k] = t[k];
+                        $(c.get(0)).html(t[k]);
+                    }
+                }
+            }
+            model.push(modelLine);
+            line.addClass("_data");
+            $("#data_body").append(line);
+        },
+        _draw: function (list) {
+            this.model = [];
+            /**
+             * list  结构 [{hide:true,data:{}, child:[{hide:true,data:{}}]}]
+             */
+            $("#data_body tr._data").remove();
+            for (var i = 0; i < list.length; i++) {
+                this._draw_line(list[i], this.model);
+            }
+        },
+        _download: function () {
+            if (this.model === null) {
+                return;
+            }
+            var date_str='';
+            var s_t=this.data.s_time.substring(0, this.data.time_type === 2 ? 7 : 10);
+            var e_t=this.data.e_time.substring(0, this.data.time_type === 2 ? 7 : 10);
+            if(s_t == e_t){
+                date_str=s_t;
+            }else{
+                date_str=s_t+'至'+e_t;
+            }
+            var fileName = (this.app_name === null ? "所有产品" : this.app_name)
+                    + "_贡献详情_"+ date_str;
+            $("#downloadForm input[name='fileName']").val(fileName);
+            $("#downloadForm input[name='json']").val($.toJSONString(this.model));
+            $("#downloadForm").submit();
+        }
+    };
+    $(function () {
+        if(get_query_string('osType')){
+            if(get_query_string('osType') == 2){
+                $('.osBtn').removeClass('active');
+                $('.osBtn.ios').addClass('active');
+                $('#app').removeClass('android').addClass('ios');
+            }else{
+                $('#app').removeClass('ios').addClass('android');
+            }
+        }
+
+		var _date = new Date();
+        var isinit=false;
+        //组装起始时间参数
+        var _month_s,_month_e;
+        if(get_query_string('time_type') == 2){
+            //月
+            _month_s=get_query_string('startDate').substring(0,7);
+            _month_e=get_query_string('endDate').substring(0,7);
+            $('#month_input').data('startDate',get_query_string('startDate'));
+            $('#month_input').data('endDate', get_query_string('endDate'));
+            //日
+            $('#date_input').data('startDate',new Date(_date.getTime() - (1000 * 60 * 60 * 24 * 6)).format('yyyy-MM-dd'));
+            $('#date_input').data('endDate', _date.format('yyyy-MM-dd'));
+        }else{
+            //月
+            _month_s=Feelwx.get_pre_month_date(_date).format('yyyy-MM');
+            _month_e=_date.format('yyyy-MM');
+            //日
+            if(get_query_string('time_type') == 1){
+                $('#date_input').data('startDate',get_query_string('startDate'));
+                $('#date_input').data('endDate', get_query_string('endDate'));
+            }else{
+                $('#date_input').data('startDate',new Date(_date.getTime() - (1000 * 60 * 60 * 24 * 6)).format('yyyy-MM-dd'));
+                $('#date_input').data('endDate', _date.format('yyyy-MM-dd'));
+            }
+        }
+        //初始化双日历
+        Feelwx.dateRange = new pickerDateRange('date_input', {
+            isTodayValid: true,
+            startDate: $('#date_input').data('startDate'),
+            endDate: $('#date_input').data('endDate'),
+            defaultText: ' 至 ',
+            inputTrigger: 'day',
+            theme: 'ta',
+            success: function (obj) {
+                //自定义的回调函数 callback();
+                $('#date_input').data('startDate', obj.startDate);
+                $('#date_input').data('endDate', obj.endDate);
+                searchM._do();
+            }
+        });
+        //初始化月选择器
+        Feelwx.monthDate=monthPicker.create('month_input', {
+            autoCommit : true,
+            period : true,
+            startYear:'2015',
+            start_month : _month_s,
+            end_month : _month_e,
+            callback:function(obj){
+                if(!isinit){
+                    isinit=true;
+                }else{
+                    var month=$('#month_input').val().replace(/(^\s*)|(\s*$)/g,"").split(' 至 ');
+                    $('#month_input').data('startDate',month[0]+'-01');
+                    $('#month_input').data('endDate',month[1]+'-01');
+                    searchM._do();
+                }
+            }
+        });
+        var params = {
+            startDate: get_query_string('startDate'),
+            endDate: get_query_string('endDate'),
+            time_type: get_query_string('time_type'),
+            app_id: get_query_string('app_id')?get_query_string('app_id'):'',
+            app_name: get_query_string('app_name')?decodeURI(escape(get_query_string('app_name'))):''
+        };
+        if (params.app_id.length > 0) {
+            searchM.app_id = parseInt(params.app_id);
+        }
+        if (params.app_name.length > 0) {
+            searchM.app_name = params.app_name;
+            $("#app").val(params.app_name);
+        }
+        if (params.time_type === "2") {
+            $(".input_bg1 a:last").click();
+        } else {
+            $(".input_bg1 a:first").click();
+        }
+        $("#app").focus(function () {
+            if ($(this).val() == "") {
+                $(this).autocomplete("search", "");
+            }
+        });
+        $("#app").blur(function () {
+            if (searchM._trySetSearchAll()) {
+                $('#app').removeClass('android').removeClass('ios');
+                searchM._do();
+            }
+        });
+        //切换平台
+        $('.osBtn').click(function(){
+            if(! $(this).hasClass('active')){
+                $('.osBtn').removeClass('active');
+                $(this).addClass('active');
+                //清空搜索框
+                $('#app').val('').removeClass('android').removeClass('ios');
+                searchM.app_id=0;//重置appid
+                //刷新数据
+                searchM._do();
+                if($('.osBtn.active').attr('data-type') == 1){
+                    $('._click_percent').nextAll().removeClass('hide');
+                }else {
+                    $('._click_percent').nextAll().addClass('hide');
+                    $('._open,._open_percent').removeClass('hide');
+                }
+            }
+        });
+    });
+    Feelwx.get_time_type = function () {
+        return $('.input_bg1 a.a_ononon').attr('value');
+    };
+    Feelwx.chart_type = function () {
+        return $('.cont_map_box_title a.cont_map_box_on').attr('id');
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>UBK商城</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<script>
+			//通过js控制根目录font-size，从而做到屏幕适配。
+			(function(win) {
+				var doc = win.document;
+				var html = doc.documentElement;
+				var resizeEvt = "orientationchange" in win ? "orientationchange" : "resize",
+					recalc = function() {
+						var clientWidth = html.clientWidth > 750 ? 750 : html.clientWidth;
+						html.style.fontSize = clientWidth / 750 * 50 + "px"
+					};
+				if(!doc.addEventListener) {
+					return
+				}
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener("DOMContentLoaded", recalc, false);
+				recalc()
+			})(window);
+		</script>
+
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.contentDiv {
+				max-width: 750px;
+				margin: 20px 1rem 0 1rem;
+				font-size: .4rem;
+			}
+			
+			.backBtn {
+				display: block;
+				width: 32px;
+   				height: 32px;
+				margin: .8rem 0 0 1rem;
+				background-image: url(img/backBtn.png);
+			}
+			.projectItem{
+				text-align: center;
+				margin-top: 2rem;
+			}
+			.projectItem img{
+				width: 50%;
+			}
+			.projectItem .p2{
+				color: rgb(26,188,156);
+				font-size: .6rem;
+				font-weight: bold;
+			}
+			#payWay{
+				text-align: center;
+				line-height: 11rem;
+				height: 10rem;
+				width: 100%;
+				background: url(img/payBg.png) no-repeat 0 0 / 100% 100%;
+				color: white;
+				font-size: .6rem;
+				position: fixed;
+				bottom: 0;
+				max-width: 750px;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<a class="backBtn"></a>
+		<div class="contentDiv">
+			
+			<div class="projectItem">
+				<img src="img/room/01fangxing.jpg" />
+				<p class="p1"></p>
+				<p class="p2"></p>
+			</div>
+		</div>
+		<div id="payWay">线上支付功能紧锣密鼓开发中，敬请期待！</div>
+
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			
+			function getParams(name){
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+				var r = window.location.search.substr(1).match(reg);
+				if (r!=null) return unescape(r[2]); return null;
+			}
+			$(".projectItem .left").html(getParams('id'));
+			var name;
+			var price;
+			var img1;
+			switch (parseInt(getParams('id'))){
+				case 1:
+					name = "BMW X1 sDrive18Li";
+					price = "¥ 260,000";
+					img1 = "img/car/BMW X1 sDrive18Li-1.jpg";
+					break;
+				case 2:
+					name = "BMW 长轴距版 320Li";
+					price = "¥ 270,000";
+					img1 = "img/car/BMW long 320Li-1.jpg";
+					break;
+				case 3:
+					name = "BMW 长轴距版 530Li";
+					price = "¥ 510,000";
+					img1 = "img/car/BMW long 530Li-1.jpg";
+					break;
+				case 4:
+					name = "BMW 长轴距版 520Li";
+					price = "¥ 359,000";
+					img1 = "img/car/BMW long 520Li-1.jpg";
+					break;
+				case 5:
+					name = "奔驰2016款 E300L 豪华型";
+					price = "¥ 484,800";
+					img1 = "img/car/benz2016 E300L deluxe-1.jpg";
+					break;
+				case 6:
+					name = "奔驰E 200 运动轿车2017年款";
+					price = "¥ 436,800";
+					img1 = "img/car/benzE 200 sport2017-1.jpg";
+					break;
+				default:
+					break;
+			}
+			$(".projectItem img").attr("src",img1);
+			$(".projectItem .p1").html(name);
+			$(".projectItem .p2").html(price);
+			
+			$(".backBtn").click(function(){
+				window.location.href = "carDetail.html" + window.location.search;
+			});
+
+		</script>
+	</body>
+
+</html>

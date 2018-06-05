@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<link href="css/radialindicator.css"  rel="stylesheet" type="text/css" />-->
+		
+		<style type="text/css">
+			#indicatorContainer{
+				width: 200px;
+				margin:auto;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="prg-cont rad-prg" id="indicatorContainer"></div>
+	</body>
+	
+	<script src="../js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/radialIndicator.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			var radialObj = $('#indicatorContainer').radialIndicator({
+		        barColor: {
+		            0: '#FF0000',
+		            33: '#FFFF00',
+		            66: '#0066FF',
+		            100: '#33CC33'
+		        },
+		        fontColor:'#20ff00',
+		        percentage: true,//控制百分号的显示
+		        barWidth:10,//定义圆形指示器的刻度条的宽度。
+		        barBgColor:'#FFee33',//定义圆形指示器的刻度条的背景颜色
+		    }).data('radialIndicator');
+		    $('#indicatorContainer canvas').css({'width':'150px','height':'150px'});
+		    //Using Instance
+    			radialObj.animate(90);
+		});
+		
+	</script>
+</html>

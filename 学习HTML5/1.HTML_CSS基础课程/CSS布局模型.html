@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+	CSS包含3种基本的布局模型：1、流动模型（Flow）
+							2、浮动模型 (Float) 
+							3、层模型（Layer）
+	
+	层模型有三种形式：
+		1、绝对定位(position: absolute)
+		2、相对定位(position: relative)
+		3、固定定位(position: fixed)
+	
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+		/*绝对定位*/
+			div{
+    				width:200px;
+    				height:200px;
+    				border:2px red solid;
+    				position:absolute;
+    				left:100px;/*固定距离左100*/
+    				top:50px;}/*固定距离上20*/
+		
+		/*相对定位*/
+		div1{
+    			width:200px;
+    			height:200px;
+    			border:2px red solid;
+    			position:relative;
+    			left:100px;
+    			top:50px;}	
+		
+		/*固定定位：相对于浏览器窗口位置固定的，不会上下滚动*/
+		div2{
+    			width:200px;
+    			height:200px;
+    			border:2px red solid;
+    			position:fixed;
+    			left:100px;
+    			top:50px;}
+		
+		</style>
+		
+	</head>
+	<body>
+		<div2 id="div">
+			我是一只小小小小鸟
+		</div2>
+	</body>
+</html>

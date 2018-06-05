@@ -1,0 +1,9 @@
+1.	安装Charles抓包工具，具体参考【http://charles.iiilab.com】，将自己手机设置好代理
+
+2.	数据文件（json.json）基本格式为：json格式的数组，数组中为字典，中间用英文逗号","隔开
+
+3.	建议每次抓取完数据后将JSON数据copy到如下网址【http://www.bejson.com】校验一下格式的正确性，如果出现Valid JSON 说明该文件格式正确
+
+4.	json.json文件处理完之后，直接打开 json2excel.html 即可自动下载excel文件
+
+5.	建议使用 Sublime Text 软件打开或修改json.json文件 

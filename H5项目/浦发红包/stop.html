@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>福利大管家</title>
+		
+		<!--禁止在微信浏览器中滑动-->
+		<script type="text/javascript">
+			document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+		</script>
+		
+		<style type="text/css">
+			.money_red{
+				margin: 18.6% auto 8%;
+				width: 45%;
+				display: block;
+			}
+			.top_text{
+				margin: 0 auto;
+				font-size: 16px;
+				text-align: center;
+				line-height: 28px;
+				padding-left: 3%;
+			}
+			#error_code{
+				font-size: 13px;
+				text-align: center;
+				color: darkgray;
+			}
+			.bottom_text{
+				text-align: center;
+			    font-size: 12px;
+			    margin: auto;
+			    bottom: 13%;
+			    position: fixed;
+			    left: 0;
+			    right: 0;
+			    color: rgb(157,158,159);
+			    line-height: 23px;
+			}
+			a{
+				text-decoration: none;
+				color: rgb(157,158,159);
+				font-size: 12px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<img class="money_red" src="img/money_grey.png"/>
+		<p class="top_text">抱歉，您来晚了一小步</p>
+		<p id="error_code">红包已经领完了，请继续关注下次活动！</p>
+		<p class="bottom_text" style="display: none;"><br />客服电话：<a href="tel:"></a></p>
+	</body>
+</html>

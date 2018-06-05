@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html id="ng-app" ng-app="mainApp">
+<head>
+    <title>UBK应用市场合作数据后台</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dateRange.css">
+    <link rel="stylesheet" href="css/monthPicker.css">
+    <link rel="stylesheet" href="css/mxjalert.css">
+</head>
+<body>
+    <div class="box_body">
+        <!-- left -->
+        <div class="box_body_left" ng-controller="navListCtr">
+            <div class="logo"><div>应用市场合作数据后台</div></div>
+            <div class="bbl_data bbl_item">
+                <div class="bbli_head active"><div class="data" style="margin-left: 10px;padding-left: 34px;">数据中心</div></div>
+                <a href="#total" class="bbli_son" ng-class="{active:isActive('/total')}">数据详情</a>
+            </div>
+            <div class="bbl_about bbl_item">
+                <div class="bbli_head" id="nav_1"><div class="capital">资金中心</div></div>
+                <a href="#accountInfo" nav-id="1" class="bbli_son hide" ng-class="{active:isActive('/accountInfo')}">账户总览</a>
+            </div>
+        </div>
+        <!-- end left-->
+        <!--right-->
+        <div class="box_body_right">
+            <!--right-top-->
+            <div class="right_top clearfix" ng-controller="userCtr">
+                <div class="product_select_box fl">
+                    <div class="input_bg2_box" id="select_app" datatype="product">
+                        <div class="input_bg2">
+                            <a href="javascript:;" value="0"></a>
+                            <ul class="input_bg2_ul hide">
+                                <li ng-repeat="app in appList" value="{{app.appid}}">{{app.appName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-person fr">
+                    <a href="javascript:;" class="right-top-a" title="{{userName}}">{{userName}}</a>
+                </div>
+            </div>
+            <!--end right-top-->
+            <div class="right_cont" ui-view></div>
+        </div>
+        <!--end right-->
+    </div>
+    <!--footer-->
+    <div class="boxxx_footer clearfix">
+        <span>Copyright &copy 2014-2017 Feeling Infinity. All Rights Reserved. 粤ICP备15012645号 深圳市非零无限科技有限公司 版权所有</span>
+        <a href="http://appubk.com/pc/about_us.html" target="_blank" class="fr">联系我们</a>
+        <a href="http://dev.appubk.com/login.html" target="_blank" class="fr">UBK免费换量</a>
+    </div>
+    <!--end footer-->
+    <!--loading-->
+    <img src="./images/loading_bg.gif" class="loading_img" style="display: none"/>
+    <!--end loading-->
+    <!--tips low-->
+    <div id="tips_low_box" class="tips_low_box hide">
+        <div class="tips_low clearfix">
+            <span>亲爱的用户，您的浏览器版本过低，可能无法完美的展现页面，请尝试下这些浏览器来浏览：</span>
+            <a href="http://rj.baidu.com/soft/detail/14744.html?ald" target="_blank" title="谷歌浏览器"><img src="images/guge_icon.png" width="48px"></a>
+            <a href="http://www.firefox.com.cn/" target="_blank" title="火狐浏览器"><img src="images/huohu_icon.png" width="48px" height="48px"></a>
+            <a href="http://windows.microsoft.com/zh-cn/internet-explorer/ie-9-worldwide-languages" target="_blank" title="ie9及以上浏览器"><img src="images/ie9_icon.png" width="52px" height="52px"></a>
+            <span>如果您使用的双核浏览器，请切换到极速模式</span>
+            <span onclick="$('.tips_low_box,.tips_low_box_bg').addClass('hide');" class="tips_low_exit">我知道了..</span>
+        </div>
+    </div>
+    <div id="tips_low_box_bg" class="tips_low_box_bg hide"></div>
+    <!--end tips low-->
+    <script src="lib/jquery-1.8.3.min.js"></script>
+    <script src="lib/angular/angular-1.2.9.min.js"></script>
+    <script src="lib/angular/angular-route.min.js"></script>
+    <script src="lib/angular/ocLazyLoad.core.js"></script>
+    <script src="lib/highcharts/highcharts.js"></script>
+    <script src="lib/mxjalert.js"></script>
+    <script src="lib/dateRange.js"></script>
+    <script src="lib/monthPicker.js"></script>
+    <script src="lib/md5.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="lib/qrcode.min.js"></script>
+    <script>
+        //菜单
+        $('.bbli_head').click(function(){
+            $('.bbli_head').removeClass('active').siblings('a').addClass('hide');
+            $(this).addClass('active');
+            $(this).siblings('a').removeClass('hide');
+        });
+        utils.initUserInfoBox();
+    </script>
+</body>
+</html>

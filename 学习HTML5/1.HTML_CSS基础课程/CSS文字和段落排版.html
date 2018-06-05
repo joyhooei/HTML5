@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<style type="text/css">
+		/*设置文字属性*/ /*颜色每两位的值相同可以缩写一半，下面正确的为#666666*/
+		body{color: #666;font-size: 17px;font-family:"微软雅黑";}
+		/*设置粗体*/
+		p span{font-weight: bold;}
+		/*设置斜体,下划线,删除线line-through*/
+		a{font-style: italic;text-decoration:underline}
+		/*设置段落缩进:2em的意思就是文字的2倍大小。*/
+		p{text-indent: 2em;}
+		/*行间距*/
+		p{line-height: 1.5em;}
+		/*文字之间的间距*/
+		p{letter-spacing: 5px;}
+		/*英文单词之间的间距*/
+		p{word-spacing: 8px;}
+		/*对齐方式*/
+		h1{text-align: center;
+			color: red;}
+
+		 /*字体设置*/
+		body1{
+    			font-style:italic;
+    			font-variant:small-caps; 
+    			font-weight:bold; 
+    			font-size:12px; 
+    			line-height:1.5em; 
+    			font-family:"宋体",sans-serif;}
+		/*简写为*/
+		body1{
+    			font:italic  small-caps  bold  12px/1.5em  "宋体",sans-serif;}
+/*
+ 注意：
+1、使用这一简写方式你至少要指定 font-size 和 font-family 属性，其他的属性(如 font-weight、font-style、font-varient、line-height)如未指定将自动使用默认值。
+2、在缩写时 font-size 与 line-height 中间要加入“/”斜扛。
+ * */
+		body2{font:12px/1.5em  "宋体",sans-serif;}
+		/*一般只是有字号、行间距、中文字体、英文字体设置*/
+		</style>
+		
+	</head>
+	<body>
+		
+		 <h1>勇气</h1>
+    <p>三年级时，我还是一个<span id="stress">胆小如鼠</span>的小女孩，上课从来不敢回答老师提出的问题</p>
+    <p>甚至成绩比我差很多的，也举手了，还说着："<a>我来，我来。</a>"我环顾了四周，就我没有举手。</p>
+		
+	</body>
+</html>
+
+<h1>颜色</h1>
+p{color:red;}
+p{color:rgb(133,45,200);}
+==
+p{color:rgb(20%,33%,25%);}
+p{color:#00ffff;}
+
+<h1>长度值</h1>
+长度值的单位有px（像素）、em、% 百分比
+em就是本元素给定字体的 font-size 值，如果元素的 font-size 为 14px ，那么 1em = 14px；如果 font-size 为 18px，那么 1em = 18px。
+
+p{font-size:12px;text-indent:2em;}
+实现段落首行缩进 24px（也就是两个字体大小的距离）

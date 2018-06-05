@@ -1,0 +1,58 @@
+/*资金中心*/
+.acib_yue div.text, .acib_chongzhi div.text {line-height: 18px;display: inline-block;color: #333;font-weight: bold;}
+.acib_yue {border-bottom: 1px solid #ECECEC;padding: 30px 0 0 30px;font-weight: bold;font-size: 16px;}
+.right_cont_padding {padding: 30px;}
+.aciby_money {line-height: 36px;color: #2f7fef;padding-left: 30px;margin-top: 10px;padding-bottom: 10px;display: inline-block;font-weight: bold;}
+.am_value {font-size: 36px;margin-right: 10px;}
+.acib_chongzhi {font-weight: bold;font-size: 16px;}
+.icon_question{margin-left: 10px;width: 20px;}
+.price_box {padding-top: 45px;margin-left: 55px;}
+.price_item {display: block;float: left; width: 140px; height: 55px; border: 1px solid #cdcdcd;line-height: 55px;text-align: center;cursor: pointer; margin-right: 30px;color: #121212;transition: all 1s;border-radius: 5px;font-size: 18px;font-weight: normal;}
+.price_item:hover, .price_item_active {border-color: #009dfd;color: #009dfd;}
+.pay_btn {width: 214px;height: 57px;line-height: 57px;background: #fff;color: #121212;cursor: pointer;margin-top: 20px;margin-left: 26px; transition: all 0.5s; border: 1px solid #cdcdcd;border-radius: 10px;display: block;float: left;font-size: 18px;}
+.wepay-logo-tip {margin: 0px 8px 3px 50px;}
+.pay-logo-tip {margin: 0px 8px 4px 50px;}
+.ac_son_box {background: #f0f0f0;width: 100%;padding-bottom: 60px;}
+.pay_btn_disabled {background: #ffffff;filter: alpha(opacity = 50);-moz-opacity: 0.5;opacity: 0.5;}
+.other_money_box{width: 480px;height: 70px;background: #e4e4e4;line-height: 70px;margin-left: 55px;padding-left: 10px;margin-top: 20px;position: relative;}
+#price{line-height: 14px;width: 100px;padding: 7px 4px;margin:22px 3px 0 8px;border: 1px solid #cdcdcd;height: 30px;}
+/*money页特殊样式*/
+.col-sm-7 {width: 100%;text-align: center;}
+#chongzhi_table_paginate,#koukuan_table_paginate{text-align: center !important;margin: 20px auto;}
+.table-bordered tbody tr td{border-color: #fff;}
+
+#demo4{padding: 30px;}
+.demo4_title{font-size: 14px;font-weight: bold;margin-bottom: 20px;}
+#demo4 h5{color: black;font-weight: bold;}
+.shoukuan_msg{height: 20px;margin: 20px auto;font-size: 14px;}
+.shoukuan_msg span:first-child{display: inline-block;width: 90px;color: #767676;}
+.shoukuan_msg span:last-child{display: inline-block;color: #333;}
+#card_number{font-size: 18px;color: #009dfd;font-weight: bold;}
+.king-step3.king-step-info .process-done .step-num,.king-step3.king-step-info .process-doing .step-num {color: rgb(133,179,244) !important;border-color: rgb(133,179,244);background-color: white;}
+.process-doing .step-text:before{content: none !important;}
+.process-done .step-text:before{width: 0 !important;background: none !important;border-left: 1px dashed #4A9BFF;}
+#submit_money_msg{border: none;width: 146px;height: 38px;border-radius: 8px;color: #fff;margin-left: 30px;margin-top: 20px;}
+
+
+/*  table  */
+.amount_table{width:85%;margin: 20px auto 20px 10%;border:none !important;border-collapse:collapse;color:#393939;}
+.amount_table td{text-align:center;height:65px;width: 20%;}
+.amount_table tr,.amount_table td{border: none !important;border-bottom: 1px solid #ddd !important;}
+.table_title div img{vertical-align: middle;}
+.huikuan_select label{margin-left: 10px;}
+
+/*页面样式调整*/
+.tab-content_money{background-color: #fff;border-radius: 8px;border-top-left-radius: 0;border-top: 1px solid #ddd;}
+.king-nav-tabs1>li{width: 149px;text-align: center;}
+.nav-tabs>li>a {height: 58px;line-height: 58px;padding: 0;font-family: "microsoft yahei";font-weight: normal;font-size: 16px;color: #333;}
+#pay_btn_box{margin-left: 30px;}
+.king-step3 li .step-text{top: -2px;color: #333;}
+.shadow_blue_money{box-shadow: 0px 0px 30px 0px rgba(53,130,237,.7);background-color: rgb(53,130,237);}
+.king-step3 li .step-num{line-height: 28px;}
+.money_list1{font-size: 16px;font-weight: normal;color: #999;}
+.money_list2{font-size: 16px;font-weight: bold;color: #333;}
+.money_list3{font-size: 16px;font-weight: bold;color: #858585;}
+.money_list4{font-size: 16px;font-weight: normal;color: #BABABA;}
+.con_btm_table1{width: 100%;text-align: center;}
+.con_btm_table2{width: 100%;text-align: center;}
+.con_btm_table3{width: 100%;text-align: center;}

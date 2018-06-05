@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh" style="overflow-x: hidden;">
+	<head>
+		<meta charset="UTF-8">
+		<title>Q币兑换</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		
+    		<script>
+    		//通过js控制根目录font-size，从而做到屏幕适配。
+        (function(win){
+        		var doc=win.document;
+        		var html=doc.documentElement;
+        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+        		html.style.fontSize=clientWidth/750*50+"px"};
+        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+        		doc.addEventListener("DOMContentLoaded",recalc,false);
+        		recalc()
+        		}
+        	)(window);
+   		</script>
+   		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+   		<script src="js/zepto.min.js"></script>
+		<script src="js/event.js"></script>
+    		
+		<style type="text/css">
+			body{margin: 0; padding: 0; width: 100%; height: 100%;}
+   			.content{position: relative;max-width: 750px;height: 26.18rem; margin: 0 auto;font-size: .5rem;background: url(img/pingan_e_QB/duihuan/bg1.jpg) no-repeat;width:100%;
+   			/*背景图片：按比例调整背景图片*/
+   			background-size:cover;}
+			.one{max-width: 15rem;background-size: 100%;margin: 0 auto;padding-top: 9rem;}
+			.inputItem{width: 11rem;margin: 0 auto;display: block;}
+			.text{
+				font: normal .6rem "微软雅黑";
+				height: .8rem;
+				width: 2.5rem;
+				display: inline-block;
+				line-height: .8rem;
+				vertical-align: bottom;
+			}
+			
+			
+			#inputQQ,#inputDuihuan{
+				width: 7.5rem;
+				height: .8rem;
+				font-size: .5rem;
+				border: 0.5px solid gainsboro;
+				-webkit-appearance: none;
+				margin-top: .1rem;
+			}
+			#inputYanzheng{
+				width: 4.5rem;
+				height: .8rem;
+				font-size: .5rem;
+				margin-top: .1rem;
+				border: 0.5px solid gainsboro;
+				-webkit-appearance: none;
+			}
+	
+			#image{
+				width: 2.5rem;
+				height: .8rem;
+				margin-left: 0.4rem;
+				margin-top: .2rem;
+				display: inline-block;
+				position: absolute;
+			}
+			
+			/*立即兑换按钮*/
+			#buttonDuihuan{
+				width: 8rem;
+				margin: 1.4rem 3.6rem;
+				/*outline: medium;输入框点击时去掉外框*/
+			}
+			
+			#duihuanWarn{
+				margin-left: 4.7rem;
+				margin-top: .2rem;
+				display: block;
+			}
+			#warnImg{
+				width: .5rem;
+				height: .5rem;
+				display: none;
+				position: absolute;
+				padding-top: .05rem;
+			}
+			#qqhaoWarn{
+				margin-left: 4.7rem;
+				margin-top: .2rem;
+				display: block;
+			}
+			#warnImg2{
+				width: .5rem;
+				height: .5rem;
+				display: none;
+				position: absolute;
+				padding-top: .05rem;
+			}
+			p{
+				display: inline-block;
+				font-size: .4rem;
+				height: .5rem;
+				color: rgb(209,59,25);
+				margin:0;
+				padding-left: .6rem;
+			}
+			
+			/*兑换规则*/
+			.two{
+				width: 12.5rem;
+				height: 4rem;
+				background-color: rgb(192,220,254);
+				margin: 1rem auto 0;
+    				position: relative;
+    				padding-top: .4rem;
+    				border-radius: .3rem;
+			}
+			#line{
+				margin: .2rem auto;
+				width: 11.5rem;
+				background: url(img/pingan_e_QB/line_gray.png) no-repeat;
+			    text-align: center;
+			    font-size: .5rem;
+			    line-height: .5rem;
+			    background-size: 100%;
+			}
+			#rules{
+				margin: 0 auto;
+    				width: 11rem;
+    				font-size: .4rem;
+    				line-height: .6rem;
+    				padding-top: .2rem;
+			}
+		</style>
+		
+		<!--充值QQ时的弹框样式-->
+		<style type="text/css">
+			#main { 
+				text-align:center;
+				font-size: .5rem;
+				}
+			.fullbg {
+				background-color:black; 
+				left:0; 
+				opacity:0.3; 
+				position:absolute; 
+				top:0; 
+				z-index:3; 
+				} 
+			#dialog { 
+				background-color:#fff; 
+				height:5.5rem;
+				width:9rem; 
+				left:50%; 
+				margin:-4.5rem 0 0 -4.5rem; 
+				position:fixed !important; /* 浮动对话框 */ 
+				position:absolute; 
+				top:50%; 
+				z-index:5; 
+				border-radius:.3rem; 
+				display:none; 
+				} 
+			.closeImage{
+				position: absolute;
+				right: .25rem;
+				top: .25rem;
+				height: .6rem;
+				width: .6rem;
+			}
+			#topDiv,#bottomDiv{
+				height: .4rem;
+				color: rgb(188,0,0);
+				text-align:center; 
+				width: 9rem;
+			}
+			#topDiv{
+			    margin: .8rem auto .4rem;
+			}
+			#bottomDiv{
+				margin: .4rem auto .6rem;
+			}
+			#qqNumber{
+				height: .7rem;
+				background-color: rgb(249,230,229);
+				width: 8rem;
+				text-align:center;
+				margin: .1rem auto;
+				padding-top: .2rem;
+				line-height: .7rem;
+			}
+
+			#cancel{
+				width: 3.5rem;
+				float: left;
+				margin-bottom: .5rem;
+				margin-left: .5rem;
+			}
+			#confirm{
+				width: 3.5rem;
+				float: right;
+				margin-right: .5rem;
+			}
+		</style>
+		
+		<!--充值结果弹框样式-->
+		<style type="text/css">
+			#result_window { 
+				text-align:center;
+				font-size: .6rem;
+				} 
+			#resultMessage { 
+				background-color:#fff; 
+				height:5.5rem;
+				width:10rem; 
+				left:50%; 
+				margin:-5rem 0 0 -5rem; 
+				position:fixed !important; /* 浮动对话框 */ 
+				top:50%; 
+				z-index:5; 
+				border-radius:.3rem; 
+				display:none; 
+				}
+			#chicken{
+				width: 4rem;
+			    	position: absolute;
+			    left: .2rem;
+			    top: .2rem;
+			}
+			#message{
+				color: rgb(188,0,0);
+				text-align:left; 
+				width: 6rem;
+				margin: 1rem .2rem .4rem 4.2rem;
+				font-size: .6rem;
+				line-height: 1rem;
+			}
+			#bigConfirm{
+				width: 4.2rem;
+				margin: .7rem auto;
+			}
+			
+			#network_loading{
+				position: fixed;
+				width: 1.5rem;
+				height: 1.5rem;
+				left: 7rem;
+				display: none;
+				bottom: 11.5rem;
+			}
+			
+		</style>
+	</head>
+	
+	<body style="overflow-x: hidden;">
+		
+		<div class="content" id="contentID">
+			<div class="one">
+				<div class="inputItem" id="duihuanma">
+					<span class="text">兑换码</span>
+					<input type="text" name="兑换码" id="inputDuihuan" maxlength="16" onkeyup="inputDuihuanChange()" onblur="checkDuihuanLength()"/>
+				</div>
+				
+				<div id="duihuanWarn">
+					<img id="warnImg" src="img/pingan_e_QB/duihuan/notice_ico.png"/>
+					<p id="warnWord"></p>
+				</div>
+				
+				<div class="inputItem" id="qqhao">
+					<span class="text">QQ 号</span>
+					<input type="tel" name="QQ号" id="inputQQ" maxlength="11" onkeyup="inputQQChange()" onblur="checkQQLength()"/>
+				</div>
+				<div id="qqhaoWarn">
+					<img id="warnImg2" src="img/pingan_e_QB/duihuan/notice_ico.png"/>
+					<p id="warnWord2"></p>
+				</div>
+				<!--正则表达式
+					onkeyup="this.value=this.value.replace(/\D/g,'')"限制只输入数字
+				-->
+				<div class="inputItem" id="yanzhengma">
+					<span class="text">验证码</span>
+					<input type="tel" name="验证码" id="inputYanzheng" maxlength="4" onkeyup="inputYanzhengChange()" onpaste="return false" placeholder="请输入右侧验证码"/>
+					<img src="get_security" onclick="changeImage()" id="image"/>
+				</div>
+				<img id="buttonDuihuan" onclick="showBg()" disabled="true" src="img/pingan_e_QB/duihuan/btn_1.png"/>
+			</div>
+			
+			<!--兑换规则-->
+			<div class="two">
+				<div id="line">兑换规则</div>
+				<div id="rules">
+					1. 每个兑换码只能兑换1次，每个QQ号只能领取1次；<br />
+					2. 若兑换过程遇到问题，请致电客服热线：10109955；<br />
+					3. 所有兑换码在2017.06.30前有效，仅限在此页面兑换。<br />
+				</div>
+			</div>
+			
+		</div>
+	
+	<!--充值QQ号弹框-->
+		<div id="main"> 
+			<div class="fullbg"></div> 
+			<div id="dialog">
+				<img class="closeImage" src="img/pingan_e_QB/duihuan/close.png" onclick="closeBg1()"/>
+				<div id="topDiv" class="word">您即将为QQ号</div>
+				<div id="qqNumber">623171541</div>
+				<div id="bottomDiv" class="word">充值10Q币</div>
+				<img id="cancel" onclick="closeBg1()" src="img/pingan_e_QB/duihuan/btn_3.png"/>
+				<img id="confirm" onclick="submit()" src="img/pingan_e_QB/duihuan/btn_2.png"/>
+			</div> 
+		</div>
+		
+	<!--充值结果弹框-->
+		<div id="result_window">
+			<div class="fullbg"></div>
+			<div id="resultMessage">
+				<img class="closeImage" src="img/pingan_e_QB/duihuan/close.png" onclick="closeBg2()"/>
+				<img id="chicken" src="img/pingan_e_QB/duihuan/chick2.png"/>
+				<div id="message"></div>
+				<img id="bigConfirm" onclick="closeBg2()" src="img/pingan_e_QB/duihuan/btn_4.png"/>
+			</div> 
+		</div>
+		
+		<img id="network_loading" src="img/pingan_e_QB/loading_bg.gif"/>
+	</body>
+</html>

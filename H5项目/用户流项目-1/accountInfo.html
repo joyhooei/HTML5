@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>账户信息</title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	    <meta name="renderer" content="webkit">
+	    	
+	    	<script src="js/jquery-1.12.4.js"></script>
+	    	<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css?v=1.0.1" rel="stylesheet">
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+		
+		<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/dataTables.bootstrap.css" rel="stylesheet"/>
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/jquery.dataTables.js"></script>
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/dataTables.bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery.dialogbox.css">
+		
+	</head>
+	<body >
+		
+	<!--head-->
+	<div class="header">
+		<div class="wrapper";>
+			<a href="#" class="logo fl"><img src="img/header/logo.png"/></a>
+			<div class="company fr ubk_cursor_point">
+				<span id="company">
+					深圳市非零无限科技有限公司
+				</span>
+				<img src="img/header/arrow1.png"/>
+				<ul >
+					<li><img src="img/header/icon01.png"/><a href="accountInfo.html">账户信息</a></li>
+					<li><img src="img/header/icon02.png"/><a href="productData.html">产品资料</a></li>
+					<li><img src="img/header/icon04.png"/><a href="letter.html">站内信</a></li>
+					<li><img src="img/header/icon05.png"/><a href="login.html">退出登录</a></li>
+				</ul>
+			</div>
+			<div class="ubk-person fr ubk_cursor_point">
+				<img src="img/header/icon_person.png"/>
+				联系专属推广顾问
+				<img src="img/header/arrow1.png"/>
+				<div class="ubk_per_card" >
+					<img src="img/header/per1.png"/>
+					<div class="per_msg">
+						<div id="per_name">宋一帆</div>
+						<div id="per_position">UBK推广顾问</div>
+						<ul id="per_number">
+							<li>15989054822</li>
+							<li>5566843</li>
+							<li>5566843</li>
+							<li>ssdlk@fldkfjf.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="money fr ubk_cursor_point active" onclick="toMoneyCenter()">
+				<img class="icon_position" src="img/header/money.png"/>
+				<span>资金中心</span>
+			</div>
+			<div class="data fr ubk_cursor_point" onclick="toDataCenter()">
+				<img class="icon_position" src="img/header/data.png"/>
+				<span>数据中心</span>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+	
+	<!--content-->
+	<div class="content wrapper">
+		<div class="content_small">
+			<div class="content_small_data">
+	    			<div class="customer_info">
+	    				<ul>
+	    					<li class="shadow_red">审核不通过</li>
+	    					<li>ID：未生成</li>
+	    					<li>邮箱账号：biao@feelwx.com</li>
+	    				</ul>
+	    			</div>
+	    			<div class="account_info_title_box">
+	    				<div class="account_info_title ubk_cursor_point active_title" id="base_data" onclick="toBaseData()">基础资料</div>
+	    				<div class="account_info_title ubk_cursor_point" id="reset_psd" onclick="toResetPsd()">修改密码</div>
+	    			</div>
+	    			<!--基础资料-->
+	    			<div class="customer_message">
+	    				<h3 class="item_title">公司信息</h3>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">营业执照</span>
+	    					<div class="company_card ubk_cursor_point" onclick="$('#previewImg').click();">
+	    						<div class="company_card_small"  id="preview" >
+	    							<img src="img/account/up.png"/>
+	    							<p>点击上传营业执照<br />（有年检章,.jpg/.png格式，小于5M）</p>
+	    						</div>
+	    						
+	    						<div id="zhezhao">
+	    							<div class="delete_img" onclick="deleteImg()">
+	    								<img src="img/public/icon_delete.png" alt="删除" />
+	    								<p>删除</p>
+	    							</div>
+	    							<div class="look_img" onclick="lookFullImg()">
+	    								<img src="img/public/icon_look.png" alt="查看原图" />
+	    								<p>查看原图</p>
+	    							</div>
+							</div>
+	    					</div>
+	    					<input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
+	    					<p class="message_alert">注：营业执照如需加水印，可写“仅限推广使用”，但请勿写“仅限UBK或应用市场推广使用”</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title" >公司名称</span>
+	    					<div class="input_box">
+	    						<!--只能输入汉字、英文、数字-->
+							<input class="message_input" type="text" name="company_name" id="company_name" value="" placeholder="输入公司名称" maxlength="30" onkeypress="return /^[\u4E00-\u9FA5\(\)\（\）A-Za-z0-9]$/g.test(String.fromCharCode(window.event.keyCode))"/>
+        
+							<p class="input_inner_error hide"><img src="img/public/icon_wrong.png"/>仅支持输入中文、英文、数字和双括号4种字符</p>
+	    					</div>
+						<p class="message_alert">注：公司名称需与营业执照显示的公司名称保持一致</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">营业执照号码</span>
+	    					<div class="input_box">
+	    						<input class="message_input" type="text" name="company_munber" id="company_munber" value="" placeholder="输入营业执照号码" required/>
+	    						<!--下面的p元素加class：hide 就可以隐藏错误信息-->
+	    						<p class="input_inner_error hide"><img src="img/public/icon_wrong.png"/>该号码与营业执照显示的号码不一致，请确认！</p>
+	    					</div>
+	    					<p class="message_alert">注：该号码与营业执照显示的号码不一致，请确认！</p>
+	    				</div>
+	    				
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">地区</span>
+	    					<select id="selProvince" onchange="provinceChange();"></select>
+	    					<select id="selCity"></select>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">地址</span>
+	    					<input class="message_input" type="text" name="company_address" id="company_address" value="" placeholder="输入公司详细地址"/>
+	    				</div>
+	    				
+	    				<h3 class="item_title">联系信息</h3>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">姓名</span>
+	    					<div class="input_box">
+		    					<input class="message_input" type="text" name="customer_name" id="customer_name" value="" placeholder="输入联系人姓名"/>
+		    					<p class="input_inner_error hide"><img src="img/public/icon_wrong.png"/>仅支持输入中文和英文字符</p>
+	    					</div>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">手机号码</span>
+	    					<div class="input_box">
+	    						<input class="message_input" type="text" name="customer_phone" id="customer_phone" value="" placeholder="输入联系人手机号"/>
+		    					<p class="input_inner_error hide"><img src="img/public/icon_wrong.png"/>请输入正确的手机号码</p>
+	    					</div>
+	    				</div>
+	    				
+	    				<h3 class="item_title">产品信息</h3>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">App名称</span>
+	    					<div class="input_box">
+		    					<input class="message_input" type="text" name="product_name" id="product_name" value="" placeholder="输入App名称"/>
+		    					<p class="input_inner_error hide"><img src="img/public/icon_wrong.png"/>App名称不能为空</p>
+	    					</div>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span >包名</span>
+	    					<span style="color: #2f7ff0; font-size: 16px;">（下面任选一种方式提供）</span>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">方式一： 直接填写</span>
+	    					<input class="message_input" type="text" name="package_name1" id="package_name1" value="" placeholder="输入包名"/>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title" style="position: relative;top: 13px;">方式二： 提供产品在应用宝的链接</span>
+	    					<input class="message_input" type="text" name="package_name2" id="package_name2" value="" placeholder="点击输入产品在应用宝的链接"/>
+	    					<p class="message_alert visibility" style="color: #2f7ff0;font-size: 12px;">包名为：com.tencent.android.qqdownloader</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">类别</span>
+	    					<select name="product_type" id="product_type">
+	    						<option value="0">请选择产品所属类别</option>
+	    						<option value="1">互联网金融</option>
+	    						<option value="2">社交</option>
+	    					</select>
+	    				</div>
+					<input type="submit" name="submit_data" class="submit submit_on" value="提交" onclick="clickToSubmitData()"/>
+	    			</div>
+	    			
+	    			
+	    			<!--修改密码-->
+				<div class="customer_resetpsd">
+					<div class="message_item" style="margin-top: 60px;">
+						<span class="unrequest_star"></span>
+	    					<span class="message_title">旧密码：</span>
+	    					<input class="message_input" type="password" name="old_psd" id="old_psd" value="" placeholder="请输入旧密码"/>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">新密码：</span>
+	    					<input class="message_input" type="password" name="new_psd1" id="new_psd1" value="" placeholder="请输入6-20位新密码"/>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">确认新密码：</span>
+	    					<input class="message_input" type="password" name="new_psd2" id="new_psd2" value="" placeholder="请重新输入新密码"/>
+	    				</div>
+	    				<input type="submit" name="submit_data"class="submit submit_on" value="提交" onclick="clickToResetPsd()"/>
+				</div>
+			</div>
+    </div>
+    		
+	</div>
+	<!--content end-->
+	
+	<!--提示框-->
+	<div class="type-dialogBox"></div>
+	<div class="type-dialogBox2"></div>
+	<div class="type-dialogBox3"></div>
+	<div class="auto-close-dialogBox"></div>
+	
+	<!--查看原图-->
+	<div class="look_full_img" onclick="closeFullImg()">
+		<img src=""/>
+	</div>
+	
+	</body>
+
+	<script src="js/city.js"></script>
+	<script src="js/jquery.dialogBox.js"></script>
+	<script src="js/accountInfo.js"></script>
+	
+</html>

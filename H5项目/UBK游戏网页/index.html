@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=utf-8 />
+		<title>非零无限-游戏中心</title>
+		<meta http-equiv="Cache-Control" content="no-transform" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta http-equiv="X-Frame-Options" content="deny">
+		<!--//不缓存-->
+		<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+		<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+		<META HTTP-EQUIV="expires" CONTENT="0">
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/base.css?v=2" />
+		<link href="css/style.css?v=2" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	</head>
+	
+	<script type="text/javascript">
+		localStorage.clear();
+		sessionStorage.clear();
+		var url = location.href;
+		if (url.indexOf("?") == -1) {
+			location.href = url + "?" + new Date().getTime();
+		}
+	</script>
+
+	<body>
+		<div class="topbar">
+			<div class="wrap_w">
+				<div class="topleft">本公司游戏仅限18岁以上成人使用</div>
+				<div class="top">
+					<div class="fl">
+						<a href="fcm.html">防沉迷</a>
+						<a href="jfcl.html">纠纷处理</a>
+						<a href="jzjh.html">家长监护</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="header">
+			<div class="wrap_w clearfix">
+				<div class="logo"></div>
+				<div class="nav_list">
+					<ul class="clearfix">
+						<li><a href="index.html" class="cur">游戏中心</a></li>
+						<li><a href="news.html" class="">游戏资讯</a></li>
+						<li><a href="pay.html" class="">充值中心</a></li>
+						<li><a href="login.html" class="">登录</a></li>
+						<li><a href="register1.html" class="">注册</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<link href="css/star-rating-svg.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery.star-rating-svg.js"></script>
+		<script type="text/javascript" src="js/slides.js"></script>
+		<!--start sub-->
+		<div class="sub_focus">
+			<div class="wrap_w">
+				<div class="title"><span>游戏中心</span></div>
+			</div>
+		</div>
+
+		<!--start main-->
+		<div class="sub_main">
+		    <div class="hot_game">
+		        <div class="wrap_w">
+		            <ul class="clearfix">
+		                <li>
+		                    <img alt="" class="hot_bg_img" src="img/game1.jpg">
+		                    <div class="hot_info">
+		                        <h3 class="hot_title">武道至尊</h3>
+		                        <a class="hot_btn" href="game/game1.html">点击进入</a>
+		                    </div>
+		                    	<p class="game-info">感受暗夜幽殇原著的真正魅力。这是一款东方玄幻与中国武侠元素完美结合的2D仙侠动作RPG。本游戏以通关挑战为游戏基调，通过惊艳的战斗体系、丰富有趣的互动、养成玩法，引导玩家进入一个辉煌庞大的玄幻仙侠世界。</p>
+		                </li>
+		                <li>
+		                    <img alt="" class="hot_bg_img" src="img/game2.jpg">
+		                    <div class="hot_info">
+		                        <h3 class="hot_title">古龙群侠传</h3>
+		                        <a class="hot_btn" href="game/game2.html">点击进入</a>
+		                    </div>
+		                    	<p class="game-info">游戏包含了古龙经典小说的剧情及人物，为您呈现一个精彩绝伦的古龙武侠世界，玩家通过点击屏幕对敌人造成伤害闯关，怀着把屏幕戳爆的决心，疯狂地戳屏幕击杀小怪吧！</p>
+		                </li>
+		                <li>
+		                    <img alt="" class="hot_bg_img" src="img/game3.jpg">
+		                    <div class="hot_info">
+		                        <h3 class="hot_title">三国创世纪</h3>
+		                        <a class="hot_btn" href="game/game3.html">点击进入</a>
+		                    </div>
+		                    	<p class="game-info">这是一款三国题材的h5游戏。现在就杀入三国，在血雨腥风的古战场统领绝世名将，收集宝物完成一统霸业！激烈的实时战斗令人血脉偾张，残酷的跨服战场，将是游戏所有区服的高手玩家争霸天下的绝佳舞台，这里，有你的梦想。</p>
+		                </li>
+		            </ul>
+		            
+		        </div>
+		    </div>
+		</div>
+		<!--page-->
+
+		<script type="text/javascript">
+			jQuery(function() {
+				jQuery("#xmSlide").xmSlide({
+					width: 950,
+					height: 492,
+					responsiveWidth: 710,
+					pagination: {
+						effect: "fade"
+					},
+					effect: {
+						fade: {
+							speed: 400
+						}
+					},
+					play: {
+						effect: "fade",
+						interval: 5000,
+						auto: true,
+						pauseOnHover: true,
+						restartDelay: 2500
+					}
+				});
+
+			});
+		</script>
+
+		<!--start footer-->
+		
+		<div class="footer"></div>
+
+		<!--用户登录显示-->
+		<div class="mask" id="afuc_mask"></div>
+		<div class="login" id="afuc_login">
+			<h3><span class="login_close">×</span>永逸用户登录</h3>
+			<p class="tips">小提示:永逸论坛用户和恺辉网络用户均可登录哟</p>
+			<form class="formbox" id="afuc_login_form" onsubmit="return false;">
+				<div class="login_u">
+					<input name="username" id="username" class="txtinput" type="text" placeholder="用户名" value="">
+				</div>
+				<div class="login_p">
+					<input name="password" id="password" class="txtinput" type="password" placeholder="密码" value="">
+				</div>
+				<div class="login_m" class="clearfix"><span class="l">
+      <input type="checkbox" name="save" id="save" value="1">
+      下次自动登录</span><span class="r"><a href="#">忘记密码</a></span></div>
+				<div class="login_b">
+					<input id="sub" value="登录" type="submit">
+				</div>
+				<div class="login_notice"></div>
+			</form>
+			<div class="login_else">
+				<a href="javascript:;" onclick="AFUC.reg()">没有帐号，立即注册！</a>
+			</div>
+			<!--    <div class="login_other">
+        <p>可以使用以下方式登录</p>
+        <ul class="clearfix">
+            <li id="qq"><a href="/oauth/login/qq">QQ登录</a></li>
+            <li id="weibo"><a href="/oauth/login/weibo">新浪微博</a></li>
+        </ul>
+    </div>-->
+		</div>
+		<div class="reg" id="afuc_reg">
+			<h3><span class="reg_close">×</span>永逸用户注册</h3>
+			<form class="formbox" id="afuc_reg_form" onsubmit="return false;">
+				<div class="reg_u">
+					<label>用户名</label>
+					<input name="username" id="username" class="txtinput" type="text" placeholder="手机/邮箱/用户名" value="">
+				</div>
+				<div class="reg_p">
+					<label>密  码</label>
+					<input name="password" id="password" class="txtinput" type="password" placeholder="密码" value="">
+				</div>
+				<div class="reg_p">
+					<label>验证码</label>
+					<input name="verifycode" id="verifycode" class="txtcode" type="text" placeholder="验证码" value="">
+					<img src="img/1.jpg" onclick="javascript:this.src='/verify?type=reg&r='+Math.random()" style="cursor:pointer;">
+				</div>
+				<div class="reg_m">
+					<input type="checkbox" id="reg_is_ok" checked="checked" value="1"> 我已阅读并接受
+					<a href="../notice.html">《永逸最终用户协议》</a>
+				</div>
+				<div class="reg_b">
+					<input id="sub" value="注册" type="submit">
+				</div>
+				<div class="reg_notice"></div>
+			</form>
+			<div class="reg_else">
+				<a href="javascript:;" onclick="AFUC.login()">已有帐号，立即登录</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/anfeng.uc.js?v=2"></script>
+		<script type="text/javascript" src="js/function.js?v=2"></script>
+		<script src="js/public.js?v=2" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

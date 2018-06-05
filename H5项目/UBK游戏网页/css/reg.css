@@ -1,0 +1,178 @@
+@charset "gb2312";
+/* CSS Document */
+
+* { margin:0px; padding:0px; }
+a { text-decoration:none; }
+body { font-family:Arial, Helvetica, sans-serif; }
+ul { list-style-type:none; }
+
+/*--注册页--*/
+.regdit_tb{width:1001px;border:1px solid #ededed;float:left; font-size:12px; padding:0 0 20px 0;}
+.regdit_tb h6{margin-bottom:10px;}
+.regdit_con{
+	width: 800px;
+	height: 100%;
+	font-size: 12px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 60px;
+}
+.regdit_con li{float:left;display:block;margin-top:10px;width:100%; display:inline;line-height:26px; }
+.regdit_con span{float:left;width:180px;text-align:right;}
+.regdit_con li input{
+}
+.regdit_con li a{
+	margin-left: 7px;
+}
+.regdit_con .regdit_tips{width:40%; text-align:left; margin-left:10px;color:#999;}
+.regdit_btn{
+	width: 200px;
+	height: 37px;
+	background-position: 0px 0px;
+	cursor: pointer;
+	margin-left: 180px;
+	border: none;
+	margin-top: 5px;
+	background-image: url(../img/tijiao.jpg);
+	background-repeat: no-repeat;
+}
+
+
+
+
+.af_text_box{
+	width: 320px;
+	border: 1px none #e6e6e6;
+}
+.af_text_box h3{
+	line-height: 40px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "微软雅黑";
+	padding: 0 20px;
+	color: #474747;
+	border-bottom: 1px solid #e6e6e6;
+}
+.af_text_box h3 a{ float:right; font-size:12px; color:#787878;}
+.af_text_box h3 a:hover{ color:#095fc9;}
+.af_text_box ul li{ width:303px; float:left; padding:20px 15px; background:url("af_5.jpg") right bottom no-repeat #fff; border-bottom:1px solid #e6e6e6;}
+.af_text_box ul li .af_text_box_left{ float:left; width:85px;}
+.af_text_box ul li .af_text_box_left img{ width:85px; height:85px;}
+.af_text_box ul li .af_text_box_right{ float:right; width:200px;}
+.af_text_box ul li .af_text_box_right_1{ font-size:14px; height:30px; line-height:30px; overflow:hidden;}
+.af_text_box ul li .af_text_box_right_1 a{ color:#095fc9;}
+.af_text_box ul li .af_text_box_right_1 a:hover{ text-decoration:underline;}
+.af_text_box ul li .af_text_box_right_2{ font-size:12px;}
+.af_text_box ul li .af_text_box_right_2 a{ color:#474747; line-height:20px; height:20px;}
+.af_text_box ul li .af_text_box_right_2 a:hover{ color:#095fc9;}
+
+.af_text_box ul li.af_text_box_li{ width:302px; float:left; padding:20px 15px; background: #fff; border-bottom:1px solid #e6e6e6;}
+.af_text_box ul li.af_text_box_li .af_text_box_left{ float:left; width:85px;}
+.af_text_box ul li.af_text_box_li .af_text_box_left img{ width:85px; height:85px;}
+.af_text_box ul li.af_text_box_li .af_text_box_right{ float:right; width:200px;}
+.af_text_box ul li.af_text_box_li .af_text_box_right_1{ font-size:14px; height:30px; line-height:30px; overflow:hidden;}
+.af_text_box ul li.af_text_box_li .af_text_box_right_1 a{ color:#095fc9;}
+.af_text_box ul li.af_text_box_li .af_text_box_right_1 a:hover{ text-decoration:underline;}
+.af_text_box ul li.af_text_box_li .af_text_box_right_2{ font-size:12px;}
+.af_text_box ul li.af_text_box_li .af_text_box_right_2 a{ color:#474747; line-height:20px; height:20px;}
+.af_text_box ul li.af_text_box_li .af_text_box_right_2 a:hover{ color:#095fc9;}
+
+
+
+
+.main_con {
+	margin: 20px 20px 0px;
+	width: 578px;
+	color: rgb(102, 102, 102);
+	padding-bottom: 10px;
+	padding-left: 50px;
+	border-bottom-color: rgb(237, 237, 237);
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	float: left;
+	display: inline;
+}
+.main_c_list {
+	width: 500px; line-height: 30px; float: left; display: inline;
+}
+.list_name {
+	width: 150px; text-align: right; float: left;
+}
+.list_con {
+	float: left; display: block;
+}
+.list_con span {
+	margin-left: 3px;
+}
+.bank {
+	margin: 20px 0px 0px 30px; width: 690px; padding-bottom: 10px; border-bottom-color: rgb(205, 205, 205); border-bottom-width: 1px; border-bottom-style: solid; float: left; display: inline;
+}
+.bank li {
+	width: 167px; line-height: 32px; margin-bottom: 12px; margin-left: 4px; float: left;
+}
+.bank img {
+	float: left;
+}
+.bank span {
+	margin: 8px 5px 0px 0px; height: 100%; float: left; display: inline;
+}
+.main_c_footer {
+	padding: 20px 0px; width: 100%; text-align: center; float: left;
+}
+.pay_btn {
+	background: url("btn_icon.gif") no-repeat left top; border: currentColor; width: 93px; height: 30px; cursor: pointer;
+}
+.main_c_tips {
+	margin: 20px 0px 0px 23px; width: 700px; padding-bottom: 10px; border-bottom-color: rgb(237, 237, 237); border-bottom-width: 1px; border-bottom-style: solid; float: left; display: inline;
+}
+.tips_title {
+	color: rgb(255, 51, 0); font-size: 14px; font-weight: bold;
+}
+.tips_word {
+	color: rgb(153, 153, 153); line-height: 20px; margin-top: 10px;
+}
+.pay_tips_title {
+	width: 100%; text-align: center; color: rgb(255, 51, 0); line-height: 60px; font-size: 16px; font-weight: bold; border-bottom-color: rgb(237, 237, 237); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.pay_tips_foot {
+	width: 1001px; text-align: center; color: rgb(255, 51, 0); padding-top: 20px; font-size: 16px; font-weight: bold; margin-top: 10px; border-top-color: rgb(237, 237, 237); border-top-width: 1px; border-top-style: solid; float: left;
+}
+.pay_tips_foot span {
+	margin-left: 200px; float: left;
+}
+.pay_tips_foot a {
+	width: 130px; height: 30px; text-indent: -9999px; overflow: hidden; margin-left: 15px; float: left; display: block;
+}
+.pay_ok_game {
+	background: url("btn_icon.gif") no-repeat -270px -249px;
+}
+.pay_again {
+	background: url("btn_icon.gif") no-repeat right -219px;
+}
+.pay_ok_home {
+	background: url("btn_icon.gif") no-repeat right -189px;
+}
+.pay_ok_service {
+	background: url("btn_icon.gif") no-repeat right -159px;
+}
+.config{width:93px;height:30px; background:url(btn_icon.gif) no-repeat; background-position:left -86px;overflow:hidden; border:none;margin-top:10px;}
+.regdit_input{
+	float: left;
+	font-size: 14px;
+	line-height: 28px;
+	width: 260px;
+	padding: 6px;
+}
+.submit{
+	height: 23px;
+	width: 66px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	background-image: url(denglu.gif);
+	background-repeat: no-repeat;
+}

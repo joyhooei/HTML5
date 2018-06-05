@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>横向滑动的悬停焦点图全代码</title>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style type="text/css">
+	*{
+    padding:0px;
+    border:0px;
+    margin:0px;
+}
+ul {list-style:none;}
+.slideBox {
+    margin:50px auto;
+    width:1200px;
+    height:500px;
+    position:relative;
+    overflow:hidden;
+    margin: 0 auto;
+    margin-top: 90px;
+    background: url(img/fourth_bg.png) no-repeat;
+    border-top: 4px solid #5e7dba;
+    background-size: 100%;
+}
+.slideBox ul {
+    position:relative;
+    width:4800px;}
+.slideBox ul li {
+    float:left;
+    width:1200px;
+    position:relative;
+}
+.spanBox {
+    position: relative; left: 45.5%; height: 18px;top: 60px;
+}
+.spanBox span {
+    width:18px;
+    height:18px;
+    margin-left:5px;
+    float:left;
+    text-align:center;
+}
+.slideBox .spanBox .active {
+    background: url(img/round1.png) no-repeat center;
+}
+.prev {
+    position:absolute;
+    left:0px;
+    top:320px;
+    float:left;
+    border-left:solid 1px rgba(251,245,246,1.00);
+    opacity:0.5;
+}
+.app_icon{margin: 64px 79px;display: inline-block;}
+.fourth_text{position: absolute;left:230px;width:900px;top:100px;letter-spacing: 1px;}
+        .fourth_text h2{font-size: 22px;font-weight: bold;line-height: 30px;margin-top: 20px;padding-bottom: 10px;font-weight: solder;color: #010000;padding-left: 245px;}
+        .fourth_text h5{font-size: 18px;line-height: 30px;margin-top: 20px;padding-bottom: 10px;font-weight: 100;color: #101010;padding-left: 70px;}
+        .btn_more{width: 282px;height: 64px;color: #c1c6d9;position: relative;top: 30px;margin: 0 auto;left: 433px;background-color: #39579f;line-height: 64px;border: none;cursor: pointer;margin-left: 20px;}
+</style>
+</head>
+
+<body>
+<div class="slideBox">
+    <ul>
+	    <li style="margin-left: 0px;">
+	    		<img src="img/app0.png" class="app_icon">
+                	<div class="fourth_text">
+                		<h5 class="cks-text">“ 我每次都直接告诉领导，你们渠道来的量转化率在80%以上，值得一直投放 ”</h5>
+                		<h2 class="">小尾巴翻译官  运营负责人</h2>
+                	</div>
+	    </li>
+	    <li>
+	    		<img src="img/app1.png" class="app_icon">
+                	<div class="fourth_text">
+                		<h5>“ 这两天从UBK来的新用户次日留存率是50%+，不过开眼正常次日留存率会再高一点，但目前有50%+我们还能接受 ”</h5>
+                		<h2 class="">开眼  商务经理</h2>
+                	</div>
+	    </li>
+	    <li>
+	    		<img src="img/app2.png" class="app_icon">
+                	<div class="fourth_text">
+                		<h5>“ 你们服务质量还是很好的，你看你家运营的手机都破成这样了，还在工作 ”</h5>
+                		<h2 class="">律律法律咨询  商务经理</h2>
+                	</div>
+	    </li>
+	    <li>
+	    		<img src="img/app3.png" class="app_icon">
+	            	<div class="fourth_text">
+	            		<h5>“ 能否加大些预算？我们老板觉得下载用户数少了点；我们续费可以续多点 ”</h5>
+	            		<h2 class="">95美女秀  产品运营</h2>
+	            	</div>
+	    </li>
+    </ul>
+    
+    <button class="btn_more" onclick="btnClick()">
+    		<img class="btn_img" src="img/btn.png" />更多合作伙伴
+    	</button>
+    
+    <div class="spanBox">
+	    <span class="active"><img src="img/round2.png"/></span>
+	    <span><img src="img/round2.png"/></span>
+	    <span><img src="img/round2.png"/></span>
+	    <span><img src="img/round2.png"/></span>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+     var slideBox = $(".slideBox");
+     var ul = slideBox.find("ul");
+     var oneWidth = slideBox.find("ul li").eq(0).width();
+     var number = slideBox.find(".spanBox span");            //注意分号 和逗号的用法
+     var timer = null;
+     var sw = 0;                    
+     //每个span绑定click事件，完成切换颜色和动画，以及读取参数值
+     number.on("click",function (){
+     $(this).addClass("active").siblings("span").removeClass("active");
+     sw=$(this).index();
+     ul.animate({
+            "right":oneWidth*sw,    //ul标签的动画为向左移动；
+               });
+     });
+    //定时器的使用，自动开始
+    timer = setInterval(function (){
+        sw++;
+        if(sw==number.length){sw=0};
+        number.eq(sw).trigger("click");
+        },2000);
+    
+})
+</script>
+</html>

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/*日期控件大小*/
+.daterangepicker.dropdown-menu {max-width: 504px;}
+/*table特殊定制样式*/
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {border: none;border-bottom: 1px solid #ecf1f5;width: 14.286%;height: 70px;}
+table.table-bordered.dataTable {border-collapse: collapse !important;}
+.table>thead:first-child>tr:first-child>th {text-align: center;background-color: #e8f5fd;height: 40px;}
+.table-bordered {border: none;}
+table.dataTable thead > tr > th {padding-right: 0;}
+div.dataTables_paginate {text-align: center;margin-top: 10px;}
+.col-sm-7 {width: 100%;}
+.pagination>li {display: inline-block;margin: 0 10px;}
+.dataTables_paginate .pagination > li > a{border-radius: 4px;}

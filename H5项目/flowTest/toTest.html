@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>应用市场价格真相</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+		<!-- uc 和 QQ强制竖屏 -->
+    		<meta name="screen-orientation" content="portrait">
+    		<meta name="x5-orientation" content="portrait">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		<script src="js/jquery-1.8.3.min.js"></script>
+    		<!--
+    			landing.appubk.com/testApp.html?pid=528&b1=529&b2=530
+    			pid:H5页面统计及其填单信息统计
+    			b1:测测你的App 按钮点击次数
+    			b2:测试按钮点击次数
+    		-->
+    		<script>
+	    		//通过js控制根目录font-size，从而做到屏幕适配。
+	        (function(win){
+	        		var doc=win.document;
+	        		var html=doc.documentElement;
+	        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+	        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+	        		html.style.fontSize=clientWidth/750*50+"px"};
+	        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+	        		doc.addEventListener("DOMContentLoaded",recalc,false);
+	        		recalc()
+	        		}
+	        	)(window);
+   		</script>
+   		
+   		<style type="text/css">
+   			#title1 img,#question div,#btn1,#title2,#first_input_box,#btn2,#item1,#item2,#item3,#item4,#item5,#page3_text{opacity: 0;}
+   			@keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+			@-webkit-keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+   			body{margin: 0; padding: 0; width: 100%; height: 100%;font-family: "microsoft yahei";position: relative;}
+   			#content1{display: none;position: relative;max-width: 750px;height: 24.92rem; margin: 0 auto;background: url(img/ver4/bg1.png) no-repeat center;background-size:100%;width: 100%;background-color:#081849;color: #fff;}
+   			#title1{margin: 0 auto;position: relative;top: 2rem;height: 4.6rem;}
+   			#title1 img:first-child{width: 7.12rem;height: 2.52;margin: 0 auto;display: block;animation: fadein 0.3s ease-in forwards 0.3s;}
+   			#title1 img:last-child{width: 4.44rem;height: 2.92rem;margin: 0 auto;display: block;position: relative;top: -2.1rem;left: -0.08rem;animation: fadein 0.3s ease-in forwards 0.6s;}
+   			#question{text-align: center;font-weight: lighter;font-size: .52rem;font-family: "microsoft yahei";position: relative;line-height: 1.6rem;margin: 3rem auto 0;}
+   			#question div{width: 11.26rem;height: 1.6rem;border: 1px solid #7080ad;margin: 0.68rem auto;border-radius: 0.8rem;color: #7080ad;}
+   			#q1{animation: fadein 0.3s ease-in forwards 0.9s;line-height: 1.4rem;}
+   			#q2{animation: fadein 0.3s ease-in forwards 1.2s;line-height: 1.4rem;}
+   			#q3{animation: fadein 0.3s ease-in forwards 1.5s;line-height: 1.4rem;}
+   			#q4{animation: fadein 0.3s ease-in forwards 1.8s;border: none !important;color: #fff !important;height: .4rem !important;margin: 0 auto !important;line-height: .2rem;}
+   			.text1_big{font-weight: bold;font-size: .8rem;color: #fff;}
+   			.sign{font-weight: bold;font-size: 12px;}
+   			button{color: #fff;font-weight: lighter;font-size: 0.6rem;width: 9.2rem;height: 1.6rem;border-radius: 0.8rem;border: none;outline: none;
+   			/*渐变色*/
+   			background: -webkit-linear-gradient(#63a8fd, #556dfe); /* Safari 5.1 - 6.0 */
+   			background: -o-linear-gradient(#63a8fd, #556dfe); /* Opera 11.1 - 12.0 */
+   			background: -moz-linear-gradient(#63a8fd, #556dfe); /* Firefox 3.6 - 15 */
+   			background: linear-gradient(#63a8fd, #556dfe); /* 标准的语法 */}
+   			#button_box{background: url(img/ver4/shape1.png) no-repeat center;height: 8.72rem;    background-size: 2.8rem 8.72rem;}
+   			#btn1{margin: 0rem auto;display: block;position: relative;top: 3.4rem;animation: fadein 0.3s ease-in forwards 2.1s;width: 11.26rem;}
+   			.icon_ubk{margin: 0 auto;display: block;width: 3.38rem;}
+   			
+   			
+   			#content2{/*display: none;*/max-width: 750px;height: 24.92rem; margin: 0 auto;width: 100%;color: #fff;position: relative;
+   			/*渐变色*/
+   			background: -webkit-linear-gradient(#081848, #2b0848); /* Safari 5.1 - 6.0 */
+   			background: -o-linear-gradient(#081848, #2b0848); /* Opera 11.1 - 12.0 */
+   			background: -moz-linear-gradient(#081848, #2b0848); /* Firefox 3.6 - 15 */
+   			background: linear-gradient(#081848, #2b0848); /* 标准的语法 */
+   			}
+   			.page2_round{position: absolute;top: 1.5rem;left: 6rem; -webkit-animation:change 5s linear infinite;width: 2.24rem;}
+   			@-webkit-keyframes change{0%{-webkit-transform:rotate(0deg);}
+				50%{-webkit-transform:rotate(180deg);}
+				100%{-webkit-transform:rotate(360deg);}
+			}
+			@-moz-keyframes change{
+				0%{-moz-transform:rotate(0deg);}
+				50%{-moz-transform:rotate(180deg);}
+				100%{-moz-transform:rotate(360deg);}
+			}
+			@-ms-keyframes change{
+				0%{-ms-transform:rotate(0deg);}
+				50%{-ms-transform:rotate(180deg);}
+				100%{-ms-transform:rotate(360deg);}
+			}
+			@keyframes change{
+				0%{transform:rotate(0deg);}
+				50%{transform:rotate(180deg);}
+				100%{transform:rotate(360deg);}
+			}
+   			#title2_box{text-align: center;margin: 0 auto;background: url(img/ver4/title2_bg.png) no-repeat;width: 8.64rem;height: 2.48rem;background-size: 100%;position: relative;top: 2.4rem;}
+   			#title2{height: 2.48rem;line-height: 2.48rem;font-size: .72rem;font-weight: bold;animation: fadein 0.3s ease-in forwards 0.3s;}
+   			#first_input_box{margin: 0 auto;text-align: center;margin-top: 4rem;height: 10rem;animation: fadein 0.3s ease-in forwards 0.6s;}
+   			#first_input_box p{font-size: .48rem;font-weight: lighter;height: 1.6rem;width: 7.5rem;text-align: right;margin: 0;line-height: 1.6rem;}
+   			#first_input_box select{font-size: .48rem;font-weight: lighter;text-align: left;margin: 0 auto;color: #8ca6d1;background-color: transparent;background:url(img/ver4/arrow.png) no-repeat 8rem center;background-size: 6%;padding-left: 5.1rem;width: 9.6rem;height: 1.6rem;border: 1px solid #7080ad;border-radius: 0.8rem;position: relative;top: -1.65rem;line-height: 1.6rem;
+   			/*去掉input select选中的默认样式*/
+   			outline: none;  -webkit-tap-highlight-color: rgba(0,0,0,0);}
+   			#first_input_box select:focus,#first_input_box select:visited{outline: none;}
+   			#first_input_box select option{text-align: center;width: 460px;}
+   			#btn2{margin: 0 auto;display: block;width: 9.6rem;position: relative;top: 2rem;animation: fadein 0.3s ease-in forwards 0.9s;}
+   			#attention{text-align: left;width: 9.2rem;margin: 0 auto;display: block;font-size: .5rem !important;font-weight: lighter;margin-top: 0;color: #8ca6d1;}
+   			.select{margin: .3rem auto;height: 1.6rem;position: relative;}
+   			#page2_btm{background: url(img/ver4/btm_bg2.png) no-repeat center;width: 15rem;height: 7.74rem;position: relative;background-size: 100%;}
+   			
+   			
+   			#content3{display: none;max-width: 750px;height: 86.4rem;width: 100%; margin: 0 auto;background-color:#04092c;color: #fff;}
+   			#item1{width: 14.2rem;height: 6.92rem;margin: .4rem auto;border-radius: 8px;position: relative;
+	   			/*渐变色*/
+	   			background: -webkit-linear-gradient(#081848, #2b0848); /* Safari 5.1 - 6.0 */
+	   			background: -o-linear-gradient(#081848, #2b0848); /* Opera 11.1 - 12.0 */
+	   			background: -moz-linear-gradient(#081848, #2b0848); /* Firefox 3.6 - 15 */
+	   			background: linear-gradient(#081848, #2b0848); /* 标准的语法 */
+   			}
+   			#title3_box{text-align: center;font-size: .72rem;font-weight: bold;margin: 0 auto;background: url(img/ver4/title3_bg.png) no-repeat;width: 5.26rem;height:2rem;background-size: 100%;position: relative;top: 3.4rem;}
+   			#title3{height: 2rem;line-height: 2.5rem;margin: 0;}
+   			#page3_text{font-weight: bold;font-size: .6rem;line-height: .8rem;margin: .4rem auto;border-radius: 5px;text-align: justify;width: 10.6rem;height: 2.14rem;background-color: #081848;border-radius: 8px;padding: 1.12rem 1.8rem;}
+   			#download_num,#per_price{color: #fe7444;}
+   			#item2,#item3{width: 11.88rem;height: 11.5rem;margin: .4rem auto;border-radius: 8px;background-color: #081848;padding: .44rem 1.16rem;}
+   			.table_title{height: 1rem;line-height: .5rem;border-bottom: 1px solid gray;font-size: .56rem;color: #fff;font-weight: normal;}
+   			#round1{width: .56rem;height: .56rem;display: inline-block;background-color: #153598;border-radius: .28rem;margin-right: 5px;position: relative;top: 0.04rem;}
+   			#round2{width: .56rem;height: .56rem;display: inline-block;background-color: #cc725a;border-radius: .28rem;margin-right: 5px;position: relative;top: 0.04rem;}
+   			#round3{width: .56rem;height: .56rem;display: inline-block;background-color: #3eb2af;border-radius:.28rem;margin-right: 5px;position: relative;top: 0.04rem;}
+   			.table_box{height: 8.6rem;}
+   			.chart{width: 8.3rem;height:8rem;float: left;}
+   			.data_ul{margin: 0;padding: 0;list-style: none;width: 3.5rem;height:8rem;float: right;}
+   			.data_ul li{margin-top: 1.1rem;height: .4rem;background-color: rgb(25,39,86);padding: 0.46rem 0.3rem;line-height: .4rem;}
+			.data_icon{width: 0.36rem;height: 0.36rem;display: inline-block;float: left;margin-top: .02rem;
+				/*渐变色*/
+	   			background: -webkit-linear-gradient(#f45b5b, #90ee7e); /* Safari 5.1 - 6.0 */
+	   			background: -o-linear-gradient(#f45b5b, #90ee7e); /* Opera 11.1 - 12.0 */
+	   			background: -moz-linear-gradient(#f45b5b, #90ee7e); /* Firefox 3.6 - 15 */
+	   			background: linear-gradient(#f45b5b, #90ee7e); /* 标准的语法 */}
+			.data_x{font-size: .4rem;font-weight: lighter;float: left;margin-left: .2rem;} 
+			.data_y{font-size: .56rem;font-weight: bold;float: right;} 
+			#table3 .data_ul li .data_y{font-weight: normal;font-size: .52rem;color: #a3abf0;}
+			#table3 .data_ul li{margin-top: .14rem;}
+			.title_x{font-size: .36rem;color: #495e9c;font-weight: lighter;position: relative;left: -0.5rem;margin: 0;top: .1rem;width: 5rem;}
+			.title_y{font-size: .36rem;color: #495e9c;font-weight: lighter;position: relative;margin: 0;top: .6rem;width: 5rem;}
+   			.table_text{font-size: .46rem;font-weight: lighter;color: #59617a;line-height: .7rem;text-align: justify;padding: .2rem .2rem;margin: .2rem 0;border-top: 1px solid rgb(32,49,90);}
+   			#item4{width: 11.88rem;height: 24.6rem;margin: .4rem auto;border-radius: 8px;background-color: #081848;padding: .44rem 1.16rem;}
+   			#table3{border-bottom: none;}
+   			#highchart_left{width: 1.5rem;height:8.6rem;background: url(img/ver4/round_a.png) no-repeat center 4rem;background-size: 100%;float: left;}
+   			#highchart_right{width: 1.5rem;height:8.6rem;background: url(img/ver4/round_b.png) no-repeat 0 6rem;background-size: 80%;float: right;}
+   			#color_ul{list-style: none;margin:.4rem auto;padding: 0;width: 10rem;}
+   			#color_ul li{display: inline-block;width: 2rem;height: 2.2rem;text-align: center;}
+   			.color_top{font-weight: bold;font-size: .56rem;color: #90ee7e;margin: 0 auto;padding: 0;}
+   			.color_bottom{font-weight: lighter;font-size: .4rem;color: #fff;margin: 0;padding: 0;    height: .54rem;}
+   			#color1,#color2,#color3,#color4,#color5{width: .72rem;height: .72rem;border-radius: .36rem;margin: 0.2rem auto;padding: 0;}
+   			#color1{background-color: #80e7ec;}
+   			#color2{background-color: #f2c05c;}
+   			#color3{background-color: #2c9090;}
+   			#color4{background-color: #90ee7e;}
+   			#color5{background-color: #f55b5b;}
+			#item5{width: 11.88rem;height: 21rem;margin: .4rem auto;border-radius: 8px;padding: .44rem 1.16rem;background: url(img/ver4/btm_bg3.png) no-repeat center 17.8rem;background-color: #081848;}
+   			#title3_box2{text-align: center;font-size: .72rem;font-weight: bold;margin: 0 auto;background: url(img/ver4/text_bg.png) no-repeat;width: 9.8rem;height: 3.5rem;background-size: 100%;position: relative;top: 2%;}
+   			#title3_box2 p{height: 3.5rem;margin: 0;position: relative;top: 1rem;}
+   			.message{font-weight: lighter;font-size: .48rem;color: #59617a;text-align: left;margin: 1rem auto .5rem;line-height: 0.7rem;}
+   			.qrcode{display: block;width: 4.4rem;margin: 1.2rem auto 0px !important;z-index: 999;}
+   			#second_input_box{width: 11.38rem;margin: 0 auto;text-align: center;background-color: #182657;border-radius: 3px;padding-bottom: 1.8rem;padding-top: 1.4rem;}
+   			#second_input_box p{font-size: .48rem;font-weight: lighter;height: 1.6rem;width: 3.83rem;margin: 0;text-align: right;line-height: 1.6rem;}
+   			#second_input_box input{font-size: .48rem;font-weight: lighter;text-align: left;margin: 0 auto;color: #8ca6d1;border: 1px solid #7080ad;background: transparent;width: 6.3rem;height: calc(1.6rem - 2px);height: -moz-calc(1.6rem - 2px);height: -webkit-calc(1.6rem - 2px);line-height: 1.6rem;border-radius: 0.8rem;position: relative;top: -1.65rem;outline: none;-webkit-tap-highlight-color: rgba(0,0,0,0);padding-left: 3.3rem;}
+   			.p_input{height: 1.6rem;}
+   			#btn3{display: block;margin: 0 auto;}
+   			
+   			
+   			#content4{display: none;max-width: 750px;height: 24.92rem; margin: 0 auto;width: 100%;color: #fff;position: relative;/*渐变色*/
+   			background: -webkit-linear-gradient(#081848, #2b0848); /* Safari 5.1 - 6.0 */
+   			background: -o-linear-gradient(#081848, #2b0848); /* Opera 11.1 - 12.0 */
+   			background: -moz-linear-gradient(#081848, #2b0848); /* Firefox 3.6 - 15 */
+   			background: linear-gradient(#081848, #2b0848); /* 标准的语法 */}
+   			#title4_box{text-align: center;font-size: .72rem;font-weight: bold;margin: 0 auto;background: url(img/ver4/title4_bg.png) no-repeat center;background-size: 100%;width: 10.28rem;height: 3.12rem;position: relative;top: 4.5rem;left: 0;}
+   			#title4_box p{margin: 0;width: 12rem;position: relative;left: -0.5rem;top: 0.5rem;}
+   			#page4_msg{position: relative;top: 3.7rem;}
+   			#page4_msg p{text-align: center;margin: 0;font-weight: bold;font-size: 18px;}
+   			#up_arrow{width: 100%;position: absolute;bottom: 0 !important;height: 17.68rem;z-index: 10;}
+   			#qrcode_box_page4{position: absolute;bottom: 0 !important;width: 100%;height: 4.74rem;background: url(img/ver4/btm_bg4.png) no-repeat center;}
+   			/*去掉select的默认样式，去掉下拉箭头*/
+   			select{appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+   			input::-webkit-input-placeholder { /* WebKit browsers*/ color:rgb(137,165,207);}
+			input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/ color:rgb(137,165,207);}
+			input::-moz-placeholder {  /* Mozilla Firefox 19+*/ color:rgb(137,165,207);}
+			input:-ms-input-placeholder { /* Internet Explorer 10+*/ color:rgb(137,165,207);}
+   		</style>
+   		
+   		
+	</head>
+	<body >
+		<!--第一页-->
+		<div id="content1">
+			<div id="title1">
+				<img src="img/ver4/title1_bg.png"/>
+				<img src="img/ver4/titile1.png"/>
+			</div>
+			<div id="question">
+				<div id="q1">聊天社交App一个真实下载<span class="text1_big">&nbsp;2-4&nbsp;</span>元<span class="sign">？</span></div>
+				<div id="q2">直播App一个激活才<span class="text1_big">&nbsp;2.5&nbsp;</span>元<span class="sign">？</span></div>
+				<div id="q3">教育类App激活率<span class="text1_big">&nbsp;80%&nbsp;</span><span class="sign">？</span></div>
+				<div id="q4">......</div>
+			</div>
+			<div id="button_box">
+				<button id="btn1"   onclick="clickToPage2()">测测你的App</button>
+			</div>
+			<img class="icon_ubk" src="img/ver4/icon_ubk.png"/>
+		</div>
+		
+		<!--第二页-->
+		<div id="content2">
+			<div style="height: 1px;"></div>
+			<img class="page2_round" src="img/ver4/round2.png"/>
+			<div id="title2_box">
+				<p id="title2">请输入你的App信息</p>
+			</div>
+			
+			<div id="first_input_box">
+				<div class="select">
+					<p>所属领域<t style="color: #7080ad;">&nbsp;&nbsp;|</t></p>
+			        <select id="select1">
+			          <option value="0">请选择</option>
+			          <option value="1">律师</option>
+			          <option value="2">教育</option>
+			          <option value="3">工具</option>
+			          <option value="4">视频音乐</option>
+			          <option value="5">生活</option>
+			          <option value="6">娱乐</option>
+			          <option value="7">育儿母婴</option>
+			          <option value="8">阅读</option>
+			          <option value="9">新闻</option>
+			          <option value="10">聊天交友</option>
+			          <option value="11">婚恋交友</option>
+			          <option value="12">直播</option>
+			          <option value="13">电商</option>
+			          <option value="14">旅游出行</option>
+			          <option value="15">金融</option>
+			          <option value="16">健康医美</option>
+			        </select>
+				</div>
+		        
+		        <div class="select">
+		        		<p>用户量级<t style="color: #7080ad;">&nbsp;&nbsp;|</t></p>
+			        <select id="select2">
+			          <option value="0">请选择</option>
+			          <option value="1">100万以下</option>
+			          <option value="2">100-500万</option>
+			          <option value="2">500-1000万</option>
+			          <option value="3">1000万以上</option>
+			        </select>
+		        </div>
+		        
+		        <div class="select">
+			        <p>日均下载量<t style="color: #7080ad;">&nbsp;&nbsp;|</t></p>
+			        <select id="select3" <!--onchange="changeSelect3()"-->>
+			          <option value="0">请选择</option>
+			          <option value="1">200以下</option>
+			          <option value="2">200-500</option>
+			          <option value="3">500-800</option>
+			          <option value="4">1000以上</option>
+			        </select>
+		        </div>
+		        
+		        <div class="select">
+			        <p>预期日均下载量<t style="color: #7080ad;">&nbsp;&nbsp;|</t></p>
+			        <select id="select4">
+			          <option value="0">请选择</option>
+			          <option value="1">200以下</option>
+			          <option value="2">200-500</option>
+			          <option value="3">500-800</option>
+			          <option value="4">1000以上</option>
+			        </select>
+		        </div>
+		        
+		        <span id="attention">注：预期日均下载量是指客户对App每天获取应用市场下载量的预期</span>
+		        <div id="page2_btm">
+		        		<button id="btn2" onclick="toTest()">测试</button>
+		        </div>
+		        
+		      </div>
+		</div>
+		
+		<!--第三页-->
+		<div id="content3">
+			<div style="height: 1px;"></div>
+			<div id="item1">
+				<img class="page2_round" src="img/ver4/round2.png"/>
+				<div id="title3_box">
+					<p id="title3">测试报告</p>
+				</div>
+			</div>
+			<p id="page3_text">在预期日均下载量为<span id="download_num">1000</span>的情况下，你的App获取应用市场一个真实用户约为<span id="per_price">3.0</span>元</p>
+			
+			<div id="item2">
+				<div class="table_title"><span id="round1"></span>同领域App的流量标尺</div>
+				<div id="table1" class="table_box">
+					<p class="title_y">激活成本（元/个）</p>
+					<div class="chart" id="chart1"></div>
+					<ul class="data_ul"></ul>
+				</div>
+				<p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p>
+			</div>
+			
+			<div id="item3">
+				<div class="table_title"><span id="round2"></span>同领域App的下载情况</div>
+				<div id="table2" class="table_box">
+					<p class="title_y">下载成本（元/个）</p>
+					<div class="chart" id="chart2"></div>
+					<ul class="data_ul"></ul>
+				</div>
+				<p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p>
+			</div>
+			
+			<div id="item4">
+				<div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div>
+				<div id="table3" class="table_box">
+					<p class="title_y">日均下载量（个）</p>
+					<div class="chart" id="chart3"></div>
+					<ul class="data_ul"></ul>
+				</div>
+				<div id="highchart_box" style="height: 8.6rem;">
+					<div id="highchart_left"></div>
+					<div id="container" style="height:8.6rem;width: 8.6rem;margin: 0 auto;float: left;"></div>
+					<div id="highchart_right"></div>
+				</div>
+				<ul id="color_ul"></ul>
+				
+				<p class="table_text">注：“日均下载量”是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p>
+			</div>
+			
+			<div id="item5">
+				<div id="title3_box2">
+					<p>你的App在应用市场的<br />专属流量标尺是什么？</p>
+				</div>
+				<p class="message">留下联系方式或扫码联系我们，UBK跟你一起寻找App在应用市场的流量标尺</p>
+				<div id="second_input_box">
+					<div class="p_input" >
+						<p>App名称<t style="color: #7080ad;">&nbsp;&nbsp;|</t></p>
+		        			<input type="text" name="app_name" id="app_name" value="" placeholder="请输入你的App名称"/>
+					</div>
+		        		<div class="p_input" style="margin:0.5rem auto 1.4rem;">
+		        			<p>手机号<t style="color: #7080ad;">&nbsp;&nbsp;|</t></p>
+			        		<input type="tel" name="phone_num" id="phone_num" value="" maxlength="11" placeholder="请输入你的手机号" onpaste="return false"/>
+		        		</div>
+			        
+			        <button id="btn3" onclick="submitMessage()">提交</button>
+			    </div>
+				<img class="qrcode" src="img/ver4/qrcode.png"/>
+			</div>
+			
+			
+		    
+		</div>
+		
+		
+		<!--第四页-->
+		<div id="content4">
+			<div style="height: 1px;"></div>
+			<img class="page2_round" src="img/ver4/round2.png"/>
+			<div id="title4_box">
+				<p>你的信息已送达~</p><p>我们会在3个工作日内联系你</p>
+			</div>
+			
+			<img id="up_arrow" src="img/ver4/up_arrow.png"/>
+			<div id="qrcode_box_page4">
+				<img class="qrcode" src="img/ver4/qrcode.png"/>
+			</div>
+			
+		</div>
+		
+		<!--音乐-->
+		<audio id="music_bg" src="music/apollo.mp3" loop="loop" autoplay="autoplay" hidden="hidden" preload="auto"></audio>
+		<script>
+		  	var _mtac = {"senseHash":0,"performanceMonitor":1,"senseQuery":1};
+		  	(function() {
+		  		var mta = document.createElement("script");
+		  		mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+		  		mta.setAttribute("name", "MTAH5");
+		  		mta.setAttribute("sid", "500483483");
+		  		mta.setAttribute("cid", "500490584");
+		  		var s = document.getElementsByTagName("script")[0];
+		  		s.parentNode.insertBefore(mta, s);
+		  	})();
+		</script>
+		  	
+	
+	</body>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+	<script src="js/echarts.min.js"></script>
+	<script src="js/highchart/highcharts.js"></script>
+	<script src="js/highchart/highcharts-more.js"></script>
+	<script src="js/highchart/solid-gauge.js"></script>
+	<script src="js/highchart/data.js"></script>
+	
+	
+	<script type="text/javascript">
+		var url_http = 'http://tui.appubk.com';
+		//微信的分享配置信息
+		var shareMsg = {
+            title: '你的APP在应用市场的价格真相是？',
+            desc: "真实流量本来就不贵",
+            link: window.location.href,
+            imgUrl: url_http + '/img/app.jpg',
+            success: function () {
+                $.tip('分享成功');
+            },
+            cancel: function () { 
+                $.tip('分享失败');
+            }
+        };
+		
+		$(document).ready(function(){
+			$.ajax({
+                type:'POST',
+                dataType:'json',
+                contentType:'application/json',
+                url:url_http + '/weixin/share/getjssdkConfig',
+                data:JSON.stringify({'url':window.location.href}),
+                success:function(msg){
+                    if(msg.retcode == 0){
+						wx.config({
+						    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						    appId: 'wxe5eb6d9206d2c887', // 必填，公众号的唯一标识
+						    timestamp:msg.info.timestamp, // 必填，生成签名的时间戳
+						    nonceStr:msg.info.nonceStr , // 必填，生成签名的随机串
+						    signature: msg.info.signature,// 必填，签名，见附录1
+						    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo","onMenuShareQZone"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+						
+						
+						wx.ready(function(){
+											
+				            /*分享给朋友*/
+				            wx.onMenuShareAppMessage(shareMsg);
+				            /*分享到QQ*/
+				            wx.onMenuShareQQ(shareMsg);
+				            /*分享到腾讯微博*/
+				            wx.onMenuShareWeibo(shareMsg);
+				            /*分享到QQ空间*/
+				            wx.onMenuShareQZone(shareMsg);
+				            //分享到朋友圈
+				　　　　　　wx.onMenuShareTimeline(shareMsg);
+				        }); 
+				
+				        wx.error(function(res){
+				            console.log("错误信息 === ");
+				            console.log(res);
+				        });
+                    }else{
+                    		alert('服务器走丢了哟,请稍后再试！');
+                    	}
+                },
+                error:function(){
+                    alert('服务器走丢了哟,请稍后再试！');
+                }
+        	});
+		});
+		
+
+		
+		
+		//自动播放音乐-针对iOS微信		
+		document.addEventListener('DOMContentLoaded', function () {
+		    function audioAutoPlay() {
+		        var audio = document.getElementById('music_bg');
+		            audio.play();
+		        document.addEventListener("WeixinJSBridgeReady", function () {
+		            audio.play();
+		        }, false);
+		    }
+		    audioAutoPlay();
+		});
+		
+		function showNextPage(thisPageID,nextPageID){
+			$(thisPageID).hide();
+			$(nextPageID).show();
+		}
+		var select1,select2,select3,select4,perPrice,appType;
+		var channel,circle,active,download;
+		
+		function clickToPage2(){
+			//统计“测测你的App”点击次数
+			MtaH5.clickStat(getChannel('ADTAG') + "_btn1");
+
+			showNextPage('#content1','#content2');
+			$('#title2').delay(300).animate({opacity:"1",}, 300, 'linear');
+			$('#first_input_box').delay(600).animate({opacity:"1",}, 300, 'linear');
+			$('#btn2').delay(900).animate({opacity:"1",}, 300, 'linear');
+		}
+		
+		//点击测试
+		function toTest(){
+			
+			select1 = Number(document.getElementById('select1').value);
+			select2 = Number(document.getElementById('select2').value);
+			select3 = Number(document.getElementById('select3').value);
+			select4 = Number(document.getElementById('select4').value);
+			
+			if (select1 * select2 * select3 * select4) {
+				
+				shareMsg = {
+		            title: '我的APP在应用市场的价格真相是……',
+		            desc: "真实流量其实并不贵",
+		            link:url_http + "/result.html?s1=" + select1 + "&s2=" + select2 + "&s3=" + select3 + "&s4=" +select4 + window.location.search.split('s4')[1].substring(2),
+		            imgUrl: url_http + '/img/app.jpg',
+		            success: function () { 
+		                $.tip('分享成功');
+		            },
+		            cancel: function () { 
+		                $.tip('分享失败');
+		            }
+		        };
+				/*分享给朋友*/
+	            wx.onMenuShareAppMessage(shareMsg);
+	            /*分享到QQ*/
+	            wx.onMenuShareQQ(shareMsg);
+	            /*分享到腾讯微博*/
+	            wx.onMenuShareWeibo(shareMsg);
+	            /*分享到QQ空间*/
+	            wx.onMenuShareQZone(shareMsg);
+	            //分享到朋友圈
+	　　　　　　wx.onMenuShareTimeline(shareMsg);
+				
+				
+				//统计“测试”按钮点击次数
+				MtaH5.clickStat(getChannel('ADTAG') + "_btn2");
+				
+				var number_download;
+				switch (select4){
+					case 1:number_download = "200以下";break;
+					case 2:number_download = "200-500";break;
+					case 3:number_download = "500-800";break;
+					case 4:number_download = "1000以上";break;
+					default:break;
+				}
+				
+				var circle1 = [75,75,65,40,60];//律师             
+				var circle2 = [75,70,65,55,0];//教育               
+				var circle3 = [75,65,70,65,65];//工具               
+				var circle4 = [80,65,75,0,65];//视频音乐              
+				var circle5 = [70,0,70,50,0];//生活               
+				var circle6 = [70,65,68,60,65];//娱乐               
+				var circle7 = [40,70,65,55,50];//育儿母婴              
+				var circle8 = [90,85,85,80,0];//阅读              
+				var circle9 = [90,85,85,80,0];//新闻              
+				var circle10 = [70,75,65,30,60];//聊天交友              
+				var circle11 = [58,60,50,40,50];//婚恋交友               
+				var circle12 = [0,80,70,0,0];//直播               
+				var circle13 = [70,55,55,55,0];//电商              
+				var circle14 = [70,55,55,55,0];//旅游出行               
+				var circle15 = [0,70,65,0,72];//金融               
+				var circle16 = [0,72,70,0,65];//健康医美
+				
+				var channel1 = [80,80,120,20,40];//律师             
+				var channel2 = [100,200,300,200,0];//教育               
+				var channel3 = [150,150,150,80,100];//工具               
+				var channel4 = [230,350,300,0,300];//视频音乐              
+				var channel5 = [80,0,150,80,0];//生活               
+				var channel6 = [80,80,150,150,100];//娱乐               
+				var channel7 = [40,120,150,70,80];//育儿母婴              
+				var channel8 = [150,130,180,250,0];//阅读              
+				var channel9 = [150,130,180,250,0];//新闻              
+				var channel10 = [50,30,200,75,50];//聊天交友              
+				var channel11 = [150,20,80,300,100];//婚恋交友               
+				var channel12 = [0,80,130,0,0];//直播               
+				var channel13 = [30,50,80,65,0];//电商              
+				var channel14 = [50,100,80,50,0];//旅游出行               
+				var channel15 = [0,120,150,0,80];//金融               
+				var channel16 = [0,30,100,0,40];//健康医美
+				
+				var active1 = [150,350,600,2.8,5,7];//律师             
+				var active2 = [350,550,900,2,3,4];//教育               
+				var active3 = [250,350,500,3,4,5.5];//工具               
+				var active4 = [200,350,560,2,3.2,4];//视频音乐              
+				var active5 = [130,300,550,4,5,6.5];//生活               
+				var active6 = [300,350,450,3.5,4.5,5.5];//娱乐               
+				var active7 = [100,250,500,3,4,5.5];//育儿母婴              
+				var active8 = [250,450,600,2.5,3,3.5];//阅读              
+				var active9 = [250,450,600,2.5,3,3.5];//新闻              
+				var active10 = [65,200,500,2.8,3.7,6];//聊天交友              
+				var active11 = [55,300,600,5.5,8,10];//婚恋交友               
+				var active12 = [70,200,400,2.8,4,4.8];//直播               
+				var active13 = [60,200,400,5,7,9];//电商              
+				var active14 = [100,200,300,5.5,7,9];//旅游出行               
+				var active15 = [60,150,300,8,11,13];//金融               
+				var active16 = [120,280,450,4.5,5.5,9];//健康医美
+				
+				var download1 = [200,500,1000,2,3.5,5];//律师             
+				var download2 = [500,900,1400,1.5,2,3];//教育               
+				var download3 = [350,500,700,2,3,4];//工具               
+				var download4 = [300,500,800,1.5,2.3,3];//视频音乐              
+				var download5 = [200,400,800,2.5,3.8,5];//生活               
+				var download6 = [450,550,700,2.3,2.8,3.5];//娱乐               
+				var download7 = [200,400,800,2.5,3,4];//育儿母婴              
+				var download8 = [300,550,750,2,2.5,3];//阅读              
+				var download9 = [300,550,750,2,2.5,3];//新闻              
+				var download10 = [100,300,600,2,3,4];//聊天交友              
+				var download11 = [100,500,1000,3.5,5.5,8,];//婚恋交友               
+				var download12 = [100,300,600,2.5,3.2,3.8];//直播               
+				var download13 = [100,400,650,3,3.7,6];//电商              
+				var download14 = [200,400,500,3.5,4.5,5.5];//旅游出行               
+				var download15 = [100,250,500,5,7.5,10];//金融               
+				var download16 = [200,350,800,2.5,3.5,5];//健康医美
+				
+				switch (select1){
+					case 1:
+						appType = 1;
+						channel = channel1;
+						circle = circle1;
+						download = download1;
+						active = active1; 
+						break;
+					case 2:
+						appType = 1;
+						channel = channel2;
+						circle = circle2;
+						download = download2;
+						active = active2; 
+						break;
+					case 3:
+						appType = 1;
+						channel = channel3;
+						circle = circle3;
+						download = download3;
+						active = active3; 
+						break;
+					case 4:
+						appType = 1;
+						channel = channel4;
+						circle = circle4;
+						download = download4;
+						active = active4; 
+						break;
+					case 5:
+						appType = 1;
+						channel = channel5;
+						circle = circle5;
+						download = download5;
+						active = active5; 
+						break;
+					case 6:
+						appType = 1;
+						channel = channel6;
+						circle = circle6;
+						download = download6;
+						active = active6; 
+						break;
+					case 7:
+						appType = 1;
+						channel = channel7;
+						circle = circle7;
+						download = download7;
+						active = active7; 
+						break;
+					case 8:
+						appType = 2;
+						channel = channel8;
+						circle = circle8;
+						download = download8;
+						active = active8; 
+						break;
+					case 9:
+						appType = 2;
+						channel = channel9;
+						circle = circle9;
+						download = download9;
+						active = active9; 
+						break;
+					case 10:
+						appType = 3;
+						channel = channel10;
+						circle = circle10;
+						download = download10;
+						active = active10; 
+						break;
+					case 11:
+						appType = 3;
+						channel = channel11;
+						circle = circle11;
+						download = download11;
+						active = active11; 
+						break;
+					case 12:
+						appType = 3;
+						channel = channel12;
+						circle = circle12;
+						download = download12;
+						active = active12; 
+						break;
+					case 13:
+						appType = 4;
+						channel = channel13;
+						circle = circle13;
+						download = download13;
+						active = active13; 
+						break;
+					case 14:
+						appType = 4;
+						channel = channel14;
+						circle = circle14;
+						download = download14;
+						active = active14; 
+						break;
+					case 15:
+						appType = 5;
+						channel = channel15;
+						circle = circle15;
+						download = download15;
+						active = active15; 
+						break;
+					case 16:
+						appType = 6;
+						channel = channel16;
+						circle = circle16;
+						download = download16;
+						active = active16; 
+						break;
+					default:break;
+				}
+				
+				switch (appType){
+					case 1:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "2.5";}
+							else if(select4 == 2){perPrice = "2.5-3";}
+							else{perPrice = "4-5";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "2";}
+							else if(select4 == 2){perPrice = "2-3";}
+							else{perPrice = "3-4";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "1.5-2";}
+							else if(select4 == 2){perPrice = "2-2.5";}
+							else{perPrice = "2.5-3.5";}
+						}
+						break;
+						
+					case 2:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "4-6";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "2-3";}
+							else if(select4 == 2){perPrice = "2.5-3.5";}
+							else{perPrice = "4-5";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "1.5-2.5";}
+							else if(select4 == 2){perPrice = "2-3";}
+							else{perPrice = "3-4";}
+						}
+						break;
+					case 3:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "3-4";}
+							else if(select4 == 2){perPrice = "3.5-5";}
+							else{perPrice = "5-7";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "4-6";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "2-3";}
+							else if(select4 == 2){perPrice = "3-3.5";}
+							else{perPrice = "3.5-5";}
+						}
+						break;
+					case 4:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "5-6";}
+							else if(select4 == 2){perPrice = "5.5-7";}
+							else{perPrice = "6-8";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "3-4";}
+							else if(select4 == 2){perPrice = "4-5";}
+							else{perPrice = "5-7";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "5-6";}
+						}
+						break;
+					case 5:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "8-10";}
+							else if(select4 == 2){perPrice = "10-15";}
+							else{perPrice = "15-20";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "5-8";}
+							else if(select4 == 2){perPrice = "8-10";}
+							else{perPrice = "10-15";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "4-6";}
+							else if(select4 == 2){perPrice = "5-7";}
+							else{perPrice = "7-10";}
+						}
+						break;
+					case 6:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "5-6";}
+							else if(select4 == 2){perPrice = "5.5-7";}
+							else{perPrice = "6-8";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "3-4";}
+							else if(select4 == 2){perPrice = "4-5";}
+							else{perPrice = "5-7";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "5-6";}
+						}
+						break;
+						
+					default:
+						break;
+				}
+				
+				document.getElementById('download_num').innerHTML = number_download;
+				document.getElementById('per_price').innerHTML = perPrice;
+				
+				initActive(active);
+				initDownload(download);
+				initChannel(channel);
+				initCircle(circle);
+				//手机上看chart很小，js修改
+				if ($('body').width() < 750) {
+					$('.chart').find('canvas').css({'top':'-1.7rem','height':'10rem'});
+				}
+				
+				showNextPage('#content2','#content3');
+				
+				$('#item1').delay(300).animate({opacity:"1",}, 300, 'linear');
+				$('#page3_text').delay(600).animate({opacity:"1",}, 300, 'linear');
+				$('#item2').delay(900).animate({opacity:"1",}, 300, 'linear');
+				$('#item3').delay(1200).animate({opacity:"1",}, 300, 'linear');
+				$('#item4').delay(1500).animate({opacity:"1",}, 300, 'linear');
+				$('#item5').delay(1800).animate({opacity:"1",}, 300, 'linear');
+			}else{
+				alert("请输入你的App信息后再测试！");
+			}
+		}
+		
+		
+		//提交信息
+		function submitMessage(){
+			
+			var appName = $('#app_name').val();
+			var phoneNumber = $('#phone_num').val();
+			var reg = /^[1-9]([0-9]{4,11})$/g
+			if(appName.length == 0){
+				alert("请输入App名称才能提交哦~");
+				return;
+			}
+			if (phoneNumber.length != 11 || !reg.test(phoneNumber)) {
+				alert("请输入正确的手机号！");
+				return;
+			}
+			
+			var param;
+			if (getChannel('appId') == undefined || getChannel('appId').length == 0) {
+				param={user_name:appName,mobile:phoneNumber};
+			} else{
+				param={user_name:appName,mobile:phoneNumber,message:getappid(getChannel('appId'))};
+			}
+			
+            param.product_id= getChannel("pid");
+            param.channel_id="10";
+                
+            $.ajax({
+                type:'POST',
+                dataType:'json',
+                contentType:'application/json',
+                url:'./post_user_info',
+                data:JSON.stringify(param),
+                success:function(msg){
+                    if(msg.retcode == 0){
+						showNextPage('#content3','#content4');
+						$('#page4_msg').delay(100).animate({opacity:"1",}, 300, 'linear');
+                    }else{
+                    		alert('服务器走丢了哟,请稍后再试！');
+                    	}
+                },
+                error:function(){
+                    alert('服务器走丢了哟,请稍后再试！');
+                }
+        		});
+			
+		}
+		//appid转为名称
+		function getappid(app){
+			var appId;
+			switch(parseInt(app)){
+				case 148:appId = "九库阅读";break;
+				case 80:appId = "marryu";break;
+				case 190:appId = "青之蓝漫画";break;
+				case 71:appId = "百听听书";break;
+				case 175:appId = "遨游大师";break;
+				case 115:appId = "聊播";break;
+				case 202:appId = "都秀嗨皮";break;
+				case 204:appId = "约爱吧";break;
+				case 176:appId = "问视";break;
+				case 165:appId = "同城陌陌约";break;
+				case 23:appId = "欢旅直播";break;
+				case 158:appId = "乐刷";break;
+				case 130:appId = "约我吧";break;
+				case 139:appId = "来贝记账";break;
+				case 169:appId = "约糖";break;
+				case 185:appId = "酷家乐";break;
+				case 210:appId = "嘻牛理财";break;
+				case 222:appId = "基金检测宝";break;
+				case 170:appId = "邮洽";break;
+				case 167:appId = "半米孕期";break;
+				case 152:appId = "爱音斯坦";break;
+				case 155:appId = "悠然一指";break;
+				case 106:appId = "律律";break;
+				case 94:appId = "辣妈帮";break;
+				case 103:appId = "邦德";break;
+				case 53:appId = "点聊";break;
+				case 62:appId = "蒲公英";break;
+				case 216:appId = "集团管家";break;
+				case 161:appId = "王牌直播";break;
+				default:appId = app;break;
+			}
+			return appId;
+		}
+				
+		function getChannel(name){
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		    var r = window.location.search.substr(1).match(reg);
+		    if(r!=null)return  unescape(r[2]); return null;
+		}
+		
+		
+		
+		
+		//初始化表格
+		function initActive(active){
+			
+			$('#table1 ul').html('<li><span class="data_icon"></span><span class="data_x">' + active[0] + '</span><span class="data_y">' + active[3] + '</span></li><li><span class="data_icon"></span><span class="data_x">' + active[1] + '</span><span class="data_y">' + active[4] + '</span></li><li><span class="data_icon"></span><span class="data_x">' + active[2] + '</span><span class="data_y">' + active[5] + '</span></li><p class="title_x">日均激活（ 个 ）</p>');
+			
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart1 = echarts.init(document.getElementById('chart1'));
+			
+			var option1 = {
+				title : {text: '',},
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			        
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            data : [active[0], active[1], active[2]],
+			            axisTick: {
+			                alignWithLabel: true
+			            },
+			            //坐标轴轴线
+			            axisLine:{
+			            		lineStyle:{color:'#fff',}
+			            },
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            max:10,
+			            interval:1,
+			            //坐标轴轴线
+			            axisLine:{
+			            		lineStyle:{color:'#fff',}
+			            },
+			            //坐标轴刻度
+			            axisTick:{show:false},
+			            //分割线
+			            splitLine:{
+			            		lineStyle:{
+			            			color:'rgb(32,49,90)',
+			            		}
+			            }
+			        }
+			    ],
+			    series : [
+			        {
+			            type:'bar',
+			            barWidth: '60%',
+			            itemStyle: {
+			                normal: {
+			                    color: new echarts.graphic.LinearGradient(
+			                        0, 0, 0, 1,
+			                        [
+			                            {offset: 0, color: '#f45b5b'},
+			                            {offset: 0.5, color: 'rgb(192,167,114)'},
+			                            {offset: 1, color: '#90ee7e'}
+			                        ]
+			                    )
+			                }
+			            },
+			            data:[active[3],active[4],active[5]]
+			        }
+			    ]
+			};
+			// 使用刚指定的配置项和数据显示图表。
+	        myChart1.setOption(option1);
+		}
+		
+		function initDownload(download){
+			
+			$('#table2 ul').html('<li><span class="data_icon"></span><span class="data_x">' + download[0] + '</span><span class="data_y">' + download[3] + '</span></li><li><span class="data_icon"></span><span class="data_x">' + download[1] + '</span><span class="data_y">' + download[4] + '</span></li><li><span class="data_icon"></span><span class="data_x">' + download[2] + '</span><span class="data_y">' + download[5] + '</span></li><p class="title_x">日均下载量需求（ 个 ）</p>');
+			
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart2 = echarts.init(document.getElementById('chart2'));
+			
+			var option2 = {
+				title : {text: '',},
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			        
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            data : [download[0], download[1], download[2]],
+			            axisTick: {
+			                alignWithLabel: true
+			            },
+			            //坐标轴轴线
+			            axisLine:{
+			            		lineStyle:{color:'#fff',}
+			            },
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            max:10,
+			            interval:1,
+			            //坐标轴轴线
+			            axisLine:{
+			            		lineStyle:{color:'#fff',}
+			            },
+			            //坐标轴刻度
+			            axisTick:{show:false},
+			            //分割线
+			            splitLine:{
+			            		lineStyle:{
+			            			color:'rgb(32,49,90)',
+			            		}
+			            }
+			        }
+			    ],
+			    series : [
+			        {
+			            type:'bar',
+			            barWidth: '60%',
+			            itemStyle: {
+			                normal: {
+			                    color: new echarts.graphic.LinearGradient(
+			                        0, 0, 0, 1,
+			                        [
+			                            {offset: 0, color: '#f45b5b'},
+			                            {offset: 0.5, color: 'rgb(192,167,114)'},
+			                            {offset: 1, color: '#90ee7e'}
+			                        ]
+			                    )
+			                }
+			            },
+			            data:[download[3],download[4], download[5]]
+			        }
+			    ]
+			};
+			// 使用刚指定的配置项和数据显示图表。
+	        myChart2.setOption(option2);
+		}
+		
+        
+        function initChannel(channel){
+        	
+        		$('#table3 ul').html('<li><span class="data_icon"></span><span class="data_x">应用宝</span><span class="data_y">' + channel[0] + '</span></li><li><span class="data_icon"></span><span class="data_x">OPPO</span><span class="data_y">' + channel[1] + '</span></li><li><span class="data_icon"></span><span class="data_x">vivo</span><span class="data_y">' + channel[2] + '</span></li><li><span class="data_icon"></span><span class="data_x">小米</span><span class="data_y">' + channel[3] + '</span></li><li><span class="data_icon"></span><span class="data_x">魅族</span><span class="data_y">' + channel[4] + '</span></li><p class="title_x">渠道</p>');
+        		
+        		// 基于准备好的dom，初始化echarts实例
+	        var myChart3 = echarts.init(document.getElementById('chart3'));
+			
+			var option3 = {
+				title : {text: '',},
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			        
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            data : ['应用宝', 'OPPO', 'vivo','小米','魅族'],
+			            axisTick: {
+			                alignWithLabel: true
+			            },
+			            //坐标轴轴线
+			            axisLine:{
+			            		lineStyle:{color:'#fff',}
+			            },
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            max:500,
+			            interval:50,
+			            //坐标轴轴线
+			            axisLine:{
+			            		lineStyle:{color:'#fff',}
+			            },
+			            //坐标轴刻度
+			            axisTick:{show:false},
+			            //分割线
+			            splitLine:{
+			            		lineStyle:{
+			            			color:'rgb(32,49,90)',
+			            		}
+			            }
+			        }
+			    ],
+			    series : [
+			        {
+			            type:'bar',
+			            barWidth: '60%',
+			            itemStyle: {
+			                normal: {
+			                    color: new echarts.graphic.LinearGradient(
+			                        0, 0, 0, 1,
+			                        [
+			                            {offset: 0, color: '#f45b5b'},
+			                            {offset: 0.5, color: 'rgb(192,167,114)'},
+			                            {offset: 1, color: '#90ee7e'}
+			                        ]
+			                    )
+			                }
+			            },
+			            data:[channel[0],channel[1],channel[2],channel[3],channel[4]]
+			        }
+			    ]
+			};
+			// 使用刚指定的配置项和数据显示图表。
+	        myChart3.setOption(option3);
+        }
+        
+        
+        
+        function initCircle(dataArr){
+        		
+		    // 去掉这里的注释就是类似 Apple Watch 上的效果了
+		    if (!Highcharts.theme) {
+		        Highcharts.setOptions({
+		            chart: {
+		                backgroundColor: 'black'
+		            },
+		            //显示的颜色
+		            colors: ['#80e7ec', '#f2c05c','#2c9090', '#90ee7e','#f55b5b'],
+		            
+		            title: {
+		                style: {
+		                    color: 'silver'
+		                }
+		            },
+		            tooltip: {
+		                style: {
+		                    color: 'silver'
+		                }
+		            }
+		        });
+		    }
+		    Highcharts.chart('container', {
+		        chart: {
+		            type: 'solidgauge',
+		            marginTop: 50,
+		            backgroundColor:"#081848",
+		        },
+		        credits: {
+		            enabled: false
+		        },
+		        title: {
+		            text: '转化率',
+		            style: {
+		                fontSize: '0.56rem',
+		                color:"#495e9c",
+		            },
+		            x:-50,
+		             y:20,
+		             margin:0,
+		             useHTML:true,
+		        },
+		        tooltip: {
+		        		enabled:false,
+		            borderWidth: 0,
+		            backgroundColor: 'none',
+		            shadow: false,
+		            style: {
+		                fontSize: '0.32rem'
+		            },
+		            pointFormat: '{series.name}<br><span style="font-size:1rem; color: {point.color}; font-weight: bold">{point.y}%</span>',
+		            positioner: function (labelWidth, labelHeight) {
+		                return {
+		                    x: 200 - labelWidth / 2,
+		                    y: 200,
+		                };
+		            }
+		        },
+		        pane: {
+		            startAngle: 0,
+		            endAngle: 360,
+		         background: [{ // Track for 应用宝
+		                outerRadius: '107%',
+		                innerRadius: '93%',
+		                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
+		                borderWidth: 0
+		            }, { // Track for OPPO
+		                outerRadius: '92%',
+		                innerRadius: '78%',
+		                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+		                borderWidth: 0
+		            }, { // Track for vivo
+		                outerRadius: '77%',
+		                innerRadius: '63%',
+		                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
+		                borderWidth: 0
+		            }, { // Track for 小米
+		                outerRadius: '62%',
+		                innerRadius: '48%',
+		                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[3]).setOpacity(0.3).get(),
+		                borderWidth: 0
+		            }, { // Track for 魅族
+		                outerRadius: '47%',
+		                innerRadius: '33%',
+		                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[4]).setOpacity(0.3).get(),
+		                borderWidth: 0
+		            }]
+		        },
+		        yAxis: {
+		            min: 0,
+		            max: 100,
+		            lineWidth: 0,
+		            tickPositions: []
+		        },
+		        plotOptions: {
+		            solidgauge: {
+		                borderWidth: '.44rem',
+		                dataLabels: {
+		                    enabled: false
+		                },
+		                linecap: 'round',
+		                stickyTracking: false
+		            }
+		        },
+		        series: [{
+		            name: '应用宝',
+		            borderColor: Highcharts.getOptions().colors[0],
+		            data: [{
+		                color: Highcharts.getOptions().colors[0],
+		                radius: '100%',
+		                innerRadius: '100%',
+		                y: dataArr[0]
+		            }]
+		        }, {
+		            name: 'OPPO',
+		            borderColor: Highcharts.getOptions().colors[1],
+		            data: [{
+		                color: Highcharts.getOptions().colors[1],
+		                radius: '85%',
+		                innerRadius: '85%',
+		                y: dataArr[1]
+		            }]
+		        }, {
+		            name: 'vivo',
+		            borderColor: Highcharts.getOptions().colors[2],
+		            data: [{
+		                color: Highcharts.getOptions().colors[2],
+		                radius: '70%',
+		                innerRadius: '70%',
+		                y: dataArr[2]
+		            }]
+		        }, {
+		            name: '小米',
+		            borderColor: Highcharts.getOptions().colors[3],
+		            data: [{
+		                color: Highcharts.getOptions().colors[3],
+		                radius: '55%',
+		                innerRadius: '55%',
+		                y: dataArr[3]
+		            }]
+		        }, {
+		            name: '魅族',
+		            borderColor: Highcharts.getOptions().colors[4],
+		            data: [{
+		                color: Highcharts.getOptions().colors[4],
+		                radius: '40%',
+		                innerRadius: '40%',
+		                y: dataArr[4]
+		            }]
+		        }]
+		    });
+		    
+		    for (var i=0;i<dataArr.length;i++) {
+        			if (dataArr[i] == 0) {
+        				dataArr[i] = '暂无';
+        			} else{
+        				dataArr[i] = dataArr[i] + "%";
+        			}
+        		}
+        		
+        		$('#color_ul').html('<li><p class="color_top">' + dataArr[0] + '</p><p id="color1"></p><p class="color_bottom">应用宝</p></li><li><p class="color_top">' + dataArr[1] + '</p><p id="color2"></p><p class="color_bottom">OPPO</p></li><li><p class="color_top">' + dataArr[2] + '</p><p id="color3"></p><p class="color_bottom">vivo</p></li><li><p class="color_top">' + dataArr[3] + '</p><p id="color4"></p><p class="color_bottom">小米</p></li><li><p class="color_top">' + dataArr[4] + '</p><p id="color5"></p><p class="color_bottom">魅族</p></li>');
+		
+        }
+        
+	</script>
+	
+</html>

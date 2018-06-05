@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>流量市场背后的价格真相</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<!-- uc 和 QQ强制竖屏 -->
+    		<meta name="screen-orientation" content="portrait">
+    		<meta name="x5-orientation" content="portrait">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		<script src="js/jquery-1.8.3.min.js"></script>
+    		<script>
+    		//通过js控制根目录font-size，从而做到屏幕适配。
+        (function(win){
+        		var doc=win.document;
+        		var html=doc.documentElement;
+        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+        		html.style.fontSize=clientWidth/750*50+"px"};
+        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+        		doc.addEventListener("DOMContentLoaded",recalc,false);
+        		recalc()
+        		}
+        	)(window);
+        	//禁止移动端上下滑动
+        	document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+   		</script>
+   		
+   		<style type="text/css">
+   			body{margin: 0; padding: 0; width: 100%; height: 100%;}
+   			.content{position: relative;max-width: 750px;height: 26.6rem; margin: 0 auto;font-size: .4rem;background: url(img/sunshine.png) no-repeat;width:100%;overflow: hidden;
+   			animation: fadein 2s ease-in forwards;
+   			/*背景图片：按比例调整背景图片*/
+   			background-size:cover;}
+   			.title{width:100%;margin: 4rem auto 1rem;text-align: center;font-size: 20px;font-weight: bolder;font-family: "微软雅黑";opacity: 0;
+   			/*给元素指定名字叫fadein的运动，时间2s 由慢到快 展示最终状态 延时1s*/
+			animation: fadein 2s ease-in forwards 1s;}
+			/*规定运动规则 fadein*/
+			@keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+			@-webkit-keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+   			.text{width:100%;text-align: center;font-size: 0.56rem;font-weight: normal;font-family: "微软雅黑";animation: fadein 2s ease-in forwards 1.5s;opacity: 0;}
+   			
+   			/*第二页*/
+   			.content2{position: relative;max-width: 750px;height: 26.6rem; margin: 0 auto;font-size: .4rem;background: url(img/bg1.png) no-repeat;width:100%;overflow: hidden;display: none;
+   			/*背景图片：按比例调整背景图片*/
+   			background-size:cover;}
+   			
+   			.top{height: 8.5rem;position: relative;margin-top: 1.2rem;}
+   			.box1{display: inline-block;width: 80%;height: 6rem;border: 10px solid rgba(240,240,240,.5);position: absolute;left: 2.1rem;animation: right_left 1s ease-in forwards;}
+   			@keyframes right_left{
+				0%{left: 15rem;top: -8rem;}
+				100%{left: 2.1rem;top: 0;}
+			}
+			@-webkit-keyframes right_left{
+				0%{left: 15rem;top: -8rem;}
+				100%{left: 2.1rem;top: 0;}
+			}
+   			.box2{display: inline-block;width: 90%;height: 5.4rem;border: 10px solid rgba(250,250,250,.8);position: absolute;right: 2rem;top: 1.6rem;animation: left_right 1s ease-in forwards;}
+   			@keyframes left_right{
+				0%{right: 12rem;top: 8rem;}
+				100%{right: 2rem;top: 1.6rem;}
+			}
+			@-webkit-keyframes left_right{
+				0%{right: 12rem;top: 8rem;}
+				100%{right: 2rem;top: 1.6rem;}
+			}
+   			#title{width: 63%;font-size: 0.56rem;font-weight: lighter;margin: 0 auto;padding-top: 3.3rem;text-align: center;opacity: 0;animation: fadein 1s ease-in 1s forwards;}
+   			#title2{width: 63%;font-size: 0.56rem;font-weight: lighter;margin: 0 auto;padding-top: 2.9rem;text-align: center;opacity: 0;}
+   			@keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+			@-webkit-keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+   			#title span,#title2 span{font-size: 0.96rem;font-weight: bold;}
+   			
+   			#first_input_box{width: 68%;margin: 0 auto;text-align: center;opacity: 0;animation: fadein 1s ease-in 1.6s forwards;}
+   			p{font-size: 14px;font-weight: lighter;height: 18px;margin: 8px 0 0;}
+   			#first_input_box select{width:100%;height: 1.2rem;border: 3px solid rgba(240,240,240,.5);border-radius: 0;background: url(img/arrow.png) no-repeat 95% transparent;background-size: 8%;outline: none;-webkit-tap-highlight-color: rgba(0,0,0,0);appearance:none;-moz-appearance:none;-webkit-appearance:none;text-indent: 10px;}
+   			.button{width: 100px;height: 39px;background:url(img/btn_bg.png) no-repeat center;border: none;outline: none;margin:20px 0 0;padding: 0;}
+   			#second_input_box{width: 68%;margin: 1rem auto;text-align: center;display: none;}
+			#second_input_box span{text-align: left;width: 85%;display: inline-block;font-size: 14px;font-weight: lighter;}
+			#second_input_box p{margin-top: 0.5rem;}
+			input{width:97%;height: 1.3rem;border: 3px solid rgba(240,240,240,.5);border-radius: 0;outline: none;-webkit-tap-highlight-color: rgba(0,0,0,0);appearance: none;text-indent: 10px;background: transparent;margin-top: 5px;font-size: 14px;text-align: center;}
+   			#bottom_text{width: 15rem;text-align: center;margin-top: 3rem;animation: fadein 1s ease-in 1.6s forwards;opacity: 0;}
+   			
+   			/*第三页*/
+   			.content3{position: relative;max-width: 750px;height: 26.6rem; margin: 0 auto;font-size: .4rem;background: url(img/bg1.png) no-repeat center;width:100%;overflow: hidden;display: none;
+   			animation: fadein 1s ease-out forwards;background-size:130% 100%;}
+   			.title3{width:100%;margin: 3rem auto 3rem;text-align: center;font-size: 0.56rem;font-weight: bolder;font-family: "微软雅黑";text-indent: 10px;}
+			/*规定运动规则 fadeout*/
+			@keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+			@-webkit-keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+   			.text3{text-align: left;font-size: 13px;font-weight: lighter;font-family: "微软雅黑";padding: 10px;}
+   			.box3{width: 40%;height: 12rem;border: 8px solid rgba(250,250,250,.8);margin: 2rem auto 0;}
+   			.box4{display: inline-block;width: 90%;height: 12rem;border: 8px solid rgba(250,250,250,.4);position: absolute;top: 8rem;left: 2rem;}
+   			.qrcode{width: 4.2rem;display: block;z-index: 10;position: absolute;bottom: 1rem;left: 3.1rem;}
+   			.logo_box{width: 15rem;position: fixed;bottom: 1rem;text-align: center;}
+   			
+   		</style>
+   		
+   		<!--第一页JS-->
+   		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			setTimeout(function(){
+				$('.content').css('display','none');
+				$('.content2').css('display','block');
+			},6000)
+			function clickContent(){
+				$('.content').css('display','none');
+				$('.content2').css('display','block');
+			}
+			
+		</script>
+		
+   		<!--第二页JS-->
+   		<script type="text/javascript">
+		var select1,select2,select3,select4,perPrice;
+		
+		function toTest(){
+			select1 = Number(document.getElementById('select1').value);
+			select2 = Number(document.getElementById('select2').value);
+			select3 = Number(document.getElementById('select3').value);
+			select4 = Number(document.getElementById('select4').value);
+
+			if (select1 * select2 * select3 * select4) {
+				if (select2 == 1 || select2 == 2) {
+					switch (select1){
+						case 1:case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:
+							perPrice = '2.5-3';break;
+						case 11:perPrice = '3-4';break;
+						case 12:perPrice = '8-10';break;
+						default:break;
+					}
+				} else if(select2 == 3){
+					switch (select1){
+						case 1:case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:
+							perPrice = '2-2.5';break;
+						case 11:perPrice = '2.5-3';break;
+						case 12:perPrice = '5-8';break;
+						default:break;
+					}
+				}else{
+					switch (select1){
+						case 1:case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 9:case 10:
+							perPrice = '1.5-2';break;
+						case 11:perPrice = '2-2.5';break;
+						case 12:perPrice = '3-5';break;
+						default:break;
+					}
+				}
+				document.getElementById('first_input_box').style.display = 'none';
+				document.getElementById('second_input_box').style.display = 'block';
+				$('#second_input_box').css('opacity',0);
+				document.getElementById('title').style.display = 'none';
+				document.getElementById('title2').style.display = 'block';
+				document.getElementById('per_price').innerHTML = perPrice;
+				$('#second_input_box').delay(500).animate({opacity:"1",}, 1000, 'linear');
+				$('#title2').delay(0).animate({opacity:"1",}, 1000, 'linear');
+			}
+			
+		}
+		function commit(){
+			var productName = $('#product_name').val();
+			var qq = $('#qq').val();
+			var reg = /^[1-9]([0-9]{4,11})$/g
+			if(productName.length == 0){
+				alert("请输入产品名称才能提交哦~");
+				return;
+			}
+			if (qq.length < 5 || !reg.test(qq)) {
+				alert("请输入正确的QQ号！");
+				return;
+			}
+			
+			var type,users,download1,download2;
+			switch (select1){
+				case 1:type="聊天社交"; break;
+				case 2:type="婚恋交友"; break;
+				case 3:type="直播"; break;
+				case 4:type="阅读"; break;
+				case 5:type="教育"; break;
+				case 6:type="工具"; break;
+				case 7:type="新闻"; break;
+				case 8:type="视频"; break;
+				case 9:type="医美"; break;
+				case 10:type="生活"; break;
+				case 11:type="电商"; break;
+				case 12:type="金融"; break;
+				default:type="其他"; break;
+			}
+			switch (select2){
+				case 1:users="1万以下"; break;
+				case 2:users="1-10万"; break;
+				case 3:users="10-100万"; break;
+				case 4:users="100-1000万"; break;
+				case 5:users="1000万以上"; break;
+				default:users="0"; break;
+			}
+			switch (select3){
+				case 1:download1="0-200"; break;
+				case 2:download1="200-500"; break;
+				case 3:download1="500-1000"; break;
+				case 4:download1="1000以上"; break;
+				default:download1="0"; break;
+			}
+			switch (select4){
+				case 1:download2="0-200"; break;
+				case 2:download2="200-500"; break;
+				case 3:download2="500-1000"; break;
+				case 4:download2="1000以上"; break;
+				default:download2="0"; break;
+			}
+			var umsg = {"所属领域":type,"用户量级":users,"日均下载量":download1,"预期日均下载量":download2,"应用市场单价":perPrice};
+			var param={user_name:productName,mobile:qq,message:JSON.stringify(umsg)};
+                param.product_id="511";
+                param.channel_id="10";
+            $.ajax({
+                type:'POST',
+                dataType:'json',
+                contentType:'application/json',
+                url:'./post_user_info',
+                data:JSON.stringify(param),
+                success:function(msg){
+                    if(msg.retcode == 0){
+						$('.content2').css('display','none');
+						$('.content3').css('display','block');
+                    }else{
+                    		alert('服务器走丢了哟,请稍后再试！');
+                    	}
+                },
+                error:function(){
+                    alert('服务器走丢了哟,请稍后再试！');
+                }
+        		});
+		}
+		
+		//日均下载量和预期日均下载量交互
+		function changeSelect3(){
+			var index = Number($('#select3').val());
+			var opt1 = $('#select4').children().eq(1);
+			var opt2 = $('#select4').children().eq(2);
+			var opt3 = $('#select4').children().eq(3);
+			var opt4 = $('#select4').children().eq(4);
+			switch (index){
+				case 2:opt1.remove();break;
+				case 3:opt1.remove();opt2.remove();break;
+				case 4:opt1.remove();opt2.remove();opt3.remove();break;
+				case 5:opt1.remove();opt2.remove();opt3.remove();opt4.remove();break;
+			}
+		};
+		
+	</script>
+	</head>
+	<body >
+		<!--第一页-->
+		<div class="content" id="content" onclick="clickContent()">
+			<div class="title">真实流量本来就不贵</div>
+			<div class="text">真实流量，经得起激活存留数据的检验</div>
+		</div>
+		
+		<!--第二页-->
+		<div class="content2">
+			<div class="top">
+				<div class="box1"></div>
+				<div class="box2"></div>
+				<div id="title">测测您的产品获取应用市场<br />真实用户的<span>价格真相</span>？</div>
+				<div id="title2">UBK根据300多家合作APP的投放数据发现，您的产品获取应用市场一个真实下载用户只需<span id="per_price"></span>元</div>
+			</div>
+			<div id="first_input_box">
+				<p>所属领域</p>
+				<select id="select1">
+					<option value="0"></option>
+					<option value="1">聊天社交</option>
+					<option value="2">婚恋交友</option>
+					<option value="3">直播</option>
+					<option value="4">阅读</option>
+					<option value="5">教育</option>
+					<option value="5">工具</option>
+					<option value="7">新闻</option>
+					<option value="8">视频</option>
+					<option value="9">医美</option>
+					<option value="10">生活</option>
+					<option value="11">电商</option>
+					<option value="12">金融</option>
+				</select>
+				<p>用户量级</p>
+				<select id="select2">
+					<option value="0"></option>
+					<option value="1">1万以下</option>
+					<option value="2">1-10万</option>
+					<option value="3">10-100万</option>
+					<option value="4">100-1000万</option>
+					<option value="5">1000万以上</option>
+				</select>
+				<p>日均下载量</p>
+				<select id="select3" onchange="changeSelect3()">
+					<option value="0"></option>
+					<option value="1">0-200</option>
+					<option value="2">200-500</option>
+					<option value="3">500-1000</option>
+					<option value="4">1000以上</option>
+				</select>
+				<p>预期日均下载量</p>
+				<select id="select4">
+					<option value="0"></option>
+					<option value="1">0-200</option>
+					<option value="2">200-500</option>
+					<option value="3">500-1000</option>
+					<option value="4">1000以上</option>
+				</select>
+				<button class="button" onclick="toTest()">测试</button>
+			</div>
+			
+			<div id="second_input_box">
+				<span id="message">若需获取产品详细投放策略，请填写您的联系方式：</span>
+				<p>产品名称</p>
+				<input type="text" name="product_name" id="product_name" />
+				<p>您的QQ</p>
+				<input type="text" name="qq" id="qq" maxlength="11" onkeyup="value=value.replace(/[^0-9]/g, '')"/>
+				<button class="button" onclick="commit()">提交</button>
+			</div>
+			
+			<div id="bottom_text">真实流量本来就不贵</div>
+		</div>
+		
+		<!--第三页-->
+		<div class="content3">
+			<div class="box3">
+				<div class="title3">您的信息已提交！</div>
+				<div class="text3">待投放人员对产品进行专业分析后，我们会在一个工作日内通过QQ给您反馈。</div>
+			</div>
+			<div class="box4">
+				<img class="qrcode" src="img/qrcode.jpeg"/>
+			</div>
+			
+			<div class="logo_box">
+				<img src="img/logo.png"/>
+			</div>
+			
+		</div>
+		
+		<!--音乐-->
+		<audio id="music_bg" src="music/flow.mp3" loop="loop" autoplay="autoplay" hidden="hidden" preload="auto"></audio>
+	</body>
+	
+	<script type="text/javascript">
+		//自动播放音乐-针对iOS微信
+		function audioAutoPlay(id){
+		    var audio = document.getElementById(id);
+		    audio.play();
+		    document.addEventListener("WeixinJSBridgeReady", function () {
+		            audio.play();
+		    }, false);
+		}
+		audioAutoPlay('music_bg');
+		
+		function countData(num) {
+              var xmlHttp;
+              if (window.ActiveXObject) {
+                  xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+              } else {
+                  if (window.XMLHttpRequest) {
+                      xmlHttp = new XMLHttpRequest();
+                  }
+              }
+              xmlHttp.open("GET", "./CountIP?page_id=" + num + "&channel_id=10");
+              xmlHttp.send();
+          }
+		//统计页面打开次数
+		countData(511);
+	</script>
+</html>

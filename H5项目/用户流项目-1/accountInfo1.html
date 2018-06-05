@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UBK应用市场合作数据后台</title>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	    <meta name="renderer" content="webkit">
+	    	
+	    	<script src="js/jquery-1.12.4.js"></script>
+	    	<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css?v=1.0.1" rel="stylesheet">
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+		
+		<link href="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/dataTables.bootstrap.css" rel="stylesheet"/>
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/jquery.dataTables.js"></script>
+		<script src="https://magicbox.bkclouds.cc/static_api/v3/assets/datatables-1.10.7/dataTables.bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		
+	</head>
+	<body >
+		
+	<!--head-->
+	<div class="header">
+		<div class="wrapper";>
+			<a href="#" class="logo fl"><img src="img/header/logo.png"/></a>
+			<div class="company fr ubk_cursor_point">
+				<span id="company">
+					深圳市非零无限科技有限公司
+				</span>
+				<img src="img/header/arrow1.png"/>
+				<ul >
+					<li><img src="img/header/icon01.png"/><a href="accountInfo.html">账户信息</a></li>
+					<li><img src="img/header/icon02.png"/><a href="productData.html">产品资料</a></li>
+					<li><img src="img/header/icon04.png"/><a href="letter.html">站内信</a></li>
+					<li><img src="img/header/icon05.png"/><a href="login.html">退出登录</a></li>
+				</ul>
+			</div>
+			<div class="ubk-person fr ubk_cursor_point">
+				<img src="img/header/icon_person.png"/>
+				联系专属推广顾问
+				<img src="img/header/arrow1.png"/>
+				<div class="ubk_per_card" >
+					<img src="img/header/per1.png"/>
+					<div class="per_msg">
+						<div id="per_name">宋一帆</div>
+						<div id="per_position">UBK推广顾问</div>
+						<ul id="per_number">
+							<li>15989054822</li>
+							<li>5566843</li>
+							<li>5566843</li>
+							<li>ssdlk@fldkfjf.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="money fr ubk_cursor_point active" onclick="toMoneyCenter()">
+				<img class="icon_position" src="img/header/money.png"/>
+				<span>资金中心</span>
+			</div>
+			<div class="data fr ubk_cursor_point" onclick="toDataCenter()">
+				<img class="icon_position" src="img/header/data.png"/>
+				<span>数据中心</span>
+			</div>
+		</div>
+	</div>
+	<!--header end-->
+	
+	<!--content-->
+	<div class="content wrapper">
+		<div class="content_small">
+			<div class="content_small_data">
+	    			<div class="customer_info">
+	    				<ul>
+	    					<li class="shadow_blue">审核中</li>
+	    					<li>ID：294723879</li>
+	    					<li>邮箱账号：biao@feelwx.com</li>
+	    				</ul>
+	    			</div>
+	    			<div class="account_info_title_box">
+	    				<div class="account_info_title ubk_cursor_point active_title" id="base_data" onclick="toBaseData()">基础资料</div>
+	    				<div class="account_info_title ubk_cursor_point" id="reset_psd" onclick="toResetPsd()">修改密码</div>
+	    			</div>
+	    			<!--基础资料-->
+	    			<div class="customer_message">
+	    				<h3 class="item_title">公司信息</h3>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">营业执照</span>
+	    					<div class="company_card ubk_cursor_point">
+	    						<img class="company_card_img" src="img/demo/demo_img.png"/>
+	    						
+	    					</div>
+	    					<input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
+	    					<p class="message_alert">注：营业执照如需加水印，可写“仅限推广使用”，但请勿写“仅限UBK或应用市场推广使用”</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title" >公司名称</span>
+						<p class="message_text">深圳市非零无限科技有限公司</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">营业执照号码</span>
+	    					<p class="message_text">91440031003578K</p>
+	    				</div>
+	    				
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">地区</span>
+	    					<p class="message_text">广东  深圳</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">地址</span>
+	    					<p class="message_text">前海路鸿海大厦1372号G2单元UBK用户银行</p>
+	    				</div>
+	    				
+	    				<h3 class="item_title">联系信息</h3>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">姓名</span>
+	    					<p class="message_text">李子木</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">手机号码</span>
+	    					<p class="message_text">13570303413</p>
+	    				</div>
+	    				
+	    				<h3 class="item_title">产品信息</h3>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">App名称</span>
+	    					<p class="message_text">听见</p>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">包名</span>
+	    					<p class="message_text">com.hear.app</p>
+	    				</div>
+	    				
+	    				<div class="message_item">
+	    					<span class="request_star">*</span>
+	    					<span class="message_title">类别</span>
+	    					<p class="message_text">互联网金融</p>
+	    				</div>
+	    			</div>
+	    			
+	    			
+	    			<!--修改密码-->
+				<div class="customer_resetpsd">
+					<div class="message_item" style="margin-top: 60px;">
+						<span class="unrequest_star"></span>
+	    					<span class="message_title">旧密码：</span>
+	    					<input class="message_input" type="password" name="old_psd" id="old_psd" value="" placeholder="请输入旧密码"/>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">新密码：</span>
+	    					<input class="message_input" type="password" name="new_psd1" id="new_psd1" value="" placeholder="请输入6-20位新密码"/>
+	    				</div>
+	    				<div class="message_item">
+	    					<span class="unrequest_star"></span>
+	    					<span class="message_title">确认新密码：</span>
+	    					<input class="message_input" type="password" name="new_psd2" id="new_psd2" value="" placeholder="请重新输入新密码"/>
+	    				</div>
+	    				<input type="submit" name="submit_data"class="submit submit_on" value="提交" />
+				</div>
+			</div>
+    </div>
+    		
+	</div>
+	<!--content end-->
+
+	</body>
+
+	<script src="js/accountInfo.js"></script>
+	
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/highchart/highcharts.js"></script>
+		<script src="js/highchart/highcharts-more.js"></script>
+		<script src="js/highchart/solid-gauge.js"></script>
+		<script src="js/highchart/data.js"></script>
+		<!--<script src="js/highchart/exporting.js"></script>-->
+		<style type="text/css">
+			#datatable {
+			    border: 1px solid #ccc;
+			    border-collapse: collapse;
+			    border-spacing: 0;
+			    font-size: 12px;
+			}
+			td{
+			    border: 1px solid #ccc;
+			    /*padding: 4px 20px;*/
+			}
+			th{height: 0px;}
+		</style>
+	</head>
+
+	
+	<body>
+		<div id="container" style="min-width:450px;height:450px;margin: 0 auto;"></div>
+		
+		<div id="table" style="width: 310px; height: 400px; margin: 0 auto"></div>
+		<p>数据表格</p>
+		<table id="datatable">
+		    <thead>
+		        <tr>
+		            <th style="height:0px"></th>
+		            <th style="height:0px"></th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr>
+		            <th>250</th>
+		            <td>3</td>
+		        </tr>
+		        <tr>
+		            <th>350</th>
+		            <td>4</td>
+		        </tr>
+		        <tr>
+		            <th>450</th>
+		            <td>5</td>
+		        </tr>
+		    </tbody>
+		</table>
+		
+		
+		
+		<script type="text/javascript">
+			var dataArr = [75,65,70,65,65];
+			$(function () {
+			    // 去掉这里的注释就是类似 Apple Watch 上的效果了
+			    if (!Highcharts.theme) {
+			        Highcharts.setOptions({
+			            chart: {
+			                backgroundColor: 'black'
+			            },
+			            //显示的颜色
+			            colors: ['#80e7ec', '#f2c05c','#2c9090', '#90ee7e','#f55b5b'],
+			            
+			            title: {
+			                style: {
+			                    color: 'silver'
+			                }
+			            },
+			            tooltip: {
+			                style: {
+			                    color: 'silver'
+			                }
+			            }
+			        });
+			    }
+			    Highcharts.chart('container', {
+			        chart: {
+			            type: 'solidgauge',
+			            marginTop: 50
+			        },
+			        credits: {
+			            text: 'hcharts.cn',
+			            href: 'http://www.hcharts.cn'
+			        },
+			        title: {
+			            text: 'Activity',
+			            style: {
+			                fontSize: '24px'
+			            }
+			        },
+			        tooltip: {
+			            borderWidth: 0,
+			            backgroundColor: 'none',
+			            shadow: false,
+			            style: {
+			                fontSize: '16px'
+			            },
+			            pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+			            positioner: function (labelWidth, labelHeight) {
+			                return {
+			                    x: 200 - labelWidth / 2,
+			                    y: 180
+			                };
+			            }
+			        },
+			        pane: {
+			            startAngle: 0,
+			            endAngle: 360,
+			         background: [{ // Track for 应用宝
+			                outerRadius: '107%',
+			                innerRadius: '93%',
+			                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
+			                borderWidth: 0
+			            }, { // Track for OPPO
+			                outerRadius: '92%',
+			                innerRadius: '78%',
+			                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+			                borderWidth: 0
+			            }, { // Track for vivo
+			                outerRadius: '77%',
+			                innerRadius: '63%',
+			                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
+			                borderWidth: 0
+			            }, { // Track for 小米
+			                outerRadius: '62%',
+			                innerRadius: '48%',
+			                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[3]).setOpacity(0.3).get(),
+			                borderWidth: 0
+			            }, { // Track for 魅族
+			                outerRadius: '47%',
+			                innerRadius: '33%',
+			                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[4]).setOpacity(0.3).get(),
+			                borderWidth: 0
+			            }]
+			        },
+			        yAxis: {
+			            min: 0,
+			            max: 100,
+			            lineWidth: 0,
+			            tickPositions: []
+			        },
+			        plotOptions: {
+			            solidgauge: {
+			                borderWidth: '22px',
+			                dataLabels: {
+			                    enabled: false
+			                },
+			                linecap: 'round',
+			                stickyTracking: false
+			            }
+			        },
+			        series: [{
+			            name: '应用宝',
+			            borderColor: Highcharts.getOptions().colors[0],
+			            data: [{
+			                color: Highcharts.getOptions().colors[0],
+			                radius: '100%',
+			                innerRadius: '100%',
+			                y: dataArr[0]
+			            }]
+			        }, {
+			            name: 'OPPO',
+			            borderColor: Highcharts.getOptions().colors[1],
+			            data: [{
+			                color: Highcharts.getOptions().colors[1],
+			                radius: '85%',
+			                innerRadius: '85%',
+			                y: dataArr[1]
+			            }]
+			        }, {
+			            name: 'vivo',
+			            borderColor: Highcharts.getOptions().colors[2],
+			            data: [{
+			                color: Highcharts.getOptions().colors[2],
+			                radius: '70%',
+			                innerRadius: '70%',
+			                y: dataArr[2]
+			            }]
+			        }, {
+			            name: '小米',
+			            borderColor: Highcharts.getOptions().colors[3],
+			            data: [{
+			                color: Highcharts.getOptions().colors[3],
+			                radius: '55%',
+			                innerRadius: '55%',
+			                y: dataArr[3]
+			            }]
+			        }, {
+			            name: '魅族',
+			            borderColor: Highcharts.getOptions().colors[4],
+			            data: [{
+			                color: Highcharts.getOptions().colors[4],
+			                radius: '40%',
+			                innerRadius: '40%',
+			                y: dataArr[4]
+			            }]
+			        }]
+			    });
+			});
+
+
+		</script>
+		
+		<script type="text/javascript">
+			$(function () {
+			    $('#table').highcharts({
+			        data: {
+			            table: 'datatable'
+			        },
+			        chart: {
+			            type: 'column'
+			        },
+			        title: {
+			            text: ''
+			        },
+			        yAxis: {
+			            allowDecimals: false,
+			            title: {
+			                text: '',
+			                rotation: 0
+			            }
+			        }
+			    });
+			});
+		</script>
+	</body>
+</html>

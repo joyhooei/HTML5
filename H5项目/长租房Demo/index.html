@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>UBK商城</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		
+    		<script>
+    		//通过js控制根目录font-size，从而做到屏幕适配。
+        (function(win){
+        		var doc=win.document;
+        		var html=doc.documentElement;
+        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+        		html.style.fontSize=clientWidth/750*50+"px"};
+        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+        		doc.addEventListener("DOMContentLoaded",recalc,false);
+        		recalc()
+        		}
+        	)(window);
+   		</script>
+   		
+   		<style type="text/css">
+   			body{
+   				margin: 0; 
+   				padding: 0; 
+   				width: 100%; 
+   				height: 100%;
+   				text-align: center;
+   			}
+   				
+   			.content{
+   				max-width: 750px;
+   				margin: 0 auto;
+   				width:100%;
+   				padding: 0;
+   			}
+   			.projectItem{
+   				width: 100%;
+   				max-width: 750px;
+   				margin: 0 auto;
+   				padding: 0;
+   				display: block;
+   				float: left;
+   			}
+   			
+   			
+   			
+   		</style>
+	</head>
+	<body >
+		<div class="content">
+			<img id="UBK" class="projectItem" src="img/UBK.png"/>
+			<img id="roomBox" class="projectItem" src="img/room.png"/>
+			<img id="carBox" class="projectItem" src="img/car.png"/>
+			<div class="footer projectItem"></div>
+		</div>
+		
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			$(".footer").load('footer.html');
+			$("#roomBox").click(function(){
+				window.location.href = "room.html";
+			});
+			$("#carBox").click(function(){
+				window.location.href = "car.html";
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UBK管理后台系统</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/left_list.css">
+    <style type="text/css">
+        .amount_table_2 {margin-left: 0;} .input_bg2_box{margin: 0;}
+        .amount_table_2 td{height: 40px;}  .audit_status_-1{position: relative;color: #ff0000;}
+        .tips_icon{position: relative;top: 2px;margin-left: 10px;cursor: pointer;border: none;}
+        .tips_box{position: absolute;width: 300px;max-height: 300px;padding:5px;top: 3px;left: 165px;background: url("img/opacity.png") repeat;text-align: left;color: #fff;}
+        .tips_box img{position: absolute;left: -10px;top: 5px;opacity: .85;filter:alpha(opacity=85)}
+        .tips_box span{display: block;line-height: 18px;border-bottom: none;width: 300px;max-height: 290px;word-break: break-all;overflow: hidden;}
+        .pro_audit{color: #086291;cursor: pointer}
+        .pro_audit:hover{text-decoration: underline;}
+    </style>
+</head>
+
+<body>
+<div class="box_body">
+    <!--nav start-->
+    <div class="load-template-html box_body_left" data-src="template/nav.html"></div>
+    <!--nav end-->
+    <div class="box_body_right">
+        <!--top start-->
+        <div class="load-template-html" data-src="template/top.html"></div>
+        <!--top end-->
+        <!--content start-->
+        <div class="right_cont">
+            <div class="right_cont_title">
+            	
+            		<form action="" method="get">
+            			<!--搜索框-->
+	            		<div class="input_bg4">
+	                    <input name="key" placeholder="搜索活动名称" type="text" />
+	                    <button type="submit" id="icon_find"> </button>
+	                </div>
+            		</form>
+            		
+            </div>
+            <table class="amount_table_2">
+                <thead>
+                <tr>                    
+                    <td class="table_title">序号</td>
+                    <td class="table_title">活动名称</td>
+                    <td class="table_title">到期</td>
+                    <td class="table_title">截止时间</td>
+                    <td class="table_title">首发时间</td>
+                    <td class="table_title">最后时间</td>
+                    <td class="table_title">总额度</td>
+                    <td class="table_title">余额</td>
+                    <td class="table_title">红包金额</td>
+                    <td class="table_title">无效总数</td>
+                    <td class="table_title">合作方</td>
+                    <td class="table_title">操作</td>
+                </tr>
+                
+                <tr>
+                   
+                    <td>序号</td>
+                    <td>活动名称</td>
+                    <td>到期</td>
+                    <td>截止时间</td>
+                    <td>首发时间</td>
+                    <td>最后时间</td>
+                    <td>总额度</td>
+                    <td>余额</td>
+                    <td>红包金额</td>
+                    <td>无效总数</td>
+                    <td>合作方</td>
+                    <td>操作</td>
+                </tr>
+                
+                </thead>
+                <tbody id="data_body"></tbody>
+            </table>
+            <div class="tb_page"></div>
+        </div>
+        <!--content end-->
+    </div>
+</div>
+<!--footer start-->
+<div class="load-template-html" data-src="template/footer.html"></div>
+<!--footer end-->
+<img src="img/loading_bg.gif" class="loading_img hide"/>
+
+<script src="js/jquery-1.6.3.js"></script>
+<script src="js/common.js"></script>
+<script>
+	//选中左侧导航栏的哪一项
+    window.Feelwx = window.Feelwx || {};
+    Feelwx.selectNavIndex=function(){
+        $('#nav_index_3').addClass('navbg_on');
+    }
+</script>
+<script src="js/util.js"></script>
+<script>
+    $(function(){
+        //初始化下拉框的li的相关事件
+        Feelwx.init_select();
+        $('#status').change(function(){
+            //加载数据
+            Feelwx.getData(1,Feelwx.get_selected_value('#status'));
+            //清空页码
+            $('.tb_page').html('');
+        });
+       
+       
+        //悬浮显示提示信息
+        $('body').delegate('img.tips_icon','hover',function(e){
+            e.stopPropagation();
+            $(this).siblings('.tips_box').toggleClass('hide');
+        });
+
+    });
+
+</script>
+</body>
+</html>

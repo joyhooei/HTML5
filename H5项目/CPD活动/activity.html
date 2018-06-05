@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>相信“相信”的力量</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<!-- uc 和 QQ强制竖屏 -->
+    		<meta name="screen-orientation" content="portrait">
+    		<meta name="x5-orientation" content="portrait">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		<link rel="stylesheet" href="css/jquery.fullPage.css">
+		
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.fullPage.min.js"></script>
+    		<script>
+        	
+        		//适配屏幕
+	        	(function (win){
+	            var doc = win.document;
+	            var html = doc.documentElement;
+	            var resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+	            recalc = function() {
+	                    var clientWidth = html.clientWidth>720?720:html.clientWidth;
+	                    html.style.fontSize = clientWidth / 720*60 + 'px';
+	                };
+	            if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	            recalc();
+	        })(window);
+        	
+        		//全屏
+        		$(function(){
+				$('#dowebok').fullpage({
+					afterLoad: function(anchorLink, index){
+						if(index == 2){
+							$('#page2_light').delay(20).animate({
+								width:"100%",left:"0",top:"-1.5rem"
+							}, 300, 'linear');
+							$('#page2_people').delay(1000).animate({
+								opacity:"1",
+							}, 400, 'linear');
+							//延时出字
+							setTimeout(function() {
+								//文字逐个出现
+								var story = "两个月突破100个合作APP";
+					            var s = document.getElementById('page2_word');
+					            if (s.innerHTML.length == 0) {
+					            		var i = 0;
+					            		timer=setInterval(function(){
+						                s.innerHTML=story.substring(0,i);
+						                i++;
+						                if(s.innerHTML==story.innerHTML){
+						                    clearInterval(timer);
+						            		}
+					            },40);
+					            }
+							},1000);
+							//展示标题
+							setTimeout(showTitle2,2000);
+							//上滑箭头出现
+							setTimeout(function (){
+								document.getElementById("page2_arrow").style.display="block";
+							},5000);
+						}
+						if (index == 3) {
+							$('.page2_arrow').css("display","none");
+							setTimeout(showTitle3,4500);
+							$('.section3').find('#page3_word1').delay(0).animate({
+								opacity:"1",
+							}, 500, 'linear');
+							$('.section3').find('#page3_word2').delay(1500).animate({
+								opacity:"1",
+							}, 500, 'linear');
+							$('.section3').find('#page3_word3').delay(3000).animate({
+								opacity:"1",
+							}, 500, 'linear');
+							//上滑箭头出现
+							setTimeout(function (){
+								document.getElementById("page3_arrow").style.display="block";
+							},6500);
+						}
+						if (index == 4) {
+							setTimeout(showTitle4,4000);
+							$('.section4').find('#page4_word1').delay(0).animate({
+								opacity:"1",
+							}, 500, 'linear');
+							$('.section4').find('#page4_word2').delay(1200).animate({
+								opacity:"1",
+							}, 500, 'linear');
+							$('.section4').find('#page4_word3').delay(2400).animate({
+								opacity:"1",
+							}, 500, 'linear');
+							//上滑箭头出现
+							setTimeout(function (){
+								document.getElementById("page4_arrow").style.display="block";
+							},6000);
+						}
+						if (index == 5) {
+							setTimeout(function(){
+								$('#page5_title').css("opacity","1");
+							},300);
+							$('.section5').find('#page5_title').delay(300).animate({
+								width:"7rem",left:"2.5rem",top:"9rem",
+							}, 300, 'swing');
+							setTimeout(function(){
+								document.getElementById("page5_word").style.opacity="1";
+							},1300);
+							$('.section5').find('#page5_word').delay(1300).animate({
+								width:"8rem",left:"2rem",top:"13.5rem",
+							}, 200, 'swing');
+							//上滑箭头出现
+							setTimeout(function (){
+								document.getElementById("page5_arrow").style.display="block";
+							},2500);
+						}
+						if (index == 6) {
+							$('.section6').find('#page6_title1').delay(100).animate({
+								opacity:1,
+							}, 1000, 'linear');
+							$('.section6').find('#page6_title2').delay(1000).animate({
+								opacity:1,
+							}, 1000, 'linear');
+							$('.section6').find('#page6_title3').delay(2000).animate({
+								opacity:1,
+							}, 1000, 'linear');
+							$('.section6').find('#page6_word').delay(3500).animate({
+								opacity:1,
+							}, 500, 'linear');
+							
+							setTimeout(function(){
+								$('#page6_qrcode').delay(0).animate({
+								opacity:1,
+								}, 1000, 'linear');
+								$('#page6_cpd').delay(0).animate({
+								opacity:1,
+								}, 1000, 'linear');
+								
+							//二维码抖动效果
+						    box_left = ($(window).width()-$("#page6_qrcode").width()) / 2;   
+						    $("#page6_qrcode").css({'left': box_left});   
+						    for(var i=1; i<=4; i++){   
+						        $("#page6_qrcode").animate({left:box_left-(16-4*i)},20);   
+						        $("#page6_qrcode").animate({left:box_left+2*(16-4*i)},20);   
+						    }
+							},5000);
+						}
+					}
+				});
+			});
+			    
+			
+   		</script>
+	</head>
+	<body>
+		<style type="text/css">
+			.section1 {background: url(img/100activity/page1/Page1.jpg) no-repeat;background-size: 100%;}
+			.section1_small {background-size: 100%;width: 100%;position: relative;padding-left: 0;
+			/*给元素指定名字叫fadeout的运动，时间2s 由慢到快 展示最终状态 延时1s*/
+			animation: fadeout 2s ease-in forwards 1s;z-index: 2;}
+			/*规定运动规则 fadeout*/
+			@keyframes fadeout{
+				0%{opacity: 1;}
+				100%{opacity: 0;}
+			}
+			@-webkit-keyframes fadeout{
+				0%{opacity: 1;}
+				100%{opacity: 0;}
+			}
+			#page1_word{
+				position: absolute;
+				top: 4.7rem;
+				z-index: 1;
+				left: 2rem;
+			    line-height: 0.8rem;
+			    font-size: 0.5rem;
+			    color: white;
+			}
+			.title1_top{
+				position: absolute;
+				top: 1.5rem;
+				width: 1rem;
+				height: 1rem;
+				left: -1rem;
+				transition: all .5s ease-in;
+			}
+			.title1_bottom{
+				position: absolute;
+				top: 2.8rem;
+				width: 1rem;
+				height: 1rem;
+				left: -1rem;
+				transition: all .5s ease-in .5s;
+			}
+			.page1_arrow {
+				position: absolute;
+				width: 1.5rem;
+				top: 18rem;
+				left: 5.2rem;
+				background-size: contain;
+				animation: page1_arrow 2s infinite linear;
+				-webkit-animation: page1_arrow 2s infinite linear;
+				display: none;
+			}
+			@keyframes page1_arrow {0% {top: 17.8rem}
+				20% {top: 17.6rem}
+				40% {top: 17.4rem}
+				60% {top: 17.6rem}
+				80% {top: 17.8rem}
+				100% {top: 18rem}}
+			@-webkit-keyframes page1_arrow {0% {top: 17.8rem}
+				20% {top: 17.6rem}
+				40% {top: 17.4rem}
+				60% {top: 17.6rem}
+				80% {top: 17.8rem}
+				100% {top: 18rem}}
+			
+			
+			.section2 {background-color: rgb(22,76,116);background-size: 100%;}
+			#page2_ball{display: inline-block;width: 4rem;padding-left: 4rem;z-index: 1;position: relative;top: 1rem;}
+			#page2_light{width: 0;position: absolute;left: 6rem;top: 10rem;}
+			#page2_people{width: 96%;position: absolute;left: 11px;top: 4.4rem;opacity: 0;}
+			#page2_word{color: white;font-size: .4rem;font-weight: bolder;display: inline-block;position: absolute;top: 11rem;left: 3.8rem;z-index: 2;}
+			.title2_top{
+				position: absolute;
+				top: 0.8rem;
+				width: 1rem;
+				height: 1rem;
+				left: -1rem;
+				transition: all .5s ease-in;
+			}
+			.title2_bottom{
+				position: absolute;
+				top: 2.0rem;
+				width: 1rem;
+				height: 1rem;
+				left: -1rem;
+				transition: all .5s ease-in .5s;
+			}
+			#title2_7,#title2_10{
+				width: .5rem;
+			}
+			.page2_arrow {
+				position: absolute;
+				width: 1.5rem;
+				bottom: .6rem;
+				left: 5.2rem;
+				background-size: contain;
+				animation: page2_arrow 2s infinite linear;
+				-webkit-animation: page2_arrow 2s infinite linear;
+				display: none;
+			}
+			@keyframes page2_arrow {0% {bottom: .8rem}
+				20% {bottom: 1rem}
+				40% {bottom: 1.2rem}
+				60% {bottom: 1rem}
+				80% {bottom: .8rem}
+				100% {bottom: .8rem}}
+			@-webkit-keyframes page2_arrow {0% {bottom: .8rem}
+				20% {bottom: 1rem}
+				40% {bottom: 1.2rem}
+				60% {bottom: 1rem}
+				80% {bottom: .8rem}
+				100% {bottom: .8rem}}
+				
+			.section3 {background: url(img/100activity/page3/Page3.png) 50% no-repeat;background-size: 100%;}
+			.page3_word{color: rgb(22,76,115);left: 1.5rem;font-size: .4rem;position: absolute;}
+			#page3_word1{top: 3.8rem;opacity: 0;}
+			#page3_word2{top: 4.5rem;opacity: 0;}
+			#page3_word3{top: 5.2rem;opacity: 0;}
+			.title3_top{
+				position: absolute;
+				top: 1rem;
+				width: 1rem;
+				height: 1rem;
+				right: -1rem;
+				transition: all .5s ease-in;
+			}
+			.title3_bottom{
+				position: absolute;
+				top: 2.1rem;
+				width: 1rem;
+				height: 1rem;
+				right: -1rem;
+				transition: all .5s ease-in .3s;
+			}
+			
+			.section4 {background: url(img/100activity/page4/Page4.png) 50% no-repeat;background-size: 100%;}
+			.page4_word{color: rgb(22,76,115);left: 4.5rem;font-size: .4rem;position: absolute;text-align: center;width: 3rem;}
+			#page4_word1{top: 4.0rem;opacity: 0;}
+			#page4_word2{top: 4.7rem;opacity: 0;}
+			#page4_word3{top: 5.4rem;opacity: 0;}
+			.title4_top{
+				position: absolute;
+				top: 1rem;
+				width: 1rem;
+				height: 1rem;
+				right: -1rem;
+				transition: all .5s ease-in;
+			}
+			.title4_bottom{
+				position: absolute;
+				top: 2.3rem;
+				width: 1rem;
+				height: 1rem;
+				right: -1rem;
+				transition: all .5s ease-in .3s;
+			}
+			
+			.section5 {background: url(img/100activity/page5/Page5.png) 50% no-repeat;background-size: 100%;}
+			#page5_title{width: 500%;position: absolute;left: -26rem;top: 5rem;display: inline-block;opacity: 0;}
+			#page5_word{
+				display: inline-block;
+				width: 500%;
+		        position: absolute;
+			    left: -25rem;
+			    top: 13.5rem;
+			    opacity: 0;
+			}
+			
+			.section6 {background: url(img/100activity/page6/Page6.jpg) 50% no-repeat;background-size: 100%;}
+			.page6_title{
+				opacity: 0;
+			    display: inline-block;
+			    position: relative;
+			    width: 3rem;
+			}
+			#page6_title1{
+			    left: 2.8rem;
+			    top: -6.8rem;
+			}
+			#page6_title2{
+			    left: 0.8rem;
+			    width: 2rem;
+			    top: -6rem;
+			}
+			#page6_title3{
+			    left: 0.6rem;
+			    top: -5.1rem;
+			}
+			#page6_word{
+				width: 5rem;
+			    font-size: .6rem;
+			    text-align: center;
+			    line-height: 1rem;
+			    left: 3.5rem;
+			    position: relative;
+			    top: -5rem;
+			    opacity: 0;
+			    color: rgb(65,79,137);
+			}
+			#page6_qrcode{
+				width: 4rem;
+				left: 4rem;
+    				position: absolute;
+				top: 12rem;
+				opacity: 0;
+			}
+			#page6_cpd{
+				position: absolute;
+				color: white;
+				font-size: 0.5rem;
+			    left: 3.6rem;
+			    top: 16.5rem;
+			    opacity: 0;
+			}
+			
+		</style>
+		<!--微信分享的缩略图是微信自动抓取第一张图片，但尺寸要>400px 太小不显示，display不能写none-->
+		<img src="img/100activity/icon.jpg" style="width: 0;z-index: -100;height: 0;position: absolute; display: block;"/>
+		<div id="dowebok">
+			<div class="section section1">
+				<img src="img/100activity/page1/Page1_small.png" class="section1_small" id="page1_small"/>
+				<div id="page1_word"></div>
+				<div id="page1_title">
+					<img id="title1_1" class="title1_top" src="img/100activity/page1/title1_1.png"/>
+					<img id="title1_2" class="title1_top" src="img/100activity/page1/title1_2.png"/>
+					<img id="title1_3" class="title1_top" src="img/100activity/page1/title1_3.png"/>
+					<img id="title1_4" class="title1_top" src="img/100activity/page1/title1_4.png"/>
+					<img id="title1_5" class="title1_top" src="img/100activity/page1/title1_5.png"/>
+					<img id="title1_6" class="title1_bottom" src="img/100activity/page1/title1_6.png"/>
+					<img id="title1_7" class="title1_bottom" src="img/100activity/page1/title1_7.png"/>
+					<img id="title1_8" class="title1_bottom" src="img/100activity/page1/title1_8.png"/>
+					<img id="title1_9" class="title1_bottom" src="img/100activity/page1/title1_9.png"/>
+				</div>
+				<img class="page1_arrow" id="page1_arrow" src="img/100activity/arrow2.png"/>
+			</div>
+			<div class="section section2">
+				<img id="page2_ball" src="img/100activity/page2/Page2_ball.png"/>
+				<img id="page2_light" src="img/100activity/page2/Page2_light.png"/>
+				<img id="page2_people" src="img/100activity/page2/Page2_people.png"/>
+				<div id="page2_word"></div>
+				<div id="page2_title">
+					<img id="title2_1" class="title2_top" src="img/100activity/page2/title2_1.png"/>
+					<img id="title2_2" class="title2_top" src="img/100activity/page2/title2_2.png"/>
+					<img id="title2_3" class="title2_top" src="img/100activity/page2/title2_3.png"/>
+					<img id="title2_4" class="title2_top" src="img/100activity/page2/title2_4.png"/>
+					<img id="title2_5" class="title2_bottom" src="img/100activity/page2/title2_5.png"/>
+					<img id="title2_6" class="title2_bottom" src="img/100activity/page2/title2_6.png"/>
+					<img id="title2_7" class="title2_bottom" src="img/100activity/page2/title2_7.png"/>
+					<img id="title2_8" class="title2_bottom" src="img/100activity/page2/title2_8.png"/>
+					<img id="title2_9" class="title2_bottom" src="img/100activity/page2/title2_9.png"/>
+					<img id="title2_10" class="title2_bottom" src="img/100activity/page2/title2_10.png"/>
+					<img id="title2_11" class="title2_bottom" src="img/100activity/page2/title2_11.png"/>
+					<img id="title2_12" class="title2_bottom" src="img/100activity/page2/title2_12.png"/>
+					<img id="title2_13" class="title2_bottom" src="img/100activity/page2/title2_13.png"/>
+				</div>
+				<img class="page2_arrow" id="page2_arrow" src="img/100activity/arrow1.png"/>
+			</div>
+			<div class="section section3">
+				<div id="page3_title">
+					<img id="title3_1" class="title3_top" src="img/100activity/page3/title3_1.png"/>
+					<img id="title3_2" class="title3_top" src="img/100activity/page3/title3_2.png"/>
+					<img id="title3_3" class="title3_top" src="img/100activity/page3/title3_3.png"/>
+					<img id="title3_4" class="title3_top" src="img/100activity/page3/title3_4.png"/>
+					<img id="title3_5" class="title3_bottom" src="img/100activity/page3/title3_5.png"/>
+					<img id="title3_6" class="title3_bottom" src="img/100activity/page3/title3_6.png"/>
+					<img id="title3_7" class="title3_bottom" src="img/100activity/page3/title3_7.png"/>
+					<img id="title3_8" class="title3_bottom" src="img/100activity/page3/title3_8.png"/>
+					<img id="title3_9" class="title3_bottom" src="img/100activity/page3/title3_9.png"/>
+					<img id="title3_10" class="title3_bottom" src="img/100activity/page3/title3_10.png"/>
+					<img id="title3_11" class="title3_bottom" src="img/100activity/page3/title3_11.png"/>
+					<img id="title3_12" class="title3_bottom" src="img/100activity/page3/title3_12.png"/>
+					<img id="title3_13" class="title3_bottom" src="img/100activity/page3/title3_13.png"/>
+				</div>
+				<div class="page3_word" id="page3_word1">反复斟酌广告文案</div>
+				<div class="page3_word" id="page3_word2">时刻关注运营数据</div>
+				<div class="page3_word" id="page3_word3">持续优化流量价格</div>
+				<img class="page1_arrow" id="page3_arrow" src="img/100activity/arrow2.png"/>
+			</div>
+			<div class="section section4">
+				<div id="page4_title">
+					<img id="title4_1" class="title4_top" src="img/100activity/page4/title4_1.png"/>
+					<img id="title4_2" class="title4_top" src="img/100activity/page4/title4_2.png"/>
+					<img id="title4_3" class="title4_top" src="img/100activity/page4/title4_3.png"/>
+					<img id="title4_4" class="title4_top" src="img/100activity/page4/title4_4.png"/>
+					<img id="title4_5" class="title4_bottom" src="img/100activity/page4/title4_5.png"/>
+					<img id="title4_6" class="title4_bottom" src="img/100activity/page4/title4_6.png"/>
+					<img id="title4_7" class="title4_bottom" src="img/100activity/page4/title4_7.png"/>
+					<img id="title4_8" class="title4_bottom" src="img/100activity/page4/title4_8.png"/>
+				</div>
+				<div class="page4_word" id="page4_word1">也遭遇过欺骗</div>
+				<div class="page4_word" id="page4_word2">也发生过误会</div>
+				<div class="page4_word" id="page4_word3">但从未放弃相伴</div>
+				<img class="page1_arrow" id="page4_arrow" src="img/100activity/arrow1.png"/>
+			</div>
+			<div class="section section5">
+				<img src="img/100activity/page5/title5.png" id="page5_title"/>
+				<img src="img/100activity/page5/title5_sub.png" id="page5_word"/>
+				<img class="page1_arrow" id="page5_arrow" src="img/100activity/arrow1.png"/>
+			</div>
+			<div class="section section6">
+				<img class="page6_title" src="img/100activity/page6/P6_title1.png" id="page6_title1" />
+				<img class="page6_title" src="img/100activity/page6/P6_title2.png" id="page6_title2" />
+				<img class="page6_title" src="img/100activity/page6/P6_title3.png" id="page6_title3" />
+				<div id="page6_word">连接更多开发者<br />提供更优质用户量</div>
+				<img src="img/100activity/page6/Page6_qrcode.jpg" id="page6_qrcode"/>
+				<div id="page6_cpd">CPD合作长按二维码</div>
+			</div>
+		</div>
+		<audio id="music_bg" src="music/remember.mp3" loop="loop" autoplay="autoplay" hidden="hidden"></audio>
+	</body>
+	
+	<script type="text/javascript">
+		//文字一个一个出
+	    var index=0;
+	    var word="超过400个电话\n2150封电子邮件\n4200次QQ沟通";
+	    function type(){
+	    		if (index > 30) {showTitle1(); return;}
+	        document.getElementById("page1_word").innerText = word.substring(0,index++);
+	    }
+	    //page1动画结束开始打字
+		document.getElementById("page1_small").addEventListener("webkitAnimationEnd",function(){
+			//动画结束时事件,每50ms调用一次type
+			setInterval(type, 150);
+		},false);
+		//动画出标题
+		function showTitle1(){
+		setTimeout(function(){document.getElementById("title1_1").style.left = "2rem";}, 100);
+		setTimeout(function(){document.getElementById("title1_2").style.left = "3rem";}, 300);
+		setTimeout(function(){document.getElementById("title1_3").style.left = "4rem";}, 500);
+		setTimeout(function(){document.getElementById("title1_4").style.left = "5rem";}, 700);
+		setTimeout(function(){document.getElementById("title1_5").style.left = "6rem";}, 900);
+		setTimeout(function(){document.getElementById("title1_6").style.left = "2rem";}, 1100);
+		setTimeout(function(){document.getElementById("title1_7").style.left = "3rem";}, 1300);
+		setTimeout(function(){document.getElementById("title1_8").style.left = "4rem";}, 1500);
+		setTimeout(function(){document.getElementById("title1_9").style.left = "5rem";}, 1700);
+		setTimeout(function(){document.getElementById("page1_arrow").style.display = "block";}, 3000);
+		}
+		function showTitle2(){
+		setTimeout(function(){document.getElementById("title2_1").style.left = "1rem";}, 100);
+		setTimeout(function(){document.getElementById("title2_2").style.left = "2rem";}, 200);
+		setTimeout(function(){document.getElementById("title2_3").style.left = "3rem";}, 300);
+		setTimeout(function(){document.getElementById("title2_4").style.left = "4rem";}, 400);
+		setTimeout(function(){document.getElementById("title2_5").style.left = "1rem";}, 500);
+		setTimeout(function(){document.getElementById("title2_6").style.left = "2rem";}, 600);
+		setTimeout(function(){document.getElementById("title2_7").style.left = "3rem";}, 700);
+		setTimeout(function(){document.getElementById("title2_8").style.left = "3.5rem";}, 800);
+		setTimeout(function(){document.getElementById("title2_9").style.left = "4.5rem";}, 900);
+		setTimeout(function(){document.getElementById("title2_10").style.left = "5.5rem";}, 1000);
+		setTimeout(function(){document.getElementById("title2_11").style.left = "6rem";}, 1100);
+		setTimeout(function(){document.getElementById("title2_12").style.left = "7rem";}, 1200);
+		setTimeout(function(){document.getElementById("title2_13").style.left = "8rem";}, 1300);
+		}
+		function showTitle3(){
+		setTimeout(function(){document.getElementById("title3_1").style.right = "10rem";}, 100);
+		setTimeout(function(){document.getElementById("title3_2").style.right = "9rem";}, 200);
+		setTimeout(function(){document.getElementById("title3_3").style.right = "8rem";}, 300);
+		setTimeout(function(){document.getElementById("title3_4").style.right = "7rem";}, 400);
+		setTimeout(function(){document.getElementById("title3_5").style.right = "10rem";}, 500);
+		setTimeout(function(){document.getElementById("title3_6").style.right = "9rem";}, 600);
+		setTimeout(function(){document.getElementById("title3_7").style.right = "8rem";}, 700);
+		setTimeout(function(){document.getElementById("title3_8").style.right = "7rem";}, 800);
+		setTimeout(function(){document.getElementById("title3_9").style.right = "6rem";}, 900);
+		setTimeout(function(){document.getElementById("title3_10").style.right = "5rem";}, 1000);
+		setTimeout(function(){document.getElementById("title3_11").style.right = "4rem";}, 1100);
+		setTimeout(function(){document.getElementById("title3_12").style.right = "3rem";}, 1200);
+		setTimeout(function(){document.getElementById("title3_13").style.right = "2rem";}, 1300);
+		}
+		function showTitle4(){
+		setTimeout(function(){document.getElementById("title4_1").style.right = "7rem";}, 100);
+		setTimeout(function(){document.getElementById("title4_2").style.right = "6rem";}, 200);
+		setTimeout(function(){document.getElementById("title4_3").style.right = "5rem";}, 300);
+		setTimeout(function(){document.getElementById("title4_4").style.right = "4rem";}, 400);
+		setTimeout(function(){document.getElementById("title4_5").style.right = "7rem";}, 500);
+		setTimeout(function(){document.getElementById("title4_6").style.right = "6rem";}, 600);
+		setTimeout(function(){document.getElementById("title4_7").style.right = "5rem";}, 700);
+		setTimeout(function(){document.getElementById("title4_8").style.right = "4rem";}, 800);
+		}
+		
+		//自动播放音乐-针对iOS微信
+		function audioAutoPlay(id){
+		    var audio = document.getElementById(id);
+		    audio.play();
+		    document.addEventListener("WeixinJSBridgeReady", function () {
+		            audio.play();
+		    }, false);
+		}
+		audioAutoPlay('music_bg');
+		
+		function countData(num) {
+              var xmlHttp;
+              if (window.ActiveXObject) {
+                  xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+              } else {
+                  if (window.XMLHttpRequest) {
+                      xmlHttp = new XMLHttpRequest();
+                  }
+              }
+              xmlHttp.open("GET", "./CountIP?page_id=" + num + "&channel_id=10");
+              xmlHttp.send();
+          }
+		//统计页面打开次数
+		countData(510);
+	    
+	</script>
+	
+</html>

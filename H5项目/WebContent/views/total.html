@@ -1,0 +1,55 @@
+<div ng-controller="totalCtr">
+    <div class="account_info_box clearfix">
+        <div class="aib_left fl aib_son">
+            <div class="add_user" style="margin-top: 48px;">
+                <div class="au_son">
+                    <div class="text user_text" style="color: #333;top: -16px;">累计下载用户</div>
+                </div>
+                <div class="au_son" style="margin-left: 25px;">
+                    <div class="total_add_user text add_user_value" style="color: #086291">{{total.totalDownload}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="aib_right fr aib_son clearfix">
+            <div class="fl air_son">
+                <div class="airs_label">CPD</div>
+                <div class="now_pirce value"><span>{{total.cpd}}</span><em>元</em></div>
+            </div>
+            <div class="fl air_son" style="border: none;">
+                <div class="airs_label">账户余额</div>
+                <div class="remainder_money value"><span>{{total.lend}}</span><em>元</em></div>
+            </div>
+        </div>
+    </div>
+    <div class="rc_warp">
+        <div class="right_cont_title clearfix" style="margin-top: 20px;">
+            <div class="fl text clearfix"><span class="fl">数据详情</span></div>
+            <div class="date_select fr">
+				<div class="hide" id='db_data'></div>
+                <div class="input_bg3" id="day" ng-show="TimeType == 1">
+                    <input id="date_input" size="25" readonly="readonly" class="input_bg3_input"/>
+                </div>
+            </div>
+        </div>
+        <div class="map_title"><span>下载趋势</span></div>
+        <div class="cont_map_box total">
+            <div id="chart"></div>
+        </div>
+        <div class="map_title flow_title"><span>下载明细</span></div>
+        <div id="table_data">
+            <table class="amount_table">
+                <thead>
+                <tr>
+                    <td class="table_title" width="33%">日期</td>
+                    <td class="table_title" width="33%">产品</td>
+                    <td class="table_title">下载用户</td>
+                </tr>
+                </thead>
+                <tbody id="data_body">
+                </tbody>
+            </table>
+            <div class="tb_page">
+            </div>
+        </div>
+    </div>
+</div>

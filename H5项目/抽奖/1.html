@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<title></title>
+</head>
+<body>
+	
+	<div class="zp-box">
+		<div class="dp-box">
+			<img src="../img/dipan.png" class="g-lottery-img">
+		</div>
+		<div class="zhizhen">
+			<img src="../img/zhizhen.png">
+			<div id="cishu-text">点击开始<br><span id="cishu">100</span>次</div>
+		</div>
+	</div>
+
+	<div class="jl">
+		<p>
+			<span id="zjjl" onclick="location.href='record.html?1'">中奖纪录</span>|<span id="look-gz">查看规则</span>
+		</p>
+	</div>
+	<div class="gdbox">
+
+		<p id="exchange" class="bt">领取  dnf 暴走药水*1<br>
+            总量:<span id="total">0</span>剩余:<span id="remain">0</span>
+		</p>
+
+        <p id="record" class="bt" onclick="location.href='record.html?2'">领取记录</p>
+
+        <div class="zhongj-bbk" style="display: none">
+            <div class="zhongj-bb">
+                <div class="zhongj-bbl" id="colee" style="overflow:hidden;">
+                    <div id="colee1"></div>
+                    <div id="colee2"></div>
+                </div>
+                <div class="zhongj-bbr" id="coleer" style="overflow:hidden;">
+                    <div id="coleer1" ></div>
+                    <div id="coleer2"></div>
+                </div>
+            </div>
+        </div>
+	</div>
+	
+	<!--遮罩&弹框-->
+	<div class="zz"></div>
+	<!--超级返现规则-->
+	<div class="cjfx">
+		<img src="../img/close.png" class="cjgz-c">
+		<img src="../img/cjgz.png" id="cjgz-img">
+	</div>
+	<!--转盘规则-->
+	<div class="zpgz">
+		<img src="../img/close.png" class="cjgz-c">
+		<img src="../img/zpgz.png" id="cjgz-img">
+	</div>
+	<!--中奖纪录-->
+	<div class="zj">
+		<div class="zj-content">
+			<p>
+				<span id="mytime">时间</span>
+				<span id="myjl">获得奖励</span>
+			</p>
+			<ul id = "prizeUl">
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- 无次数提示弹框 -->
+	<div class="wcs">
+		<img src="../img/close.png" class="cjgz-c">
+		<img src="../img/wcs-tk.png" class="wcs-img">
+		<img src="../img/ok-img.png" class="ok-img">
+	</div>
+	<!-- 当日是否投资弹框 -->
+	<div class="today">
+		<img src="../img/close.png" class="cjgz-c">
+		<img src="../img/tz-tk.png" class="tz-img">
+		<img src="../img/ok-img.png" class="ok-img">
+	</div>
+	<!-- 抽到奖励弹框 -->
+	<div class="jl-tk">
+		<img src="../img/close.png" class="cjgz-c">
+		<img src="../img/zj-tk.png" class="zj-img">
+		<img src="../img/ok-img.png" class="ok-img">
+		<p class="texts">恭喜您已获得<br>双季丰满减红包满1000可用50元</p>
+	</div>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="../js/jquery.rotate.js"></script>
+    <script type="text/javascript" src="../js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.jsonp.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+
+</body>
+</html>

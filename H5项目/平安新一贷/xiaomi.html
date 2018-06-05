@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--设置语言为中文-->
+<!--移动端要想禁止左右滑动，必须html标签和body标签同时设置style="overflow-x: hidden;"-->
+<html lang="zh" style="overflow-x: hidden;">
+	<head>
+		<meta charset="utf-8" />
+		<title>平安新一贷</title>
+		<!--meta标签可分为两大部分：http-equiv和name变量。
+		http-equiv相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助浏览器正确地显示网页内容。
+		name属性主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于搜索引擎机器人查找信息和分类信息用的。-->
+		<!--renderer:指定双核浏览器默认以何种方式渲染页面。webkit:默认webkit内核;ie-comp:IE兼容模式;ie-stand:IE标准模式-->
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		<script>
+    		//通过js控制根目录font-size，从而做到屏幕适配。
+        (function(win){
+        		var doc=win.document;
+        		var html=doc.documentElement;
+        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+        		recalc=function(){var clientWidth=html.clientWidth>640?640:html.clientWidth;
+        		html.style.fontSize=clientWidth/640*40+"px"};
+        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+        		doc.addEventListener("DOMContentLoaded",recalc,false);
+        		recalc()
+        		}
+        	)(window);
+   		</script>
+    
+    <style>
+    		body{margin: 0;padding: 0;width: 100%;};
+    		/*第一部分*/
+    		.content{position: relative;max-width: 640px;margin: 0 auto;font-size: .4rem;}
+    		.one{max-width: 16rem;height: 19.30rem;background: url(img/xinyidai/xinyidai.png) no-repeat;background-size: 100%;margin: 0 auto;}
+    		
+    		.text{color: #f4742c; font-family: "microsoft yahei";font-size: .5rem;margin-left: 2.3rem;}
+    		.one input{width: 8rem;height: 1rem; padding-left: .2rem;font-size: .4rem;border:1px solid #F4742C; border-radius: .5rem;-webkit-appearance: none;outline: medium;}
+    		/*设置placeholder的颜色*/
+    		.one input::-webkit-input-placeholder {color: #ffc9ab !important; }
+    		
+    		/*贷款类型选择*/
+    		.type{width: 16rem;height: 1.30rem;padding-top: 11.5rem;}
+    		.yuegong{display: block; width: 3.8rem;height: 1.30rem; float: left;background-size: 100%;margin-left: 3.6rem;}
+    		.baodan{display: block; width:3.8rem;height: 1.30rem; float: right;background-size: 100%;margin-right: 3.6rem;}
+    		
+    		/*性别选择*/
+    		.sex{width: 12.7rem;height: 1.975rem;margin: .3rem auto 0;}
+    		.left{display: block; width: 6.0875rem;height: 1.975rem; float: left;background-size: 100%;}
+    		.right{display: block; width: 6.0875rem;height: 1.975rem; float: right;background-size: 100%;}
+    		
+    		/*第二部分*/
+    		.two{max-width: 16rem;height: 14.8rem;margin: 0 auto; background-size: 100%;}
+    		.two input{width: 12.3rem;height: 1.9rem; margin: 0 1.65rem;padding-left: .4rem;font-size: .7rem;color: none;border: 1px solid #F45A26;-webkit-appearance: none;border-radius: .3rem;background-color: transparent;outline: medium;}
+    		.two .button{width: 12.8rem;height: 1.9rem;margin: .4rem 1.65rem 0;background-color: #f45a26;border: none;background-size: 100%;border-radius: .3rem;font-size: 0.7rem;color: white;font-family: "microsoft yahei";outline: medium;}
+    		.two input::-webkit-input-placeholder {color: #ffc9ab !important;}
+    		.bottom-text{width: 12.3rem;font-size: .4rem;color: #fe7142;margin: .6rem auto 0;line-height: 17px;}
+    		#logo{display: block;margin: .6rem auto 0;width: 7.8rem;height: .7rem;}
+    		
+    		#fu-alert{position: absolute;margin:auto 3rem;width: 10.5rem;height: 1rem;line-height: 1rem;border-radius: 5px;background: rgba(0,0,0,.6);text-align: center;color: #fff;font-size: .5rem;opacity: .5;}
+    		
+    		.black_overlay{
+         display: none; 
+         position: absolute;  
+         top: 0%;  
+         left: 0%;  
+         width: 100%;  
+         height: 34.2rem;  
+         background-color: black;  
+         z-index:1001;  
+         -moz-opacity: 0.6;  
+         opacity:.60;
+         filter: alpha(opacity=60);  
+    } 
+    .white_content {
+        display: none;  
+        position: absolute; 
+        top: 11rem; 
+        left: 2.5rem; 
+        z-index:1002; /* 数字的大小指明了div的相对层，数字大的在上层 */
+        overflow: auto;
+    } 
+    		
+    </style>
+	</head>
+	
+	<body style="overflow-x: hidden;">
+		<div class="content">
+			<div class="one">
+				<div class="type" style="width: 12.85rem;">
+					<img id="yuegongdai" class="yuegong" src="img/xinyidai/yuegongdai1.png" onclick="selectItem(true)"/>
+					<img id="baodandai" class="baodan" src="img/xinyidai/baodandai2.png" onclick="selectItem(false)" style="margin-right: .05rem;" />
+				</div>
+				<div id="123" style="position: absolute;margin-top: .5rem;">
+					<span class="text" id="item">月供金额</span>
+					<input type="tel" name="月供金额" id="monthMoney" placeholder="10000 请输入金额" oninput="count()" onfocus="this.placeholder='',clearMoney(),count()" onblur="this.placeholder='10000 请输入金额',resetMoney()" onpaste="return false"/><br />
+					<span class="text" >	贷款额度</span>
+					<span id="money" style="color: #f4742c;font-family: 'microsoft yahei';font-size: .5rem;margin-left: .5rem;">¥ 40.00万（元）</span>
+				</div>
+				
+			</div>
+			
+			<div class="two">
+				<!--名字框中只能输入汉字和字母-->
+				<input onkeyup="value=value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,''))" type="text" name="userName" id="userName" maxlength="20" placeholder="*姓名（仅支持中文和字母）" onfocus="this.placeholder=''" onblur="this.placeholder='*姓名（仅支持中文和字母）'" onpaste="return false"/>
+				<input type="tel" name="phoneNumber" id="phoneNumber" maxlength="11"placeholder="*手机号" style="margin-top: .3rem;" onfocus="this.placeholder=''" onblur="this.placeholder='*手机号'" onpaste="return false"/>
+				<div class="sex" style="width: 12.85rem;">
+					<img id="id-boy" class="left" src="img/xinyidai/boy1.png" onclick="selectBoy(true)"/>
+					<img id="id-girl" class="right" src="img/xinyidai/girl2.png" onclick="selectBoy(false)" style="margin-right: .05rem;" />
+				</div>
+				<button type="button" class="button" id="buttonClick" onclick="submit()">马上申请</button>
+				<p class="bottom-text">温馨提醒：未成功放款，绝不收取任何费用！免息券将在申请成功后7个工作日内以现金方式转账到接收贷款的银行账号中，请注意查收！</p>
+				<img id="logo" src="img/xinyidai/logo.png"/>
+				<div id="alertImage" class="white_content"><img src='img/xinyidai/alertImage.png' style="width: 11rem;height: 11rem;" onclick="closeWindow()"/></div>
+				<div id="fade" class="black_overlay"  onclick="closeWindow()">
+</div>
+				<div id="fu-alert" style="display: none;"></div>
+			</div>		
+		</div>
+				
+		<!--JS代码-->
+		<script src="js/zepto.min.js"></script>
+		<script type="text/javascript">
+			var isYueGongDai = true;
+			var isBoy = true;
+		    	function selectItem (flag) {
+		    		if (flag) {
+		    			isYueGongDai = true;
+		    			document.getElementById('yuegongdai').src = 'img/xinyidai/yuegongdai1.png';
+					document.getElementById('baodandai').src = 'img/xinyidai/baodandai2.png';
+					document.getElementById('item').innerText = "月供金额";
+					document.getElementById("money").innerHTML ="¥ 40.00万（元）";
+		    		} else{
+		    			isYueGongDai = false;
+		    			document.getElementById('yuegongdai').src = 'img/xinyidai/yuegongdai2.png';
+					document.getElementById('baodandai').src = 'img/xinyidai/baodandai1.png';
+					document.getElementById('item').innerText = "年交保费";
+					document.getElementById("money").innerHTML ="¥ 30.00万（元）";
+		    		}
+		    		var monthMoney = document.getElementById("monthMoney").value;
+		    		if (monthMoney.length != 0 && monthMoney.value != '') {
+		    			count();
+		    		}
+			}
+		    	
+		    	function clearMoney(){
+		    		document.getElementById("money").innerHTML ="¥ 0.00万（元）";
+		    	}
+		    	function resetMoney(){
+		    		var monthMoney = document.getElementById("monthMoney").value;
+		    		if (monthMoney.length == 0) {
+		    			if (isYueGongDai) {
+		    				document.getElementById("money").innerHTML ="¥ 40.00万（元）";
+		    			} else{
+		    				document.getElementById("money").innerHTML ="¥ 30.00万（元）";
+		    			}
+		    		}
+		    	}
+		    	
+		    	function closeWindow(){
+        			document.getElementById('alertImage').style.display='none';
+        			document.getElementById('fade').style.display='none';
+    			}
+		    	
+		    	function selectBoy (flag) {
+		    		if (flag) {
+		    			isBoy = true;
+		    			document.getElementById('id-boy').src = 'img/xinyidai/boy1.png';
+					document.getElementById('id-girl').src = 'img/xinyidai/girl2.png';
+		    		} else{
+		    			isBoy = false;
+		    			document.getElementById('id-boy').src = 'img/xinyidai/boy2.png';
+					document.getElementById('id-girl').src = 'img/xinyidai/girl1.png';
+		    		}
+			}
+		    	
+		    	function count(){
+		    		var monthMoney = document.getElementById("monthMoney").value;
+		    		var money = document.getElementById("money");
+		    		var totalMoney = 40.00;
+		    		if (isNaN(monthMoney)) {
+		    			document.getElementById("monthMoney").style.border="2px solid red";
+		    			totalMoney = 0.00;
+		    		}else{
+		    			document.getElementById("monthMoney").style.border="1px solid #F4742C";
+			    		if (isYueGongDai) {
+			    			totalMoney = monthMoney * 40 /10000;
+			    		} else{
+			    			totalMoney = monthMoney*30/10000;
+			    		}
+			    		if (totalMoney >= 50) {
+			    			totalMoney = 50.00;
+			    		}
+		    		}
+		    		totalMoney = totalMoney.toFixed(2);
+		    		money.innerHTML = "¥ " + totalMoney + "万（元）";
+		    	}
+		    	
+		    	function submit () {
+		    		var uname= document.getElementById("userName").value;
+		    		var uphone= document.getElementById("phoneNumber").value;		    		
+		    		
+		    		document.getElementById('fu-alert').style.display='none';
+		    		var butt = document.getElementById("buttonClick");
+		    		
+		    		if(uname.trim()){
+		    			if (uphone.trim()) {
+		    				if ((/^1[38]\d{9}$/.test(uphone))||(/^14[57]\d{8}$/.test(uphone))||(/^15[012356789]\d{8}$/.test(uphone))||(/^17[678]\d{8}$/.test(uphone))) {
+		    					
+		    					butt.disabled = true;
+		    					//姓名和手机号正确
+		    					uname=uname.replace(/{|}|\[|\]/g,'');
+	                        if (isBoy) {
+	                        		umsg = '男';
+	                        } else{
+	                        		umsg ='女';
+	                        }
+	                        var param={user_name:uname,mobile:uphone,message:umsg};
+	                      param.notifyPhone="18825219499";
+//							param.notifyPhone="13570303413";
+	                        param.product_id="503";
+	                        param.channel_id="47";
+	                        
+	                        $.ajax({
+	                            type:'POST',
+	                            dataType:'json',
+	                            contentType:'application/json',
+	                            url:'./post_user_info',
+	                            data:JSON.stringify(param),
+	                            success:function(msg){
+	                            	butt.disabled = false;
+	                                if(msg.retcode == 0){
+								document.getElementById("alertImage").style.display='block';
+	        							document.getElementById('fade').style.display='block';
+	        							//输入框中显示用户提交的信息
+	        							document.getElementById('userName').value=uname;
+	        							document.getElementById('phoneNumber').value=uphone;
+	                                }else if(msg.retcode == 10000){
+	                                		butt.disabled = false;
+	                                    fualert('系统已收到您的申请信息，无需重复申请！');
+	                                }else{
+	                                		butt.disabled = false;
+	                                		fualert('服务器走丢了哟');
+	                                	}
+	                            },
+	                            error:function(){
+	                            	butt.disabled = false;
+	                                fualert('服务器走丢了哟');
+	                            }
+	                        });
+		    				} else{
+		    					butt.disabled = false;
+		    					fualert('请输入正确的11位手机号');
+		    				}
+		    			} else{
+		    				fualert('请输入手机号');
+		    			}
+		    		}else{
+		    			fualert('请输入姓名');
+		    		}
+                
+		    	
+		    function	 fualert(msg){
+		    	document.getElementById('fu-alert').style.display='block';
+            $('#fu-alert').html(msg);
+//          var topVal=parseInt(getScrollTop()/parseFloat($('html').css('fontSize')))+9+'rem';
+			var topVal = document.body.clientHeight/2+'px';
+            $('#fu-alert').animate({top:topVal,opacity:1},700,'ease-in-out',function(){
+                window.setTimeout(function(){
+                    $('#fu-alert').animate({top:'-1.5rem',opacity:'.5'},700,'ease-in-out',function(){
+                        $('.button').removeClass('disable');
+                    });
+                },2000);
+            });}
+		    	}
+		    	
+		    function getScrollTop(){
+            var scrollTop=0;
+            if(document.documentElement&&document.documentElement.scrollTop){
+                scrollTop=document.documentElement.scrollTop;
+            }else if(document.body){
+                scrollTop=document.body.scrollTop;
+            }
+            return scrollTop;
+        }
+		    function countData(num) {
+              var xmlHttp;
+              if (window.ActiveXObject) {
+                  xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+              } else {
+                  if (window.XMLHttpRequest) {
+                      xmlHttp = new XMLHttpRequest();
+                  }
+              }
+              xmlHttp.open("GET", "./CountIP?page_id=" + num + "&channel_id=47");
+              xmlHttp.send();
+          }
+		    //统计页面打开次数
+		    countData(503);
+    
+		</script>
+	</body>
+</html>

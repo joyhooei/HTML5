@@ -1,0 +1,76 @@
+/*修改dialogbox.css*/
+.dialog-box{top: 47% !important;}
+.dialog-box-title{height: 42px !important;line-height: 42px;background-color:rgb(234,234,234);color: rgb(53,130,235);border-radius: 5px 5px 0 0;}
+.dialog-box-title p{float: left;margin-left: 10px;}
+.dialog-box-close{margin-right: 10px;font-size: 32px;margin-left: 20px;font-weight: normal;cursor: pointer;display: inline-block;float: right;color: rgb(170,170,170);}
+.dialog-box-content{padding: 0 !important;text-align: center;padding-top: 72px !important;}
+.dialogBox .dialog-box-content{padding: 0 !important;text-align: center;padding-top: 80px !important;width: 100% !important;height: 184px !important;}
+.dialog-box-content span{margin-left: 10px;}
+.dialog-btn span{line-height: 38px;text-align: center;display: inline-block;margin: 0 10px;cursor: pointer;color: white;height: 38px;width: 106px;border-radius: 7px;border: none;background-color:rgb(53,130,237);box-shadow: 0 0 15px 0 rgb(53,130,237);}
+.dialog-btn-cancel{background: rgb(53,130,237);}
+.dialog-btn-confirm{color: #fff;background: rgb(53,130,237);}
+.dialog-box-mask{position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 99998;opacity: .5;filter: alpha(opacity=50);background: #000;display: none;-webkit-transition: all 0.3s;-moz-transition: all 0.3s;transition: all 0.3s;}
+.dialog-btn-cancel:hover,.dialog-btn-confirm:hover{background: rgb(53,130,237) !important;}/*账户信息页*/.content_small{width: 100%;margin: 0 auto;background-color:#fff ;border-radius: 8px;padding-bottom: 30px;border: 1px solid rgb(221,221,221);}
+.customer_info{}
+.customer_info img{display: inline-block;width: 100px;margin: 25px;}
+.customer_info ul{display: inline-block;width: 400px;height: 79px;margin-top: 25px;background: url(../img/data/iocn_idcard.png) no-repeat left bottom;padding-left: 103px;margin-left: 25px;background-size: 21%;}
+
+.customer_info ul li:first-child{width: 105px;height: 28px;text-align: center;color: white;line-height: 28px;border-radius: 3px;margin-bottom: 10px;font-weight: 100;}
+.customer_info_li_hide{background: #fff;color: #fff;box-shadow: none;}
+.account_info_title_box{margin-left: 30px;font-size: 16px;margin-top: 36px;}
+.account_info_title{display: inline-block;width: 80px;text-align: center;}
+.account_info_title:last-child{margin-left: 70px;}
+.active_title{color: rgb(53,130,235);border-bottom: 2px solid rgb(53,130,235);}
+.customer_message,.customer_resetpsd{border-top: 1px solid rgb(221,221,221);}
+.item_title{margin:34px 0 20px 28px;color: #515151;font-size: 16px;font-weight: bold;}
+.message_item{margin-left: 16px;margin-top: 10px;}
+.company_card{display: inline-block;width: 553px;height: 161px;border: 1px dashed #2e7eef;border-radius: 3px;text-align: center;}
+.company_card_img{display:inline-block;width: 350px;height: 130px;margin-top: 15px;overflow: hidden;}
+.company_card_small{display:inline-block;width: 350px;height: 130px;margin-top: 15px;overflow: hidden;z-index: 20;}
+.company_card_small p{display: inline-block;width: 100%;text-align: center;color: #9a9a9a;font-size: 14px;font-weight: lighter;}
+#zhezhao{background-color:rgba(111,167,241,.9);z-index: 13;width: 350px;height: 130px;display: none;position: absolute;left: 526px;top: 232px;cursor: default;}
+.upload_img,.look_img{width: 175px;height: 130px;float: left;padding-top: 35px;border: none;}
+.upload_img{background: url(../img/public/icon_upload.png) no-repeat center 35px;}
+.look_img{background: url(../img/public/icon_look.png) no-repeat center 35px;}
+.img_cover_box{display:none;width: 350px;height: 130px;border-radius: 3px;background-color: rgba(111,167,241,.8); position: relative;top: -130px;float: left;left: 0;color: #fff;line-height: 110px;z-index: 21;cursor: pointer;}
+#zhezhao p{padding-top: 20px;color: white;font-weight: lighter;}
+.message_title{width: 160px;display: inline-block;color: #515151;font-size: 16px;font-weight: lighter;}
+.input_box{position: relative;display: inline-block;}
+.message_input{border: 1px solid rgb(160,185,199);width: 553px;height: 40px;padding-left: 10px;color: #333;font-size: 14px;font-weight: bold;border-radius: 3px;}
+.input_inner_error{color: red;top: 8px;right: 5px;font-size: 12px;display: inline-block;background: url(../img/public/icon_wrong.png) no-repeat left center;padding-left: 16px;width: 440px;margin: 0;}
+.error_msg_hide{display: none;}
+.message_text{display: inline-block;color: #333;font-size: 14px;font-weight: bolder;margin: 10px 0;}
+.message_input:focus{outline:none}
+.message_alert{margin-left: 182px;color: #999;font-size: 12px;font-weight: lighter;}
+.request_star{color: #ff4848;display: inline-block;width: 12.5px;}
+.unrequest_star{display: inline-block;width: 10px;background-color: red;height: 100%;}
+.submit{display: block;border: none;width: 143px;height: 39px;border-radius: 3px;color: #fff;margin: 30px auto;}
+.submit_off{background-color: #a1c2ed;}
+.submit_on{background-color: #2f7ff0;box-shadow: 0 0 20px -3px #2f7ff0;}
+/*城市选择器*/
+#selProvince,#selCity,#product_type{width: 210px;height: 40px;border-radius: 0;border-width: 0;appearance:none;-moz-appearance:none;-webkit-appearance:none;background: url(../img/account/arrow.png) no-repeat scroll 174px center transparent;border: 1px solid rgb(160,185,199);padding-right: 14px;padding-left: 10px;border-radius: 3px;}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+#selCity{width: 154px;background: url(../img/account/arrow.png) no-repeat scroll 117px center transparent;}
+#product_type{width: 553px;background: url(../img/account/arrow.png) no-repeat scroll 516px center transparent;}
+
+/*上传图片*/
+.webuploader-pick{background: #fff !important;padding: 0;}
+.thumbnail{border: none !important;margin-top: 13px !important;margin-bottom: 0 !important;padding: 0;}
+.thumbnail img{border-radius: 3px;}
+.error{display: none !important; }
+.uploader-list{position: relative;top: -150px;width: 350px;height: 130px;left: 101px;}
+
+/*包名方式选择中的问号*/
+.icon_question{width: 20px;position: relative;right: 0;}
+#icon_question1{top: -2px;}
+#icon_question2{top: 10px;}
+
+
+.layui-layer-ico{background: url(../img/public/loading.gif) no-repeat !important;width: 40px !important; height: 40px !important;left: 25px !important;}
+.layui-layer-padding{padding: 22px 30px 22px 80px !important; text-align: center !important;}
+
+input::-webkit-input-placeholder{color: #9A9A9A;font-size: 14px;font-weight: lighter;}
+input::-moz-placeholder{color: #9A9A9A;font-size: 14px;font-weight: lighter;}
+input::-ms-input-placeholder{color: #9A9A9A;font-size: 14px;font-weight: lighter;}
+p{margin: 3px 0 22px;}

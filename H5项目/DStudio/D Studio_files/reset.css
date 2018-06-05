@@ -1,0 +1,25 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0;font-family:myFirstFont;}
+body { background:#33383d; color:#444; font-size:14px; font-family: "Myriad Pro", "HanHei SC",  "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#3E9B55;; text-decoration:none; }
+a:hover { color:#47A95F;; text-decoration:none; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px "Myriad Pro", "HanHei SC",  "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans GB", "Microsoft Yahei", 微软雅黑, STHeiti, 华文细黑, sans-serif }
+/*table { border-collapse:collapse; }*/
+html {overflow-y: scroll;} 
+/* webkit, opera, IE9 */
+::selection { background:#44A15B; color: #fff;}
+/* mozilla firefox */
+::-moz-selection { background:#44A15B; color: #fff;}
+@font-face
+{
+font-family: myFirstFont;
+src: url('FZYH_503L.ttf'),
+     url('FZYH_503L.eot'); /* IE9+ */
+}
+
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>VIP</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<!--header-->
+		<div id="navbar">
+			<div class="navwidth">
+				<div id="logo" class="float-left">
+					<img src="img/login/login-logo.png">
+				</div>
+				<ul class="float-right">
+					<li>
+						<a class="current">运营管理
+							<div class="dot block"></div>
+						</a>
+					</li>
+					<li>
+						<a >接口文档
+							<div class="dot none"></div>
+						</a>
+					</li>
+					<li>
+						<a >下载
+							<div class="dot none"></div>
+						</a>
+					</li>
+					<li>
+						<a >帮助中心
+							<div class="dot none"></div>
+						</a>
+					</li>
+					<li>
+						<a href="">登录</a>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+		
+		<!--content-->
+		<div id="page1" class="page">
+			<div class="login-box">
+				<div id="title-box">
+					<img id="login-title" src="img/login/title.png"/>
+				</div>
+				<div id="username-box">
+					<img src="img/login/icon-account.png"/>
+					<input type="text" name="" id="" value="" placeholder="请输入账号"/>
+				</div>
+				<div id="pwd-box">
+					<img src="img/login/icon-pwd.png"/>
+					<input type="text" name="" id="" value="" placeholder="请输入密码"/>
+				</div>
+				<a id="login-btn" href="">登录</a>
+			</div>
+		</div>
+	</body>
+	
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 点击记住我 选中或者不选中
+		$("#option .input-checkbox img").click(function(){
+			var name = $("#option div img").attr("name");
+			if(name == "selected"){
+				$("#option div img").attr("src","img/login/unselected.png").attr("name"," ")
+			}else{
+				$("#option div img").attr("src","img/login/selected.png").attr("name","selected")
+			}
+		});
+		
+		// 点击上面菜单效果
+		$("#navbar ul li a").click(function(){
+			$("#navbar ul li a").removeClass("current");
+			$("#navbar ul li a .dot").removeClass("block").addClass("none")
+			$(this).addClass("current").find(".dot").removeClass("none").addClass("block");
+		});
+		
+		// 点击logo回到首页
+		$("#logo img").click(function(){
+			window.location.href = "index.html";
+		});
+		
+	</script>
+</html>

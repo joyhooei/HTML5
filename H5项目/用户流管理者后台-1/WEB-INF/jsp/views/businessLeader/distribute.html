@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>客户分配</title>
+    <!-- Bootstrap css -->
+    	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/magicbox/css/bootstrap.min.css"/>
+    <!-- kendo ui css -->
+    <link rel="stylesheet" type="text/css" href="../../../../static/plugins/kendo/kendo.common.core.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/plugins/kendo/kendo.default.min.css"/>
+    	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/magicbox/css/font-awesome.css"/>
+    <!--蓝鲸提供的公用样式库 -->
+    	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/magicbox/css/bk.css"/>
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="../../../../static/plugins/magicbox/js/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="../../../../static/plugins/magicbox/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="../../../../static/plugins/magicbox/js/kendo.all.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--table-->
+    <link rel="stylesheet" type="text/css" href="../../../../static/plugins/DataTables-1.10.15/css/dataTables.bootstrap.css"/>
+    <script src="../../../../static/plugins/DataTables-1.10.15/js/jquery.dataTables.min.js" ></script>
+    <script src="../../../../static/plugins/DataTables-1.10.15/js/dataTables.bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<!--artDialog弹框-->
+	<link rel="stylesheet" type="text/css" href="../../../../static/plugins/artDialog-6.0.4/css/ui-dialog.css"/>
+	<script src="../../../../static/plugins/artDialog-6.0.4/dist/dialog-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/customer.css"/>
+    
+</head>
+
+<body class="bg-white" data-bg-color="bg-white">
+    <div class="king-page-box king-layout1-main">
+        <!-- 左边 start -->
+        <div class="king-layout1-sidebar column" >
+            <nav style="min-width: auto; z-index: 0;" class="king-vertical-nav5   ">
+                <ul class="sidebar" style="">
+                    <li class="sidebar-main" >
+	                    	<div class="navbar-header" style="width: 100%;">
+                            	<a class="navbar-brand" href="javascript:;" title="CPD管理后台" style="height: 65px !important;background-color: #147bd0;">UBK管理后台</a>
+                        	</div>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>客户管理</span>
+                        </a>
+                        <ul class="sidebar">
+                            <li class="sidebar-item active"> <a href="distribute.html">客户分配<span class="menu-icon fa fa-gear"></span></a> </li>
+                            <li class="sidebar-item"> <a href="customerList.html">客户列表<span class="menu-icon fa fa-wrench"></span></a> </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>投放管理</span>
+                        </a>
+                        <ul class="sidebar">
+                        		<li class="sidebar-item"> <a href="javascript:;">审核列表 <span class="menu-icon fa fa-gavel"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">投放列表 <span class="menu-icon fa fa-flash"></span></a> </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>数据管理</span>
+                        </a>
+                        <ul class="sidebar">
+                            <li class="sidebar-item"> <a href="javascript:;">数据总况 <span class="menu-icon fa fa-coffee"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">数据详情 <span class="menu-icon fa fa-building-o"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">导入数据 <span class="menu-icon fa fa-level-up"></span></a> </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-title">
+                        <a style="color: #333">
+                            <span>财务管理</span>
+                        </a>
+                        <ul class="sidebar">
+                            <li class="sidebar-item"> <a href="javascript:;">资金流水 <span class="menu-icon fa fa-money"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">线下充值核验 <span class="menu-icon fa fa-subscript"></span></a> </li>
+                            <li class="sidebar-item"> <a href="javascript:;">修改账户余额 <span class="menu-icon fa fa-subscript"></span></a> </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- 左边 end -->
+        
+        <!-- content start -->
+        <div class="king-content-wrap" >
+            <div class="king-layout1-content" style="margin-left: 0;">
+                <nav>
+                    <div class="king-header2 navbar navbar-blue  f14">
+                        <div class="nav-container" style="height: 65px !important;">
+                            
+                            <div class="navbar-collapse collapse" id="king-header2-navbar-collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li >
+                                        <a href="javascript:;"><span>宋一帆</span></a>
+                                    </li>
+                                    <li >
+                                        <a href="javascript:void(0)">
+                                            	<span class="avatar"><!--图片切成圆形的-->
+                                                <img src="../../../../static/img/index/email.png">
+                                            	</span>
+                                        </a>
+                                    </li>
+                                    <li >
+                                        <a href="javascript:void(0)"><img src="../../../../static/img/index/logout.png" style="width: 21px;" /></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                
+                <!--content-->
+                <div class="king-page-box">
+			        <div class="king-container clearfix" style="margin: 20px;">
+			            <div class="king-tab tab-box ">
+			                <ul id="myTab2" class="nav nav-tabs king-nav-tabs1 king-tab-info">
+			                    <li class="active"> <a data-toggle="tab" href="#demo1">有资料</a> </li>
+			                    <li> <a data-toggle="tab" href="#demo2">无资料</a> </li>
+			                </ul>
+			                <div class="tab-content ">
+			                    <!--有资料表格-->
+			                    <div class="tab-pane fade in active" id="demo1">
+			                    		<table id="table_fenpei_havedata" class="table table-bordered table-striped">
+			                    		<div class="select">
+							    			<input type="text" name="searchContent" class="searchInput" placeholder="搜索客户姓名、产品名称、公司名称"/>
+							    			<button class="search_btn_on_table">搜索</button>
+							    		</div>
+									    <thead>
+									        <tr>
+									            <th>账号</th>
+									            <th>加入时间</th>
+									            <th>客户姓名</th>
+									            <th>产品名称</th>
+									            <th>产品类型</th>
+									            <th>公司名称</th>
+									            <th>地区</th>
+									            <th>分配跟进人</th>
+									        </tr>
+									    </thead>
+									    <tbody>
+									    		<tr>
+									    			<td>sdklk@slkjd.com</td>
+									    			<td>2017-01-23 18:23:43</td>
+									    			<td>王自健</td>
+									    			<td>规划</td>
+									    			<td>按时</td>
+									    			<td>深圳市刘可可科技有限公司</td>
+									    			<td>北京</td>
+									    			<td>
+												    <select class="select2_box" style="width:90px;">
+												        <option value="0"></option>
+												        <option value="1">商务1</option>
+												        <option value="2">商务2</option>
+												    </select>
+												    <button>确定</button>
+									    			</td>
+									    		</tr>
+									    		<tr>
+									    			<td>lkdkfjlsk@df.com</td>
+									    			<td>2017-01-01 18:23:43</td>
+									    			<td>吴海波</td>
+									    			<td>看到</td>
+									    			<td>社交</td>
+									    			<td>上海商量下可公司</td>
+									    			<td>上海</td>
+									    			<td>
+												    <select class="select2_box" style="width:90px;">
+												        <option value="0"></option>
+												        <option value="1">商务1</option>
+												        <option value="2">商务2</option>
+												    </select>
+												    <button>确定</button>
+									    			</td>
+									    		</tr>
+									    		<tr>
+									    			<td>234@sdldkdf.com@df.com</td>
+									    			<td>2017-01-04 18:23:43</td>
+									    			<td>张玉双</td>
+									    			<td>到了</td>
+									    			<td>社交</td>
+									    			<td>背景下有些可公司</td>
+									    			<td>上海</td>
+									    			<td>
+												    <select class="select2_box" style="width:90px;">
+												        <option value="0"></option>
+												        <option value="1">商务1</option>
+												        <option value="2">商务2</option>
+												    </select>
+												    <button>确定</button>
+									    			</td>
+									    		</tr>
+									    </tbody>
+									</table>
+			                    </div>
+			                    <!--无资料-->
+			                    <div class="tab-pane fade in" id="demo2">
+			                    		<table id="table_fenpei_nodata" class="table table-bordered table-striped">
+			                    			<div class="select">
+								    			<input type="text" name="searchContent" class="searchInput" placeholder="搜索客户姓名、产品名称、公司名称"/>
+								    			<button class="search_btn_on_table">搜索</button>
+								    		</div>
+									    <thead>
+									        <tr>
+									            <th>账号</th>
+									            <th>加入时间</th>
+									            <th>客户姓名</th>
+									            <th>产品名称</th>
+									            <th>产品类型</th>
+									            <th>公司名称</th>
+									            <th>地区</th>
+									            <th>分配跟进人</th>
+									        </tr>
+									    </thead>
+									    <tbody>
+									    		<tr>
+									    			<td>sdklk@slkjd.com</td>
+									    			<td>2017-01-23 18:23:43</td>
+									    			<td>王自健</td>
+									    			<td>规划</td>
+									    			<td>按时</td>
+									    			<td>深圳市刘可可科技有限公司</td>
+									    			<td>北京</td>
+									    			<td>
+												    <select class="select2_box" style="width:90px;">
+												        <option value="0"></option>
+												        <option value="1">商务1</option>
+												        <option value="2">商务2</option>
+												    </select>
+												    <button>确定</button>
+									    			</td>
+									    		</tr>
+									    		<tr>
+									    			<td>lkdkfjlsk@df.com</td>
+									    			<td>2017-01-01 18:23:43</td>
+									    			<td>吴海波</td>
+									    			<td>看到</td>
+									    			<td>社交</td>
+									    			<td>上海商量下可公司</td>
+									    			<td>上海</td>
+									    			<td>
+												    <select class="select2_box" style="width:90px;">
+												        <option value="0"></option>
+												        <option value="1">商务1</option>
+												        <option value="2">商务2</option>
+												    </select>
+												    <button>确定</button>
+									    			</td>
+									    		</tr>
+									    		<tr>
+									    			<td>234@sdldkdf.com@df.com</td>
+									    			<td>2017-01-04 18:23:43</td>
+									    			<td>张玉双</td>
+									    			<td>到了</td>
+									    			<td>社交</td>
+									    			<td>背景下有些可公司</td>
+									    			<td>上海</td>
+									    			<td>
+												    <select class="select2_box" style="width:90px;">
+												        <option value="0"></option>
+												        <option value="1">商务1</option>
+												        <option value="2">商务2</option>
+												    </select>
+												    <button>确定</button>
+									    			</td>
+									    		</tr>
+									    </tbody>
+									</table>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			    <!-- content end -->
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script type="text/javascript">
+    //表格(DataTables)-4，综合示例
+    var language = {
+      search: '搜索：',
+      lengthMenu: "每页显示 _MENU_ 记录",
+      zeroRecords: "没找到相应的数据！",
+      info: "分页 _PAGE_ / _PAGES_",
+      infoEmpty: "暂无数据！",
+      infoFiltered: "(从 _MAX_ 条数据中搜索)",
+      paginate: {
+        first: '首页',
+        last: '尾页',
+        previous: '上一页',
+        next: '下一页',
+      }
+    }
+    
+    $("#table_fenpei_havedata").dataTable({
+        autoWidth: false,
+        lengthChange: false, //不允许用户改变表格每页显示的记录数
+        pageLength : 5, //每页显示几条数据
+        pagingType: 'full_numbers',
+//      ajax : './data.json',
+        ordering: false,
+        searching: false, //关闭搜索
+        //使用对象作为数据源，需要配置columns属性来告诉Datatables怎样获取显示数据
+        //参考蓝鲸组件中带搜索表格组件
+//      columns : [
+//        {data:"name",orderable: false},
+//        {data:"position"},
+//        {data:"salary"},
+//        {data:"start_date"},
+//        {data:"office"},
+//        {data:"extn"},
+//        {
+//          data:null,
+//          orderable:false,
+//          render : function(data, type, row, meta){
+//              return '<a class="king-btn king-default del">删除</a>';
+//          }
+//        }
+//      ],
+        language:language
+    });
+    
+    $("#table_fenpei_nodata").dataTable({
+        autoWidth: false,
+        lengthChange: false, //不允许用户改变表格每页显示的记录数
+        pageLength : 2, //每页显示几条数据
+        pagingType: 'full_numbers',
+//      ajax : './data.json',
+        ordering: false,
+        searching: false, //关闭搜索
+        //使用对象作为数据源，需要配置columns属性来告诉Datatables怎样获取显示数据
+        //参考蓝鲸组件中带搜索表格组件
+//      columns : [
+//        {data:"name",orderable: false},
+//        {data:"position"},
+//        {data:"salary"},
+//        {data:"start_date"},
+//        {data:"office"},
+//        {data:"extn"},
+//        {
+//          data:null,
+//          orderable:false,
+//          render : function(data, type, row, meta){
+//              return '<a class="king-btn king-default del">删除</a>';
+//          }
+//        }
+//      ],
+        language:language
+    });
+
+
+</script>
+</html>

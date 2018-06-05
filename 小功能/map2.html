@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.ab-right{border: solid 1px #eee;height: 600px;width: 1200px;margin-left: 90px;margin-top: 24px;}
+		</style>
+	</head>
+	<body>
+		<a class="hide" target="_blank" id="show_map" href="http://api.map.baidu.com/marker?location=22.5317320,113.921965&title=深圳市非零无限科技有限公司&content=深圳市南山区前海路鸿海大厦&output=html"></a>
+        <div class="ab-right fl" id="bdMap"></div>
+        <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=D3xi31KyVxqVZ54D73ON1oGX"></script>
+<script>
+    $(function(){
+        var map = new BMap.Map("bdMap");
+        var point = new BMap.Point(113.921965,22.5317320);
+        map.centerAndZoom(point,20);
+        var marker=new  BMap.Marker(point);
+        map.addOverlay(marker);
+        map.enableScrollWheelZoom(true);
+        map.setMinZoom(12);
+        var opts = {
+            position : point,
+            offset: new BMap.Size(10,-30)
+        }
+        var label = new BMap.Label("UBK用户银行", opts);  // 创建文本标注对象
+        label.setStyle({
+            color : "red",
+            fontSize : "12px",
+            height : "15px",
+            lineHeight : "15px",
+            fontFamily:"微软雅黑"
+        });
+        map.addOverlay(label);
+        marker.addEventListener("click",function(){document.getElementById("show_map").click();});
+    });
+</script>
+	</body>
+</html>

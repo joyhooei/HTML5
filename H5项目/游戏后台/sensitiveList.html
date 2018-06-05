@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>UAS后台管理系统</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		
+		<style type="text/css">
+			.alert-form .layui-form-label{padding: 9px 10px;width: 90px;}
+			.alert-form{margin-right: 10px;margin-top: 10px;}
+		</style>
+		
+	</head>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div id="header"></div>
+			<div id="nav"></div>
+		
+			<div class="layui-body">
+				<!--搜索添加按钮-->
+				<div class="topBox" style="margin: 10px;height: 40px;">
+					<div class="layui-form-item" style="float: left;">
+					    <label class="layui-form-label">搜索</label>
+					    <div class="layui-input-inline">
+					      	<input id="word" required lay-verify="required" placeholder="请输入搜索的内容" autocomplete="off" class="layui-input">
+					    </div>
+					    <button class="layui-btn" onclick="search()">搜索</button>
+					 </div>
+					<button class="layui-btn" style="float: right;" onclick="add()">	
+						<i class="layui-icon">&#xe608;</i> 添加
+					</button>
+				</div>
+				<!--表格-->
+				<table id="productList" lay-filter="lay-list"></table>
+			</div>
+			
+		
+			<div id="footer"></div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="layui/layui.js"></script>
+	<script src="js/sensitiveList.js"></script>
+	
+</html>
+
+<!--操作按钮-->
+<script type="text/html" id="operation">
+  	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>

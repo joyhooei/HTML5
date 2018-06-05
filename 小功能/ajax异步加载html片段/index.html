@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	   <div id="contentRight" class="contentRight"></div>
+	   <button id="btn">12222</button>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+    		
+    		$(document).ready(function(){
+		  ajaxload('a.html')
+		  function ajaxload(local){
+		      htmlobj=$.ajax({url:local,async:false});
+		      $(".contentRight").html(htmlobj.responseText);
+		  }
+		  $("#btn").click(function(){
+		      ajaxload('b.html')
+		   return false;
+		  });
+		  
+		});
+	</script>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>应用市场的价格真相</title>
+		<meta name="renderer" content="webkit" />
+		<!--告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta content="telephone=no,email=no" name="format-detection">
+    		<meta content="yes" name="apple-touch-fullscreen">
+    		<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    		<!-- uc 和 QQ强制竖屏 -->
+    		<meta name="screen-orientation" content="portrait">
+    		<meta name="x5-orientation" content="portrait">
+    		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    		<script src="js/jquery-1.8.3.min.js"></script>
+    		<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    		<script>
+	    		//通过js控制根目录font-size，从而做到屏幕适配。
+	        (function(win){
+	        		var doc=win.document;
+	        		var html=doc.documentElement;
+	        		var resizeEvt="orientationchange" in win?"orientationchange":"resize",
+	        		recalc=function(){var clientWidth=html.clientWidth>750?750:html.clientWidth;
+	        		html.style.fontSize=clientWidth/750*50+"px"};
+	        		if(!doc.addEventListener){return}win.addEventListener(resizeEvt,recalc,false);
+	        		doc.addEventListener("DOMContentLoaded",recalc,false);
+	        		recalc()
+	        		}
+	        	)(window);
+   		</script>
+   		
+   		<style type="text/css">
+   			/**/
+   			#title1 img,#question div,#btn1,#title2,#first_input_box,#btn2,#title3,#page3_text,.table_box li,#title3_box2,.message,#second_input_box,.qrcode,#page4_msg{opacity: 0;}
+   			@keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+			@-webkit-keyframes fadein{
+				0%{opacity: 0;}
+				100%{opacity: 1;}
+			}
+   			body{margin: 0; padding: 0; width: 100%; height: 100%;font-family: "microsoft yahei";background-color:#081849;color: #fff;position: relative;}
+   			#content1{/*display: none;*/position: relative;max-width: 750px;height: 26.6rem; margin: 0 auto;background: url(img/ver3/bg1.png) no-repeat center;background-size:100%;width: 100%;}
+   			#title1{margin: 0 auto;}
+   			#title1 img:first-child{width: 210px;height: 272px;margin: 0 auto;display: block;animation: fadein 0.3s ease-in forwards 0.3s;}
+   			#title1 img:last-child{width: 139px;height: 69px;margin: 0 auto;display: block;position: relative;top: -183px;left: 10px;animation: fadein 0.3s ease-in forwards 0.6s;}
+   			#question{text-align: center;font-weight: lighter;font-size: 15px;font-family: "microsoft yahei";position: relative;top: -19%;line-height: 32px;}
+   			#q1{animation: fadein 0.3s ease-in forwards 0.9s;}
+   			#q2{animation: fadein 0.3s ease-in forwards 1.2s;}
+   			#q3{animation: fadein 0.3s ease-in forwards 1.5s;}
+   			#q4{animation: fadein 0.3s ease-in forwards 1.8s;}
+   			.text1_big{font-weight: bold;font-size: 20px;}
+   			.sign{font-weight: bold;font-size: 12px;}
+   			button{color: #fff;font-weight: lighter;font-size: 18px;background: url(img/ver3/line.png);border-radius: 5px;width: 222px;height: 44px;border: none;}
+   			#btn1{margin: -60px auto;display: block;animation: fadein 0.3s ease-in forwards 2.1s;}
+   			
+   			#content2{display: none;max-width: 750px;height: 26.6rem; margin: 0 auto;background: url(img/ver3/bg2.png) no-repeat center;background-size:100%;width: 100%;}
+   			#title2_box{text-align: center;font-size: 18px;font-weight: bold;margin: 0 auto;background: url(img/ver3/title2_bg.png) no-repeat;width: 217px;height: 60px;background-size: 100%;position: relative;top: 60px;}
+   			#title2{height: 60px;line-height: 60px;}
+   			#first_input_box{width: 68%;margin: 0 auto;text-align: center;margin-top: 80px;}
+   			#first_input_box p{font-size: 14px;font-weight: lighter;height: 18px;margin: 8px 0 0;}
+   			#first_input_box select{font-size: 12px;font-weight: lighter;height: 30px;width: 230px;text-align: center;margin: 0 auto 15px;color: rgb(137,165,207);border: 1px dashed #7c96e1;background-color: transparent;background:url(img/ver3/arrow.png) no-repeat 200px center;background-size: 10%;}
+   			#first_input_box select option{text-align: center;width: 230px;}
+   			#btn2{margin: 60px auto;display: block;}
+   			#attention{text-align: left;width: 230px;margin: 0 auto;display: block;font-size: 10px !important;font-weight: lighter;margin-top: -12px;color: rgb(137,165,207);}
+   			
+   			#content3{display: none;max-width: 750px;height: 60rem;width: 100%; margin: 0 auto;background: url(img/ver3/bg3.png) no-repeat center;background-size:100%;}
+   			#title3_box{text-align: center;font-size: 18px;font-weight: bold;margin: 0 auto;background: url(img/ver3/title3_bg1.png) no-repeat;width: 150px;height: 60px;background-size: 100%;position: relative;top: 60px;}
+   			#title3{height: 3rem;line-height: 3rem;}
+   			#page3_text{font-weight: bold;font-size: 15px;line-height: 20px;border: 2px dashed #ff5500;margin: 3.5rem auto 1.2rem;width: 80%;border-radius: 5px;padding: 5px 10px;text-align: justify;}
+   			#download_num,#per_price{color: #fe7444;}
+   			.table_box{width: 94.7%;margin: 0 auto;padding: 0;list-style: none;}
+   			.table_box li{height: 7rem;background-color: rgb(215,215,215);margin-bottom: 5px;border-radius: 5px;padding: 16px 27px;}
+   			.table_box li:last-child{height: 12.5rem;}
+   			.table_title{height: 1.2rem;line-height: 1rem;border-bottom: 1px solid gray;font-size: 14px;color: #081848;font-weight: normal;}
+   			#round1{width: 14px;height: 14px;display: inline-block;background-color: #153598;border-radius: 7px;margin-right: 5px;position: relative;top: 2px;}
+   			#round2{width: 14px;height: 14px;display: inline-block;background-color: #cc725a;border-radius: 7px;margin-right: 5px;position: relative;top: 2px;}
+   			#round3{width: 14px;height: 14px;display: inline-block;background-color: #3eb2af;border-radius: 7px;margin-right: 5px;position: relative;top: 2px;}
+   			.table_text{font-size: 12px;font-weight: lighter;color: #59617a;line-height: 0.72rem;margin-top: 3px;text-align: justify;}
+   			table{margin-top: 0.32rem;}
+   			table tr td,table tr th{font-size: 12px;font-weight: lighter;color: #081849;background-color: rgb(247,247,247);text-align: center;}
+   			table tr td{width: 2.4rem;height: 1.2rem;}
+   			table tr td:first-child{width: 110px;}
+   			table tr th{width: 2.4rem;height: 1.2rem;}
+   			table tr th:first-child{width: 110px;}
+   			#table_big tr td{width: 3.4rem;height: 1.2rem;}
+   			#table_big tr td:first-child{width: 2.4rem;height: 1.2rem;}
+   			#table_big tr th{width: 3.4rem;height: 1.2rem;}
+   			#table_big tr th:first-child{width: 2.4rem;height: 1.2rem;}
+   			#table_big{margin: 8px auto 0;}
+   			#title3_box2{text-align: center;font-size: 18px;font-weight: bold;margin: 0 auto;background: url(img/ver3/title3_bg2.png) no-repeat;width: 245px;height: 4rem;background-size: 100%;position: relative;top: 5px;}
+   			#title3_box2 p{height: 6px;line-height: 3rem;}
+   			.message{font-weight: lighter;font-size: 13px;color: #fff;width: 80%;margin: 0 auto 0;line-height: 20px;}
+   			#second_input_box{width: 230px;margin: 0 auto;text-align: center;margin-top: 0.6rem;}
+   			#second_input_box p{font-size: 14px;font-weight: lighter;height: 0.72rem;margin: 0;}
+   			#second_input_box input{font-weight: lighter;height: 1.2rem;width: 230px;text-align: center;margin: 0 auto 5px;color: rgb(137,165,207);border: 1px dashed #7c96e1;background: transparent;width: 230px;border-radius: 5px;}
+   			#btn3{display: block;margin: 15px auto;}
+   			.qrcode{display: block;width: 20%;position: absolute;left: 40%;bottom: 1.3rem !important;z-index: 999;}
+   			.qrcode3{display: block;width: 6rem;z-index: 999;margin: 1rem auto;}
+   			
+   			#content4{display: none;max-width: 750px;height: 26.6rem; margin: 0 auto;background: url(img/ver3/bg4.png) no-repeat center;background-size:100%;width: 100%;}
+   			#title4_box{text-align: center;font-size: 18px;font-weight: bold;margin: 0 auto;background: url(img/ver3/title4_bg.png) no-repeat;width: 257px;height: 3.76rem;background-size: 100%;position: relative;top: 6.4rem;left: -23px;}
+   			#page4_msg{position: relative;top: 3.7rem;}
+   			#page4_msg p{text-align: center;margin: 0;font-weight: bold;font-size: 18px;}
+   			#up_arrow{width: 55%;position: absolute;bottom: 0 !important;height: 16rem;}
+   			
+   			/*去掉select的默认样式，去掉下拉箭头*/
+   			select{appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+   			input::-webkit-input-placeholder { /* WebKit browsers*/ color:rgb(137,165,207);}
+			input:-moz-placeholder {  /* Mozilla Firefox 4 to 18*/ color:rgb(137,165,207);}
+			input::-moz-placeholder {  /* Mozilla Firefox 19+*/ color:rgb(137,165,207);}
+			input:-ms-input-placeholder { /* Internet Explorer 10+*/ color:rgb(137,165,207);}
+   		</style>
+   		
+   		
+	</head>
+	<body >
+		<!--第一页-->
+		<div id="content1">
+			<div id="title1">
+				<img src="img/ver3/title1_bg.png"/>
+				<img src="img/ver3/title1.png"/>
+			</div>
+			<div id="question">
+				<div id="q1">聊天社交App一个真实下载<span class="text1_big">&nbsp;2-4&nbsp;</span>元<span class="sign">？</span></div>
+				<div id="q2">直播App一个激活才<span class="text1_big">&nbsp;2.5&nbsp;</span>元<span class="sign">？</span></div>
+				<div id="q3">教育类App激活率<span class="text1_big">&nbsp;80%&nbsp;</span><span class="sign">？</span></div>
+				<div id="q4">......</div>
+			</div>
+			<button id="btn1" onclick="clickToPage2()">测测你的App</button>
+		</div>
+		
+		<!--第二页-->
+		<div id="content2">
+			<div id="title2_box">
+				<p id="title2">请输入你的App信息</p>
+			</div>
+			
+			<div id="first_input_box">
+		        <p>所属领域</p>
+		        <select id="select1">
+		          <option value="0">请选择</option>
+		          <option value="1">律师</option>
+		          <option value="2">教育</option>
+		          <option value="3">工具</option>
+		          <option value="4">视频音乐</option>
+		          <option value="5">生活</option>
+		          <option value="6">娱乐</option>
+		          <option value="7">育儿母婴</option>
+		          <option value="8">阅读</option>
+		          <option value="9">新闻</option>
+		          <option value="10">聊天交友</option>
+		          <option value="11">婚恋交友</option>
+		          <option value="12">直播</option>
+		          <option value="13">电商</option>
+		          <option value="14">旅游出行</option>
+		          <option value="15">金融</option>
+		          <option value="16">健康医美</option>
+		        </select>
+		        
+		        <p>用户量级</p>
+		        <select id="select2">
+		          <option value="0">请选择</option>
+		          <option value="1">100万以下</option>
+		          <option value="2">100-500万</option>
+		          <option value="2">500-1000万</option>
+		          <option value="3">1000万以上</option>
+		        </select>
+		        
+		        <p>日均下载量</p>
+		        <select id="select3" <!--onchange="changeSelect3()"-->>
+		          <option value="0">请选择</option>
+		          <option value="1">200以下</option>
+		          <option value="2">200-500</option>
+		          <option value="3">500-800</option>
+		          <option value="4">1000以上</option>
+		        </select>
+		        
+		        <p>预期日均下载量</p>
+		        <select id="select4">
+		          <option value="0">请选择</option>
+		          <option value="1">200以下</option>
+		          <option value="2">200-500</option>
+		          <option value="3">500-800</option>
+		          <option value="4">1000以上</option>
+		        </select>
+		        <span id="attention">注：预期日均下载量是指客户对App每天获取应用市场下载量的预期</span>
+		        <button id="btn2" onclick="toTest()">测试</button>
+		      </div>
+		</div>
+		
+		<!--第三页-->
+		<div id="content3">
+			<div id="title3_box">
+				<p id="title3">测试报告</p>
+			</div>
+			<p id="page3_text">在预期日均下载量为<span id="download_num">1000</span>的情况下，你的App获取应用市场一个真实用户约为<span id="per_price">3.0</span>元</p>
+			<ul class="table_box"></ul>
+			<div id="title3_box2">
+				<p>你的App在应用市场的</p><p>专属流量标尺是什么？</p>
+			</div>
+			<p class="message">留下联系方式或扫码联系我们，UBK跟你一起寻找App在应用市场的流量标尺</p>
+			
+			<div id="second_input_box">
+		        <p>App名称</p>
+		        <input type="text" name="app_name" id="app_name" value="" placeholder="请输入您的App名称"/>
+		        <p>你的手机</p>
+		        <input type="text" name="phone_num" id="phone_num" value="" maxlength="11" placeholder="请输入您的手机号"/>
+		        <button id="btn3" onclick="submitMessage()">提交</button>
+		    </div>
+		    <img class="qrcode3" src="img/ver3/qrcode3.png"/>
+		</div>
+		
+		<!--第四页-->
+		<div id="content4">
+			<div id="title4_box"></div>
+			<div id="page4_msg">
+				<p>你的信息已送达~</p><p>快快分享，让更多好友参与测试吧~</p>
+			</div>
+			<img id="up_arrow" src="img/ver3/up_arrow.png"/>
+			<img class="qrcode" src="img/ver3/qrcode.png"/>
+		</div>
+		<!--音乐-->
+		<audio id="music_bg" src="music/apollo.mp3" loop="loop" autoplay="autoplay" hidden="hidden" preload="auto"></audio>
+	</body>
+	
+	<script type="text/javascript">
+		//自动播放音乐-针对iOS微信		
+		document.addEventListener('DOMContentLoaded', function () {
+		    function audioAutoPlay() {
+		        var audio = document.getElementById('music_bg');
+		            audio.play();
+		        document.addEventListener("WeixinJSBridgeReady", function () {
+		            audio.play();
+		        }, false);
+		    }
+		    audioAutoPlay();
+		});
+		
+		function showNextPage(thisPageID,nextPageID){
+			$(thisPageID).hide();
+			$(nextPageID).show();
+		}
+		var select1,select2,select3,select4,perPrice,appType;
+		
+		function clickToPage2(){
+			//统计“测测你的App”点击次数
+			countData(529);
+			showNextPage('#content1','#content2')
+			$('#title2').delay(300).animate({opacity:"1",}, 300, 'linear');
+			$('#first_input_box').delay(600).animate({opacity:"1",}, 300, 'linear');
+			$('#btn2').delay(900).animate({opacity:"1",}, 300, 'linear');
+		}
+		
+		//点击测试
+		function toTest(){
+			select1 = Number(document.getElementById('select1').value);
+			select2 = Number(document.getElementById('select2').value);
+			select3 = Number(document.getElementById('select3').value);
+			select4 = Number(document.getElementById('select4').value);
+			
+			if (select1 * select2 * select3 * select4) {			
+				//统计“测试”按钮点击次数
+				countData(530);
+				
+				var number_download;
+				switch (select4){
+					case 1:number_download = "200以下";break;
+					case 2:number_download = "200-500";break;
+					case 3:number_download = "500-800";break;
+					case 4:number_download = "1000以上";break;
+					default:break;
+				}
+				
+				
+				var type1='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>100-150</th><th>300-350</th><th>600以上</th></tr><tr><td>激活成本（元/个）</td><td>2.5-2.8</td><td>4.0-5.0</td><td>5.0-7.0</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>200以下</th><th>500</th><th>1000以上</th></tr><tr><td>下载成本（元/个）</td><td>2</td><td>3.0-3.5</td><td>4.0-5.0</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>50-100</td><td>70-80%</td></tr><tr><td>OPPO</td><td>50-100</td><td>60-70%</td></tr><tr><td>vivo</td><td>100-150</td><td>65%</td></tr><tr><td>小米</td><td>20</td><td>40%</td></tr><tr><td>魅族</td><td>30-50</td><td>60%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type2='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>350</th><th>550</th><th>950</th></tr><tr><td>激活成本（元/个）</td><td>2</td><td>3</td><td>4</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>500</th><th>800</th><th>1300-1500</th></tr><tr><td>下载成本（元/个）</td><td>1.5</td><td>2</td><td>2.5-3</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>80-100</td><td>65%-75%</td></tr><tr><td>OPPO</td><td>150-200</td><td>60%-70%</td></tr><tr><td>vivo</td><td>250-400</td><td>60%-70%</td></tr><tr><td>小米</td><td>150-250</td><td>50%-60%</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type3='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>250</th><th>350</th><th>500</th></tr><tr><td>激活成本（元/个）</td><td>3</td><td>4</td><td>5.5</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>300-350</th><th>500</th><th>700</th></tr><tr><td>下载成本（元/个）</td><td>1.5-2</td><td>2.0-3.0</td><td>3.0-4.0</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>150</td><td>75%</td></tr><tr><td>OPPO</td><td>100-200</td><td>60%-70%</td></tr><tr><td>vivo</td><td>100-200</td><td>70%</td></tr><tr><td>小米</td><td>50-100</td><td>60%-70%</td></tr><tr><td>魅族</td><td>100</td><td>60%-70%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type4='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>200</th><th>350</th><th>560</th></tr><tr><td>激活成本（元/个）</td><td>2</td><td>3-3.5</td><td>4</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>300</th><th>400-600</th><th>800</th></tr><tr><td>下载成本（元/个）</td><td>1-1.5</td><td>2-2.5</td><td>3</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>200-250</td><td>80%</td></tr><tr><td>OPPO</td><td>350</td><td>60%-70%</td></tr><tr><td>vivo</td><td>250-350</td><td>75%</td></tr><tr><td>小米</td><td>/</td><td>/</td></tr><tr><td>魅族</td><td>250-350</td><td>60%-70%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type5='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>100-150</th><th>200-350</th><th>500-600</th></tr><tr><td>激活成本（元/个）</td><td>4</td><td>4.5-6</td><td>6-7</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>200</th><th>300-500</th><th>800</th></tr><tr><td>下载成本（元/个）</td><td>2-3</td><td>3.5-4</td><td>4-5</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>50-100</td><td>70%</td></tr><tr><td>OPPO</td><td>/</td><td>/</td></tr><tr><td>vivo</td><td>60-200</td><td>70%</td></tr><tr><td>小米</td><td>50-100</td><td>50%</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type6='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>300</th><th>350</th><th>450</th></tr><tr><td>激活成本（元/个）</td><td>3.5</td><td>4.5</td><td>5.0-6.0</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>450</th><th>500-600</th><th>650-750</th></tr><tr><td>下载成本（元/个）</td><td>2-2.5</td><td>2.5-3</td><td>3.0-4.0</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>80</td><td>70%</td></tr><tr><td>OPPO</td><td>50-100</td><td>65%</td></tr><tr><td>vivo</td><td>100-200</td><td>65%-70%</td></tr><tr><td>小米</td><td>150</td><td>60%</td></tr><tr><td>魅族</td><td>100</td><td>65%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type7='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>100</th><th>200-300</th><th>500</th></tr><tr><td>激活成本（元/个）</td><td>3</td><td>3.5-4.5</td><td>5-6</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>200</th><th>300-500</th><th>800-1000</th></tr><tr><td>下载成本（元/个）</td><td>2-3</td><td>2.5-3.5</td><td>3-5</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>30-50</td><td>40%</td></tr><tr><td>OPPO</td><td>80-150</td><td>70%</td></tr><tr><td>vivo</td><td>100-200</td><td>60-70%</td></tr><tr><td>小米</td><td>30-80</td><td>50-60%</td></tr><tr><td>魅族</td><td>60-100</td><td>50%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type8='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>250</th><th>450</th><th>600</th></tr><tr><td>激活成本（元/个）</td><td>1.5-2</td><td>2.5</td><td>3-2.5</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>300</th><th>500-600</th><th>700-800</th></tr><tr><td>下载成本（元/个）</td><td>1-1.5</td><td>2</td><td>2.5-3</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>150</td><td>90%</td></tr><tr><td>OPPO</td><td>100-150</td><td>85%</td></tr><tr><td>vivo</td><td>150-200</td><td>85%-90%</td></tr><tr><td>小米</td><td>200-250</td><td>80%</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type9='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>250</th><th>450</th><th>600</th></tr><tr><td>激活成本（元/个）</td><td>1.5-2</td><td>2.5</td><td>3-2.5</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>300</th><th>500-600</th><th>700-800</th></tr><tr><td>下载成本（元/个）</td><td>1-1.5</td><td>2</td><td>2.5-3</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>150</td><td>90%</td></tr><tr><td>OPPO</td><td>100-150</td><td>85%</td></tr><tr><td>vivo</td><td>150-200</td><td>85%-90%</td></tr><tr><td>小米</td><td>200-250</td><td>80%</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type10='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>65</th><th>200</th><th>500以上</th></tr><tr><td>激活成本（元/个）</td><td>2.8-3</td><td>3.5-4</td><td>5.0-7.0</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>100以下</th><th>300</th><th>600以上</th></tr><tr><td>下载成本（元/个）</td><td>2</td><td>3</td><td>3.5-4</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>50</td><td>70%</td></tr><tr><td>OPPO</td><td>30</td><td>75%</td></tr><tr><td>vivo</td><td>100-300</td><td>60-70%</td></tr><tr><td>小米</td><td>50-100</td><td>30%</td></tr><tr><td>魅族</td><td>50</td><td>60%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type11='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>55</th><th>300</th><th>600以上</th></tr><tr><td>激活成本（元/个）</td><td>5.0-6.0</td><td>8</td><td>10</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>100以下</th><th>500</th><th>1000以上</th></tr><tr><td>下载成本（元/个）</td><td>3.0-4.0</td><td>4.5-6.0</td><td>7.0-8.0</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>100-200</td><td>55-60%</td></tr><tr><td>OPPO</td><td>20</td><td>60%</td></tr><tr><td>vivo</td><td>50-100</td><td>50%</td></tr><tr><td>小米</td><td>200-500</td><td>40%</td></tr><tr><td>魅族</td><td>50-150</td><td>50%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type12='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>70</th><th>200</th><th>300-500</th></tr><tr><td>激活成本（元/个）</td><td>2.5-3</td><td>4</td><td>4.5-5</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>100</th><th>300</th><th>500-800</th></tr><tr><td>下载成本（元/个）</td><td>2-3</td><td>3-3.5</td><td>3.5-4</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>/</td><td>/</td></tr><tr><td>OPPO</td><td>50-100</td><td>80%</td></tr><tr><td>vivo</td><td>80-200</td><td>70%</td></tr><tr><td>小米</td><td>/</td><td>/</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type13='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>60</th><th>150-300</th><th>300-500</th></tr><tr><td>激活成本（元/个）</td><td>5</td><td>6-8</td><td>8-10</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>100</th><th>300-500</th><th>500-800</th></tr><tr><td>下载成本（元/个）</td><td>3</td><td>3.5-5</td><td>5-7</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>30</td><td>70%</td></tr><tr><td>OPPO</td><td>30-80</td><td>50-60%</td></tr><tr><td>vivo</td><td>60-100</td><td>50-60%</td></tr><tr><td>小米</td><td>50-80</td><td>50-60%</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type14='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>100</th><th>200</th><th>300</th></tr><tr><td>激活成本（元/个）</td><td>5.5</td><td>7</td><td>10</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>200</th><th>300-450</th><th>500</th></tr><tr><td>下载成本（元/个）</td><td>3.5</td><td>4-4.5</td><td>5.0-6.0</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>50</td><td>70%</td></tr><tr><td>OPPO</td><td>100</td><td>50-60%</td></tr><tr><td>vivo</td><td>60-100</td><td>50-60%</td></tr><tr><td>小米</td><td>50</td><td>50%-60%</td></tr><tr><td>魅族</td><td>/</td><td>/</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type15='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>60</th><th>100-200</th><th>300</th></tr><tr><td>激活成本（元/个）</td><td>8</td><td>10-12</td><td>12-15</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>100</th><th>200-300</th><th>500</th></tr><tr><td>下载成本（元/个）</td><td>4-6</td><td>7-8</td><td>8-12</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>/</td><td>/</td></tr><tr><td>OPPO</td><td>100-150</td><td>70%</td></tr><tr><td>vivo</td><td>100-200</td><td>60-70%</td></tr><tr><td>小米</td><td>/</td><td>/</td></tr><tr><td>魅族</td><td>50-100</td><td>70-75%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				var type16='<li><div class="table_title"><span id="round1"></span>同领域App的流量标尺</div><table><tr><th>日均激活（个）</th><th>100-150</th><th>150-300</th><th>400-500</th></tr><tr><td>激活成本（元/个）</td><td>4-5</td><td>5-6</td><td>8-10</td></tr></table><p class="table_text">流量标尺是App在应用市场获取不同激活量所对应的成本，是UBK根据同一领域App投放总结的参考数据。</p></li><li><div class="table_title"><span id="round2"></span>同领域App的下载情况</div><table><tr><th>日下载量需求（个）</th><th>200</th><th>300-500</th><th>800</th></tr><tr><td>下载成本（元/个）</td><td>2-3</td><td>3-4</td><td>4-6</td></tr></table><p class="table_text">日均下载量需求是指客户对App每天获取应用市场下载量的预期。</p></li><li><div class="table_title"><span id="round3"></span>同领域App在各应用市场的获客效果</div><table id="table_big"><tr><th></th><th>日均下载量（个）</th><th>下载到激活转化率</th></tr><tr><td>应用宝</td><td>/</td><td>/</td></tr><tr><td>OPPO</td><td>20-50</td><td>70-75%</td></tr><tr><td>vivo</td><td>50-150</td><td>70%</td></tr><tr><td>小米</td><td>/</td><td>/</td></tr><tr><td>魅族</td><td>30-50</td><td>65%</td></tr></table><p class="table_text">"日均下载量"是一般情况下的统计数据，随价格变动而变动，不同App在各应用市场的获客情况会有差异。</p></li>';
+				
+				switch (select1){
+					case 1:appType = 1;$('.table_box').html(type1); break;
+					case 2:appType = 1;$('.table_box').html(type2); break;
+					case 3:appType = 1;$('.table_box').html(type3); break;
+					case 4:appType = 1;$('.table_box').html(type4); break;
+					case 5:appType = 1;$('.table_box').html(type5); break;
+					case 6:appType = 1;$('.table_box').html(type6); break;
+					case 7:appType = 1;$('.table_box').html(type7); break;
+					case 8:appType = 2;$('.table_box').html(type8); break;
+					case 9:appType = 2;$('.table_box').html(type9); break;
+					case 10:appType = 3;$('.table_box').html(type10); break;
+					case 11:appType = 3;$('.table_box').html(type11); break;
+					case 12:appType = 3;$('.table_box').html(type12); break;
+					case 13:appType = 4;$('.table_box').html(type13); break;
+					case 14:appType = 4;$('.table_box').html(type14); break;
+					case 15:appType = 5;$('.table_box').html(type15); break;
+					case 16:appType = 6;$('.table_box').html(type16); break;
+					default:break;
+				}
+				
+				switch (appType){
+					case 1:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "2.5";}
+							else if(select4 == 2){perPrice = "2.5-3";}
+							else{perPrice = "4-5";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "2";}
+							else if(select4 == 2){perPrice = "2-3";}
+							else{perPrice = "3-4";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "1.5-2";}
+							else if(select4 == 2){perPrice = "2-2.5";}
+							else{perPrice = "2.5-3.5";}
+						}
+						break;
+						
+					case 2:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "4-6";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "2-3";}
+							else if(select4 == 2){perPrice = "2.5-3.5";}
+							else{perPrice = "4-5";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "1.5-2.5";}
+							else if(select4 == 2){perPrice = "2-3";}
+							else{perPrice = "3-4";}
+						}
+						break;
+					case 3:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "3-4";}
+							else if(select4 == 2){perPrice = "3.5-5";}
+							else{perPrice = "5-7";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "4-6";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "2-3";}
+							else if(select4 == 2){perPrice = "3-3.5";}
+							else{perPrice = "3.5-5";}
+						}
+						break;
+					case 4:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "5-6";}
+							else if(select4 == 2){perPrice = "5.5-7";}
+							else{perPrice = "6-8";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "3-4";}
+							else if(select4 == 2){perPrice = "4-5";}
+							else{perPrice = "5-7";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "5-6";}
+						}
+						break;
+					case 5:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "8-10";}
+							else if(select4 == 2){perPrice = "10-15";}
+							else{perPrice = "15-20";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "5-8";}
+							else if(select4 == 2){perPrice = "8-10";}
+							else{perPrice = "10-15";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "4-6";}
+							else if(select4 == 2){perPrice = "5-7";}
+							else{perPrice = "7-10";}
+						}
+						break;
+					case 6:
+						if (select2 == 1) {
+							if (select4 == 1) {perPrice = "5-6";}
+							else if(select4 == 2){perPrice = "5.5-7";}
+							else{perPrice = "6-8";}
+						}else if(select2 == 2){
+							if (select4 == 1) {perPrice = "3-4";}
+							else if(select4 == 2){perPrice = "4-5";}
+							else{perPrice = "5-7";}
+						}else if(select2 == 3){
+							if (select4 == 1) {perPrice = "2.5-3.5";}
+							else if(select4 == 2){perPrice = "3-4";}
+							else{perPrice = "5-6";}
+						}
+						break;
+						
+					default:
+						break;
+				}
+				
+				
+				
+				document.getElementById('download_num').innerHTML = number_download;
+				document.getElementById('per_price').innerHTML = perPrice;
+				
+				showNextPage('#content2','#content3');
+				
+				$('#title3').delay(300).animate({opacity:"1",}, 300, 'linear');
+				$('#page3_text').delay(600).animate({opacity:"1",}, 300, 'linear');
+				$('.table_box li').eq(0).delay(900).animate({opacity:"1",}, 300, 'linear');
+				$('.table_box li').eq(1).delay(1200).animate({opacity:"1",}, 300, 'linear');
+				$('.table_box li').eq(2).delay(1500).animate({opacity:"1",}, 300, 'linear');
+				$('#title3_box2').delay(1800).animate({opacity:"1",}, 300, 'linear');
+				$('.message').delay(2100).animate({opacity:"1",}, 300, 'linear');
+				$('#second_input_box').delay(2400).animate({opacity:"1",}, 300, 'linear');
+				$('.qrcode').delay(2700).animate({opacity:"1",}, 300, 'linear');
+			}else{
+				alert("请输入你的App信息后再测试！");
+			}
+		}
+		
+		//日均下载量和预期日均下载量交互
+		function changeSelect3(){
+			$('#select4').html('<option value="0">请选择</option><option value="1">200以下</option><option value="2">200-500</option><option value="3">500-800</option><option value="3">1000以上</option>');
+			var index = Number($('#select3').val());
+			var opt1 = $('#select4').children().eq(1);
+			var opt2 = $('#select4').children().eq(2);
+			var opt3 = $('#select4').children().eq(3);
+			var opt4 = $('#select4').children().eq(4);
+			switch (index){
+				case 2:opt1.remove();break;
+				case 3:opt1.remove();opt2.remove();break;
+				case 4:opt1.remove();opt2.remove();opt3.remove();break;
+				case 5:opt1.remove();opt2.remove();opt3.remove();opt4.remove();break;
+			}
+		};
+		
+		//提交信息
+		function submitMessage(){
+			
+			var appName = $('#app_name').val();
+			var phoneNumber = $('#phone_num').val();
+			var reg = /^[1-9]([0-9]{4,11})$/g
+			if(appName.length == 0){
+				alert("请输入App名称才能提交哦~");
+				return;
+			}
+			if (phoneNumber.length != 11 || !reg.test(phoneNumber)) {
+				alert("请输入正确的手机号！");
+				return;
+			}
+			
+			var param={user_name:appName,mobile:phoneNumber};
+                param.product_id="528";
+                param.channel_id="10";
+                
+                
+            $.ajax({
+                type:'POST',
+                dataType:'json',
+                contentType:'application/json',
+                url:'./post_user_info',
+                data:JSON.stringify(param),
+                success:function(msg){
+                    if(msg.retcode == 0){
+						showNextPage('#content3','#content4');
+						$('#page4_msg').delay(100).animate({opacity:"1",}, 300, 'linear');
+                    }else{
+                    		alert('服务器走丢了哟,请稍后再试！');
+                    	}
+                },
+                error:function(){
+                    alert('服务器走丢了哟,请稍后再试！');
+                }
+        		});
+			
+		}
+		
+		function countData(num) {
+              var xmlHttp;
+              if (window.ActiveXObject) {
+                  xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+              } else {
+                  if (window.XMLHttpRequest) {
+                      xmlHttp = new XMLHttpRequest();
+                  }
+              }
+              xmlHttp.open("GET", "./CountIP?page_id=" + num + "&channel_id=10");
+              xmlHttp.send();
+          }
+		//统计页面打开次数
+		countData(528);
+		
+		
+	</script>
+	
+</html>
