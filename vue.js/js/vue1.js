@@ -102,6 +102,9 @@ vm = new Vue({
 // 同时也有一些其他钩子，如 mounted、updated 和 destroyed。
 
 
-
-
+// ----------------------------------------------------使用 JavaScript 表达式
+// 	{{ number + 1 }}
+//	{{ ok ? 'YES' : 'NO' }}
+//	{{ message.split('').reverse().join('') }}
+//	<div v-bind:id="'list-' + id"></div>				但是 每个绑定都只能是单个表达式，不能使语句
 

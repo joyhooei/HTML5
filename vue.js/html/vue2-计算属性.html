@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		h2{color: red;}
+	</style>
+	<body>
+		
+		<!--------------------------计算属性----------------------------------->
+		<h2>计算属性</h2>
+		<div id="app-8">
+			<!--{{ message.split("").reverse().join('') }}-->
+			<p> 原始值：{{ message }} </p>
+			<p> 后来值：{{ reverseMessage }}</p>
+		</div>
+		
+		<!--------------------------在表达式中调用方法----------------------------------->
+		<h2>在表达式中调用方法</h2>
+		<div id="app-9">
+			<p>原来的值：{{ message }}</p>
+			<p>后来的值：{{ reverseMessage() }}</p>
+		</div>
+		
+		<!--------------------------侦听属性----------------------------------->
+		<!--一种更通用的方式来观察和响应 Vue 实例上的数据变动-->
+		<h2>侦听属性</h2>
+		<div id="app-10"> {{ fullName }} </div>
+		
+		<!--------------------------计算属性默认只有getter 你也可以添加一个setter------------------------>
+		<h2>为计算属性添加setter</h2>
+		<div id="app-11"> {{ fullName }} </div>
+		
+		<!--------------------------侦听器----------------------------------->
+		<h2>侦听器----这个没有很理解</h2>
+		<div id="watch-example">
+			<p>Ask a yes/no question 
+				<input v-model="question" /> 
+			</p>
+			<p> {{ answer }} </p>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+		
+	</body>
+	
+	<!-- 开发环境版本，包含了用帮助的命令行警告 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="../js/vue2-计算属性.js" type="text/javascript" charset="utf-8"></script>
+</html>
