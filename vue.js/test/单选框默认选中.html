@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<select name="public-choice" v-model="couponSelected" @change="getCouponSelected">                                        
+			    <option :value="coupon.id" v-for="coupon in couponList" >{{coupon.name}}</option>                                    
+			</select>
+		</div>
+		
+	</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+                el: '#app',
+                data:{
+                    couponList:[
+                        {
+                            id: 'A',
+                            name: '优惠券1'
+                        },
+                        {
+                            id: '1',
+                            name: '优惠券2'
+                        },
+                        {
+                            id: '2',
+                            name: '优惠券3'
+                        }
+                    ],
+                    couponSelected: 'A',
+                },
+                created(){
+　　　　　　　　　　　　//如果没有这句代码，select中初始化会是空白的，默认选中就无法实现
+                    this.couponSelected = this.couponList[0].id;
+                },
+                methods:{
+　　　　　　　　　　　　getCouponSelected(){
+                        //获取选中的优惠券
+                        console.log(this.couponSelected)
+                    }
+
+                }
+            })
+	</script>
+</html>
