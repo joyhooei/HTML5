@@ -7,9 +7,18 @@ var class1 = new Vue({
 })
 
 // 多个复选框，绑定到同一个数组
-new Vue({
+var vue = new Vue({
   el: '#example-3',
   data: {
     checkedNames: ["Jack"]
+  },
+  methods:{
+  	changeCheckedNames:function(){
+  		
+  	}
   }
 })
+
+function changeCheckedNames(){
+	vue.checkedNames = [];
+}
