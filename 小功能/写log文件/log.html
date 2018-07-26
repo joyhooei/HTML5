@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <title>导出生成excel</title>
+<script src="FileSaver.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+</head>
+	<style type="text/css">
+		a {
+			display: block;
+			width: 100px;
+			height: 80px;
+			margin: 100px;
+			font-size: 30px;
+		}
+	</style>
+	<body>
+	   <a href="log.html">RQCode</a>
+	   <img src="../img/app0.png"/>
+	</body>
+	<script>
+       var students = [{
+           "name": "小明1",
+           "age": "6",
+           "sex": "男",
+           "height": "60"
+        }, {
+           "name": "小明2",
+           "age": "7",
+           "sex": "男",
+           "height": "70"
+         }, {
+           "name": "小明3",
+           "age": "8",
+           "sex": "男",
+           "height": "80"
+         }];
+         
+         var blob = new Blob([JSON.stringify(students)], { type: "text/plain;charset=utf-8" });
+//       saveAs(blob, "hello.log");
+		var data = window.location.href;
+//		 saveAs(blob,  (new Date()).getTime() +".log");
+     </script>
+</html>
+

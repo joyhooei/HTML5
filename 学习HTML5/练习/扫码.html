@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="" style="font-size: 100px;"></a></br>
+		<img src="1.png" style="width: 200px;margin: 100px;"/>
+		<div id="div"></div>
+	</body>
+	<script type="text/javascript">
+		var i = 0;
+		setInterval(function(){
+//			console.log(window.location.href);
+			i = i + 1;
+			var div = document.getElementById("div")
+			var frameDiv = document.createElement("p");//创建一个标签
+			frameDiv.innerHTML = i;
+			div.appendChild(frameDiv);
+		},1000);
+	</script>
+</html>
